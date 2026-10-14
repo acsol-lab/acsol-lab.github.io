@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Emerging Memory",
+    "subtitle": "Next-generation memory",
+    "description": "ReRAM, SOM, MRAM을 중심으로 새로운 메모리 구조와 스위칭 메커니즘을 연구합니다.",
+    "keywords": "ReRAM · Vertical SOM · STT / SOT-MRAM · Skyrmion",
+    "image": "",
+    "imageAlt": "Emerging Memory 연구 이미지"
+  },
+  {
+    "title": "Neuromorphic Devices",
+    "subtitle": "Neuromorphic intelligence",
+    "description": "전기·광학 시냅스 소자와 강유전체, 페로브스카이트 기반 소자를 통해 신경모사 기능을 구현합니다.",
+    "keywords": "Optical Synapse · Ferroelectrics · Perovskites · Self-powered Sensing",
+    "image": "",
+    "imageAlt": "Neuromorphic Devices 연구 이미지"
+  },
+  {
+    "title": "3D Semiconductor Process",
+    "subtitle": "Fabrication & integration",
+    "description": "원자층 증착과 전구체, CMP 및 접합 기술을 기반으로 반도체 집적 공정을 탐구합니다.",
+    "keywords": "ALD · Precursors · CMP · Cu Hybrid Bonding · DFT / TCAD",
+    "image": "",
+    "imageAlt": "3D Semiconductor Process 연구 이미지"
+  },
+  {
+    "title": "Thermal Management",
+    "subtitle": "Heat transfer & materials",
+    "description": "열계면 소재와 마이크로·나노 구조를 활용해 반도체 소자의 열 전달과 방열 특성을 연구합니다.",
+    "keywords": "Thermal Interface Materials · Micro / Nanospheres · Monolayers",
+    "image": "",
+    "imageAlt": "Thermal Management 연구 이미지"
+  }
+]
