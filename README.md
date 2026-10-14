@@ -1,1 +1,0 @@
-# nawit-del.github.io
