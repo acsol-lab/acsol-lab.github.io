@@ -73,10 +73,16 @@
       copyText('#professor-name',cfg.professorName);
       copyText('#professor-ko',cfg.professorKoreanName ? cfg.professorKoreanName+' 교수' : '');
       copyText('#professor-title',cfg.professorTitle);
+      copyText('#professor-department',cfg.professorDepartment);
+      copyText('#professor-additional-title',cfg.professorAdditionalTitle);
+      copyText('#professor-university',cfg.professorUniversity);
+      copyText('#professor-office',cfg.office);
       copyText('#professor-bio',cfg.professorBio);
       setImage($('#professor-photo'),cfg.professorPhoto,'박진섭 교수 프로필 사진','교수님 사진');
       const addr = textOr(cfg.professorEmail);
       setLink('#professor-email',addr?'mailto:'+encodeURIComponent(addr):'',addr);
+      const phone = textOr(cfg.contactPhone);
+      setLink('#professor-phone', phone?'tel:'+phone.replace(/[^+\d]/g,''):'',phone);
     }
     if (page === 'contact') {
       copyText('#contact-professor',textOr(cfg.professorKoreanName)+' 교수 · '+textOr(cfg.professorName));
@@ -122,6 +128,32 @@
     }
   };
 
+  // Career and awards are two editable JSON lists in Pages CMS.
+  const renderProfessorHistory = async () => {
+    const mappings = [
+      {file:'professor-employment',target:'#professor-employment-list',date:'period',value:'position',empty:'등록된 경력/직책이 없습니다.'},
+      {file:'professor-awards',target:'#professor-awards-list',date:'date',value:'award',empty:'등록된 수상 경력이 없습니다.'}
+    ];
+    await Promise.all(mappings.map(async ({file,target,date,value,empty:message}) => {
+      const host=$(target);
+      if (!host) return;
+      try {
+        const items=await getJSON(file);
+        if (!items.length) {host.replaceChildren(empty(message));return;}
+        const rows=items.map(item=>{
+          const row=node('div','history-row');
+          row.append(node('span','history-date',textOr(item[date])),node('p','history-description',textOr(item[value])));
+          return row;
+        });
+        host.replaceChildren(...rows);
+      } catch (err) {
+        host.replaceChildren(empty('경력 정보를 불러올 수 없습니다. data/ 파일을 확인하세요.'));
+        throw err;
+      }
+    }));
+  };
+
+  const safeEmail=(email)=>{const value=textOr(email); return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)?'mailto:'+encodeURIComponent(value):'';};
   const renderStudents = async () => {
     const data = await getJSON('students');
     for (const role of ['phd','master']) {
@@ -134,7 +166,21 @@
         const pic = node('div','student-photo');
         setImage(pic,item.photo,textOr(item.name)+' 연구원 사진','STUDENT PHOTO');
         const info = node('div','student-info');
-        info.append(node('h3',null,item.name),node('p','cohort',item.cohort ? (/^\d+$/.test(String(item.cohort).trim()) ? String(item.cohort).trim()+'기' : String(item.cohort)) : ''),node('p','research-field',item.research));
+        info.append(node('h3',null,item.name));
+        if (textOr(item.cohort)) info.append(node('p','cohort',/^\d+$/.test(textOr(item.cohort)) ? textOr(item.cohort)+'기' : item.cohort));
+        if (textOr(item.department)) info.append(node('p','student-department',item.department));
+        if (textOr(item.research)) {
+          const field=node('p','research-field');
+          field.append(node('span','student-field-label','Research'),node('span',null,item.research));
+          info.append(field);
+        }
+        const email=textOr(item.email);
+        if (email) {
+          const a=node('a','student-email',email);
+          const href=safeEmail(email);
+          if (href) a.href=href; else a.removeAttribute('href');
+          info.append(a);
+        }
         card.append(pic,info);
         return card;
       });
@@ -145,14 +191,31 @@
     const target = $('#alumni-list');
     if (!target) return;
     const alumni = await getJSON('alumni');
-    if (!alumni.length) {target.replaceChildren(empty('등록된 졸업생이 없습니다. Pages CMS에서 이름과 직장을 추가하세요.'));return;}
-    const table=node('table','alumni-table');
-    const head=node('thead'); const thRow=node('tr');
-    thRow.append(node('th',null,'Name'),node('th',null,'Current Position'));
-    head.append(thRow); table.append(head);
-    const body=node('tbody');
-    alumni.forEach(alumnus=>{const tr=node('tr');tr.append(node('td',null,alumnus.name),node('td',null,alumnus.company));body.append(tr);});
-    table.append(body);target.replaceChildren(table);
+    if (!alumni.length) {target.replaceChildren(empty('등록된 졸업생이 없습니다. Pages CMS에서 졸업생 정보를 추가하세요.'));return;}
+    const cards=alumni.map(alumnus=>{
+      const card=node('article','alumni-card');
+      const header=node('div','alumni-card-header');
+      header.append(node('h3',null,alumnus.name));
+      const metadata=[textOr(alumnus.degree),textOr(alumnus.graduationYear)].filter(Boolean);
+      if(metadata.length) header.append(node('span','alumni-meta',metadata.join(' / ')));
+      card.append(header);
+      const details=node('dl','alumni-details');
+      const pairs=[['Job',alumnus.company],['Research',alumnus.pastResearch]];
+      for(const [label,value] of pairs){
+        if (!textOr(value)) continue;
+        details.append(node('dt',null,label),node('dd',null,value));
+      }
+      const email=textOr(alumnus.email);
+      if (email) {
+        const dt=node('dt',null,'Email'),dd=node('dd');
+        const a=node('a',null,email),href=safeEmail(email);
+        if(href) a.href=href; else a.removeAttribute('href');
+        dd.append(a); details.append(dt,dd);
+      }
+      if(details.children.length) card.append(details);
+      return card;
+    });
+    target.replaceChildren(...cards);
   };
   const renderPublications = async () => {
     const target=$('#publication-list'); if (!target) return;
@@ -208,7 +271,7 @@
   const jobs=[];
   if (['home','people','contact'].includes(page)) jobs.push(applySite(page));
   if (['home','research'].includes(page)) jobs.push(renderResearch(page));
-  if (page==='people') jobs.push(renderStudents(),renderAlumni());
+  if (page==='people') jobs.push(renderProfessorHistory(),renderStudents(),renderAlumni());
   if (page==='publications') jobs.push(renderPublications());
   if (page==='news') jobs.push(renderNews());
   if (page==='gallery') jobs.push(renderGallery());

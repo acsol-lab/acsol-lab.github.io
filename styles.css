@@ -15,6 +15,44 @@
 .publication-list{border-top:2px solid var(--navy)}.publication{display:grid;grid-template-columns:75px 1fr 110px;align-items:start;gap:24px;padding:27px 0;border-bottom:1px solid var(--line)}.pub-year{font-size:.86rem;color:var(--muted)}.pub-journal{color:var(--blue);font-size:.83rem;font-weight:750}.publication h3{font-size:1.13rem;line-height:1.57;margin-top:7px}.pub-authors{margin-top:7px;font-size:.875rem;color:var(--muted)}.pub-link{border:1px solid #c2d0dc;padding:9px 13px;font-size:.83rem;font-weight:700;display:flex;align-items:center;justify-content:space-between}.pub-link:not([href]){opacity:.35;pointer-events:none}.pub-link:hover{color:var(--blue);border-color:var(--blue)}.news-list{border-top:2px solid var(--navy)}.news-item{display:grid;grid-template-columns:130px 1fr;gap:34px;padding:25px 0;border-bottom:1px solid var(--line)}.news-item time{font-size:.83rem;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:4px}.news-type{color:var(--blue);font-size:.78rem;font-weight:750;letter-spacing:.06em;text-transform:uppercase}.news-item h3{font-size:1.12rem;margin-top:5px}.news-item p{font-size:.91rem;color:var(--muted);margin-top:8px}.gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}.gallery-card a{display:block}.gallery-card img{width:100%;aspect-ratio:1.38;object-fit:cover;background:var(--light)}.gallery-card figcaption{border-bottom:1px solid var(--line);padding:13px 0;display:flex;gap:12px;justify-content:space-between}.gallery-card strong{font-size:.92rem}.gallery-card span{font-size:.81rem;color:var(--muted)}
 /* contact footer */
 .contact-grid{display:grid;grid-template-columns:.8fr 1.3fr;gap:90px}.contact-grid h2{font-size:clamp(2rem,3vw,3rem)}.contact-grid p{margin-top:13px;color:var(--muted)}.contact-details{display:grid;grid-template-columns:repeat(2,1fr);gap:34px}.contact-detail{border-top:1px solid var(--line);padding-top:15px}.contact-detail h3{font-size:.78rem;color:var(--blue);letter-spacing:.1em;text-transform:uppercase}.contact-detail p{font-size:.92rem;line-height:1.8;overflow-wrap:anywhere}.contact-detail.wide{grid-column:1/-1}.contact-detail a:hover{color:var(--blue);text-decoration:underline}.footer{background:var(--navy-deep);color:#b4c6d7;padding:42px 0 25px}.footer-top{display:flex;justify-content:space-between;gap:30px;align-items:center;padding-bottom:29px}.footer .wordmark{color:white;font-size:2rem}.footer .wordmark span{color:var(--cyan)}.footer-name{font-size:.81rem;line-height:1.6;margin-top:12px}.footer-links{display:flex;gap:20px;flex-wrap:wrap;font-size:.81rem}.footer-links a:hover{color:white}.footer-bottom{border-top:1px solid #31465b;display:flex;justify-content:space-between;gap:15px;padding-top:19px;font-size:.74rem}
+
+/* People v3: editable faculty career/awards, student department/email, alumni profiles */
+.professor-panel{grid-template-columns:225px minmax(0,1fr);gap:40px}
+.professor-summary{min-width:0}
+.professor-affiliation{color:#e3edf7;font-size:.95rem;line-height:1.75;white-space:pre-line}
+.professor-affiliation p:empty,.professor-bio:empty{display:none}
+.professor-contact{margin-top:18px;border-top:1px solid #48677f;padding-top:14px;display:grid;gap:4px;color:#d1deea;font-size:.87rem}
+.professor-contact p{overflow-wrap:anywhere}
+.professor-contact .detail-label{font-size:.74rem;color:var(--cyan);letter-spacing:.08em;text-transform:uppercase;display:inline-block;min-width:55px;font-weight:700}
+.professor-contact a{color:var(--cyan);text-decoration:none}
+.professor-contact a:hover{text-decoration:underline}
+.professor-bio{margin-top:19px;font-size:.9rem;border-top:1px solid #48677f;padding-top:14px}
+.professor-history{border:1px solid var(--line);border-top:0;background:#fff;padding:34px 36px 38px;display:grid;gap:34px}
+.professor-history-block h3{color:var(--navy);font-size:1.25rem;margin-bottom:13px;letter-spacing:-.025em}
+.professor-history-block h3 span{font-size:.77rem;letter-spacing:0;font-weight:500;color:var(--muted);padding-left:9px}
+.history-list{border-top:1px solid var(--line)}
+.history-row{display:grid;grid-template-columns:140px minmax(0,1fr);column-gap:23px;padding:12px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.history-date{font-weight:700;color:var(--blue);font-size:.84rem;font-variant-numeric:tabular-nums}
+.history-description{font-size:.92rem;color:var(--ink);line-height:1.6;overflow-wrap:anywhere}
+.student-info{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+.student-info .student-department{font-size:.83rem;line-height:1.5;color:var(--ink);margin-top:9px}
+.student-info .research-field{display:flex;flex-direction:column;gap:3px;margin-top:10px}
+.student-field-label{color:var(--blue);font-weight:700;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase}
+.student-email{font-size:.78rem;line-height:1.5;overflow-wrap:anywhere;color:var(--blue);margin-top:11px}
+.student-email:hover{text-decoration:underline}
+#alumni-list{display:grid;gap:14px}
+.alumni-card{border:1px solid var(--line);background:#fff;padding:22px 26px;display:grid;gap:13px;transition:border-color .15s}
+.alumni-card:hover{border-color:#acc4d8}
+.alumni-card-header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.alumni-card h3{font-size:1.12rem;color:var(--navy)}
+.alumni-meta{font-size:.83rem;color:var(--blue);font-weight:650}
+.alumni-details{margin:0;display:grid;grid-template-columns:102px minmax(0,1fr);column-gap:18px;row-gap:7px;font-size:.88rem;line-height:1.6}
+.alumni-details dt{font-weight:700;color:var(--muted)}
+.alumni-details dd{margin:0;overflow-wrap:anywhere}
+.alumni-details a{color:var(--blue)}
+.alumni-details a:hover{text-decoration:underline}
+@media(max-width:800px){.professor-panel{grid-template-columns:175px minmax(0,1fr)}.professor-history{padding:27px}}
+@media(max-width:500px){.professor-panel{grid-template-columns:1fr}.history-row{grid-template-columns:1fr;gap:4px}.professor-history{padding:22px}.alumni-card{padding:19px}.alumni-details{grid-template-columns:80px minmax(0,1fr);column-gap:12px}}
 @media(max-width:1100px){.wrap{width:calc(100% - 64px)}.brand-description{display:none}.nav{gap:17px}.research-mini-grid{grid-template-columns:repeat(2,1fr)}.student-grid{grid-template-columns:repeat(3,1fr)}.hero-inner{gap:34px}.hero h1{font-size:3.3rem}}
 @media(max-width:800px){:root{--header:74px}.wrap{width:calc(100% - 40px)}.menu-button{display:block}.nav{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;box-shadow:0 15px 22px #092a4b15;flex-direction:column;align-items:stretch;gap:0;height:auto;padding:8px 20px 17px;border-bottom:1px solid var(--line)}.nav.is-open{display:flex}.nav a{min-height:48px;padding:12px 4px}.nav a::after{display:none}.hero-inner{grid-template-columns:1fr;padding:48px 0 55px}.hero h1{font-size:clamp(2.65rem,7vw,4.1rem)}.hero-frame{aspect-ratio:1.8}.summary-intro{grid-template-columns:1fr;gap:15px}.home-summary{padding:64px 0 76px}.page-intro{padding:56px 0}.section{padding:65px 0}.research-feature,.research-feature:nth-child(even){grid-template-columns:1fr}.research-feature:nth-child(even) .research-visual{order:0}.research-feature .research-visual{min-height:240px;max-height:390px}.research-feature .feature-body{padding:32px}.professor-panel{grid-template-columns:175px 1fr;gap:27px}.professor-photo{width:175px}.student-grid{grid-template-columns:repeat(2,1fr)}.gallery-grid{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr;gap:32px}.footer-top{align-items:flex-start}}
 @media(max-width:500px){.brand-description{display:none}.wordmark{font-size:2rem}.utility{font-size:.69rem}.utility .wrap{gap:8px}.hero h1{font-size:2.65rem}.hero-frame{aspect-ratio:1.4}.hero-caption{flex-wrap:wrap}.research-mini-grid{grid-template-columns:1fr}.research-mini{min-height:190px}.research-mini h3{margin-top:17px}.section-heading{align-items:flex-start;flex-direction:column}.people-group-title h2{font-size:1.55rem}.professor-panel{grid-template-columns:1fr}.professor-photo{width:180px}.student-grid{gap:12px}.student-info{padding:12px}.student-info h3{font-size:1rem}.gallery-grid{grid-template-columns:1fr}.publication{grid-template-columns:1fr;gap:10px}.pub-link{width:110px}.news-item{grid-template-columns:1fr;gap:6px}.contact-details{grid-template-columns:1fr}.contact-detail.wide{grid-column:auto}.footer-top{flex-direction:column}.footer-bottom{flex-direction:column;gap:8px}.footer-links{gap:12px 20px}}

@@ -46,6 +46,15 @@ content:
       - name: professorTitle
         label: '교수님 직책 / 소속'
         type: text
+      - name: professorDepartment
+        label: '교수님 소속 학과 (영문)'
+        type: string
+      - name: professorAdditionalTitle
+        label: '교수님 추가 직책 (예: 학과장)'
+        type: text
+      - name: professorUniversity
+        label: '소속 대학교 (영문)'
+        type: string
       - name: professorEmail
         label: '교수님 이메일'
         type: string
@@ -64,6 +73,38 @@ content:
       - name: address
         label: '연구실 주소'
         type: text
+
+  - name: professor_employment
+    label: 'People / 교수님 경력 및 직책'
+    type: file
+    path: data/professor-employment.json
+    format: json
+    list: true
+    fields:
+      - name: period
+        label: '재직 기간 (예: 2026 – Present)'
+        type: string
+        required: true
+      - name: position
+        label: '직책 / 경력 내용'
+        type: text
+        required: true
+
+  - name: professor_awards
+    label: 'People / 교수님 수상 경력'
+    type: file
+    path: data/professor-awards.json
+    format: json
+    list: true
+    fields:
+      - name: date
+        label: '수상 시기 (예: 11/2025)'
+        type: string
+        required: true
+      - name: award
+        label: '수상명'
+        type: text
+        required: true
 
   - name: research
     label: 'Research / 연구 분야와 사진'
@@ -116,6 +157,12 @@ content:
       - name: cohort
         label: '기수 (예: 2 또는 2기)'
         type: string
+      - name: department
+        label: '소속 학과 (예: Dept. Nano Semiconductor Eng.)'
+        type: string
+      - name: email
+        label: '이메일 주소'
+        type: string
       - name: research
         label: '연구 분야'
         type: text
@@ -134,8 +181,20 @@ content:
         label: '졸업생 이름'
         type: string
         required: true
+      - name: degree
+        label: '졸업 과정 (예: 석사 / 박사)'
+        type: string
+      - name: graduationYear
+        label: '졸업 연도 (예: 2026)'
+        type: string
       - name: company
         label: '현 직장 또는 소속'
+        type: string
+      - name: pastResearch
+        label: '재학 당시 연구 분야'
+        type: text
+      - name: email
+        label: '이메일 (선택사항)'
         type: string
 
   - name: news
