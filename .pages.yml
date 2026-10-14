@@ -1,0 +1,212 @@
+# Pages CMS configuration for the ACSoL research lab (https://pagescms.org)
+# All uploaded images live in this GitHub repository: media/
+media:
+  input: media
+  output: /media
+  rename: safe
+  categories: [image]
+
+content:
+  - name: site
+    label: 'Home / 교수님 / 연락처'
+    type: file
+    path: data/site.json
+    format: json
+    fields:
+      - name: heroTitle
+        label: '메인 큰 문구 (앞부분)'
+        type: string
+      - name: heroAccent
+        label: '메인 큰 문구 (파란 강조 부분)'
+        type: string
+      - name: heroKorean
+        label: '메인 한국어 연구실명'
+        type: string
+      - name: heroDescription
+        label: '메인 짧은 영문 소개'
+        type: text
+      - name: heroImage
+        label: '메인 대표 사진 업로드'
+        type: image
+      - name: heroImageCaption
+        label: '메인 사진 아래 문구'
+        type: string
+      - name: labIntro
+        label: '메인 연구 분야 요약 설명'
+        type: text
+      - name: professorName
+        label: '교수님 영문 이름'
+        type: string
+      - name: professorKoreanName
+        label: '교수님 한글 이름 (교수 제외)'
+        type: string
+      - name: professorPhoto
+        label: '교수님 사진 업로드'
+        type: image
+      - name: professorTitle
+        label: '교수님 직책 / 소속'
+        type: text
+      - name: professorEmail
+        label: '교수님 이메일'
+        type: string
+      - name: professorBio
+        label: '교수님 소개 문구'
+        type: text
+      - name: contactPhone
+        label: '교수실 전화번호'
+        type: string
+      - name: labPhone
+        label: '연구실 전화번호'
+        type: string
+      - name: office
+        label: '교수실 위치'
+        type: string
+      - name: address
+        label: '연구실 주소'
+        type: text
+
+  - name: research
+    label: 'Research / 연구 분야와 사진'
+    type: file
+    path: data/research.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: '연구 분야 제목'
+        type: string
+        required: true
+      - name: subtitle
+        label: '영문 소제목'
+        type: string
+      - name: description
+        label: '연구 분야 상세 설명'
+        type: text
+      - name: keywords
+        label: '관련 키워드'
+        type: text
+      - name: image
+        label: '연구 분야 사진 업로드'
+        type: image
+      - name: imageAlt
+        label: '사진 설명 (접근성)'
+        type: string
+
+  - name: students
+    label: 'People / 박사·석사 재학생'
+    type: file
+    path: data/students.json
+    format: json
+    list: true
+    fields:
+      - name: role
+        label: '과정 선택'
+        type: select
+        required: true
+        options:
+          values:
+            - name: phd
+              label: '박사과정 / Ph.D.'
+            - name: master
+              label: '석사과정 / M.S.'
+      - name: name
+        label: '학생 이름'
+        type: string
+        required: true
+      - name: cohort
+        label: '기수 (예: 2 또는 2기)'
+        type: string
+      - name: research
+        label: '연구 분야'
+        type: text
+      - name: photo
+        label: '학생 사진 업로드'
+        type: image
+
+  - name: alumni
+    label: 'People / Alumni 졸업생'
+    type: file
+    path: data/alumni.json
+    format: json
+    list: true
+    fields:
+      - name: name
+        label: '졸업생 이름'
+        type: string
+        required: true
+      - name: company
+        label: '현 직장 또는 소속'
+        type: string
+
+  - name: news
+    label: 'News / 공지사항'
+    type: file
+    path: data/news.json
+    format: json
+    list: true
+    fields:
+      - name: date
+        label: '날짜'
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: category
+        label: '구분 (Award, Publication 등)'
+        type: string
+        required: true
+      - name: title
+        label: '제목'
+        type: string
+        required: true
+      - name: description
+        label: '내용 요약'
+        type: text
+
+  - name: publications
+    label: 'Publications / 논문'
+    type: file
+    path: data/publications.json
+    format: json
+    list: true
+    fields:
+      - name: year
+        label: '출판 연도'
+        type: number
+        required: true
+      - name: journal
+        label: '학술지'
+        type: string
+        required: true
+      - name: title
+        label: '논문 제목'
+        type: string
+        required: true
+      - name: authors
+        label: '저자 또는 소개'
+        type: text
+      - name: doi
+        label: 'DOI (https://doi.org/ 제외)'
+        type: string
+
+  - name: gallery
+    label: 'Gallery / 사진'
+    type: file
+    path: data/gallery.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: '사진 제목'
+        type: string
+        required: true
+      - name: date
+        label: '날짜 또는 연도'
+        type: string
+      - name: image
+        label: '사진 파일 업로드'
+        type: image
+        required: true
+      - name: description
+        label: '사진 설명'
+        type: text
