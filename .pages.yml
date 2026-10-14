@@ -1,4 +1,4 @@
-# ACSoL Pages CMS v4: independent Home and Professor editors
+# ACSoL Pages CMS v5: publication dates and expandable Research details
 media:
   input: media
   output: /media
@@ -124,7 +124,7 @@ content:
     type: text
     required: true
 - name: research
-  label: Research / 연구 분야와 사진
+  label: Research / 연구 분야 · 펼침 상세 내용
   type: file
   path: data/research.json
   format: json
@@ -149,6 +149,32 @@ content:
   - name: imageAlt
     label: 사진 설명 (접근성)
     type: string
+  - name: detailIntro
+    label: 펼쳤을 때 나오는 상세 도입 설명
+    type: text
+  - name: detailSections
+    label: 추가 상세 내용 (글·사진 여러 개)
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{heading} (블록 {index})'
+    fields:
+    - name: heading
+      label: 상세 항목 제목 (선택)
+      type: string
+    - name: body
+      label: 상세 글 (줄바꿈 가능)
+      type: text
+    - name: image
+      label: 상세 이미지 (선택)
+      type: image
+    - name: imageAlt
+      label: 이미지 대체 설명 (선택)
+      type: string
+    - name: imageCaption
+      label: 이미지 아래 캡션 (선택)
+      type: string
 - name: students
   label: People / 박사·석사 재학생
   type: file
@@ -236,16 +262,21 @@ content:
     label: 내용 요약
     type: text
 - name: publications
-  label: Publications / 논문
+  label: Publications / 출판 날짜 · 논문
   type: file
   path: data/publications.json
   format: json
   list: true
   fields:
+  - name: publishedDate
+    label: 정확한 출판일 (YYYY-MM-DD, 날짜 기준 자동 정렬)
+    type: date
+    default: ''
+    options:
+      format: yyyy-MM-dd
   - name: year
-    label: 출판 연도
+    label: 기존 연도 (날짜를 모르는 기존 논문용, 날짜 입력 시 자동 무시)
     type: number
-    required: true
   - name: journal
     label: 학술지
     type: string

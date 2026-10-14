@@ -120,6 +120,7 @@
     }
   };
 
+  // Research cards expand in place. CMS can add any number of detailed text/image blocks.
   const renderResearch = async (page) => {
     const research = await getJSON('research');
     if (page === 'home') {
@@ -127,7 +128,7 @@
       if (!target) return;
       if (!research.length) {target.replaceChildren(empty('연구 분야가 등록되지 않았습니다.'));return;}
       const cards = research.slice(0,4).map((item,index) => {
-        const a = node('a','research-mini'); a.href='research.html';
+        const a = node('a','research-mini'); a.href='research.html#research-' + (index+1);
         a.append(node('span','number',String(index+1).padStart(2,'0')+' / RESEARCH'),node('h3',null,item.title),node('p','mini-desc',item.subtitle||item.description),node('span','mini-arrow','↗'));
         return a;
       });
@@ -139,14 +140,89 @@
       if (!research.length) {target.replaceChildren(empty('등록된 연구 분야가 없습니다. Pages CMS에서 추가하세요.'));return;}
       const cards = research.map((item,index) => {
         const card = node('article','research-feature');
+        card.id = 'research-' + (index + 1);
+        const preview = node('div','research-feature-preview');
+        preview.setAttribute('role','button');
+        preview.setAttribute('tabindex','0');
+        preview.setAttribute('aria-expanded','false');
+        preview.setAttribute('aria-controls','research-detail-' + (index+1));
+        preview.setAttribute('aria-label',textOr(item.title,'연구 분야')+' 상세 내용 펼치기');
         const visual = node('div','research-visual');
         setImage(visual,item.image,item.imageAlt||item.title,'RESEARCH IMAGE');
         const content = node('div','feature-body');
         content.append(node('span','feature-number',String(index+1).padStart(2,'0')+' / RESEARCH'),node('h2',null,item.title),node('p','feature-subtitle',item.subtitle),node('p','feature-desc',item.description),node('p','feature-tags',item.keywords));
-        card.append(visual,content);
+        const hint = node('span','research-expand-label');
+        hint.append(node('span',null,'자세히 보기'),node('span','research-chevron','⌄'));
+        content.append(hint);
+        preview.append(visual,content);
+
+        const detail = node('div','research-details');
+        detail.id='research-detail-' + (index+1);
+        detail.hidden=true;
+        const detailInner = node('div','research-details-inner');
+        if(textOr(item.detailIntro)) {
+          const lead=node('p','research-detail-intro',item.detailIntro);
+          detailInner.append(lead);
+        }
+        const sections=Array.isArray(item.detailSections) ? item.detailSections : [];
+        for (const section of sections) {
+          if(!section || typeof section !== 'object') continue;
+          const hasCopy=Boolean(textOr(section.heading)||textOr(section.body));
+          const hasPicture=Boolean(mediaUrl(section.image));
+          if(!hasCopy && !hasPicture) continue;
+          const block=node('section','research-detail-block');
+          if(!hasCopy) block.classList.add('image-only');
+          if(!hasPicture) block.classList.add('text-only');
+          if(hasCopy) {
+            const copy=node('div','research-detail-copy');
+            if(textOr(section.heading)) copy.append(node('h3',null,section.heading));
+            if(textOr(section.body)) copy.append(node('p',null,section.body));
+            block.append(copy);
+          }
+          if(hasPicture) {
+            const figure=node('figure','research-detail-figure');
+            setImage(figure,section.image,section.imageAlt||section.heading||item.title,'RESEARCH DETAIL IMAGE');
+            if(textOr(section.imageCaption)) figure.append(node('figcaption',null,section.imageCaption));
+            block.append(figure);
+          }
+          detailInner.append(block);
+        }
+        if(!detailInner.children.length) detailInner.append(empty('상세 연구 내용은 준비 중입니다.'));
+        detail.append(detailInner);
+        const toggle=() => {
+          const willOpen=detail.hidden;
+          // Keep the page uncluttered: expand only one research area at a time.
+          target.querySelectorAll('.research-feature').forEach(other => {
+            if(other===card)return;
+            const otherDetail=other.querySelector('.research-details');
+            const otherPreview=other.querySelector('.research-feature-preview');
+            if(otherDetail) otherDetail.hidden=true;
+            if(otherPreview){otherPreview.setAttribute('aria-expanded','false');otherPreview.setAttribute('aria-label',textOr(other.querySelector('h2')?.textContent,'연구 분야')+' 상세 내용 펼치기');}
+            other.classList.remove('is-expanded');
+            const label=other.querySelector('.research-expand-label > span');
+            if(label) label.textContent='자세히 보기';
+          });
+          detail.hidden=!willOpen;
+          preview.setAttribute('aria-expanded',String(willOpen));
+          preview.setAttribute('aria-label',textOr(item.title,'연구 분야')+(willOpen?' 상세 내용 접기':' 상세 내용 펼치기'));
+          card.classList.toggle('is-expanded',willOpen);
+          hint.firstChild.textContent=willOpen?'접기':'자세히 보기';
+        };
+        preview.addEventListener('click',toggle);
+        preview.addEventListener('keydown',e=>{
+          if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}
+        });
+        card.append(preview,detail);
         return card;
       });
       target.replaceChildren(...cards);
+      // A homepage card can open a particular detailed area via #research-N.
+      const match=window.location.hash.match(/^#research-(\d+)$/);
+      if(match){
+        const targetCard=target.querySelector('#research-'+Number(match[1]));
+        const trigger=targetCard?.querySelector('.research-feature-preview');
+        if(trigger){trigger.click();targetCard.scrollIntoView({block:'start',behavior:'instant'});}
+      }
     }
   };
 
@@ -239,20 +315,53 @@
     });
     target.replaceChildren(...cards);
   };
-  const renderPublications = async () => {
-    const target=$('#publication-list'); if (!target) return;
-    const entries=(await getJSON('publications')).sort((a,b)=>Number(b.year||0)-Number(a.year||0));
-    if (!entries.length) {target.replaceChildren(empty('등록된 논문이 없습니다.'));return;}
-    const cards=entries.map(entry=>{
-      const row=node('article','publication');
-      const content=node('div');content.append(node('p','pub-journal',entry.journal),node('h3',null,entry.title),node('p','pub-authors',entry.authors));
-      const link=node('a','pub-link','DOI ↗');
-      const doi=textOr(entry.doi).replace(/^https?:\/\/(dx\.)?doi\.org\//i,'');
-      if (doi && !/[\s<>"'\\]/.test(doi) && !doi.includes('://')) {link.href='https://doi.org/'+encodeURI(doi);link.rel='noopener noreferrer';link.target='_blank';}
-      row.append(node('span','pub-year',entry.year),content,link);return row;
-    });
-    target.replaceChildren(...cards);
+  // Exact publication date (publishedDate) takes precedence over legacy year.
+  // No guessed dates: older year-only entries remain in their year, last in that group.
+  const validIsoDate = (value) => {
+    const date=textOr(value);
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(date)) return '';
+    const test=new Date(date+'T00:00:00Z');
+    return !Number.isNaN(test.getTime()) && test.toISOString().slice(0,10)===date ? date : '';
   };
+  const publicationYear=(entry)=> {
+    const dated=validIsoDate(entry.publishedDate);
+    if(dated) return Number(dated.slice(0,4));
+    const legacy=Number(entry.year);
+    return Number.isInteger(legacy) && legacy>=1900 && legacy<=2200 ? legacy : null;
+  };
+  const renderPublications = async () => {
+    const target=$('#publication-list'); if(!target) return;
+    const raw=await getJSON('publications');
+    if(!raw.length) {target.replaceChildren(empty('등록된 논문이 없습니다.'));return;}
+    const entries=raw.map((entry,index)=>({...entry,_date:validIsoDate(entry.publishedDate),_year:publicationYear(entry),_index:index}));
+    entries.sort((a,b) => (b._year??-1)-(a._year??-1) || b._date.localeCompare(a._date) || a._index-b._index);
+    const groups=new Map();
+    for(const entry of entries){const key=entry._year===null?'unknown':String(entry._year);if(!groups.has(key))groups.set(key,[]);groups.get(key).push(entry);}
+    const yearSections=[];
+    for(const [year,items] of groups){
+      const section=node('section','publication-year-group');
+      const header=node('div','publication-year-header');
+      const yearTitle=node('h2',null,year==='unknown'?'연도 미입력':year);
+      header.append(yearTitle,node('span','publication-count',`${items.length} publication${items.length===1?'':'s'}`));
+      const list=node('div','publication-year-items');
+      const cards=items.map(entry=>{
+        const row=node('article','publication');
+        const date=node('span','pub-date',entry._date ? formatDate(entry._date) : '날짜 미등록');
+        if(entry._date){ const time=node('time',null,formatDate(entry._date));time.dateTime=entry._date;date.replaceChildren(time); }
+        const content=node('div');
+        content.append(node('p','pub-journal',entry.journal),node('h3',null,entry.title),node('p','pub-authors',entry.authors));
+        const link=node('a','pub-link','DOI ↗');
+        const doi=textOr(entry.doi).replace(/^https?:\/\/(dx\.)?doi\.org\//i,'');
+        if (doi && !/[\s<>"'\\]/.test(doi) && !doi.includes('://')) {
+          link.href='https://doi.org/'+encodeURI(doi);link.rel='noopener noreferrer';link.target='_blank';
+        }
+        row.append(date,content,link);return row;
+      });
+      list.append(...cards);section.append(header,list);yearSections.push(section);
+    }
+    target.replaceChildren(...yearSections);
+  };
+
   const renderNews = async () => {
     const target=$('#news-list');if (!target) return;
     const entries=(await getJSON('news')).sort((a,b)=>textOr(b.date).localeCompare(textOr(a.date)));

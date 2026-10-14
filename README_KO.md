@@ -1,86 +1,48 @@
-# ACSoL GitHub Pages + Pages CMS v4 — 업데이트 안내
+# ACSoL CMS v5 — GitHub Pages / Pages CMS
 
-## 0. 무엇이 바뀌었나요?
+## 이번 업데이트
 
-- `Home / 메인 화면 설정`: `data/home.json`을 별도로 관리합니다.
-- `People / 교수님 프로필`: `data/professor.json`을 별도로 관리합니다.
-- 교수님 상단 문구, 영문/한글 이름, 프로필 사진, 직책/첫 줄, 학과/둘째 줄, 추가 직책/셋째 줄, 학교/넷째 줄, 사무실, 이메일, 전화번호, 소개, 한글 호칭 및 연락처 표시명을 모두 CMS에서 수정할 수 있습니다.
-- 이전과 같이 `People / 교수님 경력 및 직책`, `People / 교수님 수상 경력`은 **독립 목록**입니다.
-- 경력·수상 로딩이 실패하면 10초 이내에 명시적인 오류 안내를 보여주며 오류 파일명은 브라우저 개발자 도구 Console에서 볼 수 있습니다.
-- `site.js?v=4`와 `styles.css?v=4`를 사용해 브라우저가 구버전 JavaScript를 재사용하는 문제를 줄입니다.
+- Publications: `publishedDate` (YYYY-MM-DD) CMS 날짜 입력. 연도별 그룹을 최신 연도순으로 배치하고 같은 연도 논문을 날짜 최신순으로 정렬합니다. 날짜가 없는 이전 데이터는 기존 `year`로 그룹화하고 같은 연도 맨 아래에 표시합니다. 정확한 출판일을 추정하지 않습니다.
+- Research: 연구 분야 카드를 클릭하거나 Enter/Space를 누르면 같은 페이지 내에서 상세 영역이 펼쳐집니다. 다른 카드를 열면 이전 카드가 닫힙니다.
+- CMS: `Research / 연구 분야 · 펼침 상세 내용`에서 `detailIntro`와 `detailSections`(반복 가능한 제목/글/이미지/캡션) 관리.
+- 기존 Home, People, News, Gallery, Contact 및 학생·교수님·논문 데이터는 유지합니다.
 
-## 1. **기존 데이터 보호**: 가장 먼저 저장소 백업
+## 이미 v4가 운영 중인 경우 (추천)
 
-1. GitHub 저장소 `nawit-del.github.io`에서 Code → Download ZIP으로 전체 백업을 받으세요.
-2. 기존 `data/site.json`, `data/students.json`, `data/alumni.json`, `data/research.json`, `data/news.json`, `data/publications.json`, `data/gallery.json`, `data/professor-employment.json`, `data/professor-awards.json`, `media/` 폴더를 삭제하거나 덮어쓰지 마세요.
-3. 사용자가 CMS에서 이미 수정한 내용을 보호하려면 **v3→v4 업데이트 전용 ZIP**을 사용하세요.
+1. 저장소를 백업합니다.
+2. `ACSoL_CMS_v4_to_v5_update_only.zip`을 압축 해제합니다.
+3. 아래 수정된 파일만 저장소의 최상위에 업로드/교체합니다.
+   - `.pages.yml`
+   - `site.js`
+   - `styles.css`
+   - 7개 HTML 파일 (CSS/JS 캐시 버전 `?v=5` 반영)
+4. **기존 `data/` 폴더 및 `media/` 폴더를 삭제/덮어쓰기 하지 않습니다.** 특히 이미 CMS에서 편집한 `data/publications.json`, `data/research.json` 그대로 둡니다.
+5. `.pages.yml`은 파일명이 점(.)으로 시작하므로 GitHub 웹 편집기에서 내용을 교체하거나 GitHub Desktop으로 반영합니다.
+6. GitHub `Actions` 탭에서 Pages 배포 성공 확인 후 `Ctrl+F5`로 접속합니다.
+7. Pages CMS 새로고침 → Publications에 새 출판일 항목, Research에 상세 내용 항목이 보이는지 확인합니다.
 
-## 2. v3에서 v4로 적용하기
+## CMS 사용 방법
 
-업데이트 전용 ZIP에는 다음 파일만 포함되어 있습니다.
+### Publications
 
-```
-.pages.yml           # Pages CMS 관리자 메뉴 분리
-site.js              # 독립 데이터 파일 로딩 및 오류 표시 수정
-index.html           # 캐시 무효화
-research.html        # 캐시 무효화
-people.html          # 새 프로필 필드 및 캐시 무효화
-publications.html
-news.html
-gallery.html
-contact.html
-data/home.json        # 신규 (현재 공개 저장소의 10/14 기준 Home 값 반영)
-data/professor.json   # 신규 (현재 공개 저장소의 10/14 기준 교수님 정보 반영)
-```
+1. Pages CMS → `Publications / 출판 날짜 · 논문`
+2. 논문 항목의 `정확한 출판일`에 YYYY-MM-DD 입력 (예: 2026-10-01)
+3. 저장하면 배포 후 연도 그룹 및 날짜순 자동 정렬됩니다.
+4. 기존 `year` 값은 예전 논문의 날짜를 모를 때만 사용합니다. 둘 다 있으면 `publishedDate`가 우선합니다.
+5. Pages CMS 날짜 필드를 **비워도 기본으로 오늘 날짜가 들어가지 않게 설정**했습니다. 실출판일을 확인해서 입력하세요.
 
-이전 버전의 JSON 파일들은 업데이트 패키지에 없으므로 기존 데이터가 보호됩니다.
+### Research
 
-**중요:** `data/home.json`과 `data/professor.json`의 기본값은 2026-10-14에 공개된 `data/site.json` 정보를 참고했습니다. 그 이후 기존 사이트에서 사진·문구·연락처를 수정했다면 새 CMS에 들어가 값이 최신인지 확인하세요.
+1. Pages CMS → `Research / 연구 분야 · 펼침 상세 내용`
+2. 기존 title / subtitle / description / keywords / image는 카드의 요약 정보입니다.
+3. `펼쳤을 때 나오는 상세 도입 설명`에 긴 소개 문구를 입력합니다.
+4. `추가 상세 내용`에서 `Add item`으로 항목을 추가합니다. 각 항목마다 제목/글/사진/사진 캡션을 독립적으로 입력할 수 있습니다. 여러 개를 추가하면 순서대로 배치됩니다.
+5. 이미지는 Pages CMS에 업로드하면 `media/` 폴더로 저장되어 표시됩니다. 기존 Wix 이미지 URL은 필요 없습니다.
+6. **이전 research.json은 그대로 사용할 수 있습니다.** 새 필드는 CMS에서 편집하고 저장할 때 추가됩니다.
 
-- 압축파일의 **내부 내용**을 GitHub 저장소 최상단에 업로드합니다.
-- `.pages.yml`이 `This file is hidden`으로 업로드되지 않으면 기존 GitHub `.pages.yml`을 편집해 새 내용을 붙여 넣고 Commit합니다.
-- `data/home.json`과 `data/professor.json`은 각각 `data/` 폴더에 들어가야 합니다. 루트 폴더에 올리면 안 됩니다.
-- GitHub Actions/Pages 배포가 끝나면 `https://nawit-del.github.io/people.html`을 새로고침(Ctrl+F5)합니다.
-- Pages CMS 관리자 화면을 새로고침하면 `Home / 메인 화면 설정`, `People / 교수님 프로필`이 각각 표시됩니다.
+## 문제 해결
 
-## 3. 경력·수상 '불러오는 중'이 계속 표시된다면
-
-먼저 GitHub 저장소 아래 URL에서 실제 JSON 내용이 나오는지 확인합니다.
-
-- `https://nawit-del.github.io/data/professor-employment.json`
-- `https://nawit-del.github.io/data/professor-awards.json`
-
-두 JSON은 GitHub의 `main` 브랜치에 존재하는 것으로 확인되지만, 실제 GitHub Pages 배포본이나 브라우저 캐시 상태가 동일하다고 보장되지는 않습니다.
-
-**`F12 → Network → Fetch/XHR`** 에서 다음을 확인하세요.
-- 200 : JSON 다운로드는 정상; `F12 → Console`에서 JSON 파싱 오류나 JavaScript 오류 확인
-- 404 : 파일이 잘못된 폴더에 있거나 GitHub Pages 배포에 아직 반영되지 않음
-- 403 : 권한/접근 관련 문제
-- Pending / Canceled / timeout : 네트워크, 확장 프로그램 또는 연결 문제
-
-페이지를 로컬에서 더블클릭해 `file://`로 열면 JSON fetch가 정상 작동하지 않을 수 있습니다. GitHub Pages 주소에서 확인하세요.
-
-## 4. 교수님 정보와 Home 정보 관리
-
-- **Home / 메인 화면 설정** → `data/home.json` : 대표 사진, 메인 큰 문구, 소개 내용
-- **People / 교수님 프로필** → `data/professor.json` : 이름, 호칭, 직책 4줄, 추가 직책, 프로필 사진, 위치, 이메일, 전화번호, 소개, 연락처 정보
-- **People / 교수님 경력 및 직책** → `data/professor-employment.json` : 목록 수정
-- **People / 교수님 수상 경력** → `data/professor-awards.json` : 목록 수정
-
-현재 교수님 직책·소속 4줄은 개별 필드이므로 필드 단위로 수정할 수 있습니다. 입력 칸을 비우면 해당 줄을 표시하지 않습니다.
-
-이전 `data/site.json`은 삭제하지 마세요. 신버전의 `home.json` 혹은 `professor.json`이 누락된 경우 기존 내용을 표시하는 호환용으로 사용됩니다. 구버전 파일이 남아 있어도 CMS 편집은 분리된 새 파일에만 저장됩니다.
-
-## 5. 사진 등 기존 CMS 기능
-
-- 기존 학생, Alumni, Research, News, Publications, Gallery의 데이터와 관리 기능은 변경하지 않았습니다.
-- Home 대표 사진/교수님 사진을 Pages CMS에서 바꾸면 `media/` 폴더에 저장됩니다.
-- 경력이나 수상 기록은 개별 항목을 추가/삭제할 수 있습니다.
-- GitHub 저장소가 공개라서 CMS에 입력된 개인정보·사진도 공개됩니다. 공개 전 검수 및 동의를 권장합니다.
-
-## 6. 장애 분석 / 버전 확인
-
-- 브라우저 주소가 `https://nawit-del.github.io/people.html`인지 확인
-- `F12 → Network`에 `site.js?v=4`가 표시되는지 확인 (옛날 `site.js`만 보이면 HTML 업데이트 누락 또는 캐시)
-- `data/professor-employment.json` 및 `data/professor-awards.json` 응답 상태 확인
-- GitHub Pages `Settings → Pages` 및 Actions 배포 완료 여부 확인
+- 변경 전 모습만 보이면 페이지 새로고침(Ctrl+F5), HTML 파일의 `site.js?v=5`와 `styles.css?v=5` 확인
+- CMS에 필드가 안 보이면 `.pages.yml`을 v5로 교체했는지 확인
+- Research/Publication에 `불러오는 중`이 지속되면 Network 탭에서 `data/research.json`, `data/publications.json` HTTP 200 여부 확인
+- JSON을 로컬 파일로 열지 말고 GitHub Pages 사이트 주소에서 테스트
