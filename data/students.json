@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "role": "phd",
+    "name": "한민종",
+    "cohort": "박사과정 2기",
+    "research": "AI Memory / ECRAM",
+    "photo": "/media/jpg.avif"
+  }
+]
