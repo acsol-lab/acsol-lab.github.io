@@ -10,5 +10,20 @@
     "typography": {
       "bodyFont": "inherit"
     }
+  },
+  {
+    "role": "phd",
+    "name": "우인택",
+    "photo": "/media/file-2.jpg"
+  },
+  {
+    "role": "phd",
+    "name": "김재경",
+    "photo": "/media/file-3.jpg"
+  },
+  {
+    "role": "phd",
+    "name": "개구리",
+    "photo": "/media/file-4.jpg"
   }
 ]
