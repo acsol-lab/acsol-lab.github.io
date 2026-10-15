@@ -23,6 +23,169 @@
       "sourcePhoto": "Han,Man-Hyup.jpg"
     },
     {
+      "name": "전민욱",
+      "team": "CMP",
+      "englishName": "Jeon, Min Uk",
+      "role": "integrated",
+      "cohort": "9학기",
+      "email": "mujeon1214@gmail.com",
+      "research": "CMP process",
+      "sourcePhoto": "Jeon,Min-Uk.jpg"
+    },
+    {
+      "name": "고현성",
+      "team": "CMP",
+      "englishName": "Koh, Hyun Sung",
+      "role": "phd",
+      "cohort": "3학기",
+      "department": "Dept. Electronic Eng.",
+      "email": "imboy0726@aver.com",
+      "research": "CMP",
+      "sourcePhoto": "Koh,Hyun-Sung.jpg"
+    },
+    {
+      "name": "김진우",
+      "team": "CMP",
+      "englishName": "Kim, Jin-Woo",
+      "role": "master",
+      "cohort": "4학기",
+      "department": "Dept. AI Semiconductor Eng.",
+      "email": "jinwoo960929@gmail.com",
+      "research": "CMP",
+      "sourcePhoto": "사진_김진우.jpg"
+    },
+    {
+      "name": "김수빈",
+      "team": "CMP",
+      "englishName": "Kim, Su-Bin",
+      "role": "master",
+      "cohort": "4학기",
+      "department": "Dept. Electronic Eng.",
+      "email": "emptybin.kim@gmail.com",
+      "research": "CMP",
+      "sourcePhoto": "image0 (1).jpeg"
+    },
+    {
+      "name": "김승환",
+      "team": "CMP",
+      "englishName": "Kim, Seunghwan",
+      "role": "master",
+      "cohort": "3학기",
+      "department": "Dept. AI Semiconductor Eng.",
+      "email": "kimseunghwan@hanyang.ac.kr",
+      "research": "CMP",
+      "sourcePhoto": "김승환.jpg"
+    },
+    {
+      "name": "신지혜",
+      "team": "CMP",
+      "englishName": "Shin, Ji Hye",
+      "role": "master",
+      "cohort": "3학기",
+      "department": "Dept. AI Semiconductor Eng.",
+      "email": "wlgptls0519@gmail.com",
+      "research": "CMP",
+      "sourcePhoto": "Shin,Ji-Hye.jpg"
+    },
+    {
+      "name": "백승호",
+      "team": "CMP",
+      "englishName": "Baek, Seungho",
+      "role": "master",
+      "cohort": "3학기",
+      "department": "Dept. AI Semiconductor Eng.",
+      "research": "CMP",
+      "sourcePhoto": "CMP_백승호.jpg"
+    },
+    {
+      "name": "양경모",
+      "team": "CMP",
+      "englishName": "Yang, Gyeong Mo",
+      "role": "master",
+      "cohort": "2학기",
+      "department": "Dept. Electronic Eng.",
+      "email": "ykmred10@naver.com",
+      "research": "CMP",
+      "sourcePhoto": "2026.02.08 증명사진.jpg"
+    },
+    {
+      "name": "김재경",
+      "team": "Emerging Memory",
+      "englishName": "Kim, Jae-Kyeong",
+      "role": "integrated",
+      "cohort": "8학기",
+      "department": "Dept. Nano Semiconductor Eng.",
+      "email": "mon8525@gmail.com",
+      "research": "SOM/ECRAM",
+      "sourcePhoto": "김재경(JGPark).jpg"
+    },
+    {
+      "name": "한민종",
+      "team": "Emerging Memory",
+      "englishName": "Han, Minjong",
+      "role": "phd",
+      "cohort": "2학기",
+      "department": "Dept. Nano Semiconductor Eng.",
+      "email": "noteboard@naver.com",
+      "research": "AI Memory / ECRAM",
+      "sourcePhoto": "한민종.JPG"
+    },
+    {
+      "name": "우인택",
+      "team": "Emerging Memory",
+      "englishName": "Woo, Intaek",
+      "role": "master",
+      "cohort": "3학기",
+      "department": "Dept. Electronic Eng.",
+      "email": "nawit123@naver.com",
+      "research": "ReRAM",
+      "sourcePhoto": "증명사진 (1).jpg"
+    },
+    {
+      "name": "조원석",
+      "team": "Emerging Memory",
+      "englishName": "Cho, Wonseok",
+      "role": "master",
+      "cohort": "3학기",
+      "department": "Dept. Nano Semiconductor Eng.",
+      "email": "dale0324@naver.com",
+      "research": "Vertical SOM",
+      "sourcePhoto": "증명사진_edited.jpg"
+    },
+    {
+      "name": "이재성",
+      "team": "Emerging Memory",
+      "englishName": "Lee, Jaesung",
+      "role": "master",
+      "cohort": "2학기",
+      "department": "Dept. AI Semiconductor Eng.",
+      "email": "jaesung2321@gmail.com",
+      "research": "ECRAM",
+      "sourcePhoto": "image.png"
+    },
+    {
+      "name": "권예원",
+      "team": "Emerging Memory",
+      "englishName": "Gwon, Yewon",
+      "role": "master",
+      "cohort": "2학기",
+      "department": "Dept. Electronic Eng.",
+      "email": "kyw7989@gmail.com",
+      "research": "SOM",
+      "sourcePhoto": "권예원.jpg"
+    },
+    {
+      "name": "정의진",
+      "team": "Emerging Memory",
+      "englishName": "Jung Eui-Jin",
+      "role": "master",
+      "cohort": "2학기",
+      "department": "Dept. AI Semiconductor Eng.",
+      "email": "dlackeh5952@naver.com",
+      "research": "SOM",
+      "sourcePhoto": "정의진_증명사진.jpg"
+    },
+    {
       "name": "최요한",
       "team": "MRAM",
       "englishName": "Choi, Yo-Han",
@@ -45,60 +208,6 @@
       "sourcePhoto": "사진_김상민.jpg"
     },
     {
-      "name": "전민욱",
-      "team": "CMP",
-      "englishName": "Jeon, Min Uk",
-      "role": "integrated",
-      "cohort": "9학기",
-      "email": "mujeon1214@gmail.com",
-      "research": "CMP process",
-      "sourcePhoto": "Jeon,Min-Uk.jpg"
-    },
-    {
-      "name": "김재경",
-      "team": "Emerging Memory",
-      "englishName": "Kim, Jae-Kyeong",
-      "role": "integrated",
-      "cohort": "8학기",
-      "department": "Dept. Nano Semiconductor Eng.",
-      "email": "mon8525@gmail.com",
-      "research": "SOM/ECRAM",
-      "sourcePhoto": "김재경(JGPark).jpg"
-    },
-    {
-      "name": "고현성",
-      "team": "CMP",
-      "englishName": "Koh, Hyun Sung",
-      "role": "phd",
-      "cohort": "3학기",
-      "department": "Dept. Electronic Eng.",
-      "email": "imboy0726@aver.com",
-      "research": "CMP",
-      "sourcePhoto": "Koh,Hyun-Sung.jpg"
-    },
-    {
-      "name": "강자신",
-      "team": "Energy Harvesting",
-      "englishName": "Jiang Zichen",
-      "role": "phd",
-      "cohort": "3학기",
-      "department": "Dept. Electronic Eng.",
-      "email": "17863989337@163.com",
-      "research": "Energy Harvesting / TIM",
-      "sourcePhoto": "강자신.jpg"
-    },
-    {
-      "name": "한민종",
-      "team": "Emerging Memory",
-      "englishName": "Han, Minjong",
-      "role": "phd",
-      "cohort": "2학기",
-      "department": "Dept. Nano Semiconductor Eng.",
-      "email": "noteboard@naver.com",
-      "research": "AI Memory / ECRAM",
-      "sourcePhoto": "한민종.JPG"
-    },
-    {
       "name": "여헌환",
       "team": "MRAM",
       "englishName": "Yeo, Heon-Hwan",
@@ -108,17 +217,6 @@
       "email": "yeoheonhwan@gmail.com",
       "research": "MRAM/SOT",
       "sourcePhoto": "Yeo,Heon-Hwan.jpg"
-    },
-    {
-      "name": "서홍광",
-      "team": "Emerging Memory",
-      "englishName": "Seo, Honggwang",
-      "role": "integrated",
-      "cohort": "4학기",
-      "department": "Dept. AI Semiconductor Eng.",
-      "email": "shk000715@naver.com",
-      "research": "ReRAM / DFT",
-      "sourcePhoto": "사진_서홍광.jpg"
     },
     {
       "name": "경동현",
@@ -143,36 +241,26 @@
       "sourcePhoto": "김동준 사진.jpg"
     },
     {
-      "name": "오동훈",
-      "team": "Energy Harvesting",
-      "englishName": "OH, DongHun",
-      "role": "phd",
-      "cohort": "1학기",
-      "email": "ohdonghun71@gmail.com",
-      "research": "LED, TIM",
-      "sourcePhoto": "오동훈.jpg"
-    },
-    {
-      "name": "송영준",
-      "team": "Perovskite Memory",
-      "englishName": "Song, Youngjun",
-      "role": "integrated",
-      "cohort": "2학기",
-      "department": "Dept. Electronic Eng.",
-      "email": "abcdudwns@hanyang.ac.kr",
-      "research": "ReRAM",
-      "sourcePhoto": "증명사진_송영준.jpg"
-    },
-    {
-      "name": "권도현",
-      "team": "Perovskite Memory",
-      "englishName": "Kwon, Do Hyun",
+      "name": "김영석",
+      "team": "MRAM",
+      "englishName": "Kim, Youngseok",
       "role": "master",
+      "cohort": "2학기",
+      "department": "Dept. AI Semiconductor Eng.",
+      "email": "yskimfr@naver.com",
+      "research": "MRAM",
+      "sourcePhoto": "김영석_증명사진.jpg"
+    },
+    {
+      "name": "서홍광",
+      "team": "Atomic Layer Deposition",
+      "englishName": "Seo, Honggwang",
+      "role": "integrated",
       "cohort": "4학기",
-      "department": "Dept. Electronic Eng.",
-      "email": "kdh2375@gmail.com",
-      "research": "Perovskite Memory",
-      "sourcePhoto": "권도현 사진.jpg"
+      "department": "Dept. AI Semiconductor Eng.",
+      "email": "shk000715@naver.com",
+      "research": "ReRAM / DFT",
+      "sourcePhoto": "사진_서홍광.jpg"
     },
     {
       "name": "윤기원",
@@ -186,17 +274,6 @@
       "sourcePhoto": "홈페이지용사진_윤기원.jpg"
     },
     {
-      "name": "이사원",
-      "team": "Perovskite Memory",
-      "englishName": "Li, Shiyuan",
-      "role": "master",
-      "cohort": "4학기",
-      "department": "Dept. Electronic Eng.",
-      "email": "yolix@naver.com",
-      "research": "Optical Synapse",
-      "sourcePhoto": "이시원.jpg"
-    },
-    {
       "name": "서동찬",
       "team": "Atomic Layer Deposition",
       "englishName": "Seo, Dongchan",
@@ -208,81 +285,26 @@
       "sourcePhoto": "서동찬 증명사진.jpg"
     },
     {
-      "name": "우인택",
-      "team": "Emerging Memory",
-      "englishName": "Woo, Intaek",
-      "role": "master",
-      "cohort": "3학기",
-      "department": "Dept. Electronic Eng.",
-      "email": "nawit123@naver.com",
-      "research": "ReRAM",
-      "sourcePhoto": "증명사진 (1).jpg"
-    },
-    {
-      "name": "김진우",
-      "team": "CMP",
-      "englishName": "Kim, Jin-Woo",
-      "role": "master",
-      "cohort": "4학기",
-      "department": "Dept. AI Semiconductor Eng.",
-      "email": "jinwoo960929@gmail.com",
-      "research": "CMP",
-      "sourcePhoto": "사진_김진우.jpg"
-    },
-    {
-      "name": "김승환",
-      "team": "CMP",
-      "englishName": "Kim, Seunghwan",
-      "role": "master",
-      "cohort": "3학기",
-      "department": "Dept. AI Semiconductor Eng.",
-      "email": "kimseunghwan@hanyang.ac.kr",
-      "research": "CMP",
-      "sourcePhoto": "김승환.jpg"
-    },
-    {
-      "name": "김수빈",
-      "team": "CMP",
-      "englishName": "Kim, Su-Bin",
+      "name": "권도현",
+      "team": "Perovskite Memory",
+      "englishName": "Kwon, Do Hyun",
       "role": "master",
       "cohort": "4학기",
       "department": "Dept. Electronic Eng.",
-      "email": "emptybin.kim@gmail.com",
-      "research": "CMP",
-      "sourcePhoto": "image0 (1).jpeg"
+      "email": "kdh2375@gmail.com",
+      "research": "Perovskite Memory",
+      "sourcePhoto": "권도현 사진.jpg"
     },
     {
-      "name": "권예원",
-      "team": "Emerging Memory",
-      "englishName": "Gwon, Yewon",
-      "role": "master",
+      "name": "송영준",
+      "team": "Perovskite Memory",
+      "englishName": "Song, Youngjun",
+      "role": "integrated",
       "cohort": "2학기",
       "department": "Dept. Electronic Eng.",
-      "email": "kyw7989@gmail.com",
-      "research": "SOM",
-      "sourcePhoto": "권예원.jpg"
-    },
-    {
-      "name": "조원석",
-      "team": "Emerging Memory",
-      "englishName": "Cho, Wonseok",
-      "role": "master",
-      "cohort": "3학기",
-      "department": "Dept. Nano Semiconductor Eng.",
-      "email": "dale0324@naver.com",
-      "research": "Vertical SOM",
-      "sourcePhoto": "증명사진_edited.jpg"
-    },
-    {
-      "name": "신지혜",
-      "team": "CMP",
-      "englishName": "Shin, Ji Hye",
-      "role": "master",
-      "cohort": "3학기",
-      "department": "Dept. AI Semiconductor Eng.",
-      "email": "wlgptls0519@gmail.com",
-      "research": "CMP",
-      "sourcePhoto": "Shin,Ji-Hye.jpg"
+      "email": "abcdudwns@hanyang.ac.kr",
+      "research": "ReRAM",
+      "sourcePhoto": "증명사진_송영준.jpg"
     },
     {
       "name": "신채연",
@@ -318,17 +340,6 @@
       "sourcePhoto": "윤재현 증명사진.JPEG"
     },
     {
-      "name": "정의진",
-      "team": "Emerging Memory",
-      "englishName": "Jung Eui-Jin",
-      "role": "master",
-      "cohort": "2학기",
-      "department": "Dept. AI Semiconductor Eng.",
-      "email": "dlackeh5952@naver.com",
-      "research": "SOM",
-      "sourcePhoto": "정의진_증명사진.jpg"
-    },
-    {
       "name": "박시형",
       "team": "Perovskite Memory",
       "englishName": "Park, Si Hyeong",
@@ -340,47 +351,36 @@
       "sourcePhoto": "박시형 증명사진.jpg"
     },
     {
-      "name": "김영석",
-      "team": "MRAM",
-      "englishName": "Kim, Youngseok",
-      "role": "master",
-      "cohort": "2학기",
-      "department": "Dept. AI Semiconductor Eng.",
-      "email": "yskimfr@naver.com",
-      "research": "MRAM",
-      "sourcePhoto": "김영석_증명사진.jpg"
-    },
-    {
-      "name": "이재성",
-      "team": "Emerging Memory",
-      "englishName": "Lee, Jaesung",
-      "role": "master",
-      "cohort": "2학기",
-      "department": "Dept. AI Semiconductor Eng.",
-      "email": "jaesung2321@gmail.com",
-      "research": "ECRAM",
-      "sourcePhoto": "image.png"
-    },
-    {
-      "name": "백승호",
-      "team": "CMP",
-      "englishName": "Baek, Seungho",
-      "role": "master",
+      "name": "강자신",
+      "team": "Energy Harvesting",
+      "englishName": "Jiang Zichen",
+      "role": "phd",
       "cohort": "3학기",
-      "department": "Dept. AI Semiconductor Eng.",
-      "research": "CMP",
-      "sourcePhoto": "CMP_백승호.jpg"
+      "department": "Dept. Electronic Eng.",
+      "email": "17863989337@163.com",
+      "research": "Energy Harvesting / TIM",
+      "sourcePhoto": "강자신.jpg"
     },
     {
-      "name": "양경모",
-      "team": "CMP",
-      "englishName": "Yang, Gyeong Mo",
+      "name": "이사원",
+      "team": "Energy Harvesting",
+      "englishName": "Li, Shiyuan",
       "role": "master",
-      "cohort": "2학기",
+      "cohort": "4학기",
       "department": "Dept. Electronic Eng.",
-      "email": "ykmred10@naver.com",
-      "research": "CMP",
-      "sourcePhoto": "2026.02.08 증명사진.jpg"
+      "email": "yolix@naver.com",
+      "research": "Optical Synapse",
+      "sourcePhoto": "이시원.jpg"
+    },
+    {
+      "name": "오동훈",
+      "team": "Energy Harvesting",
+      "englishName": "OH, DongHun",
+      "role": "phd",
+      "cohort": "1학기",
+      "email": "ohdonghun71@gmail.com",
+      "research": "LED, TIM",
+      "sourcePhoto": "오동훈.jpg"
     }
   ]
 }
