@@ -174,6 +174,77 @@
     }
   };
 
+
+  // Site and page typography: supported presets only, numeric values clamped.
+  const families = Object.freeze({
+    pretendard:'"Pretendard Variable", "Pretendard", "Noto Sans KR", sans-serif',
+    noto:'"Noto Sans KR", "Pretendard Variable", sans-serif',
+    nanum:'"Nanum Gothic", "Pretendard Variable", sans-serif',
+    serif:'"Noto Serif KR", "Nanum Myeongjo", Georgia, serif',
+    system:'-apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif'
+  });
+  const setSizeVar = (element, variable, value, minimum, maximum) => {
+    const n=Number(value);
+    if (element && Number.isFinite(n) && n > 0) element.style.setProperty(variable,Math.max(minimum,Math.min(maximum,n))+'px');
+  };
+  const chooseFont = (name, fallback) => families[name] || fallback || families.pretendard;
+  async function applyTypography() {
+    const root=document.documentElement;
+    try {
+      const cfg=await getJSON('typography',false);
+      root.style.setProperty('--cms-global-font',chooseFont(cfg.bodyFont));
+      root.style.setProperty('--cms-heading-font',chooseFont(cfg.headingFont));
+      setSizeVar(root,'--cms-nav-size',cfg.navSize,12,22);
+      setSizeVar(root,'--cms-brand-size',cfg.brandSize,10,20);
+      setSizeVar(root,'--cms-footer-size',cfg.footerSize,12,20);
+      setSizeVar(root,'--cms-caption-size',cfg.captionSize,11,20);
+    } catch(e) {console.warn('[ACSoL] typography optional settings',e.message);}
+  }
+  function setPageTypography(cfg) {
+    const body=document.body;
+    if(cfg.bodyFont && cfg.bodyFont!=='inherit') body.style.setProperty('--cms-page-font',chooseFont(cfg.bodyFont));
+    if(cfg.headingFont && cfg.headingFont!=='inherit') body.style.setProperty('--cms-page-heading-font',chooseFont(cfg.headingFont));
+    setSizeVar(body,'--cms-page-title-size',cfg.headingSize,30,100);
+    setSizeVar(body,'--cms-page-body-size',cfg.bodySize,13,23);
+    setSizeVar(body,'--cms-page-label-size',cfg.labelSize,11,22);
+    setSizeVar(body,'--cms-page-section-size',cfg.sectionHeadingSize,22,70);
+  }
+  async function applyPageCopy(page) {
+    // Current CMS files are preserved; new page-copy.json files are additive.
+    if(page==='home') {
+      const cfg=await readSettings('home');
+      setText('#cms-home-eyebrow',cfg.eyebrow || 'Hanyang University · Seoul');
+      setText('#cms-home-action',cfg.actionLabel || 'Explore our research');
+      setText('#cms-home-summary-label',cfg.summaryLabel || 'The laboratory');
+      setPageTypography(cfg);return;
+    }
+    let cfg;
+    try {cfg=await getJSON('page-'+page,false);}catch(e){ console.warn('[ACSoL] optional page copy',page,e.message);return; }
+    setText('#cms-page-eyebrow',cfg.eyebrow);
+    setText('.page-title-lead',cfg.titleLead);
+    setText('.page-title-accent',cfg.titleAccent);
+    setText('#cms-page-subtitle',cfg.subtitle);
+    if (page==='contact') {
+      setText('#cms-contact-lead',cfg.contactLead);
+      setText('#cms-contact-accent',cfg.contactAccent);
+      setText('#cms-contact-intro',cfg.contactIntro);
+      setText('#cms-contact-action',cfg.actionLabel);
+    }
+    setPageTypography(cfg);
+  }
+  // Optional item-level style within any Pages CMS list entry.
+  const applyEntryTypography=(element,record)=>{
+    if(!element || !record || !isObject(record.typography))return element;
+    const st=record.typography;
+    if(st.bodyFont && st.bodyFont!=='inherit')element.style.setProperty('--cms-item-body-font',chooseFont(st.bodyFont));
+    if(st.titleFont && st.titleFont!=='inherit')element.style.setProperty('--cms-item-heading-font',chooseFont(st.titleFont));
+    setSizeVar(element,'--cms-item-body-size',st.bodySize,12,28);
+    if (Number(st.bodySize)>0) element.classList.add('cms-item-body-sized');
+    setSizeVar(element,'--cms-item-heading-size',st.titleSize,13,42);
+    if (Number(st.titleSize)>0) element.classList.add('cms-item-title-sized');
+    element.classList.add('cms-styled-entry');return element;
+  };
+
   async function applyHome() {
     const cfg = await readSettings('home');
     const title = $('#hero-title');
@@ -308,7 +379,7 @@
     const entries=await getJSON('research');
     if (!entries.length) {host.replaceChildren(emptyNote('Research coming soon','연구 분야를 등록해 주세요.'));return;}
     host.replaceChildren(...entries.map((item,index) => {
-      const card=node('a','research-overview-card');card.href='research-detail.html?topic='+(index+1);
+      const card=node('a','research-overview-card');applyEntryTypography(card,item);card.href='research-detail.html?topic='+(index+1);
       const image=node('div','research-overview-image');
       setImage(image,item.image,text(item.imageAlt,item.title),() => conceptImage('study-'+(index%4+1)+'-color.svg'),{concept:true});
       const copy=node('div','research-overview-copy');
@@ -326,7 +397,7 @@
     if (!Number.isInteger(index)||index<1||index>entries.length) {
       host.replaceChildren(emptyNote('연구 분야를 찾을 수 없습니다.','Research 메뉴에서 항목을 선택해 주세요.'));return;
     }
-    const item=entries[index-1],article=node('article','research-detail-article');
+    const item=entries[index-1],article=node('article','research-detail-article');applyEntryTypography(article,item);
     article.append(node('span','overline',String(index).padStart(2,'0')+' / RESEARCH'));
     article.append(node('h2','',text(item.title)));
     if (text(item.subtitle))article.append(node('p','research-detail-subtitle',item.subtitle));
@@ -338,7 +409,7 @@
     for (const section of (Array.isArray(item.detailSections)?item.detailSections:[])) {
       if (!isObject(section))continue;
       if (![section.heading,section.body,section.image].some(x=>text(x)))continue;
-      const block=node('section','research-detail-block');
+      const block=node('section','research-detail-block');applyEntryTypography(block,section);
       if (text(section.heading)||text(section.body)) {
         const copy=node('div','research-detail-copy');
         if (text(section.heading))copy.append(node('h3','',section.heading));
@@ -378,13 +449,13 @@
       const caption=node('div','equipment-copy');
       caption.append(node('h2','',text(item.name,'Equipment')));
       if (text(item.model)) caption.append(node('p','equipment-model',item.model));
-      card.append(photo,caption); return card;
+      card.append(photo,caption); return applyEntryTypography(card,item);
     }));
   }
   async function hydrateResearchMenu() {
     const entries=await getJSON('research');
     $$('#research-submenu a[data-topic]').forEach((link,i)=>{
-      if(entries[i])link.textContent=String(i+1).padStart(2,'0')+' · '+text(entries[i].title);
+      if(entries[i])link.textContent=text(entries[i].title);
       else link.hidden=true;
     });
   }
@@ -419,7 +490,7 @@
       a.append(node('span', '', String(index+1).padStart(2,'0')), document.createTextNode(text(item.title))); return a;
     }));
     target.replaceChildren(...entries.map((item, index) => {
-      const card = node('article', 'research-feature'); card.id = 'research-' + (index + 1);
+      const card = node('article', 'research-feature');applyEntryTypography(card,item); card.id = 'research-' + (index + 1);
       const preview = node('div', 'research-feature-preview');
       const visual = node('div', 'research-visual');
       setImage(visual, item.image, text(item.imageAlt, item.title), () => conceptImage('study-' + (index % 4 + 1) + '-color.svg'), {concept: true});
@@ -485,7 +556,7 @@
     if (!entries.length) { target.replaceChildren(emptyNote('', '정보를 업데이트하고 있습니다.')); return; }
     target.replaceChildren(...entries.map(item => {
       const row = node('div', 'history-row');
-      row.append(node('span', 'history-date', item[dateKey]), node('p', 'history-description', item[valueKey])); return row;
+      row.append(node('span', 'history-date', item[dateKey]), node('p', 'history-description', item[valueKey])); return applyEntryTypography(row,item);
     }));
   }
   async function renderStudents() {
@@ -509,7 +580,7 @@
           const a = node(safeEmail(person.email) ? 'a' : 'span', 'student-email', person.email);
           if (safeEmail(person.email)) a.href = safeEmail(person.email); info.append(a);
         }
-        card.append(photo, info); return card;
+        card.append(photo, info); return applyEntryTypography(card,person);
       }));
     }
   }
@@ -529,7 +600,7 @@
         } else dd.textContent = text(person[key]);
         dl.append(dt, dd);
       }
-      if (dl.children.length) card.append(dl); return card;
+      if (dl.children.length) card.append(dl); return applyEntryTypography(card,person);
     }));
   }
 
@@ -583,7 +654,7 @@
             const link = node('a', 'pub-link', 'DOI'); link.href = href; link.target = '_blank'; link.rel = 'noopener noreferrer';
             link.setAttribute('aria-label', text(entry.title) + ' DOI 원문 — 새 창'); link.append(arrow()); article.append(link);
           }
-          items.append(article);
+          items.append(applyEntryTypography(article,entry));
         }); section.append(head, items); return section;
       }));
     };
@@ -612,7 +683,7 @@
         const card=node('article','home-news-card'), meta=node('div','news-meta');
         card.dataset.storyTone=newsTone(item.category);
         meta.append(timeNode(item.date), node('span','news-category',item.category));
-        card.append(meta,node('h3','',item.title),node('p','',item.description));
+        card.append(meta,node('h3','',item.title),node('p','',item.description));applyEntryTypography(card,item);
         const link=node('a','inline-link','Read the story');link.href='news.html#'+item._id;
         link.setAttribute('aria-label',text(item.title)+' — 소식 보기');link.append(arrow());card.append(link);return card;
       }));return;
@@ -632,7 +703,7 @@
         const button=node('button','news-expand-toggle');button.type='button';
         button.setAttribute('aria-controls','details-'+item._id);button.setAttribute('aria-expanded','false');
         button.setAttribute('aria-label',text(item.title)+' 상세 내용 펼치기');
-        button.append(node('span','','Expand'),node('span','news-expand-icon','+'));
+        button.append(node('span','news-chevron')); 
         const detail=node('div','news-expanded');detail.id='details-'+item._id;detail.hidden=true;
         if (text(item.detailBody)) detail.append(node('p','news-detail-body',item.detailBody));
         if (normalPath(item.detailImage)) {
@@ -645,11 +716,10 @@
         if (!detail.childNodes.length)detail.append(node('p','news-detail-empty','추가 상세 내용을 준비 중입니다.'));
         const setExpanded=open=>{
           detail.hidden=!open;button.setAttribute('aria-expanded',String(open));
-          button.querySelector('span').textContent=open?'Collapse':'Expand';
-          button.querySelector('.news-expand-icon').textContent=open?'−':'+';
+          button.setAttribute('aria-label',text(item.title)+(open?' 상세 내용 접기':' 상세 내용 펼치기'));
         };
         button.addEventListener('click',()=>setExpanded(detail.hidden));
-        content.append(button,detail);row.append(date,content);
+        content.append(button,detail);row.append(date,content);applyEntryTypography(row,item);
         if(location.hash==='#'+item._id)setExpanded(true);
         return row;
       }));
@@ -718,41 +788,49 @@
       button.addEventListener('click', () => show(index));
       const caption = node('figcaption'); caption.append(node('strong', '', photo.title), node('span', '', photo.date));
       card.append(button, caption);
-      if (text(photo.description)) card.append(node('p', 'gallery-description', photo.description)); return card;
+      if (text(photo.description)) card.append(node('p', 'gallery-description', photo.description)); return applyEntryTypography(card,photo);
     }));
   }
 
   function initSubmenus() {
-    const groups=$$('.nav-group');
+    const groups=$$('.nav-group.has-submenu');
     const close=()=>groups.forEach(group=>{
       group.classList.remove('submenu-open');
-      const anchor=$('.nav-parent > a',group);
-      if(anchor && group.dataset.group==='research')anchor.setAttribute('aria-expanded','false');
+      const button=$('.submenu-touch-toggle',group);
+      if(button) button.setAttribute('aria-expanded','false');
     });
-    const research=$('.nav-group[data-group="research"]');
-    const researchAnchor=research && $('.nav-parent > a',research);
-    if(researchAnchor){
-      researchAnchor.setAttribute('aria-haspopup','true');
-      researchAnchor.setAttribute('aria-controls','research-submenu');
-      researchAnchor.setAttribute('aria-expanded','false');
-      researchAnchor.addEventListener('click', event=>{
-        event.preventDefault();event.stopPropagation();
-        const opening=!research.classList.contains('submenu-open');
-        close();research.classList.toggle('submenu-open',opening);
-        researchAnchor.setAttribute('aria-expanded',String(opening));
+    for(const group of groups) {
+      const name=group.dataset.group;
+      const parent=$('.nav-parent',group),anchor=$('.nav-parent > a',group);
+      if(!parent||!anchor)continue;
+      // A true link: Research -> overview, People -> Professor on click.
+      // A separate button permits keyboard/touch access to submenus on small screens.
+      const button=node('button','submenu-touch-toggle','⌄');button.type='button';
+      button.setAttribute('aria-label',name==='research'?'연구 분야 하위 메뉴 열기':'구성원 하위 메뉴 열기');
+      button.setAttribute('aria-controls',name+'-submenu');
+      button.setAttribute('aria-expanded','false');parent.append(button);
+      button.addEventListener('click',event=>{
+        event.stopPropagation();const state=!group.classList.contains('submenu-open');
+        close();group.classList.toggle('submenu-open',state);
+        button.setAttribute('aria-expanded',String(state));
       });
-      researchAnchor.addEventListener('keydown',event=>{
+      anchor.addEventListener('keydown',event=>{
         if(event.key==='ArrowDown'){
-          event.preventDefault();research.classList.add('submenu-open');researchAnchor.setAttribute('aria-expanded','true');
-          $('#research-submenu a')?.focus();
+          event.preventDefault();group.classList.add('submenu-open');
+          button.setAttribute('aria-expanded','true');
+          $('.submenu-panel a',group)?.focus();
         }
       });
+      group.addEventListener('mouseleave',()=>{
+        if(window.matchMedia('(hover:hover) and (min-width:1051px)').matches) group.classList.remove('submenu-open');
+      });
     }
-    document.addEventListener('click', event=>{if(!event.target.closest('.nav-group'))close();});
+    document.addEventListener('click',event=>{if(!event.target.closest('.nav-group'))close();});
     document.addEventListener('keydown',event=>{
-      if(event.key!=='Escape')return;
-      const wasOpen=research?.classList.contains('submenu-open');
-      close();if(wasOpen)researchAnchor?.focus();
+      if(event.key==='Escape'){
+        const focus=$('.nav-group.submenu-open .submenu-touch-toggle');close();
+        if(focus)focus.focus();
+      }
     });
   }
   function initMenu() {
@@ -766,7 +844,7 @@
       if (event.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') { setOpen(false); button.focus(); }
     });
     document.addEventListener('click', event => { if (!event.target.closest('.site-header')) setOpen(false); });
-    menu.addEventListener('click', event => { if (event.target.closest('a') && !event.target.closest('[data-group=research] > .nav-parent')) setOpen(false); });
+    menu.addEventListener('click', event => { if (event.target.closest('a')) setOpen(false); });
     window.matchMedia('(min-width: 1051px)').addEventListener('change', event => { if (event.matches) setOpen(false); });
   }
   initMenu();initSubmenus(); setText('#copyright-year', new Date().getFullYear());
@@ -774,6 +852,8 @@
   jobs.push(run(null, () => applyProfessor(page)));
   jobs.push(run(null, applyContactConfig));
   jobs.push(run(null, hydrateResearchMenu));
+  jobs.push(run(null, applyTypography));
+  jobs.push(run(null, () => applyPageCopy(page)));
   if (page === 'home') jobs.push(run(null, applyHome), run('#home-news-list', () => renderNews(page)));
   if (page === 'research') jobs.push(run('#research-overview', renderResearchOverview));
   if (page === 'research-detail') jobs.push(run('#research-detail-content', renderResearchDetail));

@@ -1030,3 +1030,152 @@ body, button, input { font-family: var(--sans); }
 }
 @media (max-width:430px) { .equipment-grid{grid-template-columns:1fr;} .equipment-photo{height:220px;} }
 @media (prefers-reduced-motion:reduce) { .hero-slide-edge,.nav-group .submenu-panel{transition:none!important;} }
+
+
+/* ============================================================
+   ACSoL v10 — consistent hover menus, crisp single-line headings,
+   card-based contacts, accessible micro-interactions, CMS typography
+   ============================================================ */
+:root { --cms-global-font: "Pretendard Variable", "Pretendard", sans-serif;
+ --cms-heading-font: "Pretendard Variable", "Pretendard", sans-serif;
+ --cms-nav-size: 15px; --cms-brand-size: 13px; --cms-footer-size: 14px; --cms-caption-size:13px; }
+body { font-family: var(--cms-page-font,var(--cms-global-font,var(--sans))); font-size:var(--cms-page-body-size,16px); }
+/* Navigation: all top-level names are links; hovering/focusing reveals submenus. */
+.nav > a, .nav-parent > a {font-size: var(--cms-nav-size);}
+.brand-description,.brand-ko {font-size:var(--cms-brand-size) !important;}
+.nav-group[data-group="research"] .submenu-panel a.submenu-overview {display:none!important;}
+.nav-group .submenu-panel a::after{display:none!important;}
+.nav-group .submenu-panel a {font-size:14px;line-height:1.35;font-weight:570;}
+.submenu-touch-toggle { display:none; }
+@media(min-width:1051px) and (hover:hover) {
+ .nav-group[data-group="research"]:hover:not(.submenu-open) .submenu-panel,
+ .nav-group[data-group="research"]:focus-within:not(.submenu-open) .submenu-panel,
+ .nav-group[data-group="people"]:hover .submenu-panel,
+ .nav-group[data-group="people"]:focus-within .submenu-panel,
+ .nav-group.submenu-open .submenu-panel {
+    display:flex;flex-direction:column;visibility:visible;opacity:1;pointer-events:auto;transform:translateY(0);
+ }
+ .nav-group[data-group="research"]:not(:hover):not(:focus-within):not(.submenu-open) .submenu-panel,
+ .nav-group[data-group="people"]:not(:hover):not(:focus-within):not(.submenu-open) .submenu-panel {
+    visibility:hidden;opacity:0;pointer-events:none;transform:translateY(-6px);
+ }
+}
+@media(max-width:1050px) {
+ .nav-group[data-group="research"] .submenu-panel,.nav-group[data-group="people"] .submenu-panel,
+ .nav-group[data-group="research"]:hover:not(.submenu-open) .submenu-panel,
+ .nav-group[data-group="people"]:not(:hover):not(:focus-within) .submenu-panel,
+ .nav-group[data-group="research"]:focus-within:not(.submenu-open) .submenu-panel {
+    display:none;position:static;visibility:visible;opacity:1;pointer-events:auto;
+    transform:none;box-shadow:none;border:0;border-radius:7px;background:#eef3fa;padding:7px;width:100%;max-width:none;
+ }
+ .nav-group[data-group="research"].submenu-open .submenu-panel,
+ .nav-group[data-group="people"].submenu-open .submenu-panel {display:flex;}
+ .submenu-touch-toggle {display:grid;place-items:center;border:0;background:transparent;font-size:21px;
+    min-height:44px;min-width:45px;color:var(--accent);}
+ .submenu-touch-toggle[aria-expanded="true"] {transform:rotate(180deg);}
+ .nav-parent > a {flex:1;font-size:17px;}
+ .nav-group .submenu-panel a {font-size:15px;}
+}
+/* Page heroes: no line break between text and italic accent on desktop. */
+.page-intro {padding-top:22px;padding-bottom:35px;}
+.page-intro-grid {display:grid;grid-template-columns:minmax(0,1fr) minmax(190px,310px);gap:24px;align-items:center;margin-top:28px;}
+.page-intro h1 {font-family:var(--cms-page-heading-font,var(--cms-heading-font,var(--sans)));
+ font-size:var(--cms-page-title-size,clamp(38px,4.5vw,67px));line-height:1.15;white-space:nowrap;
+ letter-spacing:-.055em;min-width:0;}
+.page-intro h1 .page-title-lead {display:inline;white-space:inherit;}
+.page-intro h1 em {display:inline;white-space:inherit;font-size:1em;font-family:inherit;font-style:italic;}
+.page-intro-grid > p {font-size:var(--cms-page-body-size,16px);line-height:1.55;padding:0;}
+.page-intro .overline {font-size:var(--cms-page-label-size,var(--cms-caption-size));}
+@media(max-width:1160px) {.page-intro-grid{grid-template-columns:1fr;gap:10px}.page-intro h1{font-size:var(--cms-page-title-size,clamp(34px,5vw,57px));}}
+@media(max-width:550px) {.page-intro{padding-top:12px;padding-bottom:23px}.page-intro-grid{margin-top:13px}
+ .page-intro h1{font-size:var(--cms-page-title-size,clamp(26px,6.9vw,38px));white-space:normal;}
+ .page-intro-grid > p{font-size:var(--cms-page-body-size,15px);}}
+/* Editorial links, no boxed call to action. */
+.round-link.compact-action {display:inline-flex;align-items:center;gap:9px;border:0;border-radius:0;min-height:38px;
+ padding:0;background:none!important;color:var(--ink);font-size:var(--cms-page-body-size,15px);font-weight:650;
+ box-shadow:none;transition:color .2s ease;}
+.round-link.compact-action > span:last-child {border-bottom:1px solid currentColor;padding-block:3px;}
+.round-link.compact-action .circle-arrow {order:2;display:grid;place-items:center;width:23px;height:23px;flex:0 0 23px;
+ background:none!important;border:0;border-radius:0;color:var(--accent)!important;transform:none!important;}
+.round-link.compact-action .circle-arrow svg {width:18px;height:18px;transition:transform .2s ease;}
+.round-link.compact-action:hover {color:var(--accent);}
+.round-link.compact-action:hover .circle-arrow svg {transform:translate(4px,-1px);}
+/* News Chevron: text free; intuitive icon rotates when open. */
+.news-content {padding-right:46px;}
+.news-expand-toggle {position:absolute;right:0;top:8px;display:grid;place-items:center;min-width:34px;width:34px;height:34px;
+ padding:0!important;border:0!important;border-radius:50%;background:transparent!important;color:var(--accent);
+ box-shadow:none;}
+.news-chevron {display:block;width:10px;height:10px;border-bottom:1.8px solid currentColor;
+ border-right:1.8px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .16s ease;}
+.news-expand-toggle[aria-expanded="true"] .news-chevron {transform:rotate(225deg) translateY(-1px);}
+.news-expand-toggle:hover {color:var(--accent-hover);}
+@media(max-width:760px) { .news-content {padding-right:36px;}.news-expand-toggle {position:absolute;right:0;top:0;margin:0;} }
+/* Contact: compact business-card panel rather than huge white empty areas. */
+.contact-grid.contact-card-layout {display:grid;grid-template-columns:minmax(255px,.8fr) minmax(0,1.65fr);
+ gap:18px;border-top:0;padding-top:18px;padding-bottom:40px;align-items:start;}
+.contact-business-head {border:1px solid #d4e1ef;border-radius:12px;background:linear-gradient(145deg,#eaf2ff,#f6fafb);
+ padding:29px 30px;min-height:260px;}
+.contact-business-head h2 {font-family:var(--cms-page-heading-font,var(--cms-heading-font));
+ font-size:var(--cms-page-section-size,clamp(26px,2.5vw,38px));line-height:1.3;margin-top:15px;letter-spacing:-.045em;}
+.contact-business-head h2 em {display:block;font-family:inherit;font-size:.94em;font-style:italic;}
+.contact-business-head > p {font-size:var(--cms-page-body-size,16px);margin-top:15px;line-height:1.55;}
+.contact-business-head .round-link {margin-top:19px;}
+.contact-business-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;}
+.contact-business-grid .contact-detail {grid-column:auto;border:1px solid #dce4ee;border-radius:10px;background:#fff;
+ min-width:0;min-height:98px;padding:16px 19px;}
+.contact-business-grid .contact-detail:first-child,.contact-business-grid .contact-detail.wide {grid-column:span 2;}
+.contact-business-grid .contact-detail h3 {font-size:var(--cms-page-label-size,12px);letter-spacing:.045em;font-weight:650;margin:0 0 8px;}
+.contact-business-grid .contact-detail > p,.contact-business-grid .contact-detail > a,
+.contact-business-grid .contact-email-row a {font-size:var(--cms-page-body-size,16px);line-height:1.55;}
+.contact-business-grid .contact-detail .copy-button {font-size:12px;}
+.contact-business-grid .contact-map-links {margin-top:9px;gap:17px;}
+.contact-business-grid .contact-detail a {overflow-wrap:anywhere;}
+@media(max-width:920px){.contact-grid.contact-card-layout{grid-template-columns:1fr;gap:12px;}
+.contact-business-head{min-height:0}.contact-business-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:570px){.contact-business-head{padding:23px 21px}.contact-business-grid{grid-template-columns:1fr;}
+.contact-business-grid .contact-detail:first-child,.contact-business-grid .contact-detail.wide{grid-column:auto;}
+.contact-business-grid .contact-detail{min-height:0;padding:15px 17px;}}
+/* Comfortable font sizes on faculty, captions, cards, footer. */
+.overline,.news-meta,.professor-summary>.overline,.professor-contact dt,.history-section .overline,
+.student-field-label,.publication-count,.pub-date,.cohort {font-size:var(--cms-page-label-size,var(--cms-caption-size));}
+.professor-affiliation {font-size:var(--cms-page-body-size,16px);line-height:1.7;}
+.professor-contact {font-size:var(--cms-page-body-size,15px);line-height:1.5;}
+.professor-bio {font-size:var(--cms-page-body-size,15px);}
+.professor-name-row>span {font-size:var(--cms-page-body-size,16px);}
+.footer-info>.overline {font-size:var(--cms-caption-size);}
+.footer-info>a,.footer-info>span:not(.overline),.footer-info>strong {font-size:var(--cms-footer-size);}
+.footer-identity p,.footer-identity>span {font-size:var(--cms-caption-size);}
+.footer-bottom {font-size:12px;}
+.news-item h2,.publication h3,.equipment-copy h2,.research-overview-copy h2,.gallery-card strong,
+.student-title h3,.alumni-card h3,.history-section h3 {font-family:var(--cms-page-heading-font,var(--cms-heading-font,var(--sans)));}
+.research-detail-article>h2,.section-head h2,.subsection-head h2,.professor-name-row h3 {
+ font-family:var(--cms-page-heading-font,var(--cms-heading-font,var(--sans)));}
+.section-head h2,.subsection-head h2 {font-size:var(--cms-page-section-size,clamp(29px,3vw,45px));}
+.page-content :is(.research-overview-copy p,.research-detail-lead,.research-detail-intro,.research-detail-block p,
+ .news-summary,.news-detail-body,.pub-authors,.student-department,.research-field,.alumni-details dd,
+ .equipment-model,.gallery-description,.history-description,.professor-affiliation p) {
+ font-family:var(--cms-page-font,var(--cms-global-font));
+ font-size:var(--cms-page-body-size,16px);line-height:1.7;}
+/* Scoped item-specific typography (Pages CMS field "Typography"). */
+.cms-styled-entry {font-family:var(--cms-item-body-font,inherit);}
+.cms-styled-entry :is(h2,h3,h4) {font-family:var(--cms-item-heading-font,inherit);}
+.cms-styled-entry.cms-item-body-sized :is(p,dd,dt,.news-summary,.pub-authors,.equipment-model,.student-department,
+ .research-field,.gallery-description,.history-description) {font-size:var(--cms-item-body-size)!important;}
+.cms-styled-entry.cms-item-title-sized :is(h2,h3,h4) {font-size:var(--cms-item-heading-size)!important;}
+/* Larger normal-size text in the footer and other summary components. */
+.footer-info a,.footer-info strong {line-height:1.6;}
+/* Hover reliability: take precedence over the older click-only v9 rules. */
+@media (hover:hover) and (min-width:1051px) {
+  .site-header .nav-group[data-group="research"]:hover > .submenu-panel,
+  .site-header .nav-group[data-group="research"]:focus-within > .submenu-panel,
+  .site-header .nav-group[data-group="people"]:hover > .submenu-panel,
+  .site-header .nav-group[data-group="people"]:focus-within > .submenu-panel {
+    display:flex!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;
+    transform:translateY(0)!important;
+  }
+  .site-header .nav-group[data-group="research"]:not(:hover):not(:focus-within) > .submenu-panel,
+  .site-header .nav-group[data-group="people"]:not(:hover):not(:focus-within) > .submenu-panel {
+    opacity:0!important;visibility:hidden!important;pointer-events:none!important;
+  }
+  .site-header .nav-group.has-submenu > .submenu-panel {top:100%;}
+}

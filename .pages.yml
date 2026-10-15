@@ -1,4 +1,4 @@
-# ACSoL v9: Home slider, People subpages, Equipment, Contact CMS
+# ACSoL v10 — Page-oriented CMS and safe typography controls
 media:
   input: media
   output: /media
@@ -29,6 +29,220 @@ content:
     type: text
   - name: slideIntervalSeconds
     label: 메인 사진 자동 전환 간격 (초, 2~60초)
+    type: number
+  - name: eyebrow
+    label: 메인 상단 작은 문구
+    type: string
+  - name: actionLabel
+    label: Explore our research 버튼 문구
+    type: string
+  - name: summaryLabel
+    label: 연구실 소개 라벨
+    type: string
+  - name: headingFont
+    label: 이 페이지 큰 제목 글꼴
+    type: select
+    options: &id001
+      values:
+      - name: inherit
+        label: 기본 / 공통 설정 상속
+      - name: pretendard
+        label: Pretendard
+      - name: noto
+        label: Noto Sans KR
+      - name: nanum
+        label: Nanum Gothic
+      - name: serif
+        label: Noto Serif KR
+      - name: system
+        label: 기본 시스템 글꼴
+  - name: headingSize
+    label: 이 페이지 큰 제목 글자 크기(px, 0=기본 / 권장 36~92)
+    type: number
+  - name: bodyFont
+    label: 이 페이지 일반 텍스트 글꼴
+    type: select
+    options: *id001
+  - name: bodySize
+    label: 이 페이지 본문 크기(px, 0=기본 / 권장 14~20)
+    type: number
+  - name: labelSize
+    label: 이 페이지 작은 라벨·캡션 크기(px, 0=기본)
+    type: number
+  - name: sectionHeadingSize
+    label: 이 페이지 섹션 제목 크기(px, 0=기본)
+    type: number
+- name: page_research
+  label: Research / 페이지 문구 · 글꼴 · 크기
+  type: file
+  path: data/page-research.json
+  format: json
+  fields:
+  - name: eyebrow
+    label: 페이지 상단 작은 문구
+    type: string
+  - name: titleLead
+    label: 페이지 큰 제목 · 앞 문구
+    type: string
+  - name: titleAccent
+    label: 페이지 큰 제목 · 강조 문구
+    type: string
+  - name: subtitle
+    label: 페이지 소개 문구
+    type: text
+  - name: headingFont
+    label: 이 페이지 큰 제목 글꼴
+    type: select
+    options: *id001
+  - name: headingSize
+    label: 이 페이지 큰 제목 글자 크기(px, 0=기본 / 권장 36~92)
+    type: number
+  - name: bodyFont
+    label: 이 페이지 일반 텍스트 글꼴
+    type: select
+    options: *id001
+  - name: bodySize
+    label: 이 페이지 본문 크기(px, 0=기본 / 권장 14~20)
+    type: number
+  - name: labelSize
+    label: 이 페이지 작은 라벨·캡션 크기(px, 0=기본)
+    type: number
+  - name: sectionHeadingSize
+    label: 이 페이지 섹션 제목 크기(px, 0=기본)
+    type: number
+- name: research
+  label: Research / 연구 분야 · 펼침 상세 내용
+  type: file
+  path: data/research.json
+  format: json
+  list: true
+  fields:
+  - name: title
+    label: 연구 분야 제목
+    type: string
+    required: true
+  - name: subtitle
+    label: 영문 소제목
+    type: string
+  - name: description
+    label: 연구 분야 상세 설명
+    type: text
+  - name: keywords
+    label: 관련 키워드
+    type: text
+  - name: image
+    label: 연구 분야 사진 업로드
+    type: image
+  - name: imageAlt
+    label: 사진 설명 (접근성)
+    type: string
+  - name: detailIntro
+    label: 펼쳤을 때 나오는 상세 도입 설명
+    type: text
+  - name: detailSections
+    label: 추가 상세 내용 (글·사진 여러 개)
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{heading} (블록 {index})'
+    fields:
+    - name: heading
+      label: 상세 항목 제목 (선택)
+      type: string
+    - name: body
+      label: 상세 글 (줄바꿈 가능)
+      type: text
+    - name: image
+      label: 상세 이미지 (선택)
+      type: image
+    - name: imageAlt
+      label: 이미지 대체 설명 (선택)
+      type: string
+    - name: imageCaption
+      label: 이미지 아래 캡션 (선택)
+      type: string
+    - name: typography
+      label: 이 상세 단락만의 글꼴 · 크기 (선택)
+      type: object
+      fields: &id002
+      - name: bodyFont
+        label: 본문 글꼴 (선택)
+        type: select
+        options:
+          values:
+          - name: inherit
+            label: 페이지 기본
+          - name: pretendard
+            label: Pretendard
+          - name: noto
+            label: Noto Sans KR
+          - name: nanum
+            label: Nanum Gothic
+          - name: serif
+            label: Noto Serif KR
+      - name: bodySize
+        label: 본문 크기(px, 0=페이지 기본)
+        type: number
+      - name: titleFont
+        label: 제목 글꼴 (선택)
+        type: select
+        options:
+          values:
+          - name: inherit
+            label: 페이지 기본
+          - name: pretendard
+            label: Pretendard
+          - name: noto
+            label: Noto Sans KR
+          - name: nanum
+            label: Nanum Gothic
+          - name: serif
+            label: Noto Serif KR
+      - name: titleSize
+        label: 제목 크기(px, 0=페이지 기본)
+        type: number
+  - name: typography
+    label: 이 항목만의 글꼴 · 글자 크기 (선택)
+    type: object
+    fields: *id002
+- name: page_professor
+  label: People / Professor / 페이지 문구 · 글꼴 · 크기
+  type: file
+  path: data/page-professor.json
+  format: json
+  fields:
+  - name: eyebrow
+    label: 페이지 상단 작은 문구
+    type: string
+  - name: titleLead
+    label: 페이지 큰 제목 · 앞 문구
+    type: string
+  - name: titleAccent
+    label: 페이지 큰 제목 · 강조 문구
+    type: string
+  - name: subtitle
+    label: 페이지 소개 문구
+    type: text
+  - name: headingFont
+    label: 이 페이지 큰 제목 글꼴
+    type: select
+    options: *id001
+  - name: headingSize
+    label: 이 페이지 큰 제목 글자 크기(px, 0=기본 / 권장 36~92)
+    type: number
+  - name: bodyFont
+    label: 이 페이지 일반 텍스트 글꼴
+    type: select
+    options: *id001
+  - name: bodySize
+    label: 이 페이지 본문 크기(px, 0=기본 / 권장 14~20)
+    type: number
+  - name: labelSize
+    label: 이 페이지 작은 라벨·캡션 크기(px, 0=기본)
+    type: number
+  - name: sectionHeadingSize
+    label: 이 페이지 섹션 제목 크기(px, 0=기본)
     type: number
 - name: professor
   label: People / 교수님 프로필
@@ -105,6 +319,10 @@ content:
     label: 직책 / 경력 내용
     type: text
     required: true
+  - name: typography
+    label: 이 항목만의 글꼴 · 글자 크기 (선택)
+    type: object
+    fields: *id002
 - name: professor_awards
   label: People / 교수님 수상 경력
   type: file
@@ -120,58 +338,48 @@ content:
     label: 수상명
     type: text
     required: true
-- name: research
-  label: Research / 연구 분야 · 펼침 상세 내용
-  type: file
-  path: data/research.json
-  format: json
-  list: true
-  fields:
-  - name: title
-    label: 연구 분야 제목
-    type: string
-    required: true
-  - name: subtitle
-    label: 영문 소제목
-    type: string
-  - name: description
-    label: 연구 분야 상세 설명
-    type: text
-  - name: keywords
-    label: 관련 키워드
-    type: text
-  - name: image
-    label: 연구 분야 사진 업로드
-    type: image
-  - name: imageAlt
-    label: 사진 설명 (접근성)
-    type: string
-  - name: detailIntro
-    label: 펼쳤을 때 나오는 상세 도입 설명
-    type: text
-  - name: detailSections
-    label: 추가 상세 내용 (글·사진 여러 개)
+  - name: typography
+    label: 이 항목만의 글꼴 · 글자 크기 (선택)
     type: object
-    list:
-      collapsible:
-        collapsed: true
-        summary: '{heading} (블록 {index})'
-    fields:
-    - name: heading
-      label: 상세 항목 제목 (선택)
-      type: string
-    - name: body
-      label: 상세 글 (줄바꿈 가능)
-      type: text
-    - name: image
-      label: 상세 이미지 (선택)
-      type: image
-    - name: imageAlt
-      label: 이미지 대체 설명 (선택)
-      type: string
-    - name: imageCaption
-      label: 이미지 아래 캡션 (선택)
-      type: string
+    fields: *id002
+- name: page_students
+  label: People / Students / 페이지 문구 · 글꼴 · 크기
+  type: file
+  path: data/page-students.json
+  format: json
+  fields:
+  - name: eyebrow
+    label: 페이지 상단 작은 문구
+    type: string
+  - name: titleLead
+    label: 페이지 큰 제목 · 앞 문구
+    type: string
+  - name: titleAccent
+    label: 페이지 큰 제목 · 강조 문구
+    type: string
+  - name: subtitle
+    label: 페이지 소개 문구
+    type: text
+  - name: headingFont
+    label: 이 페이지 큰 제목 글꼴
+    type: select
+    options: *id001
+  - name: headingSize
+    label: 이 페이지 큰 제목 글자 크기(px, 0=기본 / 권장 36~92)
+    type: number
+  - name: bodyFont
+    label: 이 페이지 일반 텍스트 글꼴
+    type: select
+    options: *id001
+  - name: bodySize
+    label: 이 페이지 본문 크기(px, 0=기본 / 권장 14~20)
+    type: number
+  - name: labelSize
+    label: 이 페이지 작은 라벨·캡션 크기(px, 0=기본)
+    type: number
+  - name: sectionHeadingSize
+    label: 이 페이지 섹션 제목 크기(px, 0=기본)
+    type: number
 - name: students
   label: People / 박사·석사 재학생
   type: file
@@ -208,6 +416,48 @@ content:
   - name: photo
     label: 학생 사진 업로드
     type: image
+  - name: typography
+    label: 이 항목만의 글꼴 · 글자 크기 (선택)
+    type: object
+    fields: *id002
+- name: page_alumni
+  label: People / Alumni / 페이지 문구 · 글꼴 · 크기
+  type: file
+  path: data/page-alumni.json
+  format: json
+  fields:
+  - name: eyebrow
+    label: 페이지 상단 작은 문구
+    type: string
+  - name: titleLead
+    label: 페이지 큰 제목 · 앞 문구
+    type: string
+  - name: titleAccent
+    label: 페이지 큰 제목 · 강조 문구
+    type: string
+  - name: subtitle
+    label: 페이지 소개 문구
+    type: text
+  - name: headingFont
+    label: 이 페이지 큰 제목 글꼴
+    type: select
+    options: *id001
+  - name: headingSize
+    label: 이 페이지 큰 제목 글자 크기(px, 0=기본 / 권장 36~92)
+    type: number
+  - name: bodyFont
+    label: 이 페이지 일반 텍스트 글꼴
+    type: select
+    options: *id001
+  - name: bodySize
+    label: 이 페이지 본문 크기(px, 0=기본 / 권장 14~20)
+    type: number
+  - name: labelSize
+    label: 이 페이지 작은 라벨·캡션 크기(px, 0=기본)
+    type: number
+  - name: sectionHeadingSize
+    label: 이 페이지 섹션 제목 크기(px, 0=기본)
+    type: number
 - name: alumni
   label: People / Alumni 졸업생
   type: file
@@ -234,6 +484,179 @@ content:
   - name: email
     label: 이메일 (선택사항)
     type: string
+  - name: typography
+    label: 이 항목만의 글꼴 · 글자 크기 (선택)
+    type: object
+    fields: *id002
+- name: page_publications
+  label: Publications / 페이지 문구 · 글꼴 · 크기
+  type: file
+  path: data/page-publications.json
+  format: json
+  fields:
+  - name: eyebrow
+    label: 페이지 상단 작은 문구
+    type: string
+  - name: titleLead
+    label: 페이지 큰 제목 · 앞 문구
+    type: string
+  - name: titleAccent
+    label: 페이지 큰 제목 · 강조 문구
+    type: string
+  - name: subtitle
+    label: 페이지 소개 문구
+    type: text
+  - name: headingFont
+    label: 이 페이지 큰 제목 글꼴
+    type: select
+    options: *id001
+  - name: headingSize
+    label: 이 페이지 큰 제목 글자 크기(px, 0=기본 / 권장 36~92)
+    type: number
+  - name: bodyFont
+    label: 이 페이지 일반 텍스트 글꼴
+    type: select
+    options: *id001
+  - name: bodySize
+    label: 이 페이지 본문 크기(px, 0=기본 / 권장 14~20)
+    type: number
+  - name: labelSize
+    label: 이 페이지 작은 라벨·캡션 크기(px, 0=기본)
+    type: number
+  - name: sectionHeadingSize
+    label: 이 페이지 섹션 제목 크기(px, 0=기본)
+    type: number
+- name: publications
+  label: Publications / 출판 날짜 · 논문
+  type: file
+  path: data/publications.json
+  format: json
+  list: true
+  fields:
+  - name: publishedDate
+    label: 정확한 출판일 (YYYY-MM-DD, 날짜 기준 자동 정렬)
+    type: date
+    default: ''
+    options:
+      format: yyyy-MM-dd
+  - name: year
+    label: 기존 연도 (날짜를 모르는 기존 논문용, 날짜 입력 시 자동 무시)
+    type: number
+  - name: journal
+    label: 학술지
+    type: string
+    required: true
+  - name: title
+    label: 논문 제목
+    type: string
+    required: true
+  - name: authors
+    label: 저자 또는 소개
+    type: text
+  - name: doi
+    label: DOI (https://doi.org/ 제외)
+    type: string
+  - name: typography
+    label: 이 항목만의 글꼴 · 글자 크기 (선택)
+    type: object
+    fields: *id002
+- name: page_equipment
+  label: Equipment / 페이지 문구 · 글꼴 · 크기
+  type: file
+  path: data/page-equipment.json
+  format: json
+  fields:
+  - name: eyebrow
+    label: 페이지 상단 작은 문구
+    type: string
+  - name: titleLead
+    label: 페이지 큰 제목 · 앞 문구
+    type: string
+  - name: titleAccent
+    label: 페이지 큰 제목 · 강조 문구
+    type: string
+  - name: subtitle
+    label: 페이지 소개 문구
+    type: text
+  - name: headingFont
+    label: 이 페이지 큰 제목 글꼴
+    type: select
+    options: *id001
+  - name: headingSize
+    label: 이 페이지 큰 제목 글자 크기(px, 0=기본 / 권장 36~92)
+    type: number
+  - name: bodyFont
+    label: 이 페이지 일반 텍스트 글꼴
+    type: select
+    options: *id001
+  - name: bodySize
+    label: 이 페이지 본문 크기(px, 0=기본 / 권장 14~20)
+    type: number
+  - name: labelSize
+    label: 이 페이지 작은 라벨·캡션 크기(px, 0=기본)
+    type: number
+  - name: sectionHeadingSize
+    label: 이 페이지 섹션 제목 크기(px, 0=기본)
+    type: number
+- name: equipment
+  label: Equipment / 연구실 장비
+  type: file
+  path: data/equipment.json
+  format: json
+  list: true
+  fields:
+  - name: name
+    label: 장비 이름
+    type: string
+    required: true
+  - name: model
+    label: 모델명
+    type: string
+  - name: photo
+    label: 장비 사진
+    type: image
+  - name: typography
+    label: 이 항목만의 글꼴 · 글자 크기 (선택)
+    type: object
+    fields: *id002
+- name: page_news
+  label: News / 페이지 문구 · 글꼴 · 크기
+  type: file
+  path: data/page-news.json
+  format: json
+  fields:
+  - name: eyebrow
+    label: 페이지 상단 작은 문구
+    type: string
+  - name: titleLead
+    label: 페이지 큰 제목 · 앞 문구
+    type: string
+  - name: titleAccent
+    label: 페이지 큰 제목 · 강조 문구
+    type: string
+  - name: subtitle
+    label: 페이지 소개 문구
+    type: text
+  - name: headingFont
+    label: 이 페이지 큰 제목 글꼴
+    type: select
+    options: *id001
+  - name: headingSize
+    label: 이 페이지 큰 제목 글자 크기(px, 0=기본 / 권장 36~92)
+    type: number
+  - name: bodyFont
+    label: 이 페이지 일반 텍스트 글꼴
+    type: select
+    options: *id001
+  - name: bodySize
+    label: 이 페이지 본문 크기(px, 0=기본 / 권장 14~20)
+    type: number
+  - name: labelSize
+    label: 이 페이지 작은 라벨·캡션 크기(px, 0=기본)
+    type: number
+  - name: sectionHeadingSize
+    label: 이 페이지 섹션 제목 크기(px, 0=기본)
+    type: number
 - name: news
   label: News / 공지사항
   type: file
@@ -267,36 +690,48 @@ content:
   - name: detailCaption
     label: 상세 사진 설명 (선택)
     type: string
-- name: publications
-  label: Publications / 출판 날짜 · 논문
+  - name: typography
+    label: 이 항목만의 글꼴 · 글자 크기 (선택)
+    type: object
+    fields: *id002
+- name: page_gallery
+  label: Gallery / 페이지 문구 · 글꼴 · 크기
   type: file
-  path: data/publications.json
+  path: data/page-gallery.json
   format: json
-  list: true
   fields:
-  - name: publishedDate
-    label: 정확한 출판일 (YYYY-MM-DD, 날짜 기준 자동 정렬)
-    type: date
-    default: ''
-    options:
-      format: yyyy-MM-dd
-  - name: year
-    label: 기존 연도 (날짜를 모르는 기존 논문용, 날짜 입력 시 자동 무시)
-    type: number
-  - name: journal
-    label: 학술지
+  - name: eyebrow
+    label: 페이지 상단 작은 문구
     type: string
-    required: true
-  - name: title
-    label: 논문 제목
+  - name: titleLead
+    label: 페이지 큰 제목 · 앞 문구
     type: string
-    required: true
-  - name: authors
-    label: 저자 또는 소개
+  - name: titleAccent
+    label: 페이지 큰 제목 · 강조 문구
+    type: string
+  - name: subtitle
+    label: 페이지 소개 문구
     type: text
-  - name: doi
-    label: DOI (https://doi.org/ 제외)
-    type: string
+  - name: headingFont
+    label: 이 페이지 큰 제목 글꼴
+    type: select
+    options: *id001
+  - name: headingSize
+    label: 이 페이지 큰 제목 글자 크기(px, 0=기본 / 권장 36~92)
+    type: number
+  - name: bodyFont
+    label: 이 페이지 일반 텍스트 글꼴
+    type: select
+    options: *id001
+  - name: bodySize
+    label: 이 페이지 본문 크기(px, 0=기본 / 권장 14~20)
+    type: number
+  - name: labelSize
+    label: 이 페이지 작은 라벨·캡션 크기(px, 0=기본)
+    type: number
+  - name: sectionHeadingSize
+    label: 이 페이지 섹션 제목 크기(px, 0=기본)
+    type: number
 - name: gallery
   label: Gallery / 사진
   type: file
@@ -322,23 +757,60 @@ content:
     label: ★ 메인 화면 슬라이드에 표시 (즐겨찾기)
     type: boolean
     default: false
-- name: equipment
-  label: Equipment / 연구실 장비
+  - name: typography
+    label: 이 항목만의 글꼴 · 글자 크기 (선택)
+    type: object
+    fields: *id002
+- name: page_contact
+  label: Contact / 페이지 문구 · 글꼴 · 크기
   type: file
-  path: data/equipment.json
+  path: data/page-contact.json
   format: json
-  list: true
   fields:
-  - name: name
-    label: 장비 이름
+  - name: eyebrow
+    label: 페이지 상단 작은 문구
     type: string
-    required: true
-  - name: model
-    label: 모델명
+  - name: titleLead
+    label: 페이지 큰 제목 · 앞 문구
     type: string
-  - name: photo
-    label: 장비 사진
-    type: image
+  - name: titleAccent
+    label: 페이지 큰 제목 · 강조 문구
+    type: string
+  - name: subtitle
+    label: 페이지 소개 문구
+    type: text
+  - name: contactLead
+    label: 명함 상단 제목
+    type: string
+  - name: contactAccent
+    label: 명함 강조 제목
+    type: string
+  - name: contactIntro
+    label: 연구실 한줄 소개
+    type: text
+  - name: actionLabel
+    label: 이메일 버튼 문구
+    type: string
+  - name: headingFont
+    label: 이 페이지 큰 제목 글꼴
+    type: select
+    options: *id001
+  - name: headingSize
+    label: 이 페이지 큰 제목 글자 크기(px, 0=기본 / 권장 36~92)
+    type: number
+  - name: bodyFont
+    label: 이 페이지 일반 텍스트 글꼴
+    type: select
+    options: *id001
+  - name: bodySize
+    label: 이 페이지 본문 크기(px, 0=기본 / 권장 14~20)
+    type: number
+  - name: labelSize
+    label: 이 페이지 작은 라벨·캡션 크기(px, 0=기본)
+    type: number
+  - name: sectionHeadingSize
+    label: 이 페이지 섹션 제목 크기(px, 0=기본)
+    type: number
 - name: contact
   label: Contact / 학생 대표 · 찾아오는 길
   type: file
@@ -360,3 +832,105 @@ content:
   - name: directionsMapUrl
     label: 상세 지도 URL (https://)
     type: string
+- name: page_people
+  label: People / 소개 / 페이지 문구 · 글꼴 · 크기
+  type: file
+  path: data/page-people.json
+  format: json
+  fields:
+  - name: eyebrow
+    label: 페이지 상단 작은 문구
+    type: string
+  - name: titleLead
+    label: 페이지 큰 제목 · 앞 문구
+    type: string
+  - name: titleAccent
+    label: 페이지 큰 제목 · 강조 문구
+    type: string
+  - name: subtitle
+    label: 페이지 소개 문구
+    type: text
+  - name: headingFont
+    label: 이 페이지 큰 제목 글꼴
+    type: select
+    options: *id001
+  - name: headingSize
+    label: 이 페이지 큰 제목 글자 크기(px, 0=기본 / 권장 36~92)
+    type: number
+  - name: bodyFont
+    label: 이 페이지 일반 텍스트 글꼴
+    type: select
+    options: *id001
+  - name: bodySize
+    label: 이 페이지 본문 크기(px, 0=기본 / 권장 14~20)
+    type: number
+  - name: labelSize
+    label: 이 페이지 작은 라벨·캡션 크기(px, 0=기본)
+    type: number
+  - name: sectionHeadingSize
+    label: 이 페이지 섹션 제목 크기(px, 0=기본)
+    type: number
+- name: page_research_detail
+  label: Research / 상세 / 페이지 문구 · 글꼴 · 크기
+  type: file
+  path: data/page-research-detail.json
+  format: json
+  fields:
+  - name: eyebrow
+    label: 페이지 상단 작은 문구
+    type: string
+  - name: titleLead
+    label: 페이지 큰 제목 · 앞 문구
+    type: string
+  - name: titleAccent
+    label: 페이지 큰 제목 · 강조 문구
+    type: string
+  - name: subtitle
+    label: 페이지 소개 문구
+    type: text
+  - name: headingFont
+    label: 이 페이지 큰 제목 글꼴
+    type: select
+    options: *id001
+  - name: headingSize
+    label: 이 페이지 큰 제목 글자 크기(px, 0=기본 / 권장 36~92)
+    type: number
+  - name: bodyFont
+    label: 이 페이지 일반 텍스트 글꼴
+    type: select
+    options: *id001
+  - name: bodySize
+    label: 이 페이지 본문 크기(px, 0=기본 / 권장 14~20)
+    type: number
+  - name: labelSize
+    label: 이 페이지 작은 라벨·캡션 크기(px, 0=기본)
+    type: number
+  - name: sectionHeadingSize
+    label: 이 페이지 섹션 제목 크기(px, 0=기본)
+    type: number
+- name: typography
+  label: 공통 설정 / 사이트 글꼴 · 크기
+  type: file
+  path: data/typography.json
+  format: json
+  fields:
+  - name: bodyFont
+    label: 전체 본문 기본 글꼴
+    type: select
+    options: *id001
+  - name: headingFont
+    label: 전체 제목 기본 글꼴
+    type: select
+    options: *id001
+  - name: navSize
+    label: 상단 메뉴 글자 크기(px, 12~22)
+    type: number
+  - name: brandSize
+    label: 로고 옆 연구실명 크기(px, 10~20)
+    type: number
+  - name: footerSize
+    label: 하단 연락처 크기(px, 12~20)
+    type: number
+  - name: captionSize
+    label: 공통 작은 글자 크기(px, 11~20)
+    type: number

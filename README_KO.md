@@ -1,38 +1,47 @@
-# ACSoL v9 — v8 디자인 개선 / GitHub Pages + Pages CMS
+# ACSoL v10 — GitHub Pages + Pages CMS
 
-## v9 주요 변경사항
+기준: v9 → v10. 기존 디자인, Gallery 즐겨찾기 자동 슬라이드, 논문 정렬, 학생·교수님·Alumni·장비 데이터는 유지합니다.
 
-1. **Research 메뉴:** 작은 `⌄` 기호 삭제. 메뉴 글자 `Research` 클릭하면 드롭다운이 열립니다. 맨 위의 **All Research · 전체 연구 분야**로 개요 페이지에 이동하거나 네 개 세부 분야로 바로 갈 수 있습니다. 바깥을 클릭하거나 Esc를 누르면 닫힙니다.
-2. **People:** 메뉴 글자 클릭 시 `professor.html`로 바로 이동합니다. PC에서 마우스를 올리면 Professor / Students / Alumni 하위 메뉴가 부드럽게 열립니다. 모바일에서는 메뉴 안에 세 페이지 링크를 항상 표시합니다.
-3. **Publications:** 연도 그룹 간격과 논문 행의 위아래 간격·제목 여백을 축소했습니다. 연도별 최신순 정렬은 유지합니다.
-4. **Equipment:** 장비 사진 바로 아래 장비 이름과 모델명을 표시합니다. Pages CMS에서는 `name`, `model`, `photo` 세 항목만 입력합니다. 기존 JSON에 제조사/설명 등의 값이 남아 있더라도 화면에는 표시하지 않습니다.
-5. **News:** 행 간격을 줄이고 오른쪽 `Expand` 버튼을 추가했습니다. `detailBody`(긴 글), `detailImage`(사진), `detailCaption`을 CMS에서 관리합니다. 내용이 없는 기존 소식은 클릭 시 추가 상세 내용 준비 중 안내가 표시됩니다. 홈에서 `Read the story`를 누르면 해당 소식이 자동으로 펼쳐집니다.
-6. **Home 슬라이드:** `Gallery / 사진` 항목에서 **★ 메인 화면 슬라이드에 표시 (즐겨찾기)** 토글을 켠 사진만 홈 슬라이드에서 사용합니다. 다른 사진은 Gallery에만 나타납니다. **Home / 메인 화면 설정**에는 사진 입력란이 없어지고 자동 전환 간격(초)만 남습니다. 사진 순서는 Gallery의 항목 순서입니다. 즐겨찾기가 0장이면 기본 추상 이미지가 보이므로 게시 전에 1장 이상 선택하세요.
-7. **슬라이드 컨트롤:** 기존 점·재생/정지 버튼 제거. 사진의 좌우 가장자리에 마우스를 올리면 그라데이션과 화살표가 나타납니다. 자동 순환은 항상 켜져 있으며 방문자가 이전/다음을 눌러도 계속 순환합니다. 터치 기기에서는 버튼을 부드럽게 표시하고 좌우 스와이프를 지원합니다.
-8. **메인 버튼과 Contact:** 동그라미 화살표를 작고 통합된 버튼으로 변경했습니다. `Explore our research`와 `Send an email` 모두 동일한 디자인입니다.
-9. **Home 하단:** `Advanced Convergence ...` 및 `Latest news ↓`가 있는 불필요한 두 줄 구역 제거.
-10. **Home 숫자:** `01 / The laboratory` → `The laboratory`, `02 / Latest from ACSoL` → `Latest from ACSoL`.
-11. **한글 글꼴:** 오픈 라이선스 **Pretendard Variable** 동적 서브셋 웹폰트를 HTML에 적용했습니다. 네트워크가 없거나 CDN이 차단되면 운영체제 글꼴로 자동 대체됩니다. 폰트 파일 자체는 ZIP에 포함하지 않습니다.
+## 업데이트
 
-## v8 저장소를 v9로 업데이트하는 방법
+1. `nawit-del.github.io` 저장소에서 먼저 **Code → Download ZIP**으로 백업하세요.
+2. **v9_to_v10_Update_Only.zip**을 압축 해제하여 `.html`, `site.js`, `styles.css`, `.pages.yml`을 같은 이름으로 교체하고 `data/page-*.json`(새 파일 11개)과 `data/typography.json`을 추가합니다. `Commit changes` 합니다.
+3. **기존 `data/home.json`, `data/research.json`, `data/publications.json`, `data/news.json`, `data/students.json`, `data/gallery.json`, `media/` 등을 삭제하거나 덮어쓰지 마세요.** 업데이트용 ZIP에는 기존 콘텐츠 JSON이 없습니다.
+4. `.pages.yml`은 숨김 파일이므로 GitHub 웹에서 직접 열고 Edit(연필)로 새 전체 내용을 붙여넣어 교체하거나 GitHub Desktop을 이용하세요.
+5. `Settings → Pages`에서 main / root 설정과 Actions 배포 상태를 확인하고 새로고침하세요.
+6. Pages CMS(`https://app.pagescms.org`)를 새로고침하여 페이지별 관리 메뉴가 나타나는지 확인하세요.
 
-`ACSoL_v8_to_v9_Update_Only.zip` 압축 해제 후:
+## 이번 버전 주요 개선
 
-1. GitHub 저장소를 `Code → Download ZIP`으로 미리 백업합니다.
-2. HTML 12개, `site.js`, `styles.css`를 기존 저장소 최상위에 교체합니다.
-3. **`.pages.yml`을 반드시 교체**합니다. 점으로 시작하는 파일은 브라우저 업로더에서 막힐 수 있어 GitHub에서 해당 파일의 편집(연필) 버튼을 눌러 붙여넣는 방법을 권장합니다.
-4. **기존 `data/`, `media/`를 삭제하거나 전체 파일로 덮어쓰지 마세요.** 이미 저장한 학생·논문·연구 분야·사진·수상·장비 등의 데이터가 들어 있습니다. 새 기능의 추가 필드는 기존 JSON에 없어도 자동 처리합니다.
-5. `Settings → Pages`에서 `main` / `/(root)` 배포를 확인하고 `Ctrl+F5`로 강력 새로고침합니다. HTML의 CSS/JS 버전 쿼리를 `?v=9`로 변경했으므로 오래된 캐시의 영향을 줄였습니다.
-6. Pages CMS에서 Gallery의 사진 몇 장에 즐겨찾기 옵션을 **true**로 설정하고 저장합니다. 사진 파일은 `/media/` 경로여야 합니다.
-7. Pages CMS에서 News 항목 하나의 `펼침 상세 내용`을 입력하고 저장한 뒤 홈페이지에서 버튼을 확인합니다.
-8. Equipment CMS는 이제 **장비 이름·모델명·사진**만 입력하면 됩니다.
+- **Research / People**: PC에서는 Hover 및 키보드 Focus로 각 하위 메뉴가 열립니다. Research 글자 클릭 → 전체 연구분야, People 글자 클릭 → 교수님 페이지. Research 드롭다운에 'All Research'와 01~04 숫자를 제거했습니다. 터치·모바일에서는 글자 링크 옆 펼침 버튼을 눌러 하위 메뉴를 열 수 있습니다.
+- **Equipment 하이라이트**: Equipment 페이지는 Equipment만 현재 메뉴(aria-current)로 표시하도록 수정했습니다.
+- **페이지 제목**: 예시인 `Ideas, in publication.`이 PC에서 한 줄에 보이도록 수정했습니다. 과도하게 긴 맞춤형 제목이나 작은 모바일 화면에서는 가로 넘침을 피하기 위해 줄바꿈될 수 있습니다.
+- **버튼**: Explore our research / Send an email을 사각 테두리 없이 밑줄 텍스트 + 작은 화살표로 변경했습니다.
+- **News**: 상세 펼침/접힘은 우측의 작은 V자 모양 버튼(회전)으로 처리합니다. 접근성용 설명은 아이콘에만 붙습니다.
+- **Contact**: 전체 공백을 줄이고 연구실 연락처·지도·학생 대표를 명함형 카드로 정돈했습니다. 교수님 프로필과 하단 푸터의 글자도 키웠습니다.
 
-## 중요: 기존 메인 사진을 홈에서 보이게 하려면
+## 페이지별 문구와 글꼴·글자 크기 조정
 
-v8에서는 `data/home.json`의 `heroSlides` 또는 `heroImage`로 홈 사진을 관리했습니다. **v9는 이 필드를 읽지 않습니다.** 사진을 다시 업로드할 필요 없이, Pages CMS → Gallery에서 **이미 등록된 사진을 선택해 즐겨찾기만 활성화**하면 됩니다. 만약 Gallery에 등록되지 않은 홈 전용 사진이라면 먼저 Gallery 항목으로 추가하세요. `media/`에 파일이 있어도 Gallery 목록에 등록되지 않으면 자동 표시되지 않습니다.
+Pages CMS는 **페이지별 항목**과 **콘텐츠 항목**, **공통 서체** 순으로 표시됩니다.
 
-## 본 배포와 테스트의 차이
+- `Home / 메인 화면 설정` : 메인 영문 제목·강조 제목·설명, 연구실명·연구실 소개, Explore 버튼 문구, 자동 슬라이드 간격, 글꼴/크기 설정
+- `Research / 페이지 문구 · 글꼴 · 크기` : Research 소개 페이지 제목·설명 및 글꼴/크기
+- `People / Professor`, `People / Students`, `People / Alumni` : 각 페이지의 제목·소개 문구·글꼴·크기 메뉴와 원래 콘텐츠 관리 메뉴
+- `Publications`, `News`, `Gallery`, `Equipment`, `Contact` : 해당 페이지 제목과 설명, 글꼴·크기를 한 메뉴에서 관리. 콘텐츠 목록은 해당 페이지 바로 아래의 목록 메뉴에서 관리
+- `Contact / 페이지 문구 · 글꼴 · 크기` : 페이지 제목 외에도 왼쪽 명함형 영역의 제목, 강조문구, 짧은 소개, 이메일 버튼 문구를 수정 가능
+- `공통 설정 / 사이트 글꼴 · 크기` : 전체 기본 폰트와 제목 폰트, 상단 메뉴/로고 옆 글자/푸터/캡션 크기
 
-`preview-data.js`는 컴퓨터에서 HTML을 직접 더블클릭해 볼 때만 사용하는 샘플 데이터입니다. 실제 `https://...github.io` 웹사이트는 GitHub의 `data/*.json`을 직접 읽습니다. 실제 저장소의 JSON과 로컬 미리보기의 내용이 다를 수 있습니다.
+**글꼴 선택**: Pretendard, Noto Sans KR, Nanum Gothic, Noto Serif KR, 시스템 글꼴. 영문 이탤릭 강조도 페이지 글꼴 선택을 따릅니다. 글꼴은 CDN에서 다운로드되어 표시되므로 방문자가 해당 서비스에 접근하지 못하면 시스템 폴백 글꼴을 사용합니다.
 
-`node --check site.js`, `python tools/check_site.py`, YAML 및 JSON 구조 검사는 통과했습니다. 이 환경의 Chromium에서 로컬 웹 서버 주소가 차단되어 PC·모바일 브라우저의 실제 클릭/슬라이드 시연 검사는 완료하지 못했습니다. GitHub 배포 후 화면 동작 확인이 필요합니다.
+**숫자 설정**: 페이지 제목/본문/라벨/섹션 제목 크기(px). `0`은 기본값을 사용합니다. 내용이 많거나 모바일 환경에서는 가독성과 넘침을 위해 글자 크기가 자동 제한/줄바꿈될 수 있습니다.
+
+**개별 내용 스타일**: Research·Professor Employment/Awards·Students·Alumni·Publications·News·Gallery·Equipment 콘텐츠 항목을 열면 `이 항목만의 글꼴 · 글자 크기 (선택)`이 추가됩니다. 본문과 제목 글꼴·크기를 개별 지정할 수 있고, 비우면 페이지별 기본 설정을 따릅니다. Research의 세부 블록에도 동일한 선택 기능이 있습니다.
+
+이 구조는 안전한 글꼴/크기 프리셋을 제공하는 방식이며, CMS가 웹페이지의 임의 영역을 클릭해서 CSS를 직접 편집하는 WYSIWYG 디자인 편집기로 바뀌는 것은 아닙니다.
+
+## 주의사항
+
+- 모든 기존 콘텐츠를 보존하려면 **업데이트 전용 ZIP**을 사용하세요. 전체 ZIP은 배포 템플릿과 예시 JSON을 포함하므로 이미 수정한 내용을 덮어쓸 위험이 있습니다.
+- 공통 서체/페이지 서체는 자동으로 새 `data/typography.json` / `data/page-*.json`에서 반영됩니다. HTTP GitHub Pages에서 실시간 JSON을 읽습니다. 로컬 파일을 더블클릭해 미리보려면 전체 폴더에서 `python tools/refresh_preview.py`로 스냅샷을 갱신하세요.
+- 배포 완료 후 `Ctrl + F5`로 캐시를 지우고 확인하세요. `site.js` 및 `styles.css`는 `?v=10`으로 갱신해 캐시 충돌을 줄였습니다.
+- Pages CMS의 실제 GitHub 로그인·저장 동작은 사용자의 연결 계정에서 확인해야 합니다.
