@@ -25,5 +25,14 @@
     "role": "phd",
     "name": "개구리",
     "photo": "/media/file-4.jpg"
+  },
+  {
+    "role": "phd",
+    "name": "고라니",
+    "photo": "/media/file-5.jpg"
+  },
+  {
+    "role": "phd",
+    "name": "연수햄"
   }
 ]
