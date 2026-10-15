@@ -1,26 +1,1277 @@
 [
   {
-    "publishedDate": "2026-10-15",
     "year": 2026,
+    "title": "High-Output Triboelectric Nanogenerator Based on Unidirectional Induced-Current Generation and In-Phase Current Superposition for Low-Frequency Energy Harvesting",
+    "journal": "Submitted to Journal",
+    "publicationType": "journal",
+    "status": "Under Review",
+    "authors": "Z. Jiang, M. Han, Jinsub Park*"
+  },
+  {
+    "year": 2026,
+    "title": "Enhanced Ferroelectric Performance of P(VDF-TrFE) Composites via MAPbI₃-Mediated Crystallization for Flexible Memory Applications",
+    "journal": "Submitted to Journal",
+    "publicationType": "journal",
+    "status": "Under Revision",
+    "authors": "H. Kim, H. Seo, M. Hang, Z. Jinag, Jinsub Park*"
+  },
+  {
+    "year": 2026,
+    "title": "Synergistic Promotion of Photocatalytic Formaldehyde Removal via Nitrogen-Functionalized Graphene Oxide-Modified TiO2",
+    "journal": "Submitted to Journal",
+    "publicationType": "journal",
+    "status": "Under Review",
+    "authors": "Navneet Kumar, Swati Verma, Jinsub Park*, K. Kim*"
+  },
+  {
+    "year": 2026,
+    "title": "Electroforming-free, Self-Rectifying Selector-Only Memory with Diffusive Cu-ion Dynamics for Logic-In-Memory Computing",
     "journal": "Advanced Science",
-    "title": "Cu 이온의 확산 동역학을 이용한 electroforming-free, self-rectifying selector-only memory",
-    "authors": "Logic-in-memory computing · 차세대 메모리",
-    "doi": "10.1002/advs.77423"
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2026-10-15",
+    "doi": "10.1002/advs.77423",
+    "authors": "J. Kim, D. Woo, M. Han, K. Park, J-G Park, Jinsub Park*"
   },
   {
-    "publishedDate": "2026-09-16",
     "year": 2026,
-    "journal": "Advanced Electronic Materials",
-    "title": "W 기반 SOT 채널의 계면 거칠기 제어를 통한 자기 스커미온 크기 조절",
-    "authors": "Magnetic skyrmions · 스핀트로닉스",
-    "doi": "10.1002/aelm.202500775"
+    "title": "Ultra-Low-Bubble-Density Quartz Glass Enabled by Stepwise Calcination of High-Purity Synthetic Quartz Powder",
+    "journal": "Nanomaterials",
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2026-07-12",
+    "doi": "10.3390/nano16140856",
+    "authors": "W-G. Lee, C-J. Lee, J-H. Choi, J-H. Kim, Y-H. Choi, T-H. Shim, J. Park, J-G Park"
   },
   {
-    "publishedDate": "2025-10-13",
     "year": 2026,
+    "title": "Flexible textile synaptic devices based on eco-friendly fiber-type lead-free halide perovskite polymer nanocomposites",
+    "journal": "Advanced Materials Technologies",
+    "publicationType": "journal",
+    "status": "Accepted",
+    "authors": "H. Kim, M. Li, Y. Kim, S. Ryu, J. An, M. Li, Y. Lee, J. Park, K. Park, T. W. Kim"
+  },
+  {
+    "year": 2026,
+    "title": "Performance enhancement of BaTiO3-PDMS flexible piezoelectric nanogenerator using double ZTO microspheres monolayers",
     "journal": "Ceramics International",
-    "title": "ZTO 마이크로구 단층 구조를 활용한 BaTiO₃–PDMS 유연 압전 나노발전기의 성능 개선",
-    "authors": "Piezoelectric nanogenerators · 에너지 하베스팅",
-    "doi": "10.1016/j.ceramint.2026.04.034"
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2025-10-13",
+    "doi": "10.1016/j.ceramint.2026.04.034",
+    "authors": "J. Zou, Z. Jiang, J. Kim, C. Wu, Jinsub Park*"
+  },
+  {
+    "year": 2026,
+    "title": "Tailoring Magnetic Skyrmion Dimensions via Precise Interface Roughness Modulation in W-Inserted Skyrmion SOT Channel Grown on β-phase W Seed Layer",
+    "journal": "Advanced Electronic Materials",
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2026-09-16",
+    "doi": "10.1002/aelm.202500775",
+    "authors": "Y. Choi, S.-M. Kim, H. Yeo, Y. Shin, M. Kim, J. Kim, T. Shim, J. Park*, J-G Park*"
+  },
+  {
+    "year": 2026,
+    "title": "Enhanced Heat Dissipation of Vertically Aligned ZTO–Fe₃O₄ Thermal Interface Materials via Phase-Formation Control in Fe3O4",
+    "journal": "Applied Surface Science",
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2026-04-19",
+    "doi": "10.1016/j.apsusc.2026.165814",
+    "authors": "U. Jung, S. Kim, S. Jung, H. Park, Jinsub Park*"
+  },
+  {
+    "year": 2026,
+    "title": "Organic Optoelectronic Synaptic Device Based on Silver-Cluster Conduction Mechanism with Visual Learning Performance",
+    "journal": "ACS Applied Electronic Materials",
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2026-01-27",
+    "doi": "10.1021/acsaelm.5c02052",
+    "authors": "Ming Li, H-S Kim, M Li, J S An, K K Park, J. Park, T. W. Kim"
+  },
+  {
+    "year": 2025,
+    "title": "Enhancement of device performances in a Cs2AgBiBr6 perovskite photodetector by dual-site defect passivation with a zwitterion additive",
+    "journal": "Journal of Alloys and Compounds",
+    "publicationType": "journal",
+    "status": "Published",
+    "doi": "10.1016/j.jallcom.2025.184848",
+    "authors": "S. Jeong, U. Jung, H. Park, Jinsub Park"
+  },
+  {
+    "year": 2025,
+    "title": "Effects of Hydrolysis Reaction and Abrasive Drag Force Accelerator on Enhancing Si-Wafer Polishing Rate and Improving Si-Wafer Surface Roughness",
+    "journal": "Nanomaterials",
+    "publicationType": "journal",
+    "status": "Published",
+    "doi": "10.3390/nano15161248",
+    "authors": "M. Jeon, P. Kim, M. Han, S. Lee, S. Kim, J. Park, K. Cho, J. Park, J. Park"
+  },
+  {
+    "year": 2025,
+    "title": "Real-time unsupervised learning and image recognition via memristive neural integrated chip based on negative differential resistance of electrochemical metallization cell neuron devices",
+    "journal": "Small",
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2025-05-26",
+    "doi": "10.1002/smll.202407612",
+    "authors": "D. Woo, J. Kim, K. Park, M. Han, S. Jin, W. Lee, T. Shim, J. Park*, J. Park*"
+  },
+  {
+    "year": 2025,
+    "title": "Unveiling the Hybrid Filaments-Induced Forming-Free Resistive Switching Dynamics in Cu-doped Oxygenated Amorphous Carbon-based Memristors",
+    "journal": "NPG Asia Materials",
+    "publicationType": "journal",
+    "status": "Published",
+    "doi": "10.1038/s41427-025-00604-9",
+    "authors": "D. Woo, S. Jin, J. Kim, U. Jung, G. Park, W. Lee, M. Hang, J. Kim, T. Shim, J. Park*, J. Park*"
+  },
+  {
+    "year": 2025,
+    "title": "Chemical Deformation of Thermally Cured Polyimide film-Surface into Neutral 1,2,4,5-benzentetracarbonyliron and 4,4’-oxydianiline to Remarkably Enhance the Chemical–Mechanical-Planarization Polishing rate",
+    "journal": "Nanomaterials",
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2025-03-10",
+    "authors": "M. Han, H. Koh, I. Heo, M. Kim, P. Kim, M. Jeon, M. Kim, W. Jin, K. Cho, J. Park, J. Park"
+  },
+  {
+    "year": 2025,
+    "title": "Oxidative pyrolysis of alkali lignin using nitrogen functionalized graphene oxide-cerium oxide nanocatalysts: Mechanistic insights thorough density functional theory",
+    "journal": "Bioresource Technology",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "Shivam Kumar, Pankaj Kumar, Navneet Kumar, Jinsub Park, Vimal Chandra Srivastava"
+  },
+  {
+    "year": 2025,
+    "title": "Unveiling the Resistive Switching Mechanism and Low Current Dynamics of Ru-based Hybrid Synaptic Memristors",
+    "journal": "Advanced Functional Materials",
+    "publicationType": "journal",
+    "status": "Published",
+    "doi": "10.1002/adfm.202416309",
+    "authors": "D. Woo, S. Jin, J. Kim, K. Park, W. Lee, M. Han, J. Kim, T. Shim, J. Park*, J. Park*"
+  },
+  {
+    "year": 2025,
+    "title": "Anisotropic resistive switching of 2D-layered single crystal halide perovskite CsPb2Br5-based memristor",
+    "journal": "Nano Research",
+    "publicationType": "journal",
+    "status": "Published",
+    "doi": "10.26599/NR.2025.94907023",
+    "authors": "Uijin Jung, Sangmin Kim, Zhaozhong Tan, D. Woo, Jinsub Park*"
+  },
+  {
+    "year": 2024,
+    "title": "Transferrable CsPbBr3 Perovskite Single Crystalline Film for Visible-Wavelength Photodetector",
+    "journal": "ACS Applied Materials & Interfaces",
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2024-08-15",
+    "authors": "Zhaozhong Tan, Uijin Jung, Seongmin Jeong, Jinsub Park*"
+  },
+  {
+    "year": 2024,
+    "title": "Output Performance of Zinc Tin Oxide Nanoparticlebased Piezoelectric Nanogenerators with Different Shapes and Phases",
+    "journal": "Ceramics International",
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2024-11-01",
+    "authors": "Chengwen Sang, Wonjun Heo, Uijin Jung, Sangmin Kim, Shubhangi Khadtare, Jinsub Park"
+  },
+  {
+    "year": 2024,
+    "title": "Kinetically fast photodestruction of formaldehyde by composites of nitrogen-functionalized graphene oxide with titanium dioxide loaded on portable air purifier",
+    "journal": "Submitted to Journal",
+    "publicationType": "journal",
+    "status": "Under Review",
+    "authors": "Navneet Kumar, Swati Verma, Pankaj Kumar, Vimal Chandra Srivastava, Jinsub Park*, Ki-Hyun Kim*"
+  },
+  {
+    "year": 2024,
+    "title": "Synthesis of hierarchical flower-like nitrogen functionalized graphene oxide-zinc oxide photocatalyst for the sonophotocatalytic degradation of tetracycline antibiotic",
+    "journal": "Journal of Water Process Engineering",
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2024-07-01",
+    "authors": "Navneet Kumar, Swati Verma, Uijin Jung, Jinsub Park*, Mu Naushad"
+  },
+  {
+    "year": 2024,
+    "title": "Vertically-aligned Zn2SnO4-Fe3O4 core-shell microsphere-based thermal interface material with high thermal conductivity",
+    "journal": "Ceramics International",
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2024-06-15",
+    "authors": "Uijin Jung, Sangmin Kim, Jinuk Moon, Wonjun Heo, Jinsub Park"
+  },
+  {
+    "year": 2024,
+    "title": "High-Efficiency Flexible Cs2AgBiBr6-Based Visible Photodetector with Transferable TiO2 Nanorod Electron-Transport Layer",
+    "journal": "Advanced Materials Technologies",
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2024-05-23",
+    "authors": "Seongmin Jeong, Juyun Ha, Xin Li, Uijin Jung, Sangmin Kim, Jinsub Park"
+  },
+  {
+    "year": 2024,
+    "title": "Photocatalytic efficacy of air purifiers equipped with self-cleaning titanium dioxide xerogel coatings against gaseous formaldehyde: A study using DRIFTS and DFT analysis",
+    "journal": "Chemical Engineering Journal",
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2024-04-15",
+    "authors": "Swati Verma, Navneet Kumar, Ki-Hyun Kim*, Jinsub Park*"
+  },
+  {
+    "year": 2024,
+    "title": "Efficient One-Pot Two-Step Electrochemical Synthesis of Highly Oxidized Graphene Oxide for Enhanced Energy and Environmental Applications: Structure Elucidation Through DFT Simulations",
+    "journal": "Carbon",
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2024-01-31",
+    "authors": "Navneet Kumar, Swati Verma, Jinsub Park*, Vimal Chandra Srivastava**"
+  },
+  {
+    "year": 2024,
+    "title": "Effects of rubidium substitution of Cs2-xRbxAgBiBr6 double halide perovskites on resistive switching characteristics for memory applications",
+    "journal": "Journal of Alloys and Compounds",
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2024-01-25",
+    "authors": "Uijin Jung, Jeongah Lim, Sang-Min Kim, Jinsub Park*"
+  },
+  {
+    "year": 2023,
+    "title": "Performance and Stability Enhancement of Perovskite Photodetectors by Additive and Interface Engineering Using a Dual-Functional PPS Zwitterion",
+    "journal": "Nanoscale Horizons",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "Abbas Ahmad Khan, Navneet Kumar, Uijin Jung, Wonjun Heo, Zhaozhong Tan, Jinsub Park*"
+  },
+  {
+    "year": 2023,
+    "title": "Enhanced piezoelectric performance of ZnSnO3@PVDF composite films by control of embedded contents of ZnSnO3 nanoparticles",
+    "journal": "Surfaces & Interfaces",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "Chen, U. Jung, W. Heo, W. Park, Jinsub Park*"
+  },
+  {
+    "year": 2023,
+    "title": "Transfer of a well-aligned TiO2 nanorods array onto GaN-based LEDs for light extraction enhancement",
+    "journal": "Journal of Physical Chemistry C",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "D. Kim, U. Jung, D. Shin, W. Heo, W. Park, Jinsub Park*"
+  },
+  {
+    "year": 2023,
+    "title": "Enhanced Photocatalytic Activity of Cubic Znsn(Oh)6 by In-Situ Partial Phase Transformation Via Rapid Thermal Annealing",
+    "journal": "Chemosphere",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "Kim, J. S. Kumar, N. Jung, Uijin, Jinsub Park*, Mu Naushad"
+  },
+  {
+    "year": 2023,
+    "title": "Efficient Propylene Carbonate Synthesis from Urea and Propylene Glycol over Calcium Oxide-Magnesium Oxide Catalysts",
+    "journal": "Nanomaterials",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "Kavisha Dang, Navneet Kumar, Vimal Chandra Srivastava, Jinsub Park, Mu Naushad"
+  },
+  {
+    "year": 2023,
+    "title": "Zinc hydroxystannate/zinc-tin oxide heterojunctions for the UVC-assisted photocatalytic degradation of methyl orange and tetracycline",
+    "journal": "Environmental Pollution",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "Navneet Kumar, Uijin Jung, Bomseumin Jung, Jinsub Park*, Mu Naushad"
+  },
+  {
+    "year": 2023,
+    "title": "Arrays of TiO2 nanosphere monolayer on GaN-based LED for the improvement of light extraction",
+    "journal": "Applied Sciences",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "D. Kim, U. Jung, W. Heo, N. Kumar, Jinsub Park*"
+  },
+  {
+    "year": 2022,
+    "title": "Enhanced device performance of Cs2AgBiBr6 double perovskite photodetector by SnO2/ZnO double electron transport layer",
+    "journal": "Journal of Alloys and Compounds",
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2022-12-25",
+    "authors": "Wenhu Shen, Uijin Jung, Zhanpeng Xian, Bomseumin Jung, Jinsub Park*"
+  },
+  {
+    "year": 2022,
+    "title": "X-SSD: A Storage System with Native Support for Database Logging and Replication",
+    "journal": "SIGMOD '22",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "Sangjin Lee, A. Lener, André Ryser, K. Park, C. Jeon, J. Park, Y. H. Song, Philippe Cudré-Mauroux"
+  },
+  {
+    "year": 2022,
+    "title": "Evaluation of photocatalytic performances of PEG and PVP capped zinc sulfide nanoparticles towards organic environmental pollutant in presence of sunlight",
+    "journal": "Chemosphere",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "N. Kumar, S. Verma, Jinsub Park*, V. Srivastava, M. Naushad"
+  },
+  {
+    "year": 2022,
+    "title": "Piezoelectric Nanogenerator Based on Lead-free BiFeO3:Sr Perovskite",
+    "journal": "Journal of Alloys and Compounds",
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2022-12-10",
+    "authors": "Shubhangi Khadtare, Anuruddh Kumar, Uijin Jung, Chengwen Sang, Jinsub Park*"
+  },
+  {
+    "year": 2022,
+    "title": "Utilization of nano-sized waste lime sludge particles in harvesting marine microalgae for biodiesel feedstock production",
+    "journal": "Nanotechnology for Environmental Engineering",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "Amit, N. Kumar, S. Verma, J. Park*, A. K. Jaiswal, U. Ghosh, R. Gautam"
+  },
+  {
+    "year": 2022,
+    "title": "Improvement of heat transfer properties through TiO2 nanosphere monolayer embedded polymers as thermal interface materials",
+    "journal": "Applied Sciences",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "Jinuk Moon, Uijin Jung, Bomseumin Jung, Jinsub Park*"
+  },
+  {
+    "year": 2021,
+    "title": "Improved photoresponse characteristics of a ZnO-based UV photodetector by the formation of an amorphous SnO2 shell layer",
+    "journal": "Sensors",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "Junhyuk Yoo, Uijin Jung, Bomseumin Jung, Wenhu Shen, Jinsub Park*"
+  },
+  {
+    "year": 2021,
+    "title": "Facile synthesis of binder free ZnO and its Indium, Tin doped materials for Efficient Dye sensitized solar cells",
+    "journal": "Journal of Alloys and Compounds",
+    "publicationType": "journal",
+    "status": "Published",
+    "doi": "10.1016/j.jallcom.2021.159722",
+    "authors": "S. Khadtare, H. M. Pathan, S. Han, Jinsub Park"
+  },
+  {
+    "year": 2021,
+    "title": "Synthesis and photoluminescent characteristics of Sm3+-doped Ba3(PO4)2 phosphor hierarchical architectures",
+    "journal": "Materials Science and Engineering B",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "Chandra Babu, R. Rajavaram, V. Naresh, Dayakar T., Dohyun Kim, Dong Su Shin, Andrew P. Baker, G. G. Wang, Jinsub Park"
+  },
+  {
+    "year": 2020,
+    "title": "Piezoelectric BaTiO3 microclusters and embossed ZnSnO3 microspheres-based monolayer for highly-efficient and flexible composite generator",
+    "journal": "Composites Part B",
+    "publicationType": "journal",
+    "status": "Published",
+    "doi": "10.1016/j.compositesb.2020.108476",
+    "authors": "H. Park, D. Y. Hyeon, M. Jung, K-I. Park, Jinsub Park*"
+  },
+  {
+    "year": 2020,
+    "title": "Fabrication of leaf shaped SnO2 nanoparticles via sol–gel route and its application for the optoelectronic humidity sensor",
+    "journal": "Materials Letters",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "P. Kumara, Shubhangi Khadtare, J. Park, B. C. Yadav*"
+  },
+  {
+    "year": 2020,
+    "title": "Effects of different InGaN/GaN electron emission layers / inter layers on performance of a UV-A LED",
+    "journal": "Applied Sciences",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "D. Kim, K. Song, U. Jung, S. Kim, D. Shin, J. Park*"
+  },
+  {
+    "year": 2020,
+    "title": "Ultraviolet photodetectors using hollow p-CuO nanospheres/n-ZnO nanorods with a pn junction structure",
+    "journal": "Sensors & Actuators A",
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2020-04-01",
+    "authors": "Yuexing Ji, Uijin Jung, Zhanpeng Xian, Dohyun Kim, Jiyeon Yoo, Jinsub Park*"
+  },
+  {
+    "year": 2020,
+    "title": "Enhanced photocatalytic and antibacterial activity of ZnO/Ag nanostructure synthesized by Tamarindus indica pulp extract",
+    "journal": "Journal of Materials Science",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "Dayakar T., V. Banothu, J. Kim, D. Shin, S. Vijayalakshmi, J. Park*"
+  },
+  {
+    "year": 2020,
+    "title": "Metal-semiconductor-metal UV detectors using transferrable amorphous and crystalline ZTO microsphere monolayers",
+    "journal": "ACS Sustainable Chemistry & Engineering",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "U. Jung, S. Kim, D. H. Kim, S. Shin, Z. Xian, J. Park*"
+  },
+  {
+    "year": 2019,
+    "title": "Biogenic synthesis of silver nanoparticles mediated by Theobroma cacao extract: enhanced antibacterial and photocatalytic activities",
+    "journal": "Journal of Materials Science: Materials in Electronics",
+    "publicationType": "journal",
+    "status": "Published",
+    "publishedDate": "2019-09-29",
+    "authors": "Dayakar T, N. Jayarambabu, V. Banothu, C. Babu, J. Park*, K. Venkateswara Rao"
+  },
+  {
+    "year": 2019,
+    "title": "Biosynthesis of Ag@CuO core-shell nanostructures for non-enzymatic glucose sensing using screen-printed electrode",
+    "journal": "Journal of Materials Science: Materials in Electronics",
+    "publicationType": "journal",
+    "status": "Published",
+    "authors": "Dayakar T., K. Venkateswara Rao, J. Park*, Potharaju Krishna, P. Swaroopa, Yuexing Ji"
+  },
+  {
+    "year": 2018,
+    "title": "Fabrication of n-TiO2 hollow spheres monolayer-based UV detectors with different-sized nanospheres",
+    "journal": "Semiconductor Science and Technology",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2018,
+    "title": "Facile Synthesis of Graphene on Cu nanowires via Low Temperature Thermal CVD for the Transparent Conductive Electrode",
+    "journal": "ACS Sustainable Chemistry & Engineering",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2018,
+    "title": "Improvement of the optical and electrical performance of GaN-based LEDs using transferrable ZTO microsphere monolayer",
+    "journal": "ACS Sustainable Chemistry & Engineering",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2018,
+    "title": "Non-enzymatic biosensing of glucose based on silver nanoparticles synthesized from Ocimum tenuiflorum leaf extract and silver nitrate",
+    "journal": "Materials Chemistry and Physics",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2018,
+    "title": "Green electroluminescence using n-In2O3 nanorods formed on plasma surface treated p-GaN structure",
+    "journal": "Applied Surface Science",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2017,
+    "title": "Ultraviolet photodetector using pn junction formed by transferrable hollow n-TiO2 nanospheres monolayer",
+    "journal": "Optics Express",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2017,
+    "title": "Investigation of p-CuO/n-Cu1-xInxO core/shell nanowire structure performance in UV photodetectors",
+    "journal": "Journal of Alloys and Compounds",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2017,
+    "title": "Control of copper nanowire network properties and application to transparent conducting layer in light-emitting diode",
+    "journal": "Materials & Design",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2017,
+    "title": "White light emission of monolithic InGaN/GaN grown on morphology–controlled, nanostructured GaN templates",
+    "journal": "Nanotechnology",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2017,
+    "title": "Improving light extraction in light-emitting diodes using zinc-tin-oxide layers",
+    "journal": "Journal of Alloys and Compounds",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2017,
+    "title": "Morphological evolution of Cu doped ZnO for enhancement of photocatalytic activity",
+    "journal": "Journal of Alloys and Compounds",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2017,
+    "title": "Effect of leavening agent on structural and photocatalytic properties of ZnO Nanorods",
+    "journal": "Journal of Materials Science: Materials in Electronics",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2017,
+    "title": "Sunlight driven high photocatalytic activity of Sn doped N-TiO2 nanoparticles synthesized by a microwave assisted method",
+    "journal": "Ceramics International",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2017,
+    "title": "Fabrication and optoelectronic properties of novel p-Si/PPy/n-CuxIn1-xO hybrid heterojunction",
+    "journal": "Journal of Alloys and Compounds",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2017,
+    "title": "Light extraction enhancement of GaN-based light-emitting diodes using hollow silica nanospheres",
+    "journal": "Journal of Nanoscience and Nanotechnology",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2016,
+    "title": "Facile synthesis of Cu@TiO2 core shell nanowires for efficient photocatalysis",
+    "journal": "Materials Letters",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2016,
+    "title": "Electrical characteristics of AlGaN/GaN Schottky barrier diodes with different capping layers",
+    "journal": "Journal of Nanoscience and Nanotechnology",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2016,
+    "title": "Effect of Graphene Interlayer on the Electrical Properties of AlGaN/GaN Schottky Diode",
+    "journal": "Journal of Nanoscience and Nanotechnology",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2016,
+    "title": "Fabrication and characterization of CuO/ITO heterojunction with graphene transparent electrode",
+    "journal": "Semiconductor Science and Technology",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2016,
+    "title": "Investigation of crystallized ZnSnO3 nanoparticles for UV photodetectros",
+    "journal": "Journal of Nanoscience and Nanotechnology",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2016,
+    "title": "Effect of Cobalt concentration on morphology of Co-doped SnO2 nanostructures synthesized by solution combustion method",
+    "journal": "Journal of Materials Science: Materials in Electronics",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2016,
+    "title": "Photoresponse charactristics of p-Si/n-CuxIn1-xO heterojunction diodes prepared sol-gel spin coating method",
+    "journal": "Materials Science in Semiconductor Processing",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2016,
+    "title": "A simple sonochemical approach of Mn2+ doped ZnO nanopowder: structural, optical and magnetic studies",
+    "journal": "Journal of Materials Science: Materials in Electronics",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2016,
+    "title": "Effect of alkaline concentration on the structural and luminescence properties of ZnSnO3 nanoparticles obtained by facile reflux method",
+    "journal": "Journal of Materials Science: Materials in Electronics",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2015,
+    "title": "Effects of Plasma treatment on electrical properties of AlGaN/GaN schottky diode with graphene/Ni/Au electrodes",
+    "journal": "Nanoscience and Nanotechnology Letters",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2015,
+    "title": "Novel CuCr2O4 embedded CuO nanocomposites for efficient photodegradation of organic dyes",
+    "journal": "Applied Surface Science",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2015,
+    "title": "Photocatalytic activity of hierarchical CuO microspheres synthesized by facile reflux condensation method",
+    "journal": "Powder Technology",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2015,
+    "title": "Effects of growth temperature on surface morphology of InP grown on patterned Si(001) substrates",
+    "journal": "Journal of Crystal Growth",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2015,
+    "title": "Improved device performances of solution-processed Zinc-Tin-Oxide thin film transistors effects using graphene/Al electrode",
+    "journal": "Journal of Physics D: Applied Physics",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2015,
+    "title": "Improved photocatalytic activity of ZnO coupled CuO nanocomposites synthesized by reflux condensation method",
+    "journal": "Journal of Alloys and Compounds",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2015,
+    "title": "Improved light extraction effciency and leakage characteristics in light-emitting didoes by nanorod arrays formed on hexagonal pits",
+    "journal": "Materials Science in Semiconductor Processing",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2015,
+    "title": "Enhancement of device performances in GaN-based light-emitting diodes using nano-sized surface pit",
+    "journal": "Journal of Nanoscience and Nanotechnology",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2014,
+    "title": "Structural and optical property studies on In doped ZnO nanostructures for solution based organic-inorganic hybrid p-n junctions",
+    "journal": "Journal of Colloid and Interface Science",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2014,
+    "title": "Enhancement of Light Extraction in GaN-based Light-emitting Diodes by Al2O3-Coated ZnO Nanorod Arrays",
+    "journal": "Journal of Alloys and Compounds",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2014,
+    "title": "Enhanced light extraction from GaN Based light-emitting diodes using a hemispherical NiCoO lens",
+    "journal": "Optics Express",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2014,
+    "title": "Structural and magnetic property studies on low temperature chemically synthesised one-dimensional Zn1-xNixO nanorods",
+    "journal": "Journal of Materials Science: Materials in Electronics",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2013,
+    "title": "Less strained and more efficient GaN lihgt-emitting diodes with embedded silica hollow nanospheres",
+    "journal": "Scientific Reports",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2013,
+    "title": "Colloidal Ni1-xCoxO nanostructures as anodic buffer layers in hybrid polypyrrole/Zn1-yInyO p–n junctions",
+    "journal": "CrystEngComm",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2013,
+    "title": "Growth of GaN layer with preserved nano-columnar low temperature GaN buffer toreduce the wafer bowing",
+    "journal": "Thin Solid Films",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2013,
+    "title": "Structural and electrical property studies on polypyrrole based organic–inorganic nanocomposites for photodiode related applications",
+    "journal": "Sensors and Actuators A: Physical",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2013,
+    "title": "Enhancement of photoluminescence intensity of GaN-based LEDs with coated polystyrene/silica core-shell nanostructures",
+    "journal": "Journal of Nanoscience and Nanotechnology",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2013,
+    "title": "Local stress distribution in GaN vertical light emitting diodes fabricated using CLO and LLO methods",
+    "journal": "Journal of Physics D: Applied Physics",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2013,
+    "title": "Suppression of defect level emissions in low temperature fabricated one-dimensional Mn doped ZnO nanorods",
+    "journal": "Journal of Materials Science: Materials in Electronics",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2013,
+    "title": "Growth of GaN columns and microstructures on (111) Si by using Ge layer via metal organic chemical vapor deposition",
+    "journal": "Japanese Journal of Applied Physics",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2013,
+    "title": "Optical characterization of periodically polarity-inverted ZnO structures on (0001) Al2O3 substrate",
+    "journal": "Current Applied Physics",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2013,
+    "title": "Enhancement of the light extraction of GaN-based green light emitting diodes via nanohybrid structures",
+    "journal": "Current Applied Physics",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2013,
+    "title": "Effects of growth pressure of a-plane InGaN/GaN multi-quantum-wells on the optical performance of light-emitting diodes",
+    "journal": "Semiconductor Science and Technology",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2013,
+    "title": "Polarity Determination of Polarity-Controlled ZnO Films using Photo-response Characteristics",
+    "journal": "Journal of Electronic Materials",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2013,
+    "title": "Growth of N-polar GaN Using a CrN Buffer Layer on (0001) Al2O3 via Plasma-Assisted Molecular Beam Epitaxy",
+    "journal": "Thin Solid Films",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2013,
+    "title": "Characterization of deep levels in GaInP on Ge and Ge-on-Si substrates by photoluminescence and cathodoluminescence",
+    "journal": "Journal of Crystal Growth",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2012,
+    "title": "Epitaxial growth of InN/ZnO nanostructures for Solar cell applications",
+    "journal": "Applied Physics Express",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2012,
+    "title": "Growth of Ge Nanowires on Ge/Si Templates with Indium Catalyst via Metal Organic Chemical Vapor Deposition",
+    "journal": "Electronic Materials Letters",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2012,
+    "title": "Dynamic investigations of (0001)Al2O3 surfaces treated with a nitrogen plasma",
+    "journal": "Journal of Ceramic Processing Research",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2012,
+    "title": "Improved emission of a-plane GaN light emitting didodes with silica nano-spheres integrated into a-plane GaN buffer layer",
+    "journal": "Applied Physics Letters",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2012,
+    "title": "Heteroepitaxy grwoth of GaN on various powder compounds(AlN, LaN,TiN,NbN,ZrN,ZrB2,VN,BeO)by hydride vapor phase epitaxy",
+    "journal": "Electronic Materials Letters",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2012,
+    "title": "Comparative analysis of oxide phase formation and its effects on electrical properties of SiO2/InSb MOS structures",
+    "journal": "Thin Solid Films",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2012,
+    "title": "Reduction of Leakage Current of InGaN-Based LED with V-pit Embedded Structures",
+    "journal": "Journal of the Korean Physical Society",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2012,
+    "title": "Surface Polarity Effects on the Hydride Vapor Phase Epitaxial Growth of GaN on 6H-SiC with a Chrome Nitride Buffer layer",
+    "journal": "Electrochemical and Solid-State Letters",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2012,
+    "title": "Growth of GaN branched α-Si3N4 nanowires on (100) Si by metal organic chemical vapor deposition",
+    "journal": "Materials Letters",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2012,
+    "title": "Vertical Array of ZnO submicrorods on periodically polarity inverted templates using solution",
+    "journal": "Journal of Nanoscience and Nanotechnology",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2012,
+    "title": "Growth of less bowed GaN epitaxial layers on sapphire substrates by formation of low-temperatures GaN buffer layer with columanr microstructure",
+    "journal": "Japanese Journal of Applied Physics",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2012,
+    "title": "Catalyst-Free Metal-Organic Chemical VaporDeposition Growth of InN Nanorods",
+    "journal": "Journal of Nanoscience and Technology",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2012,
+    "title": "Growth of GaN layer on patterned Al/Ti metal mask by metal-organic chemical vapor deposition",
+    "journal": "Japanese Journal of Applied Physics",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2012,
+    "title": "Improvement of Light Extraction Efficiency and Reduction of Leakage Current in GaN Based LED via V-pit Formation",
+    "journal": "IEEE Photonics Technology Letters",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2012,
+    "title": "Growth and characterization of periodically polarity-inverted ZnO structures on sapphire substrates",
+    "journal": "Materials Research Bulletin",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2012,
+    "title": "Position-controlled vertical arrays of single-crystalline ZnO nanowires on periodically polarity inverted templates",
+    "journal": "Journal of Alloys and Compounds",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2011,
+    "title": "Catalyst-free growth of InN nanorods by metal-organic chemical vapor deposition",
+    "journal": "Physica Status Solidi A",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2011,
+    "title": "Growth of Si-doped GaInP on Ge on Si substrates and its photoluminescence characteristics",
+    "journal": "Applied Physics Letters",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2011,
+    "title": "Growth mechanism of highly uniform InAs/GaAs quantum dot with periodic arsine interruption by metalorganic chemical vapor deposition",
+    "journal": "Journal of Applied Physics",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2011,
+    "title": "Properties of (11-20) a-plane ZnO films on sapphire substrates grown at different temperatures by plasma assisted molecualr beam epitaxy",
+    "journal": "Thin Solid Films",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2011,
+    "title": "Effects of r-plane sapphire substrate tilt angels aon the growth behavior of nonpolar a-plane GaN",
+    "journal": "Journal of the Korean Physical Society",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2011,
+    "title": "The thermal treatment effects of CrN buffer layer on crystal quality of Zn-polar ZnO films",
+    "journal": "Thin Solid Films",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2011,
+    "title": "Epitaxial growth of GaN films on Cr-compound buffer layers by plasma assisted molecular beam epitaxy",
+    "journal": "Physica Status Solidi C",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2010,
+    "title": "Excitonic ultraviolet stimulated emission in periodically polarity-inverted ZnO structures at room temperature",
+    "journal": "Applied Physics Letters",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2010,
+    "title": "Investigation of the crystallinity of N and Te codoped Zn-polar ZnO films grown by plasma-assisted molecular-beam epitaxy",
+    "journal": "Journal of Applied Physics",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2010,
+    "title": "Catalyst-Free Vertically Alogned ZnO Nanowire Arrays on Periodically Polarity-Inverted Substrate",
+    "journal": "Applied Physics Express",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2010,
+    "title": "Effects of low temperature ZnO and MgO buffer thicknesses on properties of ZnO films grown on (0001) Al2O3 substrates by plasma-assisted molecular-beam epitaxy",
+    "journal": "Thin Solid Films",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2010,
+    "title": "Anisotropic growth effects on the properties of periodically polarity-inverted zinc oxide structures",
+    "journal": "Journal of Applied Physics",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2010,
+    "title": "Second harmonic generation in periodically polarity inverted ZnO",
+    "journal": "Optics Express",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2009,
+    "title": "Origin of second-order nonlinear optical response of polarity-controlled ZnO films",
+    "journal": "Applied Physics Letters",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2009,
+    "title": "Structural and optical investigations of periodically polarity inverted ZnO heterostructures on (0001) Al2O3",
+    "journal": "Applied Physics Letters",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2009,
+    "title": "Fabrication of 1D and 2D periodically polarity inverted ZnO structures using the Cr compound buffer layers",
+    "journal": "Journal of Vacuum Science and Technology B",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2010,
+    "title": "Fabrication of periodically polarity inverted ZnO structures on (0001) Al2O3",
+    "journal": "Thin Solid Films",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2009,
+    "title": "Growth of high-quality ZnO films on Al2O3 (0001) by plasma-assisted molecular beam epitaxy",
+    "journal": "Journal of Crystal Growth",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2010,
+    "title": "Correlation between structural and optical properties of a-plane GaN films grown on r-plane sapphire by metal organic chemical-vapor deposition",
+    "journal": "Journal of Vacuum Science and Technology B",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2010,
+    "title": "High-Quality p-Type ZnO Films Grown by Co-Doping of N and T on Zn-Face ZnO Substrates",
+    "journal": "Applied Physics Express",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2010,
+    "title": "The impact of an intermediate temperature buffer on the growth of GaN on an AlN template by hydride vapor phase epitaxy",
+    "journal": "Journal of Crystal Growth",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2010,
+    "title": "Microstructural investigation of ZnO films grown on (111) Si substrates by plasma-assisted molecular beam epitaxy",
+    "journal": "Journal of Crystal Growth",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2010,
+    "title": "Effect of anion-to-cation supplying ratio on the surface morphology of AlN films grown on ZnO substrates at low temperature",
+    "journal": "Journal of Vacuum Science and Technology A",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2009,
+    "title": "Lateral arrays of vertical ZnO nanowalls on periodically polarity inverted ZnO template",
+    "journal": "Nanotechnology",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2009,
+    "title": "Optical properties and carrier dynamics of polarity controlled ZnO films grown on (0001) Al2O3 by Cr-compound intermediate layers",
+    "journal": "Applied Physics Letters",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2009,
+    "title": "X-ray Photoelectron Spectroscopy Study on the CrN surface Grown on Sapphire Substrate to Control the Polarity of ZnO by Plasma-Assisted Molecular Beam Epitaxy",
+    "journal": "Applied Surface Science",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2009,
+    "title": "Growth and structural properties of ZnO films on (10-10)m-plane sapphire substrates by plasma-assisted molecular beam epitaxy",
+    "journal": "Journal of Vacuum Science and Technology B",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2009,
+    "title": "A study on the indium induced variations in photoluminescence properties of indium-doped ZnO nanorods",
+    "journal": "International Journal of Nanoscience",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2009,
+    "title": "Investigation on the ZnO: N films grown on (0001) and (000-1)ZnO templates by plasma-assisted molecular beam epitaxy",
+    "journal": "Journal of Crystal Growth",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2009,
+    "title": "The effect of growth temperature on nitrogen incorporation into ZnO film grown on Al2O3 substrate",
+    "journal": "Journal of Crystal Growth",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2008,
+    "title": "Effects of interfacial layer structures on crystal structural properties of ZnO films",
+    "journal": "Journal of Vacuum Science and Technology A",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2008,
+    "title": "The high quality ZnO growth on c-Al2O3 substrate with Cr2O3 buffer layer using plasma assisted molecular beam epitaxy",
+    "journal": "Applied Surface Science",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2008,
+    "title": "Ordered Arrays of ZnO Nanorods Grown on Periodically Polarity-Inverted Surfaces",
+    "journal": "Nano Letters",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2008,
+    "title": "Fabrication of periodically polarity-inverted ZnO films",
+    "journal": "Journal of Vacuum Science and Technology B",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2008,
+    "title": "Improvement in the optical and structural properties of InGaN/GaN multiple quantum wells by indium predeposition",
+    "journal": "Journal of Physics D: Applied Physics",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2008,
+    "title": "Growth of Polarity-Controlled ZnO Films on (0001) Al2O3",
+    "journal": "Journal of Electronic Materials",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2008,
+    "title": "Localization of the excitonic luminescence of ZnO nano-tetrapods",
+    "journal": "Physica E",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2008,
+    "title": "Lattice deformation of ZnO films with high nitrogen concentration",
+    "journal": "Applied Surface Science",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2008,
+    "title": "The effect of hydrogen irradiation and annealing on the low-temperature growth of homoepitaxial ZnO layers grown on (0001) ZnO substrates by plasma-assisted molecular beam epitaxy",
+    "journal": "Applied Surface Science",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2007,
+    "title": "Lattice relaxation mechanism of ZnO thin films grown on c-Al2O3 substrates by plasma-assisted molecular-beam epitaxy",
+    "journal": "Applied Physics Letters",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2007,
+    "title": "Low-temperature growth of high-quality ZnO layers by surfactant-mediated molecular-beam epitaxy",
+    "journal": "Journal of Crystal Growth",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2007,
+    "title": "Polarity control of ZnO films on (0001)Al2O3 by Cr-compound intermediate layers",
+    "journal": "Applied Physics Letters",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2006,
+    "title": "Improvement of luminous intensity of InGaN light emitting diodes grown on hemispherical patterned sapphire",
+    "journal": "Physica Status Solidi C",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2004,
+    "title": "Recovery of dry-etch-induced surface damage on Mg-doped GaN by NH3 ambient thermal annealing",
+    "journal": "Journal of Vacuum Science and Technology B",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2003,
+    "title": "Growth-Temperature Dependent Property of GaN Barrier Layer and Its Effect on InGaN/GaN Multiple Quantum Well Light-Emitting Diodes",
+    "journal": "Journal of the Korean Physical Society",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2002,
+    "title": "Growth of self-assembled nanosize InGaN/GaN multiple quantum wells embedded in amorphous SiNx",
+    "journal": "Journal of Crystal Growth",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2001,
+    "title": "Temperature dependence of photoluminescence of InGaN films containing In-rich quantum dots",
+    "journal": "Applied Physics Letters",
+    "publicationType": "journal",
+    "status": "Published"
+  },
+  {
+    "year": 2026,
+    "title": "Chapter 1, Introduction to Various Fly Ash (Coal & Bio-Coal) Generated from Industrial Operations",
+    "journal": "CRC Press",
+    "publicationType": "book",
+    "status": "Published",
+    "doi": "10.1201/9781003498124",
+    "authors": "S. Pandey, T. Sengupta, N. K. Singh, G. Kabra, N. Kumar, J. Park"
+  },
+  {
+    "year": 2023,
+    "title": "Chapter 12, Functionalized graphene and carbon nanotubes materials towards environmental applications",
+    "journal": "CRC Press",
+    "publicationType": "book",
+    "status": "Published",
+    "doi": "10.1201/9781003231943",
+    "authors": "Navneet Kumar, Jinsub Park"
+  },
+  {
+    "year": 2018,
+    "title": "Chapter 7, Microwave Assisted Sol-Gel Synthesis",
+    "journal": "Handbook of Sol-Gel Science and Technology (Springer)",
+    "publicationType": "book",
+    "status": "Published",
+    "authors": "Garadkar, Kadam, Jinsub Park"
+  },
+  {
+    "year": 2013,
+    "title": "Chapter 13, Hybrid Nanostructures for Photovoltaics",
+    "journal": "Nanostructure, Nanosystems and Nanostructured Material (Apple Academic Press)",
+    "publicationType": "book",
+    "status": "Published",
+    "authors": "G. Mohan Kumar, S. Chidambaram, J. Kawakita, Jinsub Park, R. Jayavel"
+  },
+  {
+    "year": 2009,
+    "title": "Chapter 4, Polarity control and applications",
+    "journal": "Oxide and Nitride Semiconductor (Springer)",
+    "publicationType": "book",
+    "status": "Published",
+    "authors": "J. Park, S. Hong"
   }
 ]
