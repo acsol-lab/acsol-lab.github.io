@@ -680,6 +680,18 @@
     const date = validDate(item.publishedDate); if (date) return Number(date.slice(0,4));
     const year = Number(item.year); return Number.isInteger(year) && year >= 1900 && year <= 2200 ? year : null;
   };
+  // New 2-state review flag; preserve old CMS data when the new field is absent.
+  const isUnderReview = entry => {
+    if (typeof entry.underReview === 'boolean') return entry.underReview;
+    return text(entry.status).trim().toLowerCase() === 'under review';
+  };
+  const publicationPeriod = year => {
+    if (year === null) return 'unknown';
+    if (year >= 2020) return String(year);
+    if (year >= 2010) return '2010s';
+    if (year >= 2000) return '2000s';
+    return 'earlier';
+  };
   const doiURL = input => {
     const doi = text(input).replace(/^https?:\/\/(dx\.)?doi\.org\//i, '');
     if (!/^10\.\d{4,9}\/[^\s<>"'\\]+$/i.test(doi) || doi.includes('://')) return '';
@@ -701,13 +713,14 @@
     const entries = raw.map((entry,index) => ({...entry, _date: validDate(entry.publishedDate), _year: publicationYear(entry), _index:index}));
     entries.sort((a,b) => (b._year ?? -1) - (a._year ?? -1) || b._date.localeCompare(a._date) || a._index - b._index);
     let selected = 'all', query = '';
-    const years = [...new Set(entries.map(entry => entry._year === null ? 'unknown' : String(entry._year)))];
+    const recentYears = [...new Set(entries.filter(entry => entry._year !== null && entry._year >= 2020).map(entry => entry._year))];
+    const periods = [...recentYears.map(String), ...['2010s', '2000s', 'earlier', 'unknown'].filter(p => entries.some(entry => publicationPeriod(entry._year) === p))];
     const filter = $('#publication-filters'), input = $('#publication-search');
     const update = () => {
       $$('.filter-button', filter).forEach(button => button.setAttribute('aria-pressed', String(button.dataset.value === selected)));
       const normalized = query.normalize('NFKC').toLocaleLowerCase();
-      const matches = entries.filter(entry => (selected === 'all' || (entry._year === null ? 'unknown' : String(entry._year)) === selected)
-        && [entry.title, entry.journal, entry.authors, entry.doi, entry.status, entry.publicationType, entry._year].map(v => text(v)).join(' ').normalize('NFKC').toLocaleLowerCase().includes(normalized));
+      const matches = entries.filter(entry => (selected === 'all' || (selected === 'review' ? isUnderReview(entry) : publicationPeriod(entry._year) === selected))
+        && [entry.title, entry.journal, entry.authors, entry.doi, entry._year, isUnderReview(entry) ? 'Under Review' : ''].map(v => text(v)).join(' ').normalize('NFKC').toLocaleLowerCase().includes(normalized));
       if (!matches.length) {
         target.replaceChildren(emptyNote(raw.length ? 'No matching publications.' : 'Work in progress.', raw.length ? '검색어 또는 연도 필터를 변경해 주세요.' : '논문 목록을 업데이트하고 있습니다.')); return;
       }
@@ -720,7 +733,7 @@
         list.forEach(entry => {
           const article = node('article', 'publication'), content = node('div'), meta = node('div', 'publication-head');
           meta.append(node('p', 'pub-journal', text(entry.journal,entry.publicationType==='book'?'Book Chapter':'Publication')));
-          if(text(entry.status) && entry.status!=='Published')meta.append(node('span','pub-status',entry.status));
+          if (isUnderReview(entry)) meta.append(node('span', 'pub-status', 'Under Review'));
           if (entry._date) { const date = timeNode(entry._date); date.className = 'pub-date'; meta.append(date); }
           const title = node('h3'), href = doiURL(entry.doi);
           if (href) { const link = node('a', '', entry.title); link.href = href; link.target = '_blank'; link.rel = 'noopener noreferrer'; title.append(link); }
@@ -735,8 +748,14 @@
         }); section.append(head, items); return section;
       }));
     };
-    if (filter) filter.replaceChildren(makeFilter('All years','all',true, value => { selected = value; update(); }),
-      ...years.map(year => makeFilter(year === 'unknown' ? 'Undated' : year, year, false, value => { selected = value; update(); })));
+    if (filter) filter.replaceChildren(
+      makeFilter('All years', 'all', true, value => { selected = value; update(); }),
+      ...periods.map(period => makeFilter(
+        period === 'unknown' ? 'Undated' : period === 'earlier' ? 'Before 2000' : period === '2010s' ? '2010년대' : period === '2000s' ? '2000년대' : period,
+        period, false, value => { selected = value; update(); }
+      )),
+      makeFilter('Under Review', 'review', false, value => { selected = value; update(); })
+    );
     if (input) input.addEventListener('input', () => { query = input.value.trim(); update(); });
     update();
   }

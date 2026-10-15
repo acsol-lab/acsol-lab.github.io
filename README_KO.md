@@ -1,64 +1,40 @@
-# ACSoL v12 — GitHub Pages + Pages CMS
+# ACSoL v13 · GitHub Pages + Pages CMS
 
-기준: ACSoL v11. 현재 GitHub에서 수정한 논문·연구원·사진은 유지하도록 **업데이트 전용 ZIP**을 사용하세요.
+기준: ACSoL v12. **현재 GitHub의 논문, 사진, 연구원, 배너 데이터를 보존하려면 반드시 v12→v13 업데이트 전용 ZIP을 사용하세요.**
 
-## v12에서 수정한 내용
+## v13 수정 내용
 
-1. **Research 세부 페이지 메뉴 위치**: 분야별 탭을 상세 글 맨 아래가 아니라 페이지 제목과 상세 내용 사이(상단)로 이동했습니다. 해당 목록은 `data/research.json`을 읽어 생성합니다.
-2. **메뉴 목록 일치**: 모든 12개 HTML 파일이 동일한 `site.js?v=12`에서 Research 드롭다운을 생성하며, `fetch(..., {cache:'no-store'})`로 최신 `data/research.json`을 확인합니다. `data/research.json`은 업데이트 ZIP으로 덮어쓰지 않습니다. 화면에 항목이 달리 보이면 GitHub Actions의 Pages 배포가 완료됐는지 확인하고 Ctrl+F5를 해보세요.
-3. **Publications의 불필요한 숫자 안내 제거**: `3 publications`, `Latest first`, 연도 옆 `N publications` 같은 보조 수치/문구를 표시하지 않습니다. 연도별 묶음과 연도 검색은 유지합니다.
-4. **모집 배너**: 화면을 어둡게 하는 배경과 포스터 외곽의 흰색 카드, 장식 제목을 제거했습니다. 포스터 원본 비율을 유지하고, 바로 아래에 작게 `오늘 하루 보지 않기` 체크박스와 `닫기`를 배치했습니다. 기존 배너 날짜/숨김 동작은 유지합니다. 기존 CMS 사진은 그대로 사용합니다.
-5. **Publications CMS 통합**: `Publications` 메뉴 하나에서 기존 CMS 논문과 Wix 이전 논문을 편집합니다. 아래 **일회성 병합**을 반드시 실행해야 실제 데이터도 통합됩니다. 병합 전까지 웹사이트에는 기존 두 JSON을 합쳐 표시합니다.
-6. **Pages CMS 사이드바 정리**: Pages CMS 공식 `type: group` 기능으로 `01 콘텐츠 관리`, `02 페이지 제목 · 글꼴`, `03 전체 홈페이지 스타일`의 3개 접기/펼치기 그룹을 만들었습니다. 콘텐츠 내부에는 Home / Research / People / Publications / Equipment / News / Gallery / Contact 메뉴가 있습니다. Pages CMS의 자체 GUI 색상/레이아웃은 직접 재디자인할 수 없습니다.
+1. **CMS 글꼴 설정 용어 명확화**: Publications 항목 안에 있던 모호한 `제목 / 본문`을 `논문 제목 / 저자·설명`으로 나눴습니다. `논문 제목`은 DOI 링크가 포함되는 큰 문장이고, `저자·설명`은 그 아래에 표시되는 저자명·소개 글입니다. 학술지명은 두 설정과 별도로 홈페이지 공통 디자인을 사용합니다. 다른 항목에서도 제목은 해당 항목 이름·헤드라인, 본문은 부가 설명문이라는 뜻으로 표시했습니다. `0`이나 빈 값은 해당 페이지의 기본 크기를 사용합니다.
+2. **연도 필터 압축**: 상단 필터는 `All years / 2026, 2025, ... 2020 / 2010년대 / 2000년대 / Under Review`입니다. 2010년대는 2010~2019, 2000년대는 2000~2009를 포함합니다. 검색/연도별 본문 묶음과 날짜 최신순 정렬은 유지합니다. 2000년 이전 자료가 실제로 있으면 `Before 2000`이 별도로 표시됩니다.
+3. **상태 필드 단순화**: CMS에서 `현재 상태 — Under Review (심사 중이면 체크)`만 사용합니다. 선택하면 항목에 `Under Review` 배지가 표시되고 상단 Under Review 필터에서도 확인할 수 있습니다. 미선택 항목은 상태 배지를 표시하지 않습니다. 이전 JSON의 `status` 필드는 삭제하지 않습니다. `Under Revision`과 `Accepted`는 별도의 Under Review 배지로 잘못 변환하지 않습니다.
+4. **CMS의 항목 종류 필드 제거**: 기존 `publicationType` 내용은 JSON에 남겨 두지만 Pages CMS 입력란에서 숨겼습니다. 기존 Book Chapter 데이터도 없어지지 않습니다.
+5. **저널명 확대**: Publications의 저널명을 PC 18px, 모바일 16px의 굵은 글씨로 표시합니다. 실제 논문 제목은 19px 전후(화면 크기에 따라 변함)이며 저널명도 비슷한 크기로 보입니다.
+6. **모집 배너 디자인 개선**: 화면 정중앙 대신 **PC 우측 상단**에 작은 안내 포스터 카드로 표시합니다. 얇은 테두리·연한 배경·그림자와 상단 `ACSoL / ANNOUNCEMENT` 라벨을 적용했습니다. 배너 이미지의 전체 비율은 유지하며, 아래에 `오늘 하루 보지 않기`와 `닫기`를 작게 표시합니다. 모바일에서는 화면 너비에 맞춰 상단 중앙으로 배치됩니다. CMS의 배너 이미지/기간/링크 값은 변경하지 않습니다.
 
-## 1) 가장 먼저: 기존 GitHub 저장소 백업
+## GitHub에 적용하기
 
-현재 [nawit-del.github.io](https://github.com/nawit-del/nawit-del.github.io) 저장소에서 **Code → Download ZIP**으로 전체 파일을 백업하세요. 특히 `data/publications.json`, `data/publications-import.json`, `data/research.json`, `data/students.json`, `media/`를 보존합니다.
+1. 저장소 `nawit-del.github.io`에서 **Code → Download ZIP**으로 먼저 백업합니다. 특히 `data/publications.json`, `data/publications-import.json`, `data/banners.json`, `data/students.json`, `media/`를 보존합니다.
+2. `ACSoL_v12_to_v13_Update_Only.zip`의 파일을 압축 해제합니다.
+3. HTML 12개, `site.js`, `styles.css`, `.pages.yml`, `tools/migrate_review_flags.py`, `.github/workflows/migrate-review-flags.yml`을 GitHub 저장소 최상위의 동일한 경로로 업로드·교체합니다.
+4. **data 폴더 전체와 media 폴더는 교체하거나 삭제하지 마세요.** 업데이트 ZIP에 사용자 JSON 데이터는 포함되지 않습니다.
+5. GitHub → Actions에서 Pages 배포가 성공한 후 홈페이지와 Pages CMS를 새로고침합니다. 브라우저 캐시가 남으면 `Ctrl+F5`로 새로고침합니다.
 
-## 2) v11 → v12 업데이트 적용
+## 기존 Under Review 기록 체크박스 초기화 (권장 · 한 번만)
 
-1. **`ACSoL_v11_to_v12_Update_Only.zip`** 압축을 풉니다.
-2. 12개 HTML, `site.js`, `styles.css`, `.pages.yml`을 기존 GitHub 저장소 최상위의 동명 파일로 교체합니다.
-3. 새 `tools/merge_publications.py`, `.github/workflows/consolidate-publications.yml`을 해당 경로에 업로드합니다. 점(`.`)으로 시작하는 `.github` 폴더나 `.pages.yml`이 웹 드래그에 안 잡히면 GitHub 웹 편집기에서 `Add file → Create new file`을 이용하거나 GitHub Desktop으로 올리세요.
-4. **기존 `data/*.json`과 `media/`는 건드리지 않습니다.** 업데이트 ZIP에는 기존 CMS 데이터가 들어 있지 않습니다.
-5. GitHub `Actions`에서 Pages 배포가 성공하면 `Ctrl+F5` 새로고침합니다.
+과거에는 논문 상태가 `status: "Under Review"`로 저장되었지만 v13부터는 `underReview: true/false` 체크박스를 사용합니다. 홈페이지는 **새 필드가 없을 때만** 예전 `status` 값을 읽으므로 업데이트 직후에도 배지가 올바르게 보입니다. 그러나 Pages CMS 체크박스를 수정할 때 혼동이 없도록 다음 중 하나를 실행하세요.
 
-## 3) Publications 169건을 한 CMS 메뉴로 안전하게 병합하기 (1회 실행)
+- GitHub → **Actions → One-time normalize Under Review flags → Run workflow**를 한 번 실행합니다. 이 자동화는 `data/publications.json` (및 아직 병합 전이면 `data/publications-import.json`)에서 기존 `Under Review` 항목만 참으로 변환하고 나머지를 거짓으로 채웁니다. 이전 상태·논문명·연도·DOI는 삭제하지 않습니다. 이미 `underReview` 값이 설정된 논문은 건드리지 않습니다. Actions의 `GITHUB_TOKEN`에 저장소 쓰기 권한이 필요할 수 있습니다.
+- 또는 Pages CMS에서 Under Review 논문을 열어 체크하고 저장합니다. 과거 `status` 필드가 남은 경우 **해제하여 저장하면** `underReview: false`가 우선하므로 홈페이지 배지가 없어집니다.
 
-업데이트 파일만 올리면 Pages CMS 메뉴는 한 개로 정리되지만, v11에서 별도 저장했던 논문 데이터를 **실제 단일 파일**로 합치는 작업이 남습니다.
+**v12의 Wix 논문 데이터 통합 작업을 아직 수행하지 않았다면**, 먼저 v12의 `One-time consolidate publications` 워크플로를 완료하고 나서 체크박스 초기화 작업을 하세요. 홈페이지 목록은 이전 자료 파일을 병합 전까지 읽어 표시하지만, Pages CMS의 Publications 메뉴는 `data/publications.json`을 편집하므로 병합이 먼저 필요합니다.
 
-1. GitHub 저장소 → **Actions** → **One-time consolidate publications**를 엽니다.
-2. **Run workflow → Branch: main → Run workflow**를 클릭합니다.
-3. 워크플로가 초록색 성공(`✓`)인지 확인합니다. `tools/merge_publications.py`는 GitHub 저장소의 현재 `data/publications.json`과 `data/publications-import.json`을 읽어, DOI나 제목이 같은 항목을 중복 제거하고 기존 CMS에서 직접 수정한 값을 최대한 보존합니다.
-4. 성공 후 `data/publications.json`에 기존+이전 논문이 함께 저장되고 `data/publications-import.json`은 **빈 배열 `[]`**로 비워집니다. 기존 import 내용은 GitHub 기록에 남습니다. CMS에는 **Publications 하나만** 표시됩니다.
-5. 다시 Pages CMS를 새로고침하고 Publications가 모두 한 목록에 나타나는지 확인합니다.
+## 확인 사항
 
-**주의**: GitHub Actions 저장소 쓰기 권한이 제한되어 있거나 `main` 브랜치가 보호되어 있다면 자동 커밋이 실패할 수 있습니다. 이때 먼저 저장소 권한을 확인하세요. 이미 병합돼서 import 파일이 비어 있다면 워크플로는 무해하게 종료됩니다.
+- 필터가 2000년대/2010년대/2020년 이후 연도별로 표시되는지, `Under Review`가 연도 버튼 옆에 나타나는지 확인합니다.
+- 논문 목록의 `Under Review` 배지가 심사 중인 논문에만 표시되는지 확인합니다.
+- CMS에서 논문을 열었을 때 `논문 제목 글꼴`, `저자·설명 글꼴`, `Under Review` 체크박스만 표시되고 `항목 종류` 입력란이 없는지 확인합니다.
+- 배너가 노출 기간에 우측 상단 카드 형태로 나타나는지 확인합니다. 방문자별 하루 숨김 데이터는 브라우저 저장소에 남으므로 시크릿 창에서 테스트하는 것이 편리합니다.
 
-GitHub Actions를 사용하고 싶지 않다면, GitHub 저장소를 로컬에 복제한 후 `python tools/merge_publications.py`를 한 번 실행하고 결과 `data/publications.json`과 `data/publications-import.json`만 직접 커밋해도 됩니다. 이때 원본 JSON을 백업한 다음 진행하세요.
+## 주의
 
-### 데이터가 왜 업데이트 ZIP에 포함되지 않나요?
-
-사용자가 Pages CMS에서 추가한 논문, 학생, 연구 사진의 실제 최신 파일을 제가 볼 수 없기 때문입니다. 예전 백업 JSON을 새 파일로 덮어쓰면 최신 연구실 콘텐츠를 잃어버릴 수 있습니다. 그래서 업데이트용 ZIP은 디자인 코드와 병합 자동화 파일만 담았습니다.
-
-## 4) CMS 메뉴 사용법
-
-[app.pagescms.org](https://app.pagescms.org/) 로그인 → 저장소 `nawit-del.github.io` 선택 → `main` 브랜치 확인.
-
-- **01 · 콘텐츠 관리 → Home**: 메인 문구, 모집 포스터, 노출 기간
-- **Research**: 연구분야 카드/상세 사진/상세 설명 (항목 추가 시 모든 페이지의 서브메뉴에 자동 반영)
-- **People**: 교수님, 경력, 수상, 재학생, 졸업생
-- **Publications**: 전체 논문 1개 메뉴 (병합 완료 후 정상 사용)
-- **Equipment / News / Gallery / Contact**: 각 페이지 콘텐츠
-- **02 · 페이지 제목 · 글꼴**: 페이지별 큰 제목, 서브 타이틀, 글꼴/크기
-- **03 · 전체 홈페이지 스타일**: 공통 글자 크기와 글꼴
-
-CMS 자체의 테마·패널 크기·시각적 레이아웃은 이 정적 사이트의 CSS로 바뀌지 않습니다. 대신 사이드바 그룹으로 메뉴 탐색 부담을 줄였습니다.
-
-## 5) 테스트·문제 해결
-
-- 로컬 미리보기는 `python tools/refresh_preview.py` 실행 후 `index.html`을 열어 확인합니다. **로컬 스냅샷은 실제 GitHub의 최신 CMS 정보와 다를 수 있습니다**.
-- 업데이트 후 메뉴가 4개만 뜨는 경우: GitHub 실제 `data/research.json`에 6개가 있는지 확인하고, 모든 페이지가 `site.js?v=12`를 쓰는지 확인합니다. 새 배포가 된 뒤 강력 새로고침합니다.
-- 배너 이미지는 CMS 업로드 파일을 사용하며, 아직 등록한 배너가 없다면 표시되지 않습니다.
-- 배너의 `오늘 하루 보지 않기`는 방문자 브라우저의 저장소(localStorage)를 사용하므로 브라우저에 따라 동작이 제한될 수 있습니다.
-- `python tools/check_site.py`, `node --check site.js`로 구조 및 JS 문법을 검사할 수 있습니다.
+Pages CMS는 별도의 서비스이므로 이 홈페이지의 CSS로 CMS 관리자 화면 자체의 색상·형태를 바꾸지는 못합니다. 이번에는 **CMS 항목의 이름과 설명 문구를 개선**했습니다. 변경 후 화면에 구 설정이 보이면 Pages CMS에서 저장소와 `main` 브랜치를 다시 선택·새로고침하세요.

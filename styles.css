@@ -1244,3 +1244,54 @@ body { font-family: var(--cms-page-font,var(--cms-global-font,var(--sans))); fon
 .recruit-banner-done{background:transparent!important;color:var(--ink)!important;border:0!important;border-radius:0!important;padding:5px 3px;font-size:12px;font-weight:650;}
 .recruit-banner-done:hover{text-decoration:underline;}
 @media(max-width:570px){.recruit-banner-popup{max-width:calc(100vw - 24px)}.recruit-banner-image img{max-width:calc(100vw - 24px);max-height:calc(100dvh - 95px)}}
+
+
+/* ── ACSoL v13 : compact decade filters and accessible publication metadata ── */
+#publication-filters{column-gap:6px;row-gap:5px;align-items:center;}
+#publication-filters .filter-button{font-size:13px;font-weight:550;padding:8px 13px;min-height:38px;white-space:nowrap;}
+#publication-filters .filter-button[data-value="review"]{margin-inline-start:7px;border:1px solid #bed0ec;color:var(--accent);font-weight:650;}
+#publication-filters .filter-button[data-value="review"][aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent);}
+#publication-filters .filter-button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+.pub-journal{font-size:18px;font-weight:650;line-height:1.4;letter-spacing:-.015em;color:var(--ink);}
+.publication-head{align-items:center;gap:9px 17px;}
+.pub-status{font-size:12px;font-weight:700;padding:5px 10px;background:#e6eeff;color:#2255b7;border-radius:99px;}
+/* Item-specific body size changes the author line, never the journal heading. */
+.publication.cms-styled-entry.cms-item-body-sized .pub-journal{font-size:18px!important;}
+@media(max-width:700px){
+ #publication-filters .filter-button{font-size:12px;padding:7px 10px;min-height:34px;}
+ .pub-journal,.publication.cms-styled-entry.cms-item-body-sized .pub-journal{font-size:16px!important;}
+}
+/* ── Enrollment banner: elegant off-center floating poster ── */
+.recruit-banner-overlay{
+ display:flex!important;justify-content:flex-end!important;align-items:flex-start!important;
+ padding:clamp(88px,11vh,135px) clamp(16px,5vw,84px) 28px!important;
+ background:rgba(15,38,63,.22)!important;backdrop-filter:blur(1.5px)!important;
+}
+.recruit-banner-popup{
+ box-sizing:border-box;position:relative;width:min(470px,100%)!important;max-width:min(470px,calc(100vw - 32px))!important;
+ display:flex;flex-direction:column;max-height:calc(100dvh - 120px)!important;
+ padding:13px 13px 9px!important;overflow:auto!important;
+ border:1px solid #cbd8e8!important;border-radius:14px!important;
+ background:#fcfdff!important;
+ box-shadow:0 20px 70px rgba(9,33,67,.24),0 3px 12px rgba(9,33,67,.09)!important;
+}
+.recruit-banner-popup::before{
+ content:'ACSoL  /  ANNOUNCEMENT';display:block;margin:0 2px 9px;
+ color:var(--accent);font-weight:750;font-size:11px;letter-spacing:.13em;
+}
+.recruit-banner-link,.recruit-banner-image{width:100%!important;max-width:100%!important;}
+.recruit-banner-link{line-height:0;border-radius:7px!important;}
+.recruit-banner-image{border-radius:7px;background:#f1f5f9!important;}
+.recruit-banner-image img{width:100%!important;max-width:100%!important;height:auto!important;max-height:min(61vh,580px)!important;object-fit:contain;}
+.recruit-banner-footer{
+ box-sizing:border-box;background:#f1f6fd!important;border-radius:6px;
+ padding:8px 11px!important;margin:10px 0 0!important;min-height:40px;flex-shrink:0;
+}
+.recruit-banner-hide-label{font-size:12px;color:#2a405a;font-weight:600;}
+.recruit-banner-done{font-size:12px;padding:5px 8px;border-radius:4px!important;color:var(--accent)!important;}
+.recruit-banner-done:hover{background:#e3ecfc!important;text-decoration:none;}
+@media(max-width:700px){
+ .recruit-banner-overlay{justify-content:center!important;align-items:flex-start!important;padding:60px 12px 12px!important;}
+ .recruit-banner-popup{width:min(425px,100%)!important;max-height:calc(100dvh - 72px)!important;}
+ .recruit-banner-image img{max-height:calc(100dvh - 175px)!important;}
+}
