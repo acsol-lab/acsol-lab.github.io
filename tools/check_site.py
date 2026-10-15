@@ -33,7 +33,7 @@ class Page(HTMLParser):
 def main() -> int:
     root = Path(__file__).resolve().parent.parent
     errors = []
-    pages = ['index', 'research', 'people', 'publications', 'news', 'gallery', 'contact']
+    pages = ['index', 'research', 'research-detail', 'people', 'professor', 'students', 'alumni', 'publications', 'equipment', 'news', 'gallery', 'contact']
     for name in pages:
         file = root / (name + '.html')
         if not file.is_file():
@@ -57,7 +57,7 @@ def main() -> int:
         for file in data.glob('*.json'):
             try:
                 value = json.loads(file.read_text(encoding='utf-8-sig'))
-                expected = dict if file.stem in ('home', 'professor', 'site') else list
+                expected = dict if file.stem in ('home', 'professor', 'site', 'contact') else list
                 if not isinstance(value, expected):
                     errors.append(f'{file.name}: expected {expected.__name__}')
             except (ValueError, OSError) as exc:

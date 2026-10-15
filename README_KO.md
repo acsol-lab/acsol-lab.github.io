@@ -1,91 +1,71 @@
-# ACSoL — Chromatic Editorial v7
+# ACSoL 홈페이지 v8 — 메뉴·슬라이드·Equipment·CMS 개선
 
-한양대학교 차세대 반도체소자 융합연구실 홈페이지
+첨부한 **v7 Full Website**를 바탕으로 만든 버전입니다. 기존 색상, 연구 주제, 교수님 경력, Publications 데이터와 Pages CMS 저장 방식은 보존했습니다. 서버 구축, 빌드 명령, 유료 서비스는 필요하지 않습니다.
 
-## 화면 확인
+## 1. 변경 사항
 
-압축을 **폴더 전체로 완전히 푼 다음 `index.html`을 더블클릭**하세요. 프로그램 설치나 빌드 없이 미리볼 수 있습니다.
+1. **글씨 크기 확대:** 상단 메뉴, 로고 옆 영문 정식 명칭·한국어 연구실명, 작은 라벨과 부가 설명의 글씨 크기를 전반적으로 키웠습니다.
+2. **Home 사진 슬라이드:** `Pages CMS → Home / 메인 화면 설정 → heroSlides`에 사진을 여러 장 추가하면 자동 전환·무한 반복합니다. `slideIntervalSeconds`에 5를 넣으면 5초 간격입니다. 이전/다음, 페이지 표시, 일시정지 버튼이 있습니다. 사진이 한 장뿐이면 슬라이드 버튼은 숨깁니다. 운영체제의 동작 줄이기 설정이 켜져 있으면 자동재생이 초기 정지되며 재생 버튼으로 켤 수 있습니다. 기존 `heroImage`는 `heroSlides`가 비어 있을 때 사용합니다.
+3. **상단 여백과 제목 크기 축소:** PC에서 메뉴 페이지 상단 배너의 높이를 낮췄습니다. 메인 콘텐츠가 이전보다 빨리 보이도록 했습니다.
+4. **Home 내용 압축:** `01 / The laboratory` 소개를 메인 사진 옆으로 통합하고 `What we explore` 전체 구역을 제거했습니다. `Notes from the lab`이 메인 소개 바로 아래에 나옵니다.
+5. **People 하위 페이지:** `People` 메뉴에 마우스를 올리면 가로로 **Professor / Students / Alumni**가 나타납니다. `professor.html`은 교수님 프로필·경력·수상, `students.html`은 박사·석사, `alumni.html`은 졸업생만 보여줍니다. `people.html`은 3개 페이지로 들어가는 간단한 안내입니다. 모바일에서는 People 오른쪽 펼치기 버튼을 누릅니다.
+6. **Research 하위 페이지:** `Research`는 4개 연구 분야를 한눈에 보여주는 `research.html`과 각 분야 상세를 보여주는 `research-detail.html?topic=1`~`4`로 구성했습니다. 상단 Research 메뉴의 4개 항목 이름은 `data/research.json`의 제목에서 자동으로 갱신됩니다. 상세 글·이미지·캡션은 **기존 Research CMS 데이터**를 그대로 활용합니다.
+7. **Equipment 추가:** 상단 Publications 다음에 Equipment를 추가했습니다. `equipment.html`과 CMS의 `Equipment / 연구실 장비` 메뉴에서 장비명, 모델명, 제조사, 사진, 장비 소개, 활용 분야를 등록할 수 있습니다.
+8. **컴팩트한 푸터:** 교수님 이메일·전화번호, 학생 대표 이름·이메일·전화번호, 연구실 주소, 찾아오는 길 링크를 푸터에 넣었습니다. 학생 대표·별도 길 안내 정보는 새로운 CMS `Contact / 학생 대표 · 찾아오는 길`에서 편집합니다. 교수님 연락처·주소는 기존 `People / 교수님 프로필`에서 편집합니다. 학생 대표 연락처가 비어 있으면 없는 정보를 임의로 표시하지 않습니다.
 
-로컬 파일 미리보기는 `preview-data.js`의 스냅샷을 사용합니다. HTTP/HTTPS로 배포된 홈페이지는 기존 `data/*.json`을 직접 읽으므로, Pages CMS로 편집한 내용이 배포 후 그대로 반영됩니다.
+## 2. 기존 v7에 적용 (가장 안전한 방식)
 
-## v7에서 달라진 디자인
+**`ACSoL_v7_to_v8_Update_Only.zip`을 이용하세요.**
 
-v6의 큰 제목, 세리프체 강조, 넓은 여백과 페이지 구성을 유지하고 색을 보강했습니다.
+1. GitHub 저장소 백업: `Code → Download ZIP`.
+2. 업데이트 ZIP 압축 해제 후 HTML, `site.js`, `styles.css`, `.pages.yml`을 저장소 최상위에 업로드/교체합니다.
+3. 새로 추가된 `professor.html`, `students.html`, `alumni.html`, `research-detail.html`, `equipment.html`도 업로드합니다.
+4. **새 파일** `data/contact.json`, `data/equipment.json`을 `data/` 폴더 안에 추가합니다.
+5. 기존 `data/home.json`, `data/professor.json`, `data/research.json`, `data/students.json`, `data/alumni.json`, `data/publications.json`, `data/news.json`, `data/gallery.json`, `data/professor-*.json` 등을 **절대 삭제하거나 전체본 파일로 덮어쓰지 마세요.** 기존 CMS에서 등록한 콘텐츠가 들어 있습니다.
+6. `.pages.yml`은 이름이 점(`.`)으로 시작하므로 GitHub 웹 업로더에서 막히면 GitHub 저장소에서 기존 파일의 ✎ 편집을 눌러 업데이트본 내용으로 교체합니다.
+7. GitHub `Settings → Pages`의 배포 상태를 확인한 다음 `Ctrl + F5`로 새로고침합니다.
+8. [Pages CMS](https://app.pagescms.org/)에서 Home, Equipment, Contact의 새 항목이 보이는지 확인합니다.
 
-- 메인: 블루 강조 문구, 블루→틸 컬러의 추상 표면 그래픽, 은은한 배경 그라데이션.
-- 연구 분야: 블루 / 틸 / 아이리스 / 코퍼의 네 가지 톤. 연구 카드와 상세 페이지에 같은 색을 적용.
-- 소식: 카테고리별 색상 배지와 얇은 컬러 구분선. 필터를 바꿔도 같은 카테고리의 색은 유지.
-- 하위 페이지: 제목과 링크, 필터, 빈 이미지 영역에 절제된 컬러 적용.
-- 문의 / 하단: 연한 블루·민트 문의 영역과 딥 네이비 푸터.
+**새 저장소에서 시작할 경우** `ACSoL_v8_Full_Website.zip` 파일을 사용합니다. `index.html` 등이 저장소 최상위에 있어야 합니다. 전체 설치본에는 v7에서 제공된 예시 JSON 데이터가 포함되므로, 실제 운영 저장소를 통째로 덮어쓰는 용도로 사용하지 마세요.
 
-**ACSoL 워드마크는 단색 그대로입니다.** 업로드한 사진에는 색상 필터를 씌우지 않습니다. 사용한 블루는 이번 웹 디자인의 포인트 색상이며, 공식 대학 CI 색상으로 표기한 것은 아닙니다.
+## 3. CMS에서 메인 사진 여러 장 설정
 
-## 기존 사이트를 업데이트할 때
+`Pages CMS → Home / 메인 화면 설정`에서:
 
-**`ACSoL_v7_Color_Update.zip`을 사용하세요.** 이 파일은 `data/`, `media/`를 포함하지 않습니다.
+- `heroSlides` → `Add item` → 사진 `image`, 캡션 `caption`, 접근성 설명 `alt`를 등록합니다.
+- 반복하여 원하는 수만큼 사진을 추가하고 저장합니다.
+- `slideIntervalSeconds`에 전환 간격을 초 단위로 입력합니다. 허용 범위 2~60초, 미입력 시 5초입니다.
+- 여러 장을 등록했다면 등록한 순서대로 재생하다가 마지막 다음에 첫 번째로 돌아갑니다.
+- CMS에서 사진을 업로드하면 GitHub 저장소의 `media/`에 저장됩니다.
 
-1. 현재 저장소를 백업합니다.
-2. 업데이트본의 HTML, CSS, JavaScript, `assets/`, `tools/` 및 `.pages.yml` 등을 같은 경로에 추가·교체합니다.
-3. **기존 `data/`, `media/`, `CNAME`, 배포 워크플로는 삭제하지 마세요.** 저장소를 비우고 교체하는 방식이 아닙니다.
-4. 배포가 끝나면 `Ctrl+F5`로 새로고침합니다.
+기존 `heroImage` 필드는 하위 호환용입니다. **`heroSlides`에 하나라도 사진을 등록하면 `heroSlides`가 우선**합니다.
 
-v7 컬러 벡터는 `assets/*-color.svg`라는 새 이름을 사용합니다. 기존 회색 벡터 파일이 저장소에 남아 있어도 충돌하지 않습니다. HTML의 CSS·스크립트 버전은 `?v=7`로 변경했습니다.
+## 4. Research 상세 페이지 편집
 
-## 새 폴더에서 시작할 때
+`Pages CMS → Research / 연구 분야 · 펼침 상세 내용`의 항목 1~4가 상단 Research 하위 메뉴와 `research-detail.html?topic=1`~`4`에 연결됩니다.
 
-**`ACSoL_v7_Full_Website.zip`**에 페이지 7개, 원본 JSON 11개, 기본 그래픽, CMS 설정과 로컬 미리보기 파일이 포함되어 있습니다. `index.html`이 저장소 최상위에 오도록 배치하세요.
+- `title`, `description`, `image`: 연구 분야 개요 및 상세 페이지 상단
+- `detailIntro`: 상세 페이지의 첫 설명
+- `detailSections`: 블록 여러 개 (제목, 글, 이미지, 캡션)
+- `keywords`: 핵심 연구 키워드
 
-전체본의 JSON은 이전에 전달된 v6 ZIP의 데이터입니다. 이후 운영 사이트에서 콘텐츠를 수정했다면 **전체본의 `data/`로 덮어쓰지 말고 업데이트본을 사용**하세요.
+CMS 목록 순서를 바꾸면 Research 하위 메뉴에 표시되는 순서도 바뀝니다. 현재 메뉴는 요청대로 첫 4개 항목을 대상으로 합니다.
 
-## 유지한 기능
+## 5. Equipment 추가 방법
 
-| 페이지 | 기능 |
-|---|---|
-| Home | 소개, 연구 분야 4개, 최신 소식 3개, 문의 연결 |
-| Research | 연구 상세 펼침, 키워드, CMS 상세 글·이미지·캡션, 앵커 |
-| People | 교수님 소개·경력·수상, 박사·석사 연구원, 졸업생 |
-| Publications | 연도 필터, 검색, 출판일/연도 정렬, DOI 연결 |
-| News | 최신순 정렬, 카테고리 필터, 개별 소식 연결 |
-| Gallery | 사진 확대, 이전/다음, 방향키, Escape 닫기 |
-| Contact | 이메일·전화·지도 연결, 이메일 복사 피드백 |
+`Pages CMS → Equipment / 연구실 장비 → 항목 추가`에서 **장비 이름**을 필수로 입력하고, 모델명, 제조사, 사진, 설명, 활용 분야를 필요에 따라 입력한 뒤 저장하면 됩니다. 빈 초기 데이터 `[]`에서는 "장비 목록을 준비 중입니다" 안내가 표시됩니다.
 
-기존 CMS 필드 이름과 데이터 구조는 유지했습니다. `.pages.yml`은 메인 강조 문구의 표시명만 컬러 디자인에 맞게 변경했습니다. 사용자 데이터 JSON 11개는 바이트 단위로 변경하지 않았습니다.
+## 6. 학생 대표·찾아오는 길 편집
 
-## 사진에 관하여
+`Pages CMS → Contact / 학생 대표 · 찾아오는 길`에서 담당자 이름, 이메일, 전화번호, 길 안내 문구, 추가 지도 URL(HTTPS)을 등록합니다. 교수님 연락처와 연구실 주소는 기존 교수님 프로필 CMS를 수정하면 푸터에도 반영됩니다. 푸터의 '오시는 길과 지도'는 Contact 페이지로 이동합니다.
 
-제공된 ZIP에는 `/media/img7804.avif`, `/media/jinsub.avif`의 경로만 있고 사진 원본은 없습니다. 대표 사진을 불러올 수 없으면 개념 그래픽을, 인물 사진이 없으면 이니셜을 표시합니다. 원본에서 비어 있는 학생·졸업생·갤러리 목록도 그대로 유지했습니다.
+## 7. 설치 전 꼭 확인할 것
 
-CMS에서 실제 사진을 등록하면 기본 그래픽 대신 해당 사진이 표시됩니다. `assets/`의 그래픽은 실제 현미경 이미지나 실험 결과가 아닌 **디자인용 추상 벡터**입니다. 기존 논문·이력·연구실 정보에 대한 외부 사실 검증은 이번 색상 수정 작업에 포함하지 않았습니다.
+- `data/`와 `media/`는 기존 파일을 유지할 것.
+- GitHub Pages 브랜치 설정이 `main` + `/(root)`인지 확인할 것.
+- 사진 파일은 실제 `media/` 경로에 올라와 있어야 함. 이번 ZIP에 `/media/img7804.avif`, `/media/jinsub.avif` 원본 이미지는 포함되지 않았으며, 기존 CMS/GitHub 사진 파일을 유지하면 됩니다.
+- `preview-data.js`는 **파일 더블클릭 로컬 미리보기용 스냅샷**입니다. CMS에 등록한 실시간 운영 내용은 GitHub Pages에서 `data/*.json`을 읽으므로, 로컬 미리보기와 내용이 다를 수 있습니다. 로컬 스냅샷을 새로 만들려면 `python tools/refresh_preview.py`를 실행하세요.
 
-## 색상을 조절하려면
+## 8. 검증 범위
 
-`styles.css` 상단의 `:root`에서 공통 색상을 수정할 수 있습니다.
-
-```css
---accent: #2854cb;   /* 블루 */
---teal: #187875;     /* 틸 */
---iris: #6654a1;     /* 아이리스 */
---copper: #945638;   /* 코퍼 */
-```
-
-그래픽 자체의 색상은 `assets/*-color.svg` 내부의 `chromatic-line`, `chromatic-bg` 그라데이션에 정의되어 있습니다. 배경 그라데이션과 카드 테두리의 세부 색상은 `styles.css`의 `Chromatic editorial / v7` 구역에 모아 두었습니다. 폰트는 운영체제 글꼴을 사용하며 폰트 파일, 외부 폰트 CDN, 프레임워크는 포함하지 않았습니다.
-
-## 선택적인 점검 도구
-
-파일 구조와 JSON 점검:
-
-```text
-python tools/check_site.py
-```
-
-로컬 미리보기 스냅샷을 현재 `data/`, `media/`에 맞춰 갱신:
-
-```text
-python tools/refresh_preview.py
-```
-
-실제 배포 사이트는 JSON을 직접 읽으므로 스냅샷 갱신 작업이 필요하지 않습니다.
-
-## 전달 범위
-
-배포용 파일 제작과 브라우저 화면·기능 점검까지 수행했습니다. GitHub 저장소 업로드, 실제 GitHub Pages 배포, Pages CMS 로그인은 수행하지 않았습니다. 검증 환경과 한계는 `QA_REPORT_KO.md`를 참고하세요.
+`python tools/check_site.py`로 12개 HTML, CSS·JS·링크 참조, 페이지 ID, JSON 형식을 검사했고, `node --check site.js` 및 CSS 구문 검사를 통과했습니다. **이 환경에서는 Chromium이 로컬 파일 및 localhost 접근을 차단하여 PC/모바일 실제 브라우저 렌더링과 Pages CMS 로그인 테스트를 완료하지 못했습니다.** GitHub에 배포한 뒤 메뉴 및 사진 전환을 직접 확인해 주세요.

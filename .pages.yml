@@ -1,4 +1,4 @@
-# ACSoL Pages CMS v7: compatible with all v5 JSON data
+# ACSoL v8: Home slider, People subpages, Equipment, Contact CMS
 media:
   input: media
   output: /media
@@ -33,6 +33,27 @@ content:
   - name: labIntro
     label: 메인 연구 분야 요약 설명
     type: text
+  - name: slideIntervalSeconds
+    label: 메인 사진 자동 전환 간격 (초, 2~60초)
+    type: number
+  - name: heroSlides
+    label: 메인 사진 슬라이드 (여러 장 추가, 무한 반복)
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{caption} · 슬라이드 {index}'
+    fields:
+    - name: image
+      label: 사진 파일
+      type: image
+      required: true
+    - name: caption
+      label: 사진 캡션
+      type: string
+    - name: alt
+      label: 접근성 이미지 설명
+      type: string
 - name: professor
   label: People / 교수님 프로필
   type: file
@@ -312,3 +333,50 @@ content:
   - name: description
     label: 사진 설명
     type: text
+- name: equipment
+  label: Equipment / 연구실 장비
+  type: file
+  path: data/equipment.json
+  format: json
+  list: true
+  fields:
+  - name: name
+    label: 장비 이름
+    type: string
+    required: true
+  - name: model
+    label: 모델명
+    type: string
+  - name: manufacturer
+    label: 제조사
+    type: string
+  - name: photo
+    label: 장비 사진
+    type: image
+  - name: description
+    label: 장비 소개
+    type: text
+  - name: applications
+    label: 주요 활용 분야
+    type: text
+- name: contact
+  label: Contact / 학생 대표 · 찾아오는 길
+  type: file
+  path: data/contact.json
+  format: json
+  fields:
+  - name: studentName
+    label: 학생 대표 이름
+    type: string
+  - name: studentEmail
+    label: 학생 대표 이메일
+    type: string
+  - name: studentPhone
+    label: 학생 대표 전화번호 (선택)
+    type: string
+  - name: directionsNote
+    label: 찾아오는 길 안내
+    type: text
+  - name: directionsMapUrl
+    label: 상세 지도 URL (https://)
+    type: string

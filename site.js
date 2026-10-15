@@ -1,4 +1,4 @@
-/* ACSoL / Chromatic Editorial v7
+/* ACSoL / Chromatic Editorial v8
  * Static, read-only website. Pages CMS writes the existing data/*.json files.
  * HTTP(S): always read live JSON. file://: use the supplied preview snapshot.
  * No credentials, forms, remote JavaScript, or third-party tracking.
@@ -83,7 +83,10 @@
      This also handles missing files, AVIF support, and removed CMS uploads. */
   const setImage = (target, value, alt, fallbackFactory, options = {}) => {
     if (!target) return;
+    const requestId = (target._acsolImageRequest || 0) + 1;
+    target._acsolImageRequest = requestId;
     const fallback = () => {
+      if (target._acsolImageRequest !== requestId) return;
       target.replaceChildren(fallbackFactory ? fallbackFactory() : imageFallback('이미지를 준비 중입니다.'));
       target.classList.toggle('is-concept', Boolean(options.concept));
       if (options.onFallback) options.onFallback();
@@ -95,6 +98,7 @@
     image.loading = options.eager ? 'eager' : 'lazy';
     if (options.eager) image.fetchPriority = 'high';
     image.addEventListener('load', () => {
+      if (target._acsolImageRequest !== requestId) return;
       target.replaceChildren(image); target.classList.remove('is-concept');
       if (options.onLoad) options.onLoad();
     }, {once: true});
@@ -175,22 +179,66 @@
     const title = $('#hero-title');
     if (title) {
       title.replaceChildren(node('span', 'hero-title-lead', text(cfg.heroTitle)));
-      title.append(document.createTextNode(' '));
-      if (text(cfg.heroAccent)) title.append(node('em', '', cfg.heroAccent));
+      if (text(cfg.heroAccent)) title.append(document.createTextNode(' '), node('em', '', cfg.heroAccent));
     }
-    setText('#hero-korean', cfg.heroKorean); setText('#hero-description', cfg.heroDescription);
-    setText('#lab-intro', cfg.labIntro); setText('#hero-caption', cfg.heroImageCaption);
-    setImage($('#hero-image'), cfg.heroImage, text(cfg.heroImageCaption, 'ACSoL 연구실 대표 사진'),
-      () => conceptImage('surface-study-color.svg', '반도체 소재의 표면을 연상시키는 추상 선형 그래픽'), {
-        eager: true, concept: true,
-        onFallback: () => setText('#hero-image-note', 'Conceptual surface study'),
-        onLoad: () => setText('#hero-image-note', '')
+    setText('#hero-korean', cfg.heroKorean);
+    setText('#hero-description', cfg.heroDescription);
+    setText('#lab-intro', cfg.labIntro);
+    const slides = Array.isArray(cfg.heroSlides) ? cfg.heroSlides.filter(x => isObject(x) && normalPath(x.image)) : [];
+    if (!slides.length) slides.push({image: cfg.heroImage || '', caption: cfg.heroImageCaption || '', alt: 'ACSoL 연구실 대표 사진'});
+    const host = $('#hero-image'), dots = $('#hero-slide-dots'), pause = $('#hero-slide-pause');
+    const prev = $('#hero-slide-prev'), next = $('#hero-slide-next');
+    const controls = $('.hero-slider-controls');
+    const seconds = Math.max(2, Math.min(60, Number(cfg.slideIntervalSeconds) || 5));
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let current = 0, timer = null, paused = reduceMotion;
+    const show = index => {
+      current = (index + slides.length) % slides.length;
+      const slide = slides[current];
+      setText('#hero-caption', text(slide.caption, cfg.heroImageCaption));
+      setImage(host, slide.image, text(slide.alt, slide.caption || 'ACSoL 메인 사진'),
+        () => conceptImage('surface-study-color.svg', '연구실 대표 사진을 준비 중입니다.'),
+        {eager: true, concept: true,
+         onFallback: () => setText('#hero-image-note', 'Conceptual surface study'),
+         onLoad: () => setText('#hero-image-note', '')});
+      if (dots) $$('button', dots).forEach((button,i) => {
+        button.setAttribute('aria-current', i===current ? 'true' : 'false');
+        button.setAttribute('aria-label', `${i+1}번째 사진${i===current?' (현재)':''}`);
       });
+    };
+    const stop = () => { if (timer) window.clearInterval(timer); timer=null; };
+    const start = () => {
+      stop();
+      if (slides.length>1 && !paused && !document.hidden) timer = window.setInterval(() => show(current+1), seconds*1000);
+    };
+    const step = direction => { show(current+direction); start(); };
+    if (dots) dots.replaceChildren(...slides.map((slide,i) => {
+      const button = node('button','hero-slide-dot'); button.type='button';
+      button.addEventListener('click', () => {show(i);start();}); return button;
+    }));
+    if (prev) prev.addEventListener('click', () => step(-1));
+    if (next) next.addEventListener('click', () => step(1));
+    const updatePause = () => {
+      if (!pause) return;
+      pause.textContent = paused ? '▶' : 'Ⅱ';
+      pause.setAttribute('aria-label', paused ? '사진 자동 전환 재생' : '사진 자동 전환 일시 정지');
+      pause.setAttribute('aria-pressed', String(paused));
+    };
+    if (pause) pause.addEventListener('click', () => {paused=!paused;updatePause();start();});
+    if (controls) controls.hidden = slides.length<=1;
+    document.addEventListener('visibilitychange',start);
+    if (host) {
+      host.addEventListener('mouseenter',stop);
+      host.addEventListener('mouseleave',start);
+    }
+    show(0);updatePause();start();
   }
   async function applyProfessor(page) {
     const cfg = await readSettings('professor');
     setText('#footer-address', cfg.address);
-    if (page === 'people') {
+    setLink('#footer-prof-email', safeEmail(cfg.professorEmail), cfg.professorEmail);
+    setLink('#footer-prof-phone', safePhone(cfg.contactPhone), cfg.contactPhone);
+    if (page === 'professor') {
       const fields = {
         '#professor-tagline': 'professorTagline', '#professor-name': 'professorName', '#professor-title': 'professorTitle',
         '#professor-department': 'professorDepartment', '#professor-additional-title': 'professorAdditionalTitle',
@@ -236,6 +284,120 @@
         });
       }
     }
+  }
+
+  async function applyContactConfig() {
+    let cfg;
+    try { cfg = await getJSON('contact', false); }
+    catch (e) { console.warn('[ACSoL] optional contact settings:', e); return; }
+    setText('#footer-student-name', text(cfg.studentName, '연락처 등록 예정'));
+    setText('#contact-student-name', text(cfg.studentName, '담당자 정보 등록 예정'));
+    setText('#contact-directions', text(cfg.directionsNote, '한양대학교 서울캠퍼스'));
+    const fields = [
+      ['#footer-student-email', safeEmail(cfg.studentEmail), cfg.studentEmail],
+      ['#footer-student-phone', safePhone(cfg.studentPhone), cfg.studentPhone],
+      ['#contact-student-email', safeEmail(cfg.studentEmail), cfg.studentEmail],
+      ['#contact-student-phone', safePhone(cfg.studentPhone), cfg.studentPhone],
+    ];
+    for (const [selector,href,label] of fields) {
+      const el = $(selector);if (!el) continue;
+      el.hidden = !href;if (href) setLink(selector,href,label);
+    }
+    const url=text(cfg.directionsMapUrl);
+    const map=$('#contact-extra-map');
+    if (map && /^https:\/\/[^\s]+$/i.test(url)) {map.href=url;map.hidden=false;}
+  }
+
+  async function renderResearchOverview() {
+    const host=$('#research-overview');if (!host) return;
+    const entries=await getJSON('research');
+    if (!entries.length) {host.replaceChildren(emptyNote('Research coming soon','연구 분야를 등록해 주세요.'));return;}
+    host.replaceChildren(...entries.map((item,index) => {
+      const card=node('a','research-overview-card');card.href='research-detail.html?topic='+(index+1);
+      const image=node('div','research-overview-image');
+      setImage(image,item.image,text(item.imageAlt,item.title),() => conceptImage('study-'+(index%4+1)+'-color.svg'),{concept:true});
+      const copy=node('div','research-overview-copy');
+      copy.append(node('span','overline',String(index+1).padStart(2,'0')+' / RESEARCH'),node('h2','',item.title));
+      if (text(item.description)) copy.append(node('p','',item.description));
+      const more=node('span','research-overview-more','Explore research ↗');copy.append(more);
+      card.append(image,copy);return card;
+    }));
+  }
+
+  async function renderResearchDetail() {
+    const host=$('#research-detail-content');if (!host)return;
+    const entries=await getJSON('research');
+    const index=Number(new URLSearchParams(location.search).get('topic'));
+    if (!Number.isInteger(index)||index<1||index>entries.length) {
+      host.replaceChildren(emptyNote('연구 분야를 찾을 수 없습니다.','Research 메뉴에서 항목을 선택해 주세요.'));return;
+    }
+    const item=entries[index-1],article=node('article','research-detail-article');
+    article.append(node('span','overline',String(index).padStart(2,'0')+' / RESEARCH'));
+    article.append(node('h2','',text(item.title)));
+    if (text(item.subtitle))article.append(node('p','research-detail-subtitle',item.subtitle));
+    if (text(item.description))article.append(node('p','research-detail-lead',item.description));
+    const cover=node('div','research-detail-cover');
+    setImage(cover,item.image,text(item.imageAlt,item.title),()=>conceptImage('study-'+((index-1)%4+1)+'-color.svg'),{concept:true});
+    article.append(cover);
+    if (text(item.detailIntro))article.append(node('p','research-detail-intro',item.detailIntro));
+    for (const section of (Array.isArray(item.detailSections)?item.detailSections:[])) {
+      if (!isObject(section))continue;
+      if (![section.heading,section.body,section.image].some(x=>text(x)))continue;
+      const block=node('section','research-detail-block');
+      if (text(section.heading)||text(section.body)) {
+        const copy=node('div','research-detail-copy');
+        if (text(section.heading))copy.append(node('h3','',section.heading));
+        if (text(section.body))copy.append(node('p','',section.body));
+        block.append(copy);
+      }
+      if (normalPath(section.image)) {
+        const figure=node('figure','research-detail-figure'),pic=node('div');
+        setImage(pic,section.image,text(section.imageAlt,section.heading||item.title));figure.append(pic);
+        if (text(section.imageCaption))figure.append(node('figcaption','',section.imageCaption));
+        block.append(figure);
+      }
+      article.append(block);
+    }
+    const keywords=text(item.keywords).split(/[·;\n]/).map(x=>x.trim()).filter(Boolean);
+    if (keywords.length) {
+      const list=node('ul','focus-list');
+      keywords.forEach((word,i)=>{const li=node('li');li.append(node('span','',String(i+1).padStart(2,'0')),document.createTextNode(word));list.append(li);});
+      const wrap=node('section','research-detail-focus');wrap.append(node('h3','','Focus areas'),list);article.append(wrap);
+    }
+    host.replaceChildren(article);
+    const nav=$('#research-detail-navigation');
+    if(nav)nav.replaceChildren(...entries.map((entry,i)=>{
+      const link=node('a','research-topic-link',String(i+1).padStart(2,'0')+' · '+text(entry.title));
+      link.href='research-detail.html?topic='+(i+1);if(i+1===index)link.setAttribute('aria-current','page');return link;
+    }));
+    document.title=text(item.title)+' — Research · ACSoL';
+  }
+
+  async function renderEquipment() {
+    const host=$('#equipment-list');if(!host)return;
+    const entries=await getJSON('equipment');
+    if(!entries.length){host.replaceChildren(emptyNote('Equipment directory','장비 목록을 준비 중입니다. Pages CMS → Equipment에서 장비를 등록해 주세요.'));return;}
+    host.replaceChildren(...entries.map((item,i)=>{
+      const article=node('article','equipment-card'),visual=node('div','equipment-photo');
+      setImage(visual,item.photo,text(item.name, '장비 사진'),()=>imageFallback('장비 사진 등록 예정'));
+      const copy=node('div','equipment-copy');
+      copy.append(node('span','overline',String(i+1).padStart(2,'0')+' / EQUIPMENT'),node('h2','',text(item.name,'Equipment')));
+      if(text(item.model))copy.append(node('p','equipment-model',item.model));
+      if(text(item.manufacturer))copy.append(node('p','equipment-maker',item.manufacturer));
+      if(text(item.description))copy.append(node('p','equipment-description',item.description));
+      if(text(item.applications)) {
+        const foot=node('p','equipment-applications');foot.append(node('strong','','Applications · '),document.createTextNode(item.applications));copy.append(foot);
+      }
+      article.append(visual,copy);return article;
+    }));
+  }
+
+  async function hydrateResearchMenu() {
+    const entries=await getJSON('research');
+    $$('#research-submenu a').forEach((link,i)=>{
+      if(entries[i])link.textContent=String(i+1).padStart(2,'0')+' · '+text(entries[i].title);
+      else link.hidden=true;
+    });
   }
 
   async function renderResearch(page) {
@@ -545,6 +707,29 @@
     }));
   }
 
+  function initSubmenus() {
+    $$('.nav-group').forEach(group => {
+      const toggle=$('.submenu-toggle',group),panel=$('.submenu-panel',group);
+      if(!toggle||!panel)return;
+      toggle.addEventListener('click',event=>{
+        event.stopPropagation();
+        const opening=toggle.getAttribute('aria-expanded')!=='true';
+        $$('.nav-group').forEach(other=>{
+          other.classList.remove('submenu-open');const t=$('.submenu-toggle',other);
+          if(t)t.setAttribute('aria-expanded','false');
+        });
+        group.classList.toggle('submenu-open',opening);
+        toggle.setAttribute('aria-expanded',String(opening));
+      });
+    });
+    document.addEventListener('click',event=>{
+      if(event.target.closest('.nav-group'))return;
+      $$('.nav-group').forEach(group=>{
+        group.classList.remove('submenu-open');const t=$('.submenu-toggle',group);
+        if(t)t.setAttribute('aria-expanded','false');
+      });
+    });
+  }
   function initMenu() {
     const button = $('.menu-button'), menu = $('#main-nav'); if (!button || !menu) return;
     const setOpen = state => {
@@ -557,18 +742,23 @@
     });
     document.addEventListener('click', event => { if (!event.target.closest('.site-header')) setOpen(false); });
     menu.addEventListener('click', event => { if (event.target.closest('a')) setOpen(false); });
-    window.matchMedia('(min-width: 761px)').addEventListener('change', event => { if (event.matches) setOpen(false); });
+    window.matchMedia('(min-width: 1051px)').addEventListener('change', event => { if (event.matches) setOpen(false); });
   }
-  initMenu(); setText('#copyright-year', new Date().getFullYear());
+  initMenu();initSubmenus(); setText('#copyright-year', new Date().getFullYear());
   const page = document.body.dataset.page, jobs = [];
   jobs.push(run(null, () => applyProfessor(page)));
-  if (page === 'home') jobs.push(run(null, applyHome), run('#home-research-list', () => renderResearch(page)), run('#home-news-list', () => renderNews(page)));
-  if (page === 'research') jobs.push(run('#research-list', () => renderResearch(page)));
-  if (page === 'people') jobs.push(
+  jobs.push(run(null, applyContactConfig));
+  jobs.push(run(null, hydrateResearchMenu));
+  if (page === 'home') jobs.push(run(null, applyHome), run('#home-news-list', () => renderNews(page)));
+  if (page === 'research') jobs.push(run('#research-overview', renderResearchOverview));
+  if (page === 'research-detail') jobs.push(run('#research-detail-content', renderResearchDetail));
+  if (page === 'professor') jobs.push(
     run('#professor-employment-list', () => renderHistory('professor-employment', '#professor-employment-list', 'period', 'position')),
-    run('#professor-awards-list', () => renderHistory('professor-awards', '#professor-awards-list', 'date', 'award')),
-    run('#phd-list, #master-list', renderStudents), run('#alumni-list', renderAlumni)
+    run('#professor-awards-list', () => renderHistory('professor-awards', '#professor-awards-list', 'date', 'award'))
   );
+  if (page === 'students') jobs.push(run('#phd-list, #master-list', renderStudents));
+  if (page === 'alumni') jobs.push(run('#alumni-list', renderAlumni));
+  if (page === 'equipment') jobs.push(run('#equipment-list', renderEquipment));
   if (page === 'publications') jobs.push(run('#publication-list', renderPublications));
   if (page === 'news') jobs.push(run('#news-list', () => renderNews(page)));
   if (page === 'gallery') jobs.push(run('#gallery-list', renderGallery));

@@ -2,6 +2,14 @@
 (() => { if (location.protocol !== "file:") return;
 window.ACSOL_PREVIEW_DATA = {
   "alumni": [],
+  "contact": {
+    "studentName": "",
+    "studentEmail": "",
+    "studentPhone": "",
+    "directionsNote": "한양대학교 서울캠퍼스",
+    "directionsMapUrl": ""
+  },
+  "equipment": [],
   "gallery": [],
   "home": {
     "heroTitle": "Engineering the next wave of",
@@ -10,7 +18,15 @@ window.ACSOL_PREVIEW_DATA = {
     "heroDescription": "Materials, processes, and devices for next-generation electronics.",
     "heroImage": "/media/img7804.avif",
     "heroImageCaption": "ACSoL · Hanyang University",
-    "labIntro": "ACSoL은 차세대 메모리, 뉴로모픽 소자, 3D 반도체 공정과 열관리 소재를 연구합니다. 소재와 공정부터 소자 및 시스템 응용까지 연결합니다."
+    "labIntro": "ACSoL은 차세대 메모리, 뉴로모픽 소자, 3D 반도체 공정과 열관리 소재를 연구합니다. 소재와 공정부터 소자 및 시스템 응용까지 연결합니다.",
+    "heroSlides": [
+      {
+        "image": "/media/img7804.avif",
+        "caption": "ACSoL · Hanyang University",
+        "alt": "ACSoL 메인 사진"
+      }
+    ],
+    "slideIntervalSeconds": 5
   },
   "news": [
     {
