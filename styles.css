@@ -1345,3 +1345,8 @@ body { font-family: var(--cms-page-font,var(--cms-global-font,var(--sans))); fon
 @media(max-width: 375px) {
   .student-team-group .student-grid { grid-template-columns:1fr; max-width:280px; }
 }
+
+/* v15: Modal backdrop without darkening or blur; keep the thin poster outline. */
+.recruit-banner-overlay{background:transparent!important;backdrop-filter:none!important;}
+.recruit-banner-popup{border:1px solid rgba(45,76,113,.48)!important;}
+.recruit-banner-image{border:1px solid rgba(45,76,113,.35)!important;border-radius:7px!important;overflow:hidden;}

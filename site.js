@@ -632,8 +632,12 @@
   // v14: team-first Students page, with legacy role support.
   async function renderStudents() {
     const target = $('#student-teams'); if (!target) return;
-    const entries = await getJSON('students');
-    if (!Array.isArray(entries) || !entries.length) {
+    const studentData = await (async () => {
+      try { return await getJSON('students', false); }
+      catch (err) { return await getJSON('students'); }
+    })();
+    const entries = Array.isArray(studentData) ? studentData : (Array.isArray(studentData.students) ? studentData.students : []);
+    if (!entries.length) {
       target.replaceChildren(emptyNote('Meet our researchers, soon.', '연구원 정보를 업데이트하고 있습니다.'));
       return;
     }

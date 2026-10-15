@@ -1,4 +1,3 @@
-# ACSoL v13 — compact Publications filters / accessible CMS typography labels.
 media:
   input: media
   output: /media
@@ -326,52 +325,81 @@ content:
         type: object
         fields: *id002
     - name: students
-      label: 재학생 · 팀별 관리
+      label: 재학생 명단 · 이름과 연구팀으로 찾기
       type: file
       path: data/students.json
       format: json
-      list: true
       fields:
-      - name: team
-        label: 연구팀 이름 (같은 이름을 입력하면 같은 팀으로 묶입니다)
-        type: string
-        description: 예) Neuromorphic Device Team / Memory Team. 팀이 지정되지 않은 기존 연구원은 소속 팀 미지정에 표시됩니다.
-      - name: role
-        label: 학위과정 (이름 옆 표시)
-        type: select
-        required: true
-        options:
-          values:
-          - name: integrated
-            label: 석박통합과정
-          - name: phd
-            label: 박사과정
-          - name: master
-            label: 석사과정
-      - name: name
-        label: 학생 이름
-        type: string
-        required: true
-      - name: cohort
-        label: '기수 (예: 2 또는 2기)'
-        type: string
-      - name: department
-        label: '소속 학과 (예: Dept. Nano Semiconductor Eng.)'
-        type: string
-      - name: email
-        label: 이메일 주소
-        type: string
-      - name: research
-        label: 연구 분야
-        type: text
-      - name: photo
-        label: 학생 사진 업로드
-        type: image
-      - name: typography
-        label: 선택 항목의 글자 디자인 (제목 / 설명 구분)
-        description: 제목은 항목의 이름·헤드라인, 설명/본문은 부가 설명 텍스트입니다. 글자 크기를 0 또는 비워 두면 페이지 기본값입니다.
+      - name: students
+        label: 재학생 목록 (이름 · 연구팀)
         type: object
-        fields: *id002
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{name}_{team}'
+        fields:
+        - name: name
+          label: 연구원 이름
+          type: string
+          required: true
+        - name: team
+          label: 소속 연구 분야 (Research Areas 연동)
+          type: select
+          description: Research 목록에서 선택지를 자동 생성합니다. 새 연구 분야 추가 후 Actions의 동기화 작업이 정상 실행되어야 반영됩니다.
+          options:
+            values:
+            - name: Emerging Memory
+              label: Emerging Memory
+            - name: Perovskite Memory
+              label: Perovskite Memory
+            - name: Atomic Layer Deposition
+              label: Atomic Layer Deposition
+            - name: Energy Harvesting
+              label: Energy Harvesting
+            - name: MRAM
+              label: MRAM
+            - name: CMP
+              label: CMP
+        - name: englishName
+          label: 영문 이름 (선택)
+          type: string
+        - name: role
+          label: 학위과정 (이름 옆 표시)
+          type: select
+          required: true
+          options:
+            values:
+            - name: integrated
+              label: 석박통합과정
+            - name: phd
+              label: 박사과정
+            - name: master
+              label: 석사과정
+        - name: cohort
+          label: 학기/기수 (Wix 기존 자료는 12학기처럼 표기)
+          type: string
+          description: Wix Members의 semester는 기수가 아니라 학기 수이므로 12학기, 3학기 등으로 입력했습니다.
+        - name: department
+          label: '소속 학과 (예: Dept. Nano Semiconductor Eng.)'
+          type: string
+        - name: email
+          label: 이메일 주소
+          type: string
+        - name: research
+          label: 연구 분야
+          type: text
+        - name: photo
+          label: 학생 사진 업로드
+          type: image
+        - name: sourcePhoto
+          label: Wix 원본 사진 파일명 (사진을 다시 올릴 때 참고)
+          type: string
+          readonly: true
+        - name: typography
+          label: 선택 항목의 글자 디자인 (제목 / 설명 구분)
+          description: 제목은 항목의 이름·헤드라인, 설명/본문은 부가 설명 텍스트입니다. 글자 크기를 0 또는 비워 두면 페이지 기본값입니다.
+          type: object
+          fields: *id002
     - name: alumni
       label: Alumni 졸업생
       type: file
@@ -443,7 +471,8 @@ content:
         label: 현재 상태 — Under Review (심사 중이면 체크)
         type: boolean
         default: false
-        description: 체크하면 홈페이지 논문 옆에 Under Review가 표시되고, 상단 Under Review 필터에서도 확인할 수 있습니다. 체크하지 않으면 일반 논문으로 표시합니다. 기존의 Accepted 또는 Under Revision 기록은 데이터에 남지만 더 이상 별도 상태로 표시하지 않습니다.
+        description: 체크하면 홈페이지 논문 옆에 Under Review가 표시되고, 상단 Under Review 필터에서도 확인할 수 있습니다. 체크하지 않으면 일반 논문으로 표시합니다. 기존의 Accepted 또는 Under
+          Revision 기록은 데이터에 남지만 더 이상 별도 상태로 표시하지 않습니다.
       - name: typography
         label: 논문 제목 / 저자·설명 글꼴과 크기 (선택)
         description: 논문 제목은 굵고 큰 제목 줄, 저자·설명은 논문 제목 아래의 작은 텍스트입니다. 학술지명(저널)은 공통 디자인으로 표시되며 여기의 글자 크기 설정과 별개입니다.
@@ -523,11 +552,10 @@ content:
       list: true
       fields:
       - name: date
-        label: 날짜
-        type: date
-        required: true
-        options:
-          format: yyyy-MM-dd
+        label: 뉴스 날짜 (YYYY-MM-DD 또는 원문 월까지만 알면 YYYY-MM)
+        type: string
+        required: false
+        description: 과거 자료는 일자를 모르면 YYYY-MM까지 직접 입력할 수 있습니다.
       - name: category
         label: 구분 (Award, Publication 등)
         type: string
@@ -553,6 +581,9 @@ content:
         description: 제목은 항목의 이름·헤드라인, 설명/본문은 부가 설명 텍스트입니다. 글자 크기를 0 또는 비워 두면 페이지 기본값입니다.
         type: object
         fields: *id002
+      - name: source
+        label: 기존 출처 · 참고 (선택)
+        type: string
   - name: cms_gallery
     label: Gallery · 사진
     type: group
