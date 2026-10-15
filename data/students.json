@@ -4,7 +4,7 @@
     "name": "한민종",
     "cohort": "2",
     "research": "ReRAM",
-    "photo": "/media/jpg.avif"
+    "photo": "/media/kakaotalk2026101509125594601.jpg"
   },
   {
     "role": "master",
@@ -29,5 +29,13 @@
     "email": "dasjdka@naver.com",
     "research": "Perovskite",
     "photo": "/media/jpg-3.avif"
+  },
+  {
+    "role": "phd",
+    "name": "정의진",
+    "cohort": "석박 2기",
+    "department": "인지반",
+    "research": "SOM",
+    "photo": "/media/kakaotalk2026101509125594602.jpg"
   }
 ]
