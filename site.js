@@ -299,6 +299,71 @@
     if (next) next.hidden = slides.length < 2;
     show(0); start();
   }
+  async function showTimedBanner() {
+    let banners=[];
+    try{banners=await getJSON('banners');}catch(error){console.warn('[ACSoL] Banner data not ready',error);return;}
+    if(!banners.length)return;
+    const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+    const stamp=Number(today.replace(/\D/g,''));
+    const storage=(kind,method,key,value)=>{try{return method==='get'?window[kind].getItem(key):window[kind].setItem(key,value);}catch(_){return null;}};
+    const eligible=banners.filter((entry)=>{
+      if(!entry || entry.enabled===false || !normalPath(entry.image))return false;
+      const start=validDate(entry.startDate),end=validDate(entry.endDate);
+      if(!start||!end || start>end)return false;
+      const code=text(entry.id)||[entry.image,start,end].join('|');
+      return stamp>=Number(start.replace(/-/g,'')) && stamp<=Number(end.replace(/-/g,'')) &&
+        storage('localStorage','get','acsol-banner-day:'+code)!==today &&
+        storage('sessionStorage','get','acsol-banner-closed:'+code)!=='1';
+    });
+    if(!eligible.length)return;
+    let index=0;
+    const overlay=node('div','recruit-banner-overlay');
+    overlay.setAttribute('role','presentation');
+    const popup=node('section','recruit-banner-popup');
+    popup.setAttribute('role','dialog');popup.setAttribute('aria-modal','true');
+    popup.setAttribute('aria-labelledby','recruit-banner-title');
+    const close=node('button','recruit-banner-close','×');close.type='button';close.setAttribute('aria-label','배너 닫기');
+    const headline=node('p','recruit-banner-overline','ACSoL · Notice');
+    const heading=node('h2','recruit-banner-heading');heading.id='recruit-banner-title';
+    const picture=node('div','recruit-banner-image');
+    const link=node('a','recruit-banner-link');link.append(picture);
+    const footer=node('div','recruit-banner-footer');
+    const label=node('label','recruit-banner-hide-label');
+    const check=node('input');check.type='checkbox';check.id='recruit-banner-hide-today';
+    label.append(check,document.createTextNode(' 오늘 하루 보지 않기'));
+    const done=node('button','recruit-banner-done','닫기');done.type='button';
+    footer.append(label,done);popup.append(close,headline,heading,link,footer);overlay.append(popup);
+    const previousFocus=document.activeElement;
+    const render=()=>{
+      const entry=eligible[index];if(!entry){overlay.remove();previousFocus?.focus?.();return;}
+      heading.textContent=text(entry.title,'연구실 소식');
+      setImage(picture,entry.image,text(entry.alt,entry.title||'연구실 공지 배너'),()=>imageFallback('배너 사진을 불러오지 못했습니다.'),{eager:true});
+      const url=text(entry.linkUrl);const good=/^https:\/\/[^\s<]+$/i.test(url)||/^(research|students|news|contact|publications|equipment|gallery)\.html(\?[a-z0-9=&-]+)?$/i.test(url);
+      link.href=good?url:'#';link.classList.toggle('is-static',!good);
+      if(good&&url.startsWith('https://')){link.target='_blank';link.rel='noopener noreferrer';}else{link.removeAttribute('target');link.removeAttribute('rel');}
+      check.checked=false;close.focus();
+    };
+    const dismiss=()=>{
+      const entry=eligible[index];const code=text(entry.id)||[entry.image,validDate(entry.startDate),validDate(entry.endDate)].join('|');
+      if(check.checked)storage('localStorage','set','acsol-banner-day:'+code,today);
+      else storage('sessionStorage','set','acsol-banner-closed:'+code,'1');
+      index+=1;render();
+    };
+    close.addEventListener('click',dismiss);done.addEventListener('click',dismiss);
+    link.addEventListener('click',e=>{if(link.classList.contains('is-static'))e.preventDefault();});
+    overlay.addEventListener('click',e=>{if(e.target===overlay)dismiss();});
+    overlay.addEventListener('keydown',e=>{
+      if(e.key==='Escape'){e.preventDefault();dismiss();}
+      if(e.key==='Tab'){
+        const focusable=[close,link,check,done].filter(el=>!(el===link&&link.classList.contains('is-static')));
+        const current=focusable.indexOf(document.activeElement);
+        if(e.shiftKey&&current<=0){e.preventDefault();focusable.at(-1).focus();}
+        else if(!e.shiftKey&&current===focusable.length-1){e.preventDefault();focusable[0].focus();}
+      }
+    });
+    document.body.append(overlay);render();
+  }
+
   async function applyProfessor(page) {
     const cfg = await readSettings('professor');
     setText('#footer-address', cfg.address);
@@ -453,11 +518,16 @@
     }));
   }
   async function hydrateResearchMenu() {
+    const panel=$('#research-submenu');if(!panel)return;
     const entries=await getJSON('research');
-    $$('#research-submenu a[data-topic]').forEach((link,i)=>{
-      if(entries[i])link.textContent=text(entries[i].title);
-      else link.hidden=true;
-    });
+    const links=entries.map((entry,index)=>{
+      const title=text(entry.title);if(!title)return null;
+      const link=node('a','research-dropdown-link',title);
+      link.href='research-detail.html?topic='+(index+1);
+      return link;
+    }).filter(Boolean);
+    panel.replaceChildren(...links);
+    if(!links.length)panel.append(node('span','submenu-empty','연구 분야 준비 중'));
   }
 
   async function renderResearch(page) {
@@ -620,7 +690,17 @@
   };
   async function renderPublications() {
     const target = $('#publication-list'); if (!target) return;
-    const raw = await getJSON('publications');
+    const saved=await getJSON('publications');
+    let imported=[];
+    try { imported=await getJSON('publications-import'); }
+    catch(error) { console.warn('[ACSoL] Wix publication import not found; original records retained.',error); }
+    const canonical=record=>{
+      const d=text(record.doi).replace(/^https?:\/\/(dx\.)?doi\.org\//i,'').toLowerCase();
+      return d ? 'doi:'+d : 'title:'+text(record.title).toLowerCase().replace(/[^\p{L}\p{N}]/gu,'');
+    };
+    // Imported original-language titles take precedence when an old translated record has the same DOI.
+    const keys=new Set(imported.map(canonical));
+    const raw=[...imported,...saved.filter(item=>!keys.has(canonical(item)))];
     const entries = raw.map((entry,index) => ({...entry, _date: validDate(entry.publishedDate), _year: publicationYear(entry), _index:index}));
     entries.sort((a,b) => (b._year ?? -1) - (a._year ?? -1) || b._date.localeCompare(a._date) || a._index - b._index);
     let selected = 'all', query = '';
@@ -630,7 +710,7 @@
       $$('.filter-button', filter).forEach(button => button.setAttribute('aria-pressed', String(button.dataset.value === selected)));
       const normalized = query.normalize('NFKC').toLocaleLowerCase();
       const matches = entries.filter(entry => (selected === 'all' || (entry._year === null ? 'unknown' : String(entry._year)) === selected)
-        && [entry.title, entry.journal, entry.authors, entry.doi, entry._year].map(v => text(v)).join(' ').normalize('NFKC').toLocaleLowerCase().includes(normalized));
+        && [entry.title, entry.journal, entry.authors, entry.doi, entry.status, entry.publicationType, entry._year].map(v => text(v)).join(' ').normalize('NFKC').toLocaleLowerCase().includes(normalized));
       setText('#publication-result-count', `${matches.length} publication${matches.length === 1 ? '' : 's'}${matches.length !== entries.length ? ' / ' + entries.length + ' total' : ''}`);
       if (!matches.length) {
         target.replaceChildren(emptyNote(raw.length ? 'No matching publications.' : 'Work in progress.', raw.length ? '검색어 또는 연도 필터를 변경해 주세요.' : '논문 목록을 업데이트하고 있습니다.')); return;
@@ -643,7 +723,8 @@
         const items = node('div', 'publication-year-items');
         list.forEach(entry => {
           const article = node('article', 'publication'), content = node('div'), meta = node('div', 'publication-head');
-          meta.append(node('p', 'pub-journal', entry.journal));
+          meta.append(node('p', 'pub-journal', text(entry.journal,entry.publicationType==='book'?'Book Chapter':'Publication')));
+          if(text(entry.status) && entry.status!=='Published')meta.append(node('span','pub-status',entry.status));
           if (entry._date) { const date = timeNode(entry._date); date.className = 'pub-date'; meta.append(date); }
           const title = node('h3'), href = doiURL(entry.doi);
           if (href) { const link = node('a', '', entry.title); link.href = href; link.target = '_blank'; link.rel = 'noopener noreferrer'; title.append(link); }
@@ -679,14 +760,28 @@
     entries.sort((a,b) => validDate(b.date).localeCompare(validDate(a.date)));
     if (!entries.length) {target.replaceChildren(emptyNote('More to come.','새로운 연구실 소식을 준비하고 있습니다.'));setText('#news-count','0 stories');return;}
     if (page === 'home') {
-      target.replaceChildren(...entries.slice(0,3).map(item => {
+      const prev=$('#home-news-prev'), next=$('#home-news-next');
+      let start=0;
+      const visible=()=>window.matchMedia('(max-width:650px)').matches?1:
+        window.matchMedia('(max-width:950px)').matches?2:3;
+      const renderSlide=()=>{
+        const count=Math.min(entries.length,visible());
+        const portion=Array.from({length:count},(_,offset)=>entries[(start+offset)%entries.length]);
+        target.replaceChildren(...portion.map(item => {
         const card=node('article','home-news-card'), meta=node('div','news-meta');
         card.dataset.storyTone=newsTone(item.category);
         meta.append(timeNode(item.date), node('span','news-category',item.category));
         card.append(meta,node('h3','',item.title),node('p','',item.description));applyEntryTypography(card,item);
         const link=node('a','inline-link','Read the story');link.href='news.html#'+item._id;
         link.setAttribute('aria-label',text(item.title)+' — 소식 보기');link.append(arrow());card.append(link);return card;
-      }));return;
+        }));
+        [prev,next].forEach(btn=>{if(btn)btn.hidden=entries.length<=count;});
+      };
+      if(prev)prev.addEventListener('click',()=>{start=(start-1+entries.length)%entries.length;renderSlide();});
+      if(next)next.addEventListener('click',()=>{start=(start+1)%entries.length;renderSlide();});
+      let resizeTimer;
+      window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(renderSlide,120);});
+      renderSlide();return;
     }
     let selected='all'; const filter=$('#news-filters');
     const categories=[...new Set(entries.map(item => newsGroup(item.category)))];
@@ -821,8 +916,26 @@
           $('.submenu-panel a',group)?.focus();
         }
       });
+      const desktopHover=()=>window.matchMedia('(hover:hover) and (min-width:1051px)').matches;
+      const showDropdown=visible=>{
+        if(!desktopHover())return;
+        const panel=$('.submenu-panel',group);if(!panel)return;
+        for(const key of ['visibility','opacity','pointer-events','transform'])panel.style.removeProperty(key);
+        if(visible){
+          panel.style.setProperty('visibility','visible','important');
+          panel.style.setProperty('opacity','1','important');
+          panel.style.setProperty('pointer-events','auto','important');
+          panel.style.setProperty('transform','translateY(0)','important');
+        }
+      };
+      group.addEventListener('mouseenter',()=>showDropdown(true));
+      group.addEventListener('focusin',()=>showDropdown(true));
       group.addEventListener('mouseleave',()=>{
-        if(window.matchMedia('(hover:hover) and (min-width:1051px)').matches) group.classList.remove('submenu-open');
+        showDropdown(false);
+        if(desktopHover())group.classList.remove('submenu-open');
+      });
+      group.addEventListener('focusout',event=>{
+        if(!group.contains(event.relatedTarget))showDropdown(false);
       });
     }
     document.addEventListener('click',event=>{if(!event.target.closest('.nav-group'))close();});
@@ -854,7 +967,7 @@
   jobs.push(run(null, hydrateResearchMenu));
   jobs.push(run(null, applyTypography));
   jobs.push(run(null, () => applyPageCopy(page)));
-  if (page === 'home') jobs.push(run(null, applyHome), run('#home-news-list', () => renderNews(page)));
+  if (page === 'home') jobs.push(run(null, applyHome), run('#home-news-list', () => renderNews(page)), run(null,showTimedBanner));
   if (page === 'research') jobs.push(run('#research-overview', renderResearchOverview));
   if (page === 'research-detail') jobs.push(run('#research-detail-content', renderResearchDetail));
   if (page === 'professor') jobs.push(

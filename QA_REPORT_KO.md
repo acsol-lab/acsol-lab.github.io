@@ -1,9 +1,13 @@
-# v9 QA 범위
-- 12개 HTML 문서의 내부 링크, h1 개수, aria-current 존재, ID 중복 검사: 통과
-- Node JavaScript 문법 검사: 통과
-- Pages CMS YAML 파싱: 통과
-- JSON 데이터 형식 검사: 통과
-- Gallery boolean `featured`와 Home 사진 로딩: 코드/구성 정적 검사 통과
-- Home 중복 사진 필드 제거, News 상세 필드 등록, Equipment 입력 3필드만 유지: 구성 검사 통과
-- Chromium 실제 페이지 탐색: 실행 환경의 로컬 웹서버가 `ERR_BLOCKED_BY_ADMINISTRATOR`로 차단되어 검증하지 못함
-- 실제 GitHub 배포 및 Pages CMS 계정 저장 테스트: 수행하지 않음
+# ACSoL v11 기능 검사 결과
+
+- JavaScript 정적 문법: 통과 (`node --check`).
+- Pages CMS YAML 및 JSON 27개: 구문 및 파일 경로 검사 통과.
+- 내비게이션 대상 12개 HTML: 검사 통과.
+- 연구 분야 6개 테스트 데이터로 메뉴 6개 생성 확인. (배포 데이터의 연구 분야는 기존 CMS 파일 보존.)
+- Home News 5건 중 처음 3건을 보여주고 다음 버튼 클릭 시 카드 변경 확인.
+- Publications 신규 가져오기 데이터: SCI(E)/학회 164건 + Book Chapter 5건 = 169건. 기존 v10의 동일 DOI 3건 중복 제거 후 169건 표시 확인.
+- Publications 결과 수/정렬 문구 영역 제거 확인.
+- 교수님 경력 기간 폰트 14px 적용 확인.
+- 배너가 지정 기간에 보이는 것과 닫기 버튼 동작 확인. 24시간 숨김/날짜 경계의 브라우저 간 동작은 실제 GitHub 배포 후 추가 검증 권장.
+- 정적 테스트용 Research 2건과 모집 배너 1건은 배포 JSON에 포함되지 않음.
+- 로컬 브라우저 테스트는 외부 주소 접근 제한으로 인해 모의 JSON 공급 기반으로 수행했으며, GitHub Pages 실제 배포를 대신하지 않음.

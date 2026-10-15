@@ -72,6 +72,46 @@ content:
   - name: sectionHeadingSize
     label: 이 페이지 섹션 제목 크기(px, 0=기본)
     type: number
+- name: banners
+  label: Home / 기간 지정 모집 · 안내 배너
+  type: file
+  path: data/banners.json
+  format: json
+  list: true
+  fields:
+  - name: id
+    label: '배너 고유 ID (예: recruit-2027, 중복되지 않게 입력)'
+    type: string
+    required: true
+  - name: enabled
+    label: 사용 여부
+    type: boolean
+    default: true
+  - name: title
+    label: 배너 제목 (대체 설명 포함)
+    type: string
+  - name: image
+    label: 배너 사진 · JPG/PNG/WebP
+    type: image
+    required: true
+  - name: alt
+    label: 사진 대체 설명
+    type: string
+  - name: startDate
+    label: 노출 시작 날짜 (한국시간, 해당 날짜부터)
+    type: date
+    required: true
+    options:
+      format: yyyy-MM-dd
+  - name: endDate
+    label: 노출 마지막 날짜 (한국시간, 해당 날짜까지)
+    type: date
+    required: true
+    options:
+      format: yyyy-MM-dd
+  - name: linkUrl
+    label: 배너 클릭 시 이동할 주소 (선택, https://로 시작)
+    type: string
 - name: page_research
   label: Research / 페이지 문구 · 글꼴 · 크기
   type: file
@@ -556,6 +596,84 @@ content:
   - name: doi
     label: DOI (https://doi.org/ 제외)
     type: string
+  - name: status
+    label: 상태 (Published / Accepted / Under Review / Under Revision)
+    type: select
+    options:
+      values:
+      - name: Published
+        label: Published / 출판됨
+      - name: Accepted
+        label: Accepted / 게재 승인
+      - name: Under Review
+        label: Under Review / 심사 중
+      - name: Under Revision
+        label: Under Revision / 수정 심사 중
+  - name: publicationType
+    label: 항목 종류
+    type: select
+    options:
+      values:
+      - name: journal
+        label: Journal / 학술지
+      - name: book
+        label: Book Chapter / 도서 챕터
+  - name: typography
+    label: 이 항목만의 글꼴 · 글자 크기 (선택)
+    type: object
+    fields: *id002
+- name: publications_import
+  label: Publications / Wix 이전 논문 (원어·연도)
+  type: file
+  path: data/publications-import.json
+  format: json
+  list: true
+  fields:
+  - name: publishedDate
+    label: 정확한 출판일 (YYYY-MM-DD, 날짜 기준 자동 정렬)
+    type: date
+    default: ''
+    options:
+      format: yyyy-MM-dd
+  - name: year
+    label: 기존 연도 (날짜를 모르는 기존 논문용, 날짜 입력 시 자동 무시)
+    type: number
+  - name: journal
+    label: 학술지
+    type: string
+    required: true
+  - name: title
+    label: 논문 제목
+    type: string
+    required: true
+  - name: authors
+    label: 저자 또는 소개
+    type: text
+  - name: doi
+    label: DOI (https://doi.org/ 제외)
+    type: string
+  - name: status
+    label: 상태 (Published / Accepted / Under Review / Under Revision)
+    type: select
+    options:
+      values:
+      - name: Published
+        label: Published / 출판됨
+      - name: Accepted
+        label: Accepted / 게재 승인
+      - name: Under Review
+        label: Under Review / 심사 중
+      - name: Under Revision
+        label: Under Revision / 수정 심사 중
+  - name: publicationType
+    label: 항목 종류
+    type: select
+    options:
+      values:
+      - name: journal
+        label: Journal / 학술지
+      - name: book
+        label: Book Chapter / 도서 챕터
   - name: typography
     label: 이 항목만의 글꼴 · 글자 크기 (선택)
     type: object

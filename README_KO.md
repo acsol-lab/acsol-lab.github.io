@@ -1,47 +1,58 @@
-# ACSoL v10 — GitHub Pages + Pages CMS
+# ACSoL 홈페이지 v11 (GitHub Pages + Pages CMS)
 
-기준: v9 → v10. 기존 디자인, Gallery 즐겨찾기 자동 슬라이드, 논문 정렬, 학생·교수님·Alumni·장비 데이터는 유지합니다.
+기준: 기존 ACSoL v10 홈페이지. 2026-10-15 기준 업데이트.
 
-## 업데이트
+## 이번 업데이트 내용
 
-1. `nawit-del.github.io` 저장소에서 먼저 **Code → Download ZIP**으로 백업하세요.
-2. **v9_to_v10_Update_Only.zip**을 압축 해제하여 `.html`, `site.js`, `styles.css`, `.pages.yml`을 같은 이름으로 교체하고 `data/page-*.json`(새 파일 11개)과 `data/typography.json`을 추가합니다. `Commit changes` 합니다.
-3. **기존 `data/home.json`, `data/research.json`, `data/publications.json`, `data/news.json`, `data/students.json`, `data/gallery.json`, `media/` 등을 삭제하거나 덮어쓰지 마세요.** 업데이트용 ZIP에는 기존 콘텐츠 JSON이 없습니다.
-4. `.pages.yml`은 숨김 파일이므로 GitHub 웹에서 직접 열고 Edit(연필)로 새 전체 내용을 붙여넣어 교체하거나 GitHub Desktop을 이용하세요.
-5. `Settings → Pages`에서 main / root 설정과 Actions 배포 상태를 확인하고 새로고침하세요.
-6. Pages CMS(`https://app.pagescms.org`)를 새로고침하여 페이지별 관리 메뉴가 나타나는지 확인하세요.
+1. Research의 하위 메뉴는 `data/research.json`을 읽어 자동 생성됩니다. CMS에서 항목을 추가/삭제하면 메뉴에도 자동 반영됩니다. Research 상위 메뉴는 개요 페이지로 이동합니다.
+2. Publications 페이지의 `N publications / Latest first` 구분선을 제거했습니다.
+3. 교수님 Employment/Awards의 왼쪽 날짜/기간 표시를 키우고 각 행의 중앙에 맞췄습니다.
+4. Home의 News 카드 양쪽에 이전/다음 버튼을 추가했습니다. PC 3개, 태블릿 2개, 휴대전화 1개씩 보여주며 다음/이전 항목으로 순환합니다.
+5. 기간 지정 사진 배너를 만들었습니다. Pages CMS의 **Home / 기간 지정 모집 · 안내 배너**에서 이미지, 배너 제목, 시작일, 마지막 날, 링크(선택)를 등록합니다. **대한민국 표준시(Asia/Seoul)** 날짜로 시작일과 종료일을 포함하여 표시합니다. 기본값 `data/banners.json`은 빈 배열이라 배너가 뜨지 않습니다.
+6. 배너에는 **오늘 하루 보지 않기** 체크박스가 있습니다. 체크한 뒤 닫으면 같은 브라우저의 `localStorage`에 한국 날짜가 저장되어 다음 한국 날짜가 될 때까지 해당 배너를 표시하지 않습니다. 체크하지 않고 닫으면 현재 브라우저 탭의 세션 동안 숨깁니다. 브라우저별로 저장되며 비공개 모드/쿠키/스토리지 차단 환경에서는 동작이 제한됩니다.
+7. 기존 Wix Publications 목록에서 확인한 SCI(E)/학회 164개 + Book Chapter 5개, 총 169개 목록을 `data/publications-import.json`에 추가했습니다. **제목은 원어 그대로** 표시합니다. DOI가 같은 v10의 한국어 요약형 논문 3개는 새 원어 제목을 우선 표시하여 중복이 나타나지 않도록 했습니다.
 
-## 이번 버전 주요 개선
+## 논문 데이터 주의 사항
 
-- **Research / People**: PC에서는 Hover 및 키보드 Focus로 각 하위 메뉴가 열립니다. Research 글자 클릭 → 전체 연구분야, People 글자 클릭 → 교수님 페이지. Research 드롭다운에 'All Research'와 01~04 숫자를 제거했습니다. 터치·모바일에서는 글자 링크 옆 펼침 버튼을 눌러 하위 메뉴를 열 수 있습니다.
-- **Equipment 하이라이트**: Equipment 페이지는 Equipment만 현재 메뉴(aria-current)로 표시하도록 수정했습니다.
-- **페이지 제목**: 예시인 `Ideas, in publication.`이 PC에서 한 줄에 보이도록 수정했습니다. 과도하게 긴 맞춤형 제목이나 작은 모바일 화면에서는 가로 넘침을 피하기 위해 줄바꿈될 수 있습니다.
-- **버튼**: Explore our research / Send an email을 사각 테두리 없이 밑줄 텍스트 + 작은 화살표로 변경했습니다.
-- **News**: 상세 펼침/접힘은 우측의 작은 V자 모양 버튼(회전)으로 처리합니다. 접근성용 설명은 아이콘에만 붙습니다.
-- **Contact**: 전체 공백을 줄이고 연구실 연락처·지도·학생 대표를 명함형 카드로 정돈했습니다. 교수님 프로필과 하단 푸터의 글자도 키웠습니다.
+- 출처: https://jinsubpark37.wixsite.com/acsol/publications (2026-10-15 확인).
+- 기존 v10에서 입력한 `data/publications.json`은 덮어쓰지 않습니다. 사이트는 `publications-import.json`과 기존 `publications.json`을 합쳐 표시합니다.
+- Pages CMS에서 기존 직접 추가한 논문은 **Publications / 출판 날짜 · 논문**, Wix에서 이전한 논문은 **Publications / Wix 이전 논문 (원어·연도)** 메뉴에서 편집할 수 있습니다.
+- 정확한 출판일이 명확히 확인된 항목 20건에만 `publishedDate`를 넣었습니다. 다른 항목은 `year`만 있으며 임의 날짜를 만들지 않았습니다.
+- **Under Review / Under Revision / Accepted** 항목은 정식 출판물과 구분해 상태를 표시합니다. 논문 제목이 등록됐다고 실제 출판된 것은 아닙니다.
+- 일부 구형 논문의 원본 웹페이지에서 저자·DOI·세부 서지를 자동 추출/검증하기 어려워 명확히 확인한 부분만 필드에 추가했습니다. 제목 169건과 연도, 소스에 명시된 학술지/출처는 모두 포함됩니다. 발행 연도와 저널명을 포함해 정식 게시 전 최종 확인하세요.
+- 원본 Wix에 있는 오탈자(특히 예전 영문 제목)는 임의 번역하거나 완전히 재작성하지 않았습니다. 이력은 CMS에서 수정 가능합니다.
+- Book Chapter도 Publications 목록에 함께 나타납니다(`publicationType=book`).
 
-## 페이지별 문구와 글꼴·글자 크기 조정
+## v10 → v11 업데이트 적용 방법 (권장)
 
-Pages CMS는 **페이지별 항목**과 **콘텐츠 항목**, **공통 서체** 순으로 표시됩니다.
+1. GitHub 저장소 `nawit-del.github.io`에서 `Code → Download ZIP`으로 먼저 백업합니다.
+2. **`ACSoL_v10_to_v11_Update_Only.zip`** 파일을 압축 해제하여 내용물을 GitHub 저장소 최상위에 올립니다.
+3. `site.js`, `styles.css`, 12개 HTML을 같은 이름으로 덮어쓰고, `.pages.yml`도 **파일 전체를 새 설정으로 변경**합니다. `.pages.yml`은 숨김 파일이므로 GitHub 웹 편집기의 연필 버튼을 이용해 파일 전체를 교체할 수 있습니다.
+4. `data/banners.json`과 `data/publications-import.json`을 새로 추가합니다. 두 파일을 `data/` 폴더 내부에 올려야 합니다.
+5. **기존 `data/publications.json`, `data/news.json`, `data/research.json`, `data/home.json`, `data/students.json`, `media/`는 삭제하거나 덮어쓰지 마세요.**
+6. GitHub의 `Actions`에서 Pages 배포가 성공했는지 확인하고, 홈페이지를 `Ctrl+F5` 새로고침합니다. Pages CMS도 다시 열어 새 메뉴를 확인합니다.
+7. `Research` 메뉴 Hover를 시험하고, CMS에서 연구 분야를 추가해 메뉴가 자동으로 늘어나는지 확인합니다. 모집 배너는 이미지/날짜를 지정해야 처음 나타납니다.
 
-- `Home / 메인 화면 설정` : 메인 영문 제목·강조 제목·설명, 연구실명·연구실 소개, Explore 버튼 문구, 자동 슬라이드 간격, 글꼴/크기 설정
-- `Research / 페이지 문구 · 글꼴 · 크기` : Research 소개 페이지 제목·설명 및 글꼴/크기
-- `People / Professor`, `People / Students`, `People / Alumni` : 각 페이지의 제목·소개 문구·글꼴·크기 메뉴와 원래 콘텐츠 관리 메뉴
-- `Publications`, `News`, `Gallery`, `Equipment`, `Contact` : 해당 페이지 제목과 설명, 글꼴·크기를 한 메뉴에서 관리. 콘텐츠 목록은 해당 페이지 바로 아래의 목록 메뉴에서 관리
-- `Contact / 페이지 문구 · 글꼴 · 크기` : 페이지 제목 외에도 왼쪽 명함형 영역의 제목, 강조문구, 짧은 소개, 이메일 버튼 문구를 수정 가능
-- `공통 설정 / 사이트 글꼴 · 크기` : 전체 기본 폰트와 제목 폰트, 상단 메뉴/로고 옆 글자/푸터/캡션 크기
+## Pages CMS 모집 배너 등록 예시
 
-**글꼴 선택**: Pretendard, Noto Sans KR, Nanum Gothic, Noto Serif KR, 시스템 글꼴. 영문 이탤릭 강조도 페이지 글꼴 선택을 따릅니다. 글꼴은 CDN에서 다운로드되어 표시되므로 방문자가 해당 서비스에 접근하지 못하면 시스템 폴백 글꼴을 사용합니다.
+| 필드 | 예시 |
+|---|---|
+| 배너 고유 ID | `recruit-2027-spring` |
+| 사용 여부 | `true` |
+| 제목 | `2027학년도 전기 신입생 모집` |
+| 이미지 | Pages CMS에서 JPG/PNG/WebP 사진 업로드 (`media/`에 저장) |
+| 시작 날짜 | `2026-11-01` |
+| 마지막 날짜 | `2026-11-30` |
+| 링크(선택) | `https://...` 또는 홈페이지 내부 지원 페이지 |
 
-**숫자 설정**: 페이지 제목/본문/라벨/섹션 제목 크기(px). `0`은 기본값을 사용합니다. 내용이 많거나 모바일 환경에서는 가독성과 넘침을 위해 글자 크기가 자동 제한/줄바꿈될 수 있습니다.
+날짜 양 끝을 모두 포함하여 표시합니다. 여러 배너를 동시에 활성화했다면 순서대로 하나씩 보이고, 닫으면 다음 배너가 표시됩니다.
 
-**개별 내용 스타일**: Research·Professor Employment/Awards·Students·Alumni·Publications·News·Gallery·Equipment 콘텐츠 항목을 열면 `이 항목만의 글꼴 · 글자 크기 (선택)`이 추가됩니다. 본문과 제목 글꼴·크기를 개별 지정할 수 있고, 비우면 페이지별 기본 설정을 따릅니다. Research의 세부 블록에도 동일한 선택 기능이 있습니다.
+## 로컬 미리보기
 
-이 구조는 안전한 글꼴/크기 프리셋을 제공하는 방식이며, CMS가 웹페이지의 임의 영역을 클릭해서 CSS를 직접 편집하는 WYSIWYG 디자인 편집기로 바뀌는 것은 아닙니다.
+- HTTP(S) GitHub Pages는 항상 GitHub의 실제 JSON을 읽습니다. 로컬 `file://` 미리보기에서는 `preview-data.js`를 사용합니다.
+- 로컬 데이터까지 미리보려면 수정 후 `python tools/refresh_preview.py`를 실행하여 미리보기 스냅샷을 갱신해야 합니다.
+- 업데이트 ZIP에는 기존 데이터를 덮어쓰는 일이 없도록 `preview-data.js`를 포함하지 않았습니다. 전체 사이트 ZIP에는 포함되어 있습니다.
 
-## 주의사항
+## 간단 점검
 
-- 모든 기존 콘텐츠를 보존하려면 **업데이트 전용 ZIP**을 사용하세요. 전체 ZIP은 배포 템플릿과 예시 JSON을 포함하므로 이미 수정한 내용을 덮어쓸 위험이 있습니다.
-- 공통 서체/페이지 서체는 자동으로 새 `data/typography.json` / `data/page-*.json`에서 반영됩니다. HTTP GitHub Pages에서 실시간 JSON을 읽습니다. 로컬 파일을 더블클릭해 미리보려면 전체 폴더에서 `python tools/refresh_preview.py`로 스냅샷을 갱신하세요.
-- 배포 완료 후 `Ctrl + F5`로 캐시를 지우고 확인하세요. `site.js` 및 `styles.css`는 `?v=10`으로 갱신해 캐시 충돌을 줄였습니다.
-- Pages CMS의 실제 GitHub 로그인·저장 동작은 사용자의 연결 계정에서 확인해야 합니다.
+`python tools/check_site.py` / `node --check site.js` 명령어로 파일 구조 및 JavaScript 문법을 점검할 수 있습니다.
