@@ -1,0 +1,314 @@
+# ACSoL Pages CMS v7: compatible with all v5 JSON data
+media:
+  input: media
+  output: /media
+  rename: safe
+  categories:
+  - image
+content:
+- name: home
+  label: Home / 메인 화면 설정
+  type: file
+  path: data/home.json
+  format: json
+  fields:
+  - name: heroTitle
+    label: 메인 큰 문구 (앞부분)
+    type: string
+  - name: heroAccent
+    label: 메인 큰 문구 (블루 컬러·세리프체 강조)
+    type: string
+  - name: heroKorean
+    label: 메인 한국어 연구실명
+    type: string
+  - name: heroDescription
+    label: 메인 영문 소개
+    type: text
+  - name: heroImage
+    label: 메인 대표 사진 (미입력 시 기본 그래픽 표시)
+    type: image
+  - name: heroImageCaption
+    label: 메인 사진 캡션
+    type: string
+  - name: labIntro
+    label: 메인 연구 분야 요약 설명
+    type: text
+- name: professor
+  label: People / 교수님 프로필
+  type: file
+  path: data/professor.json
+  format: json
+  fields:
+  - name: professorTagline
+    label: 프로필 상단 문구 (Captain of ACSoL...)
+    type: string
+  - name: professorName
+    label: 영문 이름
+    type: string
+  - name: professorKoreanName
+    label: 한글 이름
+    type: string
+  - name: professorKoreanSuffix
+    label: 한글 호칭 (교수 등)
+    type: string
+  - name: professorPhoto
+    label: 교수님 사진
+    type: image
+  - name: professorTitle
+    label: 직책 / 소개 첫 번째 줄
+    type: text
+  - name: professorDepartment
+    label: 소속 학과 (두 번째 줄)
+    type: text
+  - name: professorAdditionalTitle
+    label: 추가 직책 (세 번째 줄)
+    type: text
+  - name: professorUniversity
+    label: 소속 대학교 (네 번째 줄)
+    type: string
+  - name: office
+    label: 교수실 위치
+    type: string
+  - name: professorOfficeLabel
+    label: 교수실 표시 문구 (Office)
+    type: string
+  - name: professorEmail
+    label: 이메일 주소
+    type: string
+  - name: professorEmailLabel
+    label: 이메일 표시 문구 (Email)
+    type: string
+  - name: contactPhone
+    label: 교수실 전화번호
+    type: string
+  - name: professorPhoneLabel
+    label: 전화 표시 문구 (Tel)
+    type: string
+  - name: professorBio
+    label: 교수님 소개 문구
+    type: text
+  - name: labPhone
+    label: 연구실 전화번호 (Contact에도 반영)
+    type: string
+  - name: address
+    label: 연구실 주소 (Contact에도 반영)
+    type: text
+- name: professor_employment
+  label: People / 교수님 경력 및 직책
+  type: file
+  path: data/professor-employment.json
+  format: json
+  list: true
+  fields:
+  - name: period
+    label: '재직 기간 (예: 2026 – Present)'
+    type: string
+    required: true
+  - name: position
+    label: 직책 / 경력 내용
+    type: text
+    required: true
+- name: professor_awards
+  label: People / 교수님 수상 경력
+  type: file
+  path: data/professor-awards.json
+  format: json
+  list: true
+  fields:
+  - name: date
+    label: '수상 시기 (예: 11/2025)'
+    type: string
+    required: true
+  - name: award
+    label: 수상명
+    type: text
+    required: true
+- name: research
+  label: Research / 연구 분야 · 펼침 상세 내용
+  type: file
+  path: data/research.json
+  format: json
+  list: true
+  fields:
+  - name: title
+    label: 연구 분야 제목
+    type: string
+    required: true
+  - name: subtitle
+    label: 영문 소제목
+    type: string
+  - name: description
+    label: 연구 분야 상세 설명
+    type: text
+  - name: keywords
+    label: 관련 키워드
+    type: text
+  - name: image
+    label: 연구 분야 사진 업로드
+    type: image
+  - name: imageAlt
+    label: 사진 설명 (접근성)
+    type: string
+  - name: detailIntro
+    label: 펼쳤을 때 나오는 상세 도입 설명
+    type: text
+  - name: detailSections
+    label: 추가 상세 내용 (글·사진 여러 개)
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{heading} (블록 {index})'
+    fields:
+    - name: heading
+      label: 상세 항목 제목 (선택)
+      type: string
+    - name: body
+      label: 상세 글 (줄바꿈 가능)
+      type: text
+    - name: image
+      label: 상세 이미지 (선택)
+      type: image
+    - name: imageAlt
+      label: 이미지 대체 설명 (선택)
+      type: string
+    - name: imageCaption
+      label: 이미지 아래 캡션 (선택)
+      type: string
+- name: students
+  label: People / 박사·석사 재학생
+  type: file
+  path: data/students.json
+  format: json
+  list: true
+  fields:
+  - name: role
+    label: 과정 선택
+    type: select
+    required: true
+    options:
+      values:
+      - name: phd
+        label: 박사과정 / Ph.D.
+      - name: master
+        label: 석사과정 / M.S.
+  - name: name
+    label: 학생 이름
+    type: string
+    required: true
+  - name: cohort
+    label: '기수 (예: 2 또는 2기)'
+    type: string
+  - name: department
+    label: '소속 학과 (예: Dept. Nano Semiconductor Eng.)'
+    type: string
+  - name: email
+    label: 이메일 주소
+    type: string
+  - name: research
+    label: 연구 분야
+    type: text
+  - name: photo
+    label: 학생 사진 업로드
+    type: image
+- name: alumni
+  label: People / Alumni 졸업생
+  type: file
+  path: data/alumni.json
+  format: json
+  list: true
+  fields:
+  - name: name
+    label: 졸업생 이름
+    type: string
+    required: true
+  - name: degree
+    label: '졸업 과정 (예: 석사 / 박사)'
+    type: string
+  - name: graduationYear
+    label: '졸업 연도 (예: 2026)'
+    type: string
+  - name: company
+    label: 현 직장 또는 소속
+    type: string
+  - name: pastResearch
+    label: 재학 당시 연구 분야
+    type: text
+  - name: email
+    label: 이메일 (선택사항)
+    type: string
+- name: news
+  label: News / 공지사항
+  type: file
+  path: data/news.json
+  format: json
+  list: true
+  fields:
+  - name: date
+    label: 날짜
+    type: date
+    required: true
+    options:
+      format: yyyy-MM-dd
+  - name: category
+    label: 구분 (Award, Publication 등)
+    type: string
+    required: true
+  - name: title
+    label: 제목
+    type: string
+    required: true
+  - name: description
+    label: 내용 요약
+    type: text
+- name: publications
+  label: Publications / 출판 날짜 · 논문
+  type: file
+  path: data/publications.json
+  format: json
+  list: true
+  fields:
+  - name: publishedDate
+    label: 정확한 출판일 (YYYY-MM-DD, 날짜 기준 자동 정렬)
+    type: date
+    default: ''
+    options:
+      format: yyyy-MM-dd
+  - name: year
+    label: 기존 연도 (날짜를 모르는 기존 논문용, 날짜 입력 시 자동 무시)
+    type: number
+  - name: journal
+    label: 학술지
+    type: string
+    required: true
+  - name: title
+    label: 논문 제목
+    type: string
+    required: true
+  - name: authors
+    label: 저자 또는 소개
+    type: text
+  - name: doi
+    label: DOI (https://doi.org/ 제외)
+    type: string
+- name: gallery
+  label: Gallery / 사진
+  type: file
+  path: data/gallery.json
+  format: json
+  list: true
+  fields:
+  - name: title
+    label: 사진 제목
+    type: string
+    required: true
+  - name: date
+    label: 날짜 또는 연도
+    type: string
+  - name: image
+    label: 사진 파일 업로드
+    type: image
+    required: true
+  - name: description
+    label: 사진 설명
+    type: text
