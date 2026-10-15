@@ -223,7 +223,10 @@
     setText('#cms-page-eyebrow',cfg.eyebrow);
     setText('.page-title-lead',cfg.titleLead);
     setText('.page-title-accent',cfg.titleAccent);
-    setText('#cms-page-subtitle',cfg.subtitle);
+    // Keep existing CMS custom copy, but update the former degree-grouped default subtitle.
+    const oldStudentsSubtitle = '현재 연구 중인 박사과정·석사과정 학생을 소개합니다.';
+    setText('#cms-page-subtitle', page === 'students' && cfg.subtitle === oldStudentsSubtitle
+      ? '연구실 구성원을 연구팀별로 소개합니다.' : cfg.subtitle);
     if (page==='contact') {
       setText('#cms-contact-lead',cfg.contactLead);
       setText('#cms-contact-accent',cfg.contactAccent);
@@ -626,30 +629,63 @@
       row.append(node('span', 'history-date', item[dateKey]), node('p', 'history-description', item[valueKey])); return applyEntryTypography(row,item);
     }));
   }
+  // v14: team-first Students page, with legacy role support.
   async function renderStudents() {
+    const target = $('#student-teams'); if (!target) return;
     const entries = await getJSON('students');
-    for (const role of ['phd', 'master']) {
-      const target = $('#' + role + '-list'); if (!target) continue;
-      const people = entries.filter(person => text(person.role).toLowerCase() === role);
-      setText('#' + role + '-count', people.length ? ' / ' + String(people.length).padStart(2, '0') : '');
-      if (!people.length) { target.replaceChildren(emptyNote('Meet our researchers, soon.', '구성원 정보를 업데이트하고 있습니다.')); continue; }
-      target.replaceChildren(...people.map(person => {
+    if (!Array.isArray(entries) || !entries.length) {
+      target.replaceChildren(emptyNote('Meet our researchers, soon.', '연구원 정보를 업데이트하고 있습니다.'));
+      return;
+    }
+    const courseNames = { integrated: '석박통합과정', phd: '박사과정', master: '석사과정' };
+    const teams = new Map();
+    entries.forEach(person => {
+      if (!person || !text(person.name)) return;
+      const team = text(person.team, '소속 팀 미지정');
+      if (!teams.has(team)) teams.set(team, []);
+      teams.get(team).push(person);
+    });
+    if (!teams.size) {
+      target.replaceChildren(emptyNote('Meet our researchers, soon.', '연구원 정보를 업데이트하고 있습니다.'));
+      return;
+    }
+    const sections = [];
+    teams.forEach((people, teamName) => {
+      const section = node('section', 'people-group student-team-group');
+      const heading = node('div', 'subsection-head student-team-heading');
+      heading.append(node('h2', '', teamName), node('span', 'overline', String(people.length) + ' Members'));
+      const grid = node('div', 'student-grid');
+      grid.append(...people.map(person => {
+        const role = text(person.role).toLowerCase();
+        const course = courseNames[role] || (text(person.role) && !['ph.d.', 'm.s.'].includes(role) ? text(person.role) : '');
         const card = node('article', 'student-card'), photo = node('div', 'student-photo');
-        setImage(photo, person.photo, text(person.name) + ' 연구원 사진', () => portraitFallback(person.name, role === 'phd' ? 'Ph.D. Student' : 'M.S. Student'));
-        const info = node('div', 'student-info'), title = node('div', 'student-title'); title.append(node('h3', '', person.name));
-        if (text(person.cohort)) title.append(node('span', 'cohort', /^\d+$/.test(text(person.cohort)) ? person.cohort + '기' : person.cohort));
+        setImage(photo, person.photo, text(person.name) + ' 연구원 사진',
+          () => portraitFallback(person.name, course || 'ACSoL Researcher'));
+        const info = node('div', 'student-info'), title = node('div', 'student-title');
+        const identity = node('div', 'student-identity'); identity.append(node('h3', '', person.name));
+        if (course) identity.append(node('span', 'student-program program-' + (courseNames[role] ? role : 'other'), course));
+        title.append(identity);
+        if (text(person.cohort)) {
+          title.append(node('span', 'cohort', /^\d+$/.test(text(person.cohort)) ? person.cohort + '기' : person.cohort));
+        }
         info.append(title);
         if (text(person.department)) info.append(node('p', 'student-department', person.department));
         if (text(person.research)) {
-          const field = node('p', 'research-field'); field.append(node('span', 'student-field-label', 'Research'), document.createTextNode(text(person.research))); info.append(field);
+          const field = node('p', 'research-field');
+          field.append(node('span', 'student-field-label', 'Research'), document.createTextNode(text(person.research)));
+          info.append(field);
         }
         if (text(person.email)) {
-          const a = node(safeEmail(person.email) ? 'a' : 'span', 'student-email', person.email);
-          if (safeEmail(person.email)) a.href = safeEmail(person.email); info.append(a);
+          const href = safeEmail(person.email);
+          const a = node(href ? 'a' : 'span', 'student-email', person.email);
+          if (href) a.href = href;
+          info.append(a);
         }
-        card.append(photo, info); return applyEntryTypography(card,person);
+        card.append(photo, info); return applyEntryTypography(card, person);
       }));
-    }
+      section.append(heading, grid); sections.push(section);
+    });
+    target.replaceChildren(...sections);
   }
   async function renderAlumni() {
     const entries = await getJSON('alumni'); const target = $('#alumni-list'); if (!target) return;
@@ -751,7 +787,7 @@
     if (filter) filter.replaceChildren(
       makeFilter('All years', 'all', true, value => { selected = value; update(); }),
       ...periods.map(period => makeFilter(
-        period === 'unknown' ? 'Undated' : period === 'earlier' ? 'Before 2000' : period === '2010s' ? '2010년대' : period === '2000s' ? '2000년대' : period,
+        period === 'unknown' ? 'Undated' : period === 'earlier' ? 'Before 2000' : period === '2010s' ? '2010~2019' : period === '2000s' ? '~2009' : period,
         period, false, value => { selected = value; update(); }
       )),
       makeFilter('Under Review', 'review', false, value => { selected = value; update(); })
@@ -989,7 +1025,7 @@
     run('#professor-employment-list', () => renderHistory('professor-employment', '#professor-employment-list', 'period', 'position')),
     run('#professor-awards-list', () => renderHistory('professor-awards', '#professor-awards-list', 'date', 'award'))
   );
-  if (page === 'students') jobs.push(run('#phd-list, #master-list', renderStudents));
+  if (page === 'students') jobs.push(run('#student-teams', renderStudents));
   if (page === 'alumni') jobs.push(run('#alumni-list', renderAlumni));
   if (page === 'equipment') jobs.push(run('#equipment-list', renderEquipment));
   if (page === 'publications') jobs.push(run('#publication-list', renderPublications));

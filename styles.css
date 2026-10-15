@@ -1295,3 +1295,53 @@ body { font-family: var(--cms-page-font,var(--cms-global-font,var(--sans))); fon
  .recruit-banner-popup{width:min(425px,100%)!important;max-height:calc(100dvh - 72px)!important;}
  .recruit-banner-image img{max-height:calc(100dvh - 175px)!important;}
 }
+
+/* ── ACSoL v14: publication colors, uniform filters, team-based Students ── */
+/* Keep the v13 journal size, restore the earlier teal journal color. */
+.pub-journal { color: var(--teal) !important; }
+/* Under Review is now styled exactly like the adjacent year filter chips. */
+#publication-filters .filter-button[data-value="review"] {
+  margin-inline-start: 0; border-color: transparent; color: var(--muted); font-weight: 550;
+}
+#publication-filters .filter-button[data-value="review"]:hover {
+  background: #e8eef9; border-color: #ccd9ef; color: var(--accent);
+}
+#publication-filters .filter-button[data-value="review"][aria-pressed="true"] {
+  background: var(--accent); border-color: var(--accent); color: #fff;
+}
+.student-teams { display: flex; flex-direction: column; gap: 50px; }
+.student-team-group { margin: 0; }
+.student-team-heading { margin-bottom: 24px; }
+.student-team-heading h2 { overflow-wrap: anywhere; }
+/* Five students per row on desktop. */
+.student-team-group .student-grid {
+  display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 32px 18px;
+}
+.student-team-group .student-card { min-width: 0; }
+.student-team-group .student-info { padding-top: 13px; }
+.student-team-group .student-title { display: block; }
+.student-team-group .student-identity { display: flex; align-items: center; flex-wrap: wrap; gap: 5px 8px; }
+.student-team-group .student-identity h3 { font-size: 19px; line-height: 1.34; }
+.student-team-group .student-program {
+  display: inline-flex; align-items: center; border-radius: 4px; padding: 3px 5px;
+  background: #e9f1fb; color: #2155a2; font-size: 10.5px;
+  font-weight: 700; line-height: 1.35; white-space: nowrap; letter-spacing: -.018em;
+}
+.student-team-group .student-program.program-integrated { background: #e3f4f0; color: #116a61; }
+.student-team-group .student-program.program-phd { background: #e9effb; color: #254ca4; }
+.student-team-group .student-program.program-master { background: #f4ebfb; color: #6f448e; }
+.student-team-group .cohort { display:block; margin-top: 8px; font-size: 15px !important; font-weight: 650; line-height: 1.4; color: var(--accent); }
+.student-team-group .student-department { margin-top: 8px; font-size: 12.5px; }
+.student-team-group .research-field { font-size: 12.5px; margin-top: 11px; }
+.student-team-group .student-field-label { font-size: 11px; }
+.student-team-group .student-email { font-size: 12px; line-height:1.45; }
+@media(max-width: 1020px) {
+  .student-team-group .student-grid { grid-template-columns:repeat(4,minmax(0,1fr)); gap:26px 16px; }
+}
+@media(max-width: 760px) {
+  .student-team-group .student-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px 16px; }
+  .student-teams { gap:36px; }
+}
+@media(max-width: 375px) {
+  .student-team-group .student-grid { grid-template-columns:1fr; max-width:280px; }
+}

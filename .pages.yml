@@ -326,22 +326,28 @@ content:
         type: object
         fields: *id002
     - name: students
-      label: 박사·석사 재학생
+      label: 재학생 · 팀별 관리
       type: file
       path: data/students.json
       format: json
       list: true
       fields:
+      - name: team
+        label: 연구팀 이름 (같은 이름을 입력하면 같은 팀으로 묶입니다)
+        type: string
+        description: 예) Neuromorphic Device Team / Memory Team. 팀이 지정되지 않은 기존 연구원은 소속 팀 미지정에 표시됩니다.
       - name: role
-        label: 과정 선택
+        label: 학위과정 (이름 옆 표시)
         type: select
         required: true
         options:
           values:
+          - name: integrated
+            label: 석박통합과정
           - name: phd
-            label: 박사과정 / Ph.D.
+            label: 박사과정
           - name: master
-            label: 석사과정 / M.S.
+            label: 석사과정
       - name: name
         label: 학생 이름
         type: string
