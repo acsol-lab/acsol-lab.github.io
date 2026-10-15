@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "title": "회식",
+    "date": "2025",
+    "image": "/media/img7804-2.avif",
+    "featured": true
+  },
+  {
+    "title": "한민종",
+    "date": "2026",
+    "image": "/media/jpg-2.avif",
+    "featured": true
+  }
+]
