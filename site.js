@@ -184,54 +184,49 @@
     setText('#hero-korean', cfg.heroKorean);
     setText('#hero-description', cfg.heroDescription);
     setText('#lab-intro', cfg.labIntro);
-    const slides = Array.isArray(cfg.heroSlides) ? cfg.heroSlides.filter(x => isObject(x) && normalPath(x.image)) : [];
-    if (!slides.length) slides.push({image: cfg.heroImage || '', caption: cfg.heroImageCaption || '', alt: 'ACSoL 연구실 대표 사진'});
-    const host = $('#hero-image'), dots = $('#hero-slide-dots'), pause = $('#hero-slide-pause');
-    const prev = $('#hero-slide-prev'), next = $('#hero-slide-next');
-    const controls = $('.hero-slider-controls');
+    const host = $('#hero-image'), prev = $('#hero-slide-prev'), next = $('#hero-slide-next');
+    const gallery = await getJSON('gallery');
+    const slides = gallery.filter(x => isObject(x) && x.featured === true && normalPath(x.image));
     const seconds = Math.max(2, Math.min(60, Number(cfg.slideIntervalSeconds) || 5));
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let current = 0, timer = null, paused = reduceMotion;
+    let current = 0, timer = null;
     const show = index => {
+      if (!slides.length) {
+        setText('#hero-caption', 'ACSoL · Hanyang University');
+        setImage(host, '', 'ACSoL 연구실 사진', () => conceptImage('surface-study-color.svg', '연구실 대표 사진 준비 중'), {concept:true});
+        setText('#hero-image-note', 'Gallery에서 메인 사진을 선택해 주세요');
+        return;
+      }
       current = (index + slides.length) % slides.length;
-      const slide = slides[current];
-      setText('#hero-caption', text(slide.caption, cfg.heroImageCaption));
-      setImage(host, slide.image, text(slide.alt, slide.caption || 'ACSoL 메인 사진'),
-        () => conceptImage('surface-study-color.svg', '연구실 대표 사진을 준비 중입니다.'),
-        {eager: true, concept: true,
-         onFallback: () => setText('#hero-image-note', 'Conceptual surface study'),
-         onLoad: () => setText('#hero-image-note', '')});
-      if (dots) $$('button', dots).forEach((button,i) => {
-        button.setAttribute('aria-current', i===current ? 'true' : 'false');
-        button.setAttribute('aria-label', `${i+1}번째 사진${i===current?' (현재)':''}`);
-      });
+      const photo = slides[current];
+      setText('#hero-caption', text(photo.title, 'ACSoL · Hanyang University'));
+      setText('#hero-image-note', text(photo.date));
+      setImage(host, photo.image, text(photo.description, photo.title || 'ACSoL 연구실 사진'),
+        () => imageFallback('사진을 불러올 수 없습니다.'), {eager:true});
     };
-    const stop = () => { if (timer) window.clearInterval(timer); timer=null; };
+    const stop = () => { if (timer !== null) clearInterval(timer); timer = null; };
     const start = () => {
       stop();
-      if (slides.length>1 && !paused && !document.hidden) timer = window.setInterval(() => show(current+1), seconds*1000);
+      if (slides.length > 1 && !document.hidden)
+        timer = setInterval(() => show(current + 1), seconds * 1000);
     };
-    const step = direction => { show(current+direction); start(); };
-    if (dots) dots.replaceChildren(...slides.map((slide,i) => {
-      const button = node('button','hero-slide-dot'); button.type='button';
-      button.addEventListener('click', () => {show(i);start();}); return button;
-    }));
+    const step = direction => { show(current + direction); start(); };
     if (prev) prev.addEventListener('click', () => step(-1));
     if (next) next.addEventListener('click', () => step(1));
-    const updatePause = () => {
-      if (!pause) return;
-      pause.textContent = paused ? '▶' : 'Ⅱ';
-      pause.setAttribute('aria-label', paused ? '사진 자동 전환 재생' : '사진 자동 전환 일시 정지');
-      pause.setAttribute('aria-pressed', String(paused));
-    };
-    if (pause) pause.addEventListener('click', () => {paused=!paused;updatePause();start();});
-    if (controls) controls.hidden = slides.length<=1;
-    document.addEventListener('visibilitychange',start);
+    document.addEventListener('visibilitychange', start);
+    // Touch users can swipe; visual controls remain unobtrusive.
     if (host) {
-      host.addEventListener('mouseenter',stop);
-      host.addEventListener('mouseleave',start);
+      let touchX = null;
+      host.addEventListener('touchstart', event => { touchX = event.changedTouches[0]?.screenX ?? null; }, {passive:true});
+      host.addEventListener('touchend', event => {
+        if (touchX === null || slides.length < 2) return;
+        const difference = (event.changedTouches[0]?.screenX ?? touchX) - touchX;
+        touchX = null;
+        if (Math.abs(difference) > 45) step(difference < 0 ? 1 : -1);
+      }, {passive:true});
     }
-    show(0);updatePause();start();
+    if (prev) prev.hidden = slides.length < 2;
+    if (next) next.hidden = slides.length < 2;
+    show(0); start();
   }
   async function applyProfessor(page) {
     const cfg = await readSettings('professor');
@@ -374,27 +369,21 @@
   }
 
   async function renderEquipment() {
-    const host=$('#equipment-list');if(!host)return;
-    const entries=await getJSON('equipment');
-    if(!entries.length){host.replaceChildren(emptyNote('Equipment directory','장비 목록을 준비 중입니다. Pages CMS → Equipment에서 장비를 등록해 주세요.'));return;}
-    host.replaceChildren(...entries.map((item,i)=>{
-      const article=node('article','equipment-card'),visual=node('div','equipment-photo');
-      setImage(visual,item.photo,text(item.name, '장비 사진'),()=>imageFallback('장비 사진 등록 예정'));
-      const copy=node('div','equipment-copy');
-      copy.append(node('span','overline',String(i+1).padStart(2,'0')+' / EQUIPMENT'),node('h2','',text(item.name,'Equipment')));
-      if(text(item.model))copy.append(node('p','equipment-model',item.model));
-      if(text(item.manufacturer))copy.append(node('p','equipment-maker',item.manufacturer));
-      if(text(item.description))copy.append(node('p','equipment-description',item.description));
-      if(text(item.applications)) {
-        const foot=node('p','equipment-applications');foot.append(node('strong','','Applications · '),document.createTextNode(item.applications));copy.append(foot);
-      }
-      article.append(visual,copy);return article;
+    const host = $('#equipment-list'); if (!host) return;
+    const entries = await getJSON('equipment');
+    if (!entries.length) {host.replaceChildren(emptyNote('Equipment directory','Pages CMS에서 장비를 등록해 주세요.')); return;}
+    host.replaceChildren(...entries.map(item => {
+      const card=node('article','equipment-card'), photo=node('div','equipment-photo');
+      setImage(photo, item.photo, text(item.name,'장비 사진'), () => imageFallback('장비 사진 등록 예정'));
+      const caption=node('div','equipment-copy');
+      caption.append(node('h2','',text(item.name,'Equipment')));
+      if (text(item.model)) caption.append(node('p','equipment-model',item.model));
+      card.append(photo,caption); return card;
     }));
   }
-
   async function hydrateResearchMenu() {
     const entries=await getJSON('research');
-    $$('#research-submenu a').forEach((link,i)=>{
+    $$('#research-submenu a[data-topic]').forEach((link,i)=>{
       if(entries[i])link.textContent=String(i+1).padStart(2,'0')+' · '+text(entries[i].title);
       else link.hidden=true;
     });
@@ -615,38 +604,64 @@
   };
   async function renderNews(page) {
     const target = page === 'home' ? $('#home-news-list') : $('#news-list'); if (!target) return;
-    const entries = (await getJSON('news')).map((entry,index) => ({...entry, _id: 'news-' + (index + 1)}));
+    const entries = (await getJSON('news')).map((entry,index) => ({...entry, _id:'news-'+(index+1)}));
     entries.sort((a,b) => validDate(b.date).localeCompare(validDate(a.date)));
-    if (!entries.length) { target.replaceChildren(emptyNote('More to come.', '새로운 연구실 소식을 준비하고 있습니다.')); setText('#news-count','0 stories'); return; }
+    if (!entries.length) {target.replaceChildren(emptyNote('More to come.','새로운 연구실 소식을 준비하고 있습니다.'));setText('#news-count','0 stories');return;}
     if (page === 'home') {
       target.replaceChildren(...entries.slice(0,3).map(item => {
-        const card = node('article', 'home-news-card'), meta = node('div', 'news-meta');
-        card.dataset.storyTone = newsTone(item.category);
-        meta.append(timeNode(item.date), node('span', 'news-category', item.category));
-        card.append(meta, node('h3', '', item.title), node('p', '', item.description));
-        const link = node('a', 'inline-link', 'Read the story'); link.href = 'news.html#' + item._id;
-        link.setAttribute('aria-label', text(item.title) + ' — 소식 보기'); link.append(arrow()); card.append(link); return card;
-      })); return;
+        const card=node('article','home-news-card'), meta=node('div','news-meta');
+        card.dataset.storyTone=newsTone(item.category);
+        meta.append(timeNode(item.date), node('span','news-category',item.category));
+        card.append(meta,node('h3','',item.title),node('p','',item.description));
+        const link=node('a','inline-link','Read the story');link.href='news.html#'+item._id;
+        link.setAttribute('aria-label',text(item.title)+' — 소식 보기');link.append(arrow());card.append(link);return card;
+      }));return;
     }
-    let selected = 'all'; const filter = $('#news-filters');
-    const categories = [...new Set(entries.map(item => newsGroup(item.category)))];
+    let selected='all'; const filter=$('#news-filters');
+    const categories=[...new Set(entries.map(item => newsGroup(item.category)))];
     const update = () => {
-      if (filter) $$('.filter-button', filter).forEach(button => button.setAttribute('aria-pressed', String(button.dataset.value === selected)));
-      const matches = entries.filter(entry => selected === 'all' || newsGroup(entry.category) === selected);
-      setText('#news-count', matches.length + ' stor' + (matches.length === 1 ? 'y' : 'ies'));
-      target.replaceChildren(...matches.map(item => {
-        const row = node('article', 'news-item'); row.id = item._id; row.dataset.storyTone = newsTone(item.category);
-        const date = timeNode(item.date); date.className = 'news-date';
-        const content = node('div'); content.append(node('span', 'news-type', item.category), node('h2', '', item.title), node('p', '', item.description));
-        row.append(date, content); return row;
+      if(filter) $$('.filter-button',filter).forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.value===selected)));
+      const matches=entries.filter(entry=>selected==='all'||newsGroup(entry.category)===selected);
+      setText('#news-count',matches.length+' stor'+(matches.length===1?'y':'ies'));
+      target.replaceChildren(...matches.map(item=>{
+        const row=node('article','news-item');row.id=item._id;row.dataset.storyTone=newsTone(item.category);
+        const date=timeNode(item.date);date.className='news-date';
+        const content=node('div','news-content');
+        content.append(node('span','news-type',item.category),node('h2','',item.title));
+        if(text(item.description))content.append(node('p','news-summary',item.description));
+        const button=node('button','news-expand-toggle');button.type='button';
+        button.setAttribute('aria-controls','details-'+item._id);button.setAttribute('aria-expanded','false');
+        button.setAttribute('aria-label',text(item.title)+' 상세 내용 펼치기');
+        button.append(node('span','','Expand'),node('span','news-expand-icon','+'));
+        const detail=node('div','news-expanded');detail.id='details-'+item._id;detail.hidden=true;
+        if (text(item.detailBody)) detail.append(node('p','news-detail-body',item.detailBody));
+        if (normalPath(item.detailImage)) {
+          const fig=node('figure','news-detail-figure'), pic=node('div');
+          setImage(pic,item.detailImage,text(item.detailCaption,item.title),()=>imageFallback('이미지 등록 예정'));
+          fig.append(pic);
+          if (text(item.detailCaption))fig.append(node('figcaption','',item.detailCaption));
+          detail.append(fig);
+        }
+        if (!detail.childNodes.length)detail.append(node('p','news-detail-empty','추가 상세 내용을 준비 중입니다.'));
+        const setExpanded=open=>{
+          detail.hidden=!open;button.setAttribute('aria-expanded',String(open));
+          button.querySelector('span').textContent=open?'Collapse':'Expand';
+          button.querySelector('.news-expand-icon').textContent=open?'−':'+';
+        };
+        button.addEventListener('click',()=>setExpanded(detail.hidden));
+        content.append(button,detail);row.append(date,content);
+        if(location.hash==='#'+item._id)setExpanded(true);
+        return row;
       }));
     };
-    if (filter) filter.replaceChildren(makeFilter('All', 'all', true, value => { selected = value; update(); }),
-      ...categories.map(category => makeFilter(category, category, false, value => { selected = value; update(); })));
-    const handleHash = () => { if (/^#news-\d+$/.test(location.hash)) { selected = 'all'; update(); scrollToHash('news'); } };
-    update(); window.addEventListener('hashchange', handleHash); handleHash();
+    if (filter)filter.replaceChildren(makeFilter('All','all',true,value=>{selected=value;update();}),
+      ...categories.map(category=>makeFilter(category,category,false,value=>{selected=value;update();})));
+    const handleHash=()=>{
+      if (!/^#news-\d+$/.test(location.hash))return;
+      selected='all';update();scrollToHash('news');
+    };
+    update();window.addEventListener('hashchange',handleHash);handleHash();
   }
-
   async function renderGallery() {
     const target = $('#gallery-list'); if (!target) return;
     const photos = await getJSON('gallery');
@@ -708,26 +723,36 @@
   }
 
   function initSubmenus() {
-    $$('.nav-group').forEach(group => {
-      const toggle=$('.submenu-toggle',group),panel=$('.submenu-panel',group);
-      if(!toggle||!panel)return;
-      toggle.addEventListener('click',event=>{
-        event.stopPropagation();
-        const opening=toggle.getAttribute('aria-expanded')!=='true';
-        $$('.nav-group').forEach(other=>{
-          other.classList.remove('submenu-open');const t=$('.submenu-toggle',other);
-          if(t)t.setAttribute('aria-expanded','false');
-        });
-        group.classList.toggle('submenu-open',opening);
-        toggle.setAttribute('aria-expanded',String(opening));
-      });
+    const groups=$$('.nav-group');
+    const close=()=>groups.forEach(group=>{
+      group.classList.remove('submenu-open');
+      const anchor=$('.nav-parent > a',group);
+      if(anchor && group.dataset.group==='research')anchor.setAttribute('aria-expanded','false');
     });
-    document.addEventListener('click',event=>{
-      if(event.target.closest('.nav-group'))return;
-      $$('.nav-group').forEach(group=>{
-        group.classList.remove('submenu-open');const t=$('.submenu-toggle',group);
-        if(t)t.setAttribute('aria-expanded','false');
+    const research=$('.nav-group[data-group="research"]');
+    const researchAnchor=research && $('.nav-parent > a',research);
+    if(researchAnchor){
+      researchAnchor.setAttribute('aria-haspopup','true');
+      researchAnchor.setAttribute('aria-controls','research-submenu');
+      researchAnchor.setAttribute('aria-expanded','false');
+      researchAnchor.addEventListener('click', event=>{
+        event.preventDefault();event.stopPropagation();
+        const opening=!research.classList.contains('submenu-open');
+        close();research.classList.toggle('submenu-open',opening);
+        researchAnchor.setAttribute('aria-expanded',String(opening));
       });
+      researchAnchor.addEventListener('keydown',event=>{
+        if(event.key==='ArrowDown'){
+          event.preventDefault();research.classList.add('submenu-open');researchAnchor.setAttribute('aria-expanded','true');
+          $('#research-submenu a')?.focus();
+        }
+      });
+    }
+    document.addEventListener('click', event=>{if(!event.target.closest('.nav-group'))close();});
+    document.addEventListener('keydown',event=>{
+      if(event.key!=='Escape')return;
+      const wasOpen=research?.classList.contains('submenu-open');
+      close();if(wasOpen)researchAnchor?.focus();
     });
   }
   function initMenu() {
@@ -741,7 +766,7 @@
       if (event.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') { setOpen(false); button.focus(); }
     });
     document.addEventListener('click', event => { if (!event.target.closest('.site-header')) setOpen(false); });
-    menu.addEventListener('click', event => { if (event.target.closest('a')) setOpen(false); });
+    menu.addEventListener('click', event => { if (event.target.closest('a') && !event.target.closest('[data-group=research] > .nav-parent')) setOpen(false); });
     window.matchMedia('(min-width: 1051px)').addEventListener('change', event => { if (event.matches) setOpen(false); });
   }
   initMenu();initSubmenus(); setText('#copyright-year', new Date().getFullYear());

@@ -1,71 +1,38 @@
-# ACSoL 홈페이지 v8 — 메뉴·슬라이드·Equipment·CMS 개선
+# ACSoL v9 — v8 디자인 개선 / GitHub Pages + Pages CMS
 
-첨부한 **v7 Full Website**를 바탕으로 만든 버전입니다. 기존 색상, 연구 주제, 교수님 경력, Publications 데이터와 Pages CMS 저장 방식은 보존했습니다. 서버 구축, 빌드 명령, 유료 서비스는 필요하지 않습니다.
+## v9 주요 변경사항
 
-## 1. 변경 사항
+1. **Research 메뉴:** 작은 `⌄` 기호 삭제. 메뉴 글자 `Research` 클릭하면 드롭다운이 열립니다. 맨 위의 **All Research · 전체 연구 분야**로 개요 페이지에 이동하거나 네 개 세부 분야로 바로 갈 수 있습니다. 바깥을 클릭하거나 Esc를 누르면 닫힙니다.
+2. **People:** 메뉴 글자 클릭 시 `professor.html`로 바로 이동합니다. PC에서 마우스를 올리면 Professor / Students / Alumni 하위 메뉴가 부드럽게 열립니다. 모바일에서는 메뉴 안에 세 페이지 링크를 항상 표시합니다.
+3. **Publications:** 연도 그룹 간격과 논문 행의 위아래 간격·제목 여백을 축소했습니다. 연도별 최신순 정렬은 유지합니다.
+4. **Equipment:** 장비 사진 바로 아래 장비 이름과 모델명을 표시합니다. Pages CMS에서는 `name`, `model`, `photo` 세 항목만 입력합니다. 기존 JSON에 제조사/설명 등의 값이 남아 있더라도 화면에는 표시하지 않습니다.
+5. **News:** 행 간격을 줄이고 오른쪽 `Expand` 버튼을 추가했습니다. `detailBody`(긴 글), `detailImage`(사진), `detailCaption`을 CMS에서 관리합니다. 내용이 없는 기존 소식은 클릭 시 추가 상세 내용 준비 중 안내가 표시됩니다. 홈에서 `Read the story`를 누르면 해당 소식이 자동으로 펼쳐집니다.
+6. **Home 슬라이드:** `Gallery / 사진` 항목에서 **★ 메인 화면 슬라이드에 표시 (즐겨찾기)** 토글을 켠 사진만 홈 슬라이드에서 사용합니다. 다른 사진은 Gallery에만 나타납니다. **Home / 메인 화면 설정**에는 사진 입력란이 없어지고 자동 전환 간격(초)만 남습니다. 사진 순서는 Gallery의 항목 순서입니다. 즐겨찾기가 0장이면 기본 추상 이미지가 보이므로 게시 전에 1장 이상 선택하세요.
+7. **슬라이드 컨트롤:** 기존 점·재생/정지 버튼 제거. 사진의 좌우 가장자리에 마우스를 올리면 그라데이션과 화살표가 나타납니다. 자동 순환은 항상 켜져 있으며 방문자가 이전/다음을 눌러도 계속 순환합니다. 터치 기기에서는 버튼을 부드럽게 표시하고 좌우 스와이프를 지원합니다.
+8. **메인 버튼과 Contact:** 동그라미 화살표를 작고 통합된 버튼으로 변경했습니다. `Explore our research`와 `Send an email` 모두 동일한 디자인입니다.
+9. **Home 하단:** `Advanced Convergence ...` 및 `Latest news ↓`가 있는 불필요한 두 줄 구역 제거.
+10. **Home 숫자:** `01 / The laboratory` → `The laboratory`, `02 / Latest from ACSoL` → `Latest from ACSoL`.
+11. **한글 글꼴:** 오픈 라이선스 **Pretendard Variable** 동적 서브셋 웹폰트를 HTML에 적용했습니다. 네트워크가 없거나 CDN이 차단되면 운영체제 글꼴로 자동 대체됩니다. 폰트 파일 자체는 ZIP에 포함하지 않습니다.
 
-1. **글씨 크기 확대:** 상단 메뉴, 로고 옆 영문 정식 명칭·한국어 연구실명, 작은 라벨과 부가 설명의 글씨 크기를 전반적으로 키웠습니다.
-2. **Home 사진 슬라이드:** `Pages CMS → Home / 메인 화면 설정 → heroSlides`에 사진을 여러 장 추가하면 자동 전환·무한 반복합니다. `slideIntervalSeconds`에 5를 넣으면 5초 간격입니다. 이전/다음, 페이지 표시, 일시정지 버튼이 있습니다. 사진이 한 장뿐이면 슬라이드 버튼은 숨깁니다. 운영체제의 동작 줄이기 설정이 켜져 있으면 자동재생이 초기 정지되며 재생 버튼으로 켤 수 있습니다. 기존 `heroImage`는 `heroSlides`가 비어 있을 때 사용합니다.
-3. **상단 여백과 제목 크기 축소:** PC에서 메뉴 페이지 상단 배너의 높이를 낮췄습니다. 메인 콘텐츠가 이전보다 빨리 보이도록 했습니다.
-4. **Home 내용 압축:** `01 / The laboratory` 소개를 메인 사진 옆으로 통합하고 `What we explore` 전체 구역을 제거했습니다. `Notes from the lab`이 메인 소개 바로 아래에 나옵니다.
-5. **People 하위 페이지:** `People` 메뉴에 마우스를 올리면 가로로 **Professor / Students / Alumni**가 나타납니다. `professor.html`은 교수님 프로필·경력·수상, `students.html`은 박사·석사, `alumni.html`은 졸업생만 보여줍니다. `people.html`은 3개 페이지로 들어가는 간단한 안내입니다. 모바일에서는 People 오른쪽 펼치기 버튼을 누릅니다.
-6. **Research 하위 페이지:** `Research`는 4개 연구 분야를 한눈에 보여주는 `research.html`과 각 분야 상세를 보여주는 `research-detail.html?topic=1`~`4`로 구성했습니다. 상단 Research 메뉴의 4개 항목 이름은 `data/research.json`의 제목에서 자동으로 갱신됩니다. 상세 글·이미지·캡션은 **기존 Research CMS 데이터**를 그대로 활용합니다.
-7. **Equipment 추가:** 상단 Publications 다음에 Equipment를 추가했습니다. `equipment.html`과 CMS의 `Equipment / 연구실 장비` 메뉴에서 장비명, 모델명, 제조사, 사진, 장비 소개, 활용 분야를 등록할 수 있습니다.
-8. **컴팩트한 푸터:** 교수님 이메일·전화번호, 학생 대표 이름·이메일·전화번호, 연구실 주소, 찾아오는 길 링크를 푸터에 넣었습니다. 학생 대표·별도 길 안내 정보는 새로운 CMS `Contact / 학생 대표 · 찾아오는 길`에서 편집합니다. 교수님 연락처·주소는 기존 `People / 교수님 프로필`에서 편집합니다. 학생 대표 연락처가 비어 있으면 없는 정보를 임의로 표시하지 않습니다.
+## v8 저장소를 v9로 업데이트하는 방법
 
-## 2. 기존 v7에 적용 (가장 안전한 방식)
+`ACSoL_v8_to_v9_Update_Only.zip` 압축 해제 후:
 
-**`ACSoL_v7_to_v8_Update_Only.zip`을 이용하세요.**
+1. GitHub 저장소를 `Code → Download ZIP`으로 미리 백업합니다.
+2. HTML 12개, `site.js`, `styles.css`를 기존 저장소 최상위에 교체합니다.
+3. **`.pages.yml`을 반드시 교체**합니다. 점으로 시작하는 파일은 브라우저 업로더에서 막힐 수 있어 GitHub에서 해당 파일의 편집(연필) 버튼을 눌러 붙여넣는 방법을 권장합니다.
+4. **기존 `data/`, `media/`를 삭제하거나 전체 파일로 덮어쓰지 마세요.** 이미 저장한 학생·논문·연구 분야·사진·수상·장비 등의 데이터가 들어 있습니다. 새 기능의 추가 필드는 기존 JSON에 없어도 자동 처리합니다.
+5. `Settings → Pages`에서 `main` / `/(root)` 배포를 확인하고 `Ctrl+F5`로 강력 새로고침합니다. HTML의 CSS/JS 버전 쿼리를 `?v=9`로 변경했으므로 오래된 캐시의 영향을 줄였습니다.
+6. Pages CMS에서 Gallery의 사진 몇 장에 즐겨찾기 옵션을 **true**로 설정하고 저장합니다. 사진 파일은 `/media/` 경로여야 합니다.
+7. Pages CMS에서 News 항목 하나의 `펼침 상세 내용`을 입력하고 저장한 뒤 홈페이지에서 버튼을 확인합니다.
+8. Equipment CMS는 이제 **장비 이름·모델명·사진**만 입력하면 됩니다.
 
-1. GitHub 저장소 백업: `Code → Download ZIP`.
-2. 업데이트 ZIP 압축 해제 후 HTML, `site.js`, `styles.css`, `.pages.yml`을 저장소 최상위에 업로드/교체합니다.
-3. 새로 추가된 `professor.html`, `students.html`, `alumni.html`, `research-detail.html`, `equipment.html`도 업로드합니다.
-4. **새 파일** `data/contact.json`, `data/equipment.json`을 `data/` 폴더 안에 추가합니다.
-5. 기존 `data/home.json`, `data/professor.json`, `data/research.json`, `data/students.json`, `data/alumni.json`, `data/publications.json`, `data/news.json`, `data/gallery.json`, `data/professor-*.json` 등을 **절대 삭제하거나 전체본 파일로 덮어쓰지 마세요.** 기존 CMS에서 등록한 콘텐츠가 들어 있습니다.
-6. `.pages.yml`은 이름이 점(`.`)으로 시작하므로 GitHub 웹 업로더에서 막히면 GitHub 저장소에서 기존 파일의 ✎ 편집을 눌러 업데이트본 내용으로 교체합니다.
-7. GitHub `Settings → Pages`의 배포 상태를 확인한 다음 `Ctrl + F5`로 새로고침합니다.
-8. [Pages CMS](https://app.pagescms.org/)에서 Home, Equipment, Contact의 새 항목이 보이는지 확인합니다.
+## 중요: 기존 메인 사진을 홈에서 보이게 하려면
 
-**새 저장소에서 시작할 경우** `ACSoL_v8_Full_Website.zip` 파일을 사용합니다. `index.html` 등이 저장소 최상위에 있어야 합니다. 전체 설치본에는 v7에서 제공된 예시 JSON 데이터가 포함되므로, 실제 운영 저장소를 통째로 덮어쓰는 용도로 사용하지 마세요.
+v8에서는 `data/home.json`의 `heroSlides` 또는 `heroImage`로 홈 사진을 관리했습니다. **v9는 이 필드를 읽지 않습니다.** 사진을 다시 업로드할 필요 없이, Pages CMS → Gallery에서 **이미 등록된 사진을 선택해 즐겨찾기만 활성화**하면 됩니다. 만약 Gallery에 등록되지 않은 홈 전용 사진이라면 먼저 Gallery 항목으로 추가하세요. `media/`에 파일이 있어도 Gallery 목록에 등록되지 않으면 자동 표시되지 않습니다.
 
-## 3. CMS에서 메인 사진 여러 장 설정
+## 본 배포와 테스트의 차이
 
-`Pages CMS → Home / 메인 화면 설정`에서:
+`preview-data.js`는 컴퓨터에서 HTML을 직접 더블클릭해 볼 때만 사용하는 샘플 데이터입니다. 실제 `https://...github.io` 웹사이트는 GitHub의 `data/*.json`을 직접 읽습니다. 실제 저장소의 JSON과 로컬 미리보기의 내용이 다를 수 있습니다.
 
-- `heroSlides` → `Add item` → 사진 `image`, 캡션 `caption`, 접근성 설명 `alt`를 등록합니다.
-- 반복하여 원하는 수만큼 사진을 추가하고 저장합니다.
-- `slideIntervalSeconds`에 전환 간격을 초 단위로 입력합니다. 허용 범위 2~60초, 미입력 시 5초입니다.
-- 여러 장을 등록했다면 등록한 순서대로 재생하다가 마지막 다음에 첫 번째로 돌아갑니다.
-- CMS에서 사진을 업로드하면 GitHub 저장소의 `media/`에 저장됩니다.
-
-기존 `heroImage` 필드는 하위 호환용입니다. **`heroSlides`에 하나라도 사진을 등록하면 `heroSlides`가 우선**합니다.
-
-## 4. Research 상세 페이지 편집
-
-`Pages CMS → Research / 연구 분야 · 펼침 상세 내용`의 항목 1~4가 상단 Research 하위 메뉴와 `research-detail.html?topic=1`~`4`에 연결됩니다.
-
-- `title`, `description`, `image`: 연구 분야 개요 및 상세 페이지 상단
-- `detailIntro`: 상세 페이지의 첫 설명
-- `detailSections`: 블록 여러 개 (제목, 글, 이미지, 캡션)
-- `keywords`: 핵심 연구 키워드
-
-CMS 목록 순서를 바꾸면 Research 하위 메뉴에 표시되는 순서도 바뀝니다. 현재 메뉴는 요청대로 첫 4개 항목을 대상으로 합니다.
-
-## 5. Equipment 추가 방법
-
-`Pages CMS → Equipment / 연구실 장비 → 항목 추가`에서 **장비 이름**을 필수로 입력하고, 모델명, 제조사, 사진, 설명, 활용 분야를 필요에 따라 입력한 뒤 저장하면 됩니다. 빈 초기 데이터 `[]`에서는 "장비 목록을 준비 중입니다" 안내가 표시됩니다.
-
-## 6. 학생 대표·찾아오는 길 편집
-
-`Pages CMS → Contact / 학생 대표 · 찾아오는 길`에서 담당자 이름, 이메일, 전화번호, 길 안내 문구, 추가 지도 URL(HTTPS)을 등록합니다. 교수님 연락처와 연구실 주소는 기존 교수님 프로필 CMS를 수정하면 푸터에도 반영됩니다. 푸터의 '오시는 길과 지도'는 Contact 페이지로 이동합니다.
-
-## 7. 설치 전 꼭 확인할 것
-
-- `data/`와 `media/`는 기존 파일을 유지할 것.
-- GitHub Pages 브랜치 설정이 `main` + `/(root)`인지 확인할 것.
-- 사진 파일은 실제 `media/` 경로에 올라와 있어야 함. 이번 ZIP에 `/media/img7804.avif`, `/media/jinsub.avif` 원본 이미지는 포함되지 않았으며, 기존 CMS/GitHub 사진 파일을 유지하면 됩니다.
-- `preview-data.js`는 **파일 더블클릭 로컬 미리보기용 스냅샷**입니다. CMS에 등록한 실시간 운영 내용은 GitHub Pages에서 `data/*.json`을 읽으므로, 로컬 미리보기와 내용이 다를 수 있습니다. 로컬 스냅샷을 새로 만들려면 `python tools/refresh_preview.py`를 실행하세요.
-
-## 8. 검증 범위
-
-`python tools/check_site.py`로 12개 HTML, CSS·JS·링크 참조, 페이지 ID, JSON 형식을 검사했고, `node --check site.js` 및 CSS 구문 검사를 통과했습니다. **이 환경에서는 Chromium이 로컬 파일 및 localhost 접근을 차단하여 PC/모바일 실제 브라우저 렌더링과 Pages CMS 로그인 테스트를 완료하지 못했습니다.** GitHub에 배포한 뒤 메뉴 및 사진 전환을 직접 확인해 주세요.
+`node --check site.js`, `python tools/check_site.py`, YAML 및 JSON 구조 검사는 통과했습니다. 이 환경의 Chromium에서 로컬 웹 서버 주소가 차단되어 PC·모바일 브라우저의 실제 클릭/슬라이드 시연 검사는 완료하지 못했습니다. GitHub 배포 후 화면 동작 확인이 필요합니다.

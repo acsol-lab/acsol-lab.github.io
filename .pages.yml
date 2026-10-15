@@ -1,4 +1,4 @@
-# ACSoL v8: Home slider, People subpages, Equipment, Contact CMS
+# ACSoL v9: Home slider, People subpages, Equipment, Contact CMS
 media:
   input: media
   output: /media
@@ -24,36 +24,12 @@ content:
   - name: heroDescription
     label: 메인 영문 소개
     type: text
-  - name: heroImage
-    label: 메인 대표 사진 (미입력 시 기본 그래픽 표시)
-    type: image
-  - name: heroImageCaption
-    label: 메인 사진 캡션
-    type: string
   - name: labIntro
     label: 메인 연구 분야 요약 설명
     type: text
   - name: slideIntervalSeconds
     label: 메인 사진 자동 전환 간격 (초, 2~60초)
     type: number
-  - name: heroSlides
-    label: 메인 사진 슬라이드 (여러 장 추가, 무한 반복)
-    type: object
-    list:
-      collapsible:
-        collapsed: true
-        summary: '{caption} · 슬라이드 {index}'
-    fields:
-    - name: image
-      label: 사진 파일
-      type: image
-      required: true
-    - name: caption
-      label: 사진 캡션
-      type: string
-    - name: alt
-      label: 접근성 이미지 설명
-      type: string
 - name: professor
   label: People / 교수님 프로필
   type: file
@@ -282,6 +258,15 @@ content:
   - name: description
     label: 내용 요약
     type: text
+  - name: detailBody
+    label: 펼침 상세 내용 (여러 문단 가능)
+    type: text
+  - name: detailImage
+    label: 상세 내용 사진 (선택)
+    type: image
+  - name: detailCaption
+    label: 상세 사진 설명 (선택)
+    type: string
 - name: publications
   label: Publications / 출판 날짜 · 논문
   type: file
@@ -333,6 +318,10 @@ content:
   - name: description
     label: 사진 설명
     type: text
+  - name: featured
+    label: ★ 메인 화면 슬라이드에 표시 (즐겨찾기)
+    type: boolean
+    default: false
 - name: equipment
   label: Equipment / 연구실 장비
   type: file
@@ -347,18 +336,9 @@ content:
   - name: model
     label: 모델명
     type: string
-  - name: manufacturer
-    label: 제조사
-    type: string
   - name: photo
     label: 장비 사진
     type: image
-  - name: description
-    label: 장비 소개
-    type: text
-  - name: applications
-    label: 주요 활용 분야
-    type: text
 - name: contact
   label: Contact / 학생 대표 · 찾아오는 길
   type: file
