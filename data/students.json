@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "role": "phd",
+    "name": "한믽농",
+    "cohort": "42",
+    "department": "나노반도체공학과",
+    "email": "hanminjong@naver.com",
+    "research": "ECRAM,SOM,Everything",
+    "photo": "/media/jpg.avif"
+  }
+]
