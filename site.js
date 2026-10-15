@@ -321,10 +321,7 @@
     overlay.setAttribute('role','presentation');
     const popup=node('section','recruit-banner-popup');
     popup.setAttribute('role','dialog');popup.setAttribute('aria-modal','true');
-    popup.setAttribute('aria-labelledby','recruit-banner-title');
-    const close=node('button','recruit-banner-close','×');close.type='button';close.setAttribute('aria-label','배너 닫기');
-    const headline=node('p','recruit-banner-overline','ACSoL · Notice');
-    const heading=node('h2','recruit-banner-heading');heading.id='recruit-banner-title';
+    popup.setAttribute('aria-label','연구실 모집 및 안내 배너');
     const picture=node('div','recruit-banner-image');
     const link=node('a','recruit-banner-link');link.append(picture);
     const footer=node('div','recruit-banner-footer');
@@ -332,16 +329,15 @@
     const check=node('input');check.type='checkbox';check.id='recruit-banner-hide-today';
     label.append(check,document.createTextNode(' 오늘 하루 보지 않기'));
     const done=node('button','recruit-banner-done','닫기');done.type='button';
-    footer.append(label,done);popup.append(close,headline,heading,link,footer);overlay.append(popup);
+    footer.append(label,done);popup.append(link,footer);overlay.append(popup);
     const previousFocus=document.activeElement;
     const render=()=>{
       const entry=eligible[index];if(!entry){overlay.remove();previousFocus?.focus?.();return;}
-      heading.textContent=text(entry.title,'연구실 소식');
       setImage(picture,entry.image,text(entry.alt,entry.title||'연구실 공지 배너'),()=>imageFallback('배너 사진을 불러오지 못했습니다.'),{eager:true});
       const url=text(entry.linkUrl);const good=/^https:\/\/[^\s<]+$/i.test(url)||/^(research|students|news|contact|publications|equipment|gallery)\.html(\?[a-z0-9=&-]+)?$/i.test(url);
       link.href=good?url:'#';link.classList.toggle('is-static',!good);
       if(good&&url.startsWith('https://')){link.target='_blank';link.rel='noopener noreferrer';}else{link.removeAttribute('target');link.removeAttribute('rel');}
-      check.checked=false;close.focus();
+      check.checked=false;done.focus({preventScroll:true});
     };
     const dismiss=()=>{
       const entry=eligible[index];const code=text(entry.id)||[entry.image,validDate(entry.startDate),validDate(entry.endDate)].join('|');
@@ -349,13 +345,13 @@
       else storage('sessionStorage','set','acsol-banner-closed:'+code,'1');
       index+=1;render();
     };
-    close.addEventListener('click',dismiss);done.addEventListener('click',dismiss);
+    done.addEventListener('click',dismiss);
     link.addEventListener('click',e=>{if(link.classList.contains('is-static'))e.preventDefault();});
     overlay.addEventListener('click',e=>{if(e.target===overlay)dismiss();});
     overlay.addEventListener('keydown',e=>{
       if(e.key==='Escape'){e.preventDefault();dismiss();}
       if(e.key==='Tab'){
-        const focusable=[close,link,check,done].filter(el=>!(el===link&&link.classList.contains('is-static')));
+        const focusable=[link,check,done].filter(el=>!(el===link&&link.classList.contains('is-static')));
         const current=focusable.indexOf(document.activeElement);
         if(e.shiftKey&&current<=0){e.preventDefault();focusable.at(-1).focus();}
         else if(!e.shiftKey&&current===focusable.length-1){e.preventDefault();focusable[0].focus();}
@@ -527,7 +523,8 @@
       return link;
     }).filter(Boolean);
     panel.replaceChildren(...links);
-    if(!links.length)panel.append(node('span','submenu-empty','연구 분야 준비 중'));
+    panel.dataset.researchCount=String(links.length);
+    if(!links.length)panel.append(node('span','submenu-empty','연구 분야 준비 중')); 
   }
 
   async function renderResearch(page) {
@@ -711,7 +708,6 @@
       const normalized = query.normalize('NFKC').toLocaleLowerCase();
       const matches = entries.filter(entry => (selected === 'all' || (entry._year === null ? 'unknown' : String(entry._year)) === selected)
         && [entry.title, entry.journal, entry.authors, entry.doi, entry.status, entry.publicationType, entry._year].map(v => text(v)).join(' ').normalize('NFKC').toLocaleLowerCase().includes(normalized));
-      setText('#publication-result-count', `${matches.length} publication${matches.length === 1 ? '' : 's'}${matches.length !== entries.length ? ' / ' + entries.length + ' total' : ''}`);
       if (!matches.length) {
         target.replaceChildren(emptyNote(raw.length ? 'No matching publications.' : 'Work in progress.', raw.length ? '검색어 또는 연도 필터를 변경해 주세요.' : '논문 목록을 업데이트하고 있습니다.')); return;
       }
@@ -719,7 +715,7 @@
       matches.forEach(entry => { const key = entry._year === null ? 'unknown' : String(entry._year); if (!groups.has(key)) groups.set(key, []); groups.get(key).push(entry); });
       target.replaceChildren(...[...groups].map(([year, list]) => {
         const section = node('section', 'publication-year-group'), head = node('div', 'publication-year-header');
-        head.append(node('h2', '', year === 'unknown' ? 'Undated' : year), node('span', 'publication-count', list.length + ' publication' + (list.length === 1 ? '' : 's')));
+        head.append(node('h2', '', year === 'unknown' ? 'Undated' : year));
         const items = node('div', 'publication-year-items');
         list.forEach(entry => {
           const article = node('article', 'publication'), content = node('div'), meta = node('div', 'publication-head');

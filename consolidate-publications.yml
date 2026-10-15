@@ -1,0 +1,26 @@
+name: One-time consolidate publications
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - name: Merge Wix publications and existing CMS edits
+        run: python3 tools/merge_publications.py
+      - name: Commit the unified CMS file
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/publications.json data/publications-import.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Unify CMS publications into one JSON file"
+            git push origin HEAD:main
+          fi
