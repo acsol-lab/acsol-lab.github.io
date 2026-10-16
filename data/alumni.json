@@ -60,6 +60,14 @@
       "photo": "/media/alumni/박광호_졸업사진.jpg"
     },
     {
+      "name": "허일행 (Heo, Il-Haeng)",
+      "degree": "석사",
+      "graduationYear": "2026",
+      "company": "SK Hynix",
+      "pastResearch": "CMP",
+      "photo": "/media/209_Heo,Il-Haeng1.jpg"
+    },
+    {
       "name": "김태형 (Kim, TaeHyung)",
       "degree": "석사",
       "graduationYear": "2026",
@@ -458,20 +466,20 @@
       "pastResearch": "Improvement of QE of LED using nanorods"
     },
     {
-      "name": "장은우 (Eun Woo Jang)",
-      "degree": "석사",
-      "graduationYear": "2025",
-      "company": "SK Hynix",
-      "pastResearch": "GAA",
-      "photo": "/media/alumni/장은우_졸업사진.jpg"
-    },
-    {
       "name": "김주연 (Ju Yeon Kim)",
       "degree": "석사",
       "graduationYear": "2025",
       "company": "SK Hyxnix",
       "pastResearch": "CMP",
       "photo": "/media/alumni/김주연_졸업사진.jpg"
+    },
+    {
+      "name": "장은우 (Eun Woo Jang)",
+      "degree": "석사",
+      "graduationYear": "2025",
+      "company": "SK Hynix",
+      "pastResearch": "GAA",
+      "photo": "/media/alumni/장은우_졸업사진.jpg"
     }
   ]
 }
