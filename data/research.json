@@ -6,6 +6,7 @@
       "description": "ReRAM, SOM, ECRAM 을 중심으로 새로운 메모리 구조와 스위칭 메커니즘을 연구합니다.",
       "keywords": "· ReRAM \n· Vertical SOM \n· ECRAM \n· Neruomorphic Computing\n· TRNG / PUF",
       "summaryImage": "/media/ai-memory-1.jpg",
+      "detailImage": "/media/ReRAM.png",
       "imageAlt": "Emerging Memory 연구 이미지"
     },
     {
