@@ -84,41 +84,48 @@ content:
       type: file
       path: data/banners.json
       format: json
-      list: true
       fields:
-      - name: id
-        label: '배너 고유 ID (예: recruit-2027, 중복되지 않게 입력)'
-        type: string
-        required: true
-      - name: enabled
-        label: 사용 여부
-        type: boolean
-        default: true
-      - name: title
-        label: 배너 제목 (대체 설명 포함)
-        type: string
-      - name: image
-        label: 배너 사진 · JPG/PNG/WebP
-        type: image
-        required: true
-      - name: alt
-        label: 사진 대체 설명
-        type: string
-      - name: startDate
-        label: 노출 시작 날짜 (한국시간, 해당 날짜부터)
-        type: date
-        required: true
-        options:
-          format: yyyy-MM-dd
-      - name: endDate
-        label: 노출 마지막 날짜 (한국시간, 해당 날짜까지)
-        type: date
-        required: true
-        options:
-          format: yyyy-MM-dd
-      - name: linkUrl
-        label: 배너 클릭 시 이동할 주소 (선택, https://로 시작)
-        type: string
+      - name: items
+        label: 항목 목록 · 배너 제목으로 표시
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{title}'
+        fields:
+        - name: id
+          label: '배너 고유 ID (예: recruit-2027, 중복되지 않게 입력)'
+          type: string
+          required: true
+        - name: enabled
+          label: 사용 여부
+          type: boolean
+          default: true
+        - name: title
+          label: 배너 제목 (대체 설명 포함)
+          type: string
+        - name: image
+          label: 배너 사진 · JPG/PNG/WebP
+          type: image
+          required: true
+        - name: alt
+          label: 사진 대체 설명
+          type: string
+        - name: startDate
+          label: 노출 시작 날짜 (한국시간, 해당 날짜부터)
+          type: date
+          required: true
+          options:
+            format: yyyy-MM-dd
+        - name: endDate
+          label: 노출 마지막 날짜 (한국시간, 해당 날짜까지)
+          type: date
+          required: true
+          options:
+            format: yyyy-MM-dd
+        - name: linkUrl
+          label: 배너 클릭 시 이동할 주소 (선택, https://로 시작)
+          type: string
   - name: cms_research
     label: Research · 연구
     type: group
@@ -128,110 +135,117 @@ content:
       type: file
       path: data/research.json
       format: json
-      list: true
       fields:
-      - name: title
-        label: 연구 분야 제목
-        type: string
-        required: true
-      - name: subtitle
-        label: 영문 소제목
-        type: string
-      - name: description
-        label: 연구 분야 상세 설명
-        type: text
-      - name: keywords
-        label: 관련 키워드
-        type: text
-      - name: summaryImage
-        label: 요약 카드 사진 (Research 목록 / Home 요약용)
-        type: image
-      - name: detailImage
-        label: 세부 페이지 대표 사진 (Explore research 클릭 후)
-        type: image
-      - name: image
-        label: 공통 예비 이미지 (위 두 칸을 비웠을 때만 사용)
-        type: image
-      - name: summaryImageAlt
-        label: 요약 카드 사진 설명 (선택)
-        type: string
-      - name: detailImageAlt
-        label: 세부 페이지 대표 사진 설명 (선택)
-        type: string
-      - name: imageAlt
-        label: 공통 사진 설명 (선택 · 위 설명 칸을 비웠을 때 사용)
-        type: string
-      - name: detailIntro
-        label: 펼쳤을 때 나오는 상세 도입 설명
-        type: text
-      - name: detailSections
-        label: 추가 상세 내용 (글·사진 여러 개)
+      - name: items
+        label: 항목 목록 · 연구 분야 제목으로 표시
         type: object
         list:
           collapsible:
             collapsed: true
-            summary: '{heading} (블록 {index})'
+            summary: '{title}'
         fields:
-        - name: heading
-          label: 상세 항목 제목 (선택)
+        - name: title
+          label: 연구 분야 제목
           type: string
-        - name: body
-          label: 상세 글 (줄바꿈 가능)
+          required: true
+        - name: subtitle
+          label: 영문 소제목
+          type: string
+        - name: description
+          label: 연구 분야 상세 설명
           type: text
-        - name: image
-          label: 상세 이미지 (선택)
+        - name: keywords
+          label: 관련 키워드
+          type: text
+        - name: summaryImage
+          label: 요약 카드 사진 (Research 목록 / Home 요약용)
           type: image
+        - name: detailImage
+          label: 세부 페이지 대표 사진 (Explore research 클릭 후)
+          type: image
+        - name: image
+          label: 공통 예비 이미지 (위 두 칸을 비웠을 때만 사용)
+          type: image
+        - name: summaryImageAlt
+          label: 요약 카드 사진 설명 (선택)
+          type: string
+        - name: detailImageAlt
+          label: 세부 페이지 대표 사진 설명 (선택)
+          type: string
         - name: imageAlt
-          label: 이미지 대체 설명 (선택)
+          label: 공통 사진 설명 (선택 · 위 설명 칸을 비웠을 때 사용)
           type: string
-        - name: imageCaption
-          label: 이미지 아래 캡션 (선택)
-          type: string
-        - name: typography
-          label: 상세 단락 디자인 (제목과 설명문을 따로 설정)
+        - name: detailIntro
+          label: 펼쳤을 때 나오는 상세 도입 설명
+          type: text
+        - name: detailSections
+          label: 추가 상세 내용 (글·사진 여러 개)
           type: object
-          fields: &id002
-          - name: bodyFont
-            label: 설명·본문 글꼴 — 논문에서는 저자명, 연구에서는 설명글
-            type: select
-            options:
-              values:
-              - name: inherit
-                label: 페이지 기본
-              - name: pretendard
-                label: Pretendard
-              - name: noto
-                label: Noto Sans KR
-              - name: nanum
-                label: Nanum Gothic
-              - name: serif
-                label: Noto Serif KR
-          - name: bodySize
-            label: 설명·본문 글자 크기(px · 0은 기본값)
-            type: number
-          - name: titleFont
-            label: 제목 글꼴 — 논문 제목, 연구 주제명, 소식 제목 등
-            type: select
-            options:
-              values:
-              - name: inherit
-                label: 페이지 기본
-              - name: pretendard
-                label: Pretendard
-              - name: noto
-                label: Noto Sans KR
-              - name: nanum
-                label: Nanum Gothic
-              - name: serif
-                label: Noto Serif KR
-          - name: titleSize
-            label: 제목 글자 크기(px · 0은 기본값)
-            type: number
-      - name: typography
-        label: 선택 항목의 글자 디자인 (제목 / 설명 구분)
-        description: 제목은 항목의 이름·헤드라인, 설명/본문은 부가 설명 텍스트입니다. 글자 크기를 0 또는 비워 두면 페이지 기본값입니다.
-        type: object
-        fields: *id002
+          list:
+            collapsible:
+              collapsed: true
+              summary: '{heading} (블록 {index})'
+          fields:
+          - name: heading
+            label: 상세 항목 제목 (선택)
+            type: string
+          - name: body
+            label: 상세 글 (줄바꿈 가능)
+            type: text
+          - name: image
+            label: 상세 이미지 (선택)
+            type: image
+          - name: imageAlt
+            label: 이미지 대체 설명 (선택)
+            type: string
+          - name: imageCaption
+            label: 이미지 아래 캡션 (선택)
+            type: string
+          - name: typography
+            label: 상세 단락 디자인 (제목과 설명문을 따로 설정)
+            type: object
+            fields: &id002
+            - name: bodyFont
+              label: 설명·본문 글꼴 — 논문에서는 저자명, 연구에서는 설명글
+              type: select
+              options:
+                values:
+                - name: inherit
+                  label: 페이지 기본
+                - name: pretendard
+                  label: Pretendard
+                - name: noto
+                  label: Noto Sans KR
+                - name: nanum
+                  label: Nanum Gothic
+                - name: serif
+                  label: Noto Serif KR
+            - name: bodySize
+              label: 설명·본문 글자 크기(px · 0은 기본값)
+              type: number
+            - name: titleFont
+              label: 제목 글꼴 — 논문 제목, 연구 주제명, 소식 제목 등
+              type: select
+              options:
+                values:
+                - name: inherit
+                  label: 페이지 기본
+                - name: pretendard
+                  label: Pretendard
+                - name: noto
+                  label: Noto Sans KR
+                - name: nanum
+                  label: Nanum Gothic
+                - name: serif
+                  label: Noto Serif KR
+            - name: titleSize
+              label: 제목 글자 크기(px · 0은 기본값)
+              type: number
+        - name: typography
+          label: 선택 항목의 글자 디자인 (제목 / 설명 구분)
+          description: 제목은 항목의 이름·헤드라인, 설명/본문은 부가 설명 텍스트입니다. 글자 크기를 0 또는 비워 두면 페이지 기본값입니다.
+          type: object
+          fields: *id002
   - name: cms_people
     label: People · 구성원
     type: group
@@ -301,41 +315,55 @@ content:
       type: file
       path: data/professor-employment.json
       format: json
-      list: true
       fields:
-      - name: period
-        label: '재직 기간 (예: 2026 – Present)'
-        type: string
-        required: true
-      - name: position
-        label: 직책 / 경력 내용
-        type: text
-        required: true
-      - name: typography
-        label: 선택 항목의 글자 디자인 (제목 / 설명 구분)
-        description: 제목은 항목의 이름·헤드라인, 설명/본문은 부가 설명 텍스트입니다. 글자 크기를 0 또는 비워 두면 페이지 기본값입니다.
+      - name: items
+        label: 항목 목록 · 재직 기간 · 직책으로 표시
         type: object
-        fields: *id002
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{period} · {position}'
+        fields:
+        - name: period
+          label: '재직 기간 (예: 2026 – Present)'
+          type: string
+          required: true
+        - name: position
+          label: 직책 / 경력 내용
+          type: text
+          required: true
+        - name: typography
+          label: 선택 항목의 글자 디자인 (제목 / 설명 구분)
+          description: 제목은 항목의 이름·헤드라인, 설명/본문은 부가 설명 텍스트입니다. 글자 크기를 0 또는 비워 두면 페이지 기본값입니다.
+          type: object
+          fields: *id002
     - name: professor_awards
       label: 교수님 수상 경력
       type: file
       path: data/professor-awards.json
       format: json
-      list: true
       fields:
-      - name: date
-        label: '수상 시기 (예: 11/2025)'
-        type: string
-        required: true
-      - name: award
-        label: 수상명
-        type: text
-        required: true
-      - name: typography
-        label: 선택 항목의 글자 디자인 (제목 / 설명 구분)
-        description: 제목은 항목의 이름·헤드라인, 설명/본문은 부가 설명 텍스트입니다. 글자 크기를 0 또는 비워 두면 페이지 기본값입니다.
+      - name: items
+        label: 항목 목록 · 수상 시기 · 수상명으로 표시
         type: object
-        fields: *id002
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{date} · {award}'
+        fields:
+        - name: date
+          label: '수상 시기 (예: 11/2025)'
+          type: string
+          required: true
+        - name: award
+          label: 수상명
+          type: text
+          required: true
+        - name: typography
+          label: 선택 항목의 글자 디자인 (제목 / 설명 구분)
+          description: 제목은 항목의 이름·헤드라인, 설명/본문은 부가 설명 텍스트입니다. 글자 크기를 0 또는 비워 두면 페이지 기본값입니다.
+          type: object
+          fields: *id002
     - name: students
       label: 재학생 명단 · 이름과 연구팀으로 찾기
       type: file
@@ -432,33 +460,40 @@ content:
       type: file
       path: data/alumni.json
       format: json
-      list: true
       fields:
-      - name: name
-        label: 졸업생 이름
-        type: string
-        required: true
-      - name: degree
-        label: '졸업 과정 (예: 석사 / 박사)'
-        type: string
-      - name: graduationYear
-        label: '졸업 연도 / Postdoc 활동 연도 (예: 2026)'
-        type: string
-      - name: company
-        label: 현 직장 또는 소속
-        type: string
-      - name: pastResearch
-        label: 재학 당시 연구 분야
-        type: text
-      - name: photo
-        label: 2024년 이후 졸업생 프로필 사진 (이전 연도는 업로드 불필요)
-        type: image
-        description: 최근 졸업생은 작은 사진 카드로, 2023년 이전은 사진 없이 한 줄 목록으로 표시됩니다. 권장 비율 3:4.
-      - name: typography
-        label: 선택 항목의 글자 디자인 (제목 / 설명 구분)
-        description: 제목은 항목의 이름·헤드라인, 설명/본문은 부가 설명 텍스트입니다. 글자 크기를 0 또는 비워 두면 페이지 기본값입니다.
+      - name: items
+        label: 항목 목록 · 졸업생 이름으로 표시
         type: object
-        fields: *id002
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{name}'
+        fields:
+        - name: name
+          label: 졸업생 이름
+          type: string
+          required: true
+        - name: degree
+          label: '졸업 과정 (예: 석사 / 박사)'
+          type: string
+        - name: graduationYear
+          label: '졸업 연도 / Postdoc 활동 연도 (예: 2026)'
+          type: string
+        - name: company
+          label: 현 직장 또는 소속
+          type: string
+        - name: pastResearch
+          label: 재학 당시 연구 분야
+          type: text
+        - name: photo
+          label: 2024년 이후 졸업생 프로필 사진 (이전 연도는 업로드 불필요)
+          type: image
+          description: 최근 졸업생은 작은 사진 카드로, 2023년 이전은 사진 없이 한 줄 목록으로 표시됩니다. 권장 비율 3:4.
+        - name: typography
+          label: 선택 항목의 글자 디자인 (제목 / 설명 구분)
+          description: 제목은 항목의 이름·헤드라인, 설명/본문은 부가 설명 텍스트입니다. 글자 크기를 0 또는 비워 두면 페이지 기본값입니다.
+          type: object
+          fields: *id002
   - name: cms_publications
     label: Publications · 논문
     type: group
@@ -468,80 +503,87 @@ content:
       type: file
       path: data/publications.json
       format: json
-      list: true
       fields:
-      - name: publishedDate
-        label: 정확한 출판일 (YYYY-MM-DD, 날짜 기준 자동 정렬)
-        type: date
-        default: ''
-        options:
-          format: yyyy-MM-dd
-        description: 정확한 날짜가 없으면 비워두고 아래 연도만 입력하세요.
-      - name: year
-        label: 기존 연도 (날짜를 모르는 기존 논문용, 날짜 입력 시 자동 무시)
-        type: number
-        description: 정확한 날짜가 있으면 날짜 기준으로 자동 정렬합니다.
-      - name: journal
-        label: 학술지
-        type: string
-        required: true
-      - name: title
-        label: 논문 제목
-        type: string
-        required: true
-      - name: authors
-        label: 저자 또는 소개
-        type: text
-      - name: doi
-        label: DOI (https://doi.org/ 제외)
-        type: string
-      - name: underReview
-        label: 현재 상태 — Under Review (심사 중이면 체크)
-        type: boolean
-        default: false
-        description: 체크하면 홈페이지 논문 옆에 Under Review가 표시되고, 상단 Under Review 필터에서도 확인할 수 있습니다. 체크하지 않으면 일반 논문으로 표시합니다. 기존의 Accepted 또는 Under
-          Revision 기록은 데이터에 남지만 더 이상 별도 상태로 표시하지 않습니다.
-      - name: typography
-        label: 논문 제목 / 저자·설명 글꼴과 크기 (선택)
-        description: 논문 제목은 굵고 큰 제목 줄, 저자·설명은 논문 제목 아래의 작은 텍스트입니다. 학술지명(저널)은 공통 디자인으로 표시되며 여기의 글자 크기 설정과 별개입니다.
+      - name: items
+        label: 항목 목록 · 논문 제목으로 표시
         type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{title}'
         fields:
-        - name: titleFont
-          label: 논문 제목 글꼴 — 굵은 논문 제목 줄
-          type: select
+        - name: publishedDate
+          label: 정확한 출판일 (YYYY-MM-DD, 날짜 기준 자동 정렬)
+          type: date
+          default: ''
           options:
-            values:
-            - name: inherit
-              label: 페이지 기본
-            - name: pretendard
-              label: Pretendard
-            - name: noto
-              label: Noto Sans KR
-            - name: nanum
-              label: Nanum Gothic
-            - name: serif
-              label: Noto Serif KR
-        - name: titleSize
-          label: 논문 제목 크기(px · 0은 페이지 기본)
+            format: yyyy-MM-dd
+          description: 정확한 날짜가 없으면 비워두고 아래 연도만 입력하세요.
+        - name: year
+          label: 기존 연도 (날짜를 모르는 기존 논문용, 날짜 입력 시 자동 무시)
           type: number
-        - name: bodyFont
-          label: 저자·설명 글꼴 — 논문 제목 아래 줄
-          type: select
-          options:
-            values:
-            - name: inherit
-              label: 페이지 기본
-            - name: pretendard
-              label: Pretendard
-            - name: noto
-              label: Noto Sans KR
-            - name: nanum
-              label: Nanum Gothic
-            - name: serif
-              label: Noto Serif KR
-        - name: bodySize
-          label: 저자·설명 글자 크기(px · 0은 페이지 기본)
-          type: number
+          description: 정확한 날짜가 있으면 날짜 기준으로 자동 정렬합니다.
+        - name: journal
+          label: 학술지
+          type: string
+          required: true
+        - name: title
+          label: 논문 제목
+          type: string
+          required: true
+        - name: authors
+          label: 저자 또는 소개
+          type: text
+        - name: doi
+          label: DOI (https://doi.org/ 제외)
+          type: string
+        - name: underReview
+          label: 현재 상태 — Under Review (심사 중이면 체크)
+          type: boolean
+          default: false
+          description: 체크하면 홈페이지 논문 옆에 Under Review가 표시되고, 상단 Under Review 필터에서도 확인할 수 있습니다. 체크하지 않으면 일반 논문으로 표시합니다. 기존의 Accepted 또는 Under Revision
+            기록은 데이터에 남지만 더 이상 별도 상태로 표시하지 않습니다.
+        - name: typography
+          label: 논문 제목 / 저자·설명 글꼴과 크기 (선택)
+          description: 논문 제목은 굵고 큰 제목 줄, 저자·설명은 논문 제목 아래의 작은 텍스트입니다. 학술지명(저널)은 공통 디자인으로 표시되며 여기의 글자 크기 설정과 별개입니다.
+          type: object
+          fields:
+          - name: titleFont
+            label: 논문 제목 글꼴 — 굵은 논문 제목 줄
+            type: select
+            options:
+              values:
+              - name: inherit
+                label: 페이지 기본
+              - name: pretendard
+                label: Pretendard
+              - name: noto
+                label: Noto Sans KR
+              - name: nanum
+                label: Nanum Gothic
+              - name: serif
+                label: Noto Serif KR
+          - name: titleSize
+            label: 논문 제목 크기(px · 0은 페이지 기본)
+            type: number
+          - name: bodyFont
+            label: 저자·설명 글꼴 — 논문 제목 아래 줄
+            type: select
+            options:
+              values:
+              - name: inherit
+                label: 페이지 기본
+              - name: pretendard
+                label: Pretendard
+              - name: noto
+                label: Noto Sans KR
+              - name: nanum
+                label: Nanum Gothic
+              - name: serif
+                label: Noto Serif KR
+          - name: bodySize
+            label: 저자·설명 글자 크기(px · 0은 페이지 기본)
+            type: number
   - name: cms_equipment
     label: Equipment · 장비
     type: group
@@ -551,23 +593,30 @@ content:
       type: file
       path: data/equipment.json
       format: json
-      list: true
       fields:
-      - name: name
-        label: 장비 이름
-        type: string
-        required: true
-      - name: model
-        label: 모델명
-        type: string
-      - name: photo
-        label: 장비 사진
-        type: image
-      - name: typography
-        label: 선택 항목의 글자 디자인 (제목 / 설명 구분)
-        description: 제목은 항목의 이름·헤드라인, 설명/본문은 부가 설명 텍스트입니다. 글자 크기를 0 또는 비워 두면 페이지 기본값입니다.
+      - name: items
+        label: 항목 목록 · 장비 이름으로 표시
         type: object
-        fields: *id002
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{name}'
+        fields:
+        - name: name
+          label: 장비 이름
+          type: string
+          required: true
+        - name: model
+          label: 모델명
+          type: string
+        - name: photo
+          label: 장비 사진
+          type: image
+        - name: typography
+          label: 선택 항목의 글자 디자인 (제목 / 설명 구분)
+          description: 제목은 항목의 이름·헤드라인, 설명/본문은 부가 설명 텍스트입니다. 글자 크기를 0 또는 비워 두면 페이지 기본값입니다.
+          type: object
+          fields: *id002
   - name: cms_news
     label: News · 소식
     type: group
@@ -577,41 +626,48 @@ content:
       type: file
       path: data/news.json
       format: json
-      list: true
       fields:
-      - name: date
-        label: 뉴스 날짜 (YYYY-MM-DD 또는 원문 월까지만 알면 YYYY-MM)
-        type: string
-        required: false
-        description: 과거 자료는 일자를 모르면 YYYY-MM까지 직접 입력할 수 있습니다.
-      - name: category
-        label: 구분 (Award, Publication 등)
-        type: string
-        required: true
-      - name: title
-        label: 제목
-        type: string
-        required: true
-      - name: description
-        label: 내용 요약
-        type: text
-      - name: detailBody
-        label: 펼침 상세 내용 (여러 문단 가능)
-        type: text
-      - name: detailImage
-        label: 상세 내용 사진 (선택)
-        type: image
-      - name: detailCaption
-        label: 상세 사진 설명 (선택)
-        type: string
-      - name: typography
-        label: 선택 항목의 글자 디자인 (제목 / 설명 구분)
-        description: 제목은 항목의 이름·헤드라인, 설명/본문은 부가 설명 텍스트입니다. 글자 크기를 0 또는 비워 두면 페이지 기본값입니다.
+      - name: items
+        label: 항목 목록 · News 제목으로 표시
         type: object
-        fields: *id002
-      - name: source
-        label: 기존 출처 · 참고 (선택)
-        type: string
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{title}'
+        fields:
+        - name: date
+          label: 뉴스 날짜 (YYYY-MM-DD 또는 원문 월까지만 알면 YYYY-MM)
+          type: string
+          required: false
+          description: 과거 자료는 일자를 모르면 YYYY-MM까지 직접 입력할 수 있습니다.
+        - name: category
+          label: 구분 (Award, Publication 등)
+          type: string
+          required: true
+        - name: title
+          label: 제목
+          type: string
+          required: true
+        - name: description
+          label: 내용 요약
+          type: text
+        - name: detailBody
+          label: 펼침 상세 내용 (여러 문단 가능)
+          type: text
+        - name: detailImage
+          label: 상세 내용 사진 (선택)
+          type: image
+        - name: detailCaption
+          label: 상세 사진 설명 (선택)
+          type: string
+        - name: typography
+          label: 선택 항목의 글자 디자인 (제목 / 설명 구분)
+          description: 제목은 항목의 이름·헤드라인, 설명/본문은 부가 설명 텍스트입니다. 글자 크기를 0 또는 비워 두면 페이지 기본값입니다.
+          type: object
+          fields: *id002
+        - name: source
+          label: 기존 출처 · 참고 (선택)
+          type: string
   - name: cms_gallery
     label: Gallery · 사진
     type: group
@@ -621,31 +677,38 @@ content:
       type: file
       path: data/gallery.json
       format: json
-      list: true
       fields:
-      - name: title
-        label: 사진 제목
-        type: string
-        required: true
-      - name: date
-        label: 날짜 또는 연도
-        type: string
-      - name: image
-        label: 사진 파일 업로드
-        type: image
-        required: true
-      - name: description
-        label: 사진 설명
-        type: text
-      - name: featured
-        label: ★ 메인 화면 슬라이드에 표시 (즐겨찾기)
-        type: boolean
-        default: false
-      - name: typography
-        label: 선택 항목의 글자 디자인 (제목 / 설명 구분)
-        description: 제목은 항목의 이름·헤드라인, 설명/본문은 부가 설명 텍스트입니다. 글자 크기를 0 또는 비워 두면 페이지 기본값입니다.
+      - name: items
+        label: 항목 목록 · Gallery 사진 제목으로 표시
         type: object
-        fields: *id002
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{title}'
+        fields:
+        - name: title
+          label: 사진 제목
+          type: string
+          required: true
+        - name: date
+          label: 날짜 또는 연도
+          type: string
+        - name: image
+          label: 사진 파일 업로드
+          type: image
+          required: true
+        - name: description
+          label: 사진 설명
+          type: text
+        - name: featured
+          label: ★ 메인 화면 슬라이드에 표시 (즐겨찾기)
+          type: boolean
+          default: false
+        - name: typography
+          label: 선택 항목의 글자 디자인 (제목 / 설명 구분)
+          description: 제목은 항목의 이름·헤드라인, 설명/본문은 부가 설명 텍스트입니다. 글자 크기를 0 또는 비워 두면 페이지 기본값입니다.
+          type: object
+          fields: *id002
   - name: cms_contact
     label: Contact · 연락처
     type: group

@@ -1,0 +1,27 @@
+name: One-time CMS item titles migration
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - name: Wrap existing content arrays without changing their items
+        run: python3 tools/migrate_cms_item_titles.py
+      - name: Commit changed JSON data files
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- data/banners.json data/research.json data/professor-employment.json data/professor-awards.json data/alumni.json data/publications.json data/equipment.json data/news.json data/gallery.json
+          if git diff --cached --quiet; then
+            echo 'Everything is already converted.'
+          else
+            git commit -m 'Wrap CMS lists to show item titles'
+            git push origin HEAD:main
+          fi

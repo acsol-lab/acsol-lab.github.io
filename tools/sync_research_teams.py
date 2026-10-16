@@ -3,6 +3,8 @@
 import json,yaml,pathlib,sys
 p=pathlib.Path(__file__).resolve().parents[1]
 research=json.loads((p/'data/research.json').read_text(encoding='utf8'))
+if isinstance(research,dict):research=research.get('items',[])
+if not isinstance(research,list):raise SystemExit('Unexpected Research data format')
 areas=list(dict.fromkeys(row.get('title','').strip() for row in research if isinstance(row,dict) and row.get('title','').strip()))
 if not areas:raise SystemExit('Cannot sync empty Research list')
 y=p/'.pages.yml';cfg=yaml.safe_load(y.read_text(encoding='utf8'))

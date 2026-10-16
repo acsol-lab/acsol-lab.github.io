@@ -126,7 +126,11 @@
           value = await response.json();
         } finally { clearTimeout(timer); }
       }
-      if (isList && !Array.isArray(value)) throw new Error(filename + ': JSON 배열이 필요합니다.');
+      // Existing array format and the new CMS-friendly {items:[...]} format are both accepted.
+      if (isList && !Array.isArray(value)) {
+        if (isObject(value) && Array.isArray(value.items)) value = value.items;
+        else throw new Error(filename + ': JSON 배열 또는 {items:[...]} 구조가 필요합니다.');
+      }
       if (!isList && !isObject(value)) throw new Error(filename + ': JSON 객체가 필요합니다.');
       return isList ? value.filter(isObject) : value;
     })();

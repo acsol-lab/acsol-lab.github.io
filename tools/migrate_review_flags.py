@@ -14,6 +14,8 @@ for filename in ("publications.json", "publications-import.json"):
     if not path.is_file():
         continue
     items = json.loads(path.read_text(encoding="utf-8"))
+    wrapped = isinstance(items, dict) and isinstance(items.get('items'), list)
+    if wrapped: items = items['items']
     if not isinstance(items, list):
         raise ValueError(f"Expected JSON list: {path}")
     updated = 0
@@ -23,5 +25,5 @@ for filename in ("publications.json", "publications-import.json"):
         item["underReview"] = str(item.get("status", "")).strip().lower() == "under review"
         updated += 1
     if updated:
-        path.write_text(json.dumps(items, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        path.write_text(json.dumps({'items':items} if wrapped else items, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"{filename}: {updated} entries normalized; {len(items)} total")

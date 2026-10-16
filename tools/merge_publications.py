@@ -14,6 +14,7 @@ DATA=ROOT/'data'
 def read_list(path):
     if not path.exists():return []
     value=json.loads(path.read_text(encoding='utf-8-sig'))
+    if isinstance(value, dict) and isinstance(value.get('items'), list): value=value['items']
     if not isinstance(value,list):raise ValueError(f'{path}: expected JSON list')
     if any(not isinstance(x,dict) for x in value):raise ValueError(f'{path}: all items must be objects')
     return value
@@ -66,7 +67,7 @@ def main():
     # Make a local JSON backup; do not commit it (public repo privacy and file noise).
     backup=ROOT.parent/(ROOT.name+'-publications-before-merge.backup.json')
     if not backup.exists():backup.write_text(json.dumps(saved,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    pub.write_text(json.dumps(combined,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    pub.write_text(json.dumps({'items':combined},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     # Preserve the import path as an empty JSON array for older client versions.
     # Git history still contains the full import; don't delete that history.
     old.write_text('[]\n',encoding='utf-8')
