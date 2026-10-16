@@ -18,23 +18,27 @@
     },
     {
       "name": "12\" Multi Chamber Cluster Sputtering System",
-      "photo": "/media/file-9.png"
+      "photo": "/media/12inch-sputter-1.jpg"
     },
     {
-      "name": "Sputter"
+      "name": "RF Sputter/DC Sputter",
+      "photo": "/media/sputter.jpg"
     },
     {
-      "name": "Thermal Evaporator"
+      "name": "Thermal Evaporator",
+      "photo": "/media/thermal-evaporator.jpg"
     },
     {
       "name": "Theramal Atomic Layer Deposition(ALD)",
       "photo": "/media/ald.jpg"
     },
     {
-      "name": "12\" Magnetic Vacuum Annealing Oven"
+      "name": "12\" Magnetic Vacuum Annealing Oven",
+      "photo": "/media/magnetic-furnace.jpg"
     },
     {
-      "name": "Furnace (Oxidation)"
+      "name": "Tube Furnace",
+      "photo": "/media/furnace.jpg"
     },
     {
       "name": "Box Furnace"
@@ -47,7 +51,7 @@
       "name": "Optical Microsope(OM)"
     },
     {
-      "name": "Scanning Electron Microscope(SEM)/Focus Ion Beam(FIB)_HIT 503호",
+      "name": "Scanning Electron Microscope(SEM)/Focus Ion Beam(FIB)",
       "photo": "/media/semfib.jpg"
     },
     {
