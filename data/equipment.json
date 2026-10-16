@@ -56,5 +56,9 @@
   },
   {
     "name": "UV-VIS"
+  },
+  {
+    "name": "Vibrating Sample Magnetometer(VSM)",
+    "photo": "/media/vsmr.png"
   }
 ]
