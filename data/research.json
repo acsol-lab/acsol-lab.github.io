@@ -27,7 +27,7 @@
       "summaryImage": "/media/research/Atomic_Layer_Deposition_요약사진.png",
       "detailImage": "/media/research/Atomic_Layer_Deposition_세부대표사진.png",
       "imageAlt": "3D Semiconductor Process 연구 이미지",
-      "detailIntro": "우리 연구실은 Thermal ALD(원자층 증착) 공정으로 HfO₂, ZrO₂, Al₂O₃ 등 High-k 산화물 박막을 원자층 단위로 정밀하게 성장시키고, 이를 기반으로 강유전체 HfₓZr₁₋ₓO₂(HZO)를 이용한 차세대 비휘발성 메모리인 FeRAM을 연구합니다. 공정 변수가 박막의 조성·결정상·계면 결함에 미치는 영향을 규명하고, 적층 구조 설계를 통해 높은 유전율과 낮은 누설전류, 우수한 분극·내구성·보존특성을 동시에 구현합니다. 공정 개발부터 소재 분석, 소자 제작·평가까지 연구 전 과정을 하나로 연결하여 저전력·고속 메모리 기술을 만들어 갑니다."
+      "detailIntro": "Thermal ALD(원자층 증착) 공정으로 HfO₂, ZrO₂, Al₂O₃ 등 High-k 산화물 박막을 원자층 단위로 정밀하게 성장시키고, 이를 기반으로 강유전체 HfₓZr₁₋ₓO₂(HZO)를 이용한 차세대 비휘발성 메모리인 FeRAM을 연구합니다. 공정 변수가 박막의 조성·결정상·계면 결함에 미치는 영향을 규명하고, 적층 구조 설계를 통해 높은 유전율과 낮은 누설전류, 우수한 분극·내구성·보존특성을 동시에 구현합니다. 공정 개발부터 소재 분석, 소자 제작·평가까지 연구 전 과정을 하나로 연결하여 저전력·고속 메모리 기술을 만들어 갑니다."
     },
     {
       "title": "Energy Harvesting",
