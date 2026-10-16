@@ -699,11 +699,14 @@
           {onLoad:attachCasual,onFallback:attachCasual});
         const info = node('div', 'student-info'), title = node('div', 'student-title');
         const identity = node('div', 'student-identity'); identity.append(node('h3', '', person.name));
-        if (course) identity.append(node('span', 'student-program program-' + (courseNames[role] ? role : 'other'), course));
+        // Degree and cohort share one badge next to the student name.
+        // Keep the original CMS cohort text intact (e.g. '8학기' stays '8학기').
+        // Bare numbers get the '기' suffix for display only.
+        const cohortRaw = text(person.cohort);
+        const cohortLabel = /^\d+$/.test(cohortRaw) ? cohortRaw + '기' : cohortRaw;
+        const programLabel = [course, cohortLabel].filter(Boolean).join(' ');
+        if (programLabel) identity.append(node('span', 'student-program program-' + (courseNames[role] ? role : 'other'), programLabel));
         title.append(identity);
-        if (text(person.cohort)) {
-          title.append(node('span', 'cohort', /^\d+$/.test(text(person.cohort)) ? person.cohort + '기' : person.cohort));
-        }
         info.append(title);
         if (text(person.department)) info.append(node('p', 'student-department', person.department));
         if (text(person.research)) {
