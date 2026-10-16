@@ -105,12 +105,20 @@
       "media/research/Atomic_Layer_Deposition_세부대표사진.png"
     ],
     [
+      "media/HEAT-2.gif",
+      "media/news/Applied_Surface_Science_논문_게재_승인_뉴스사진.gif"
+    ],
+    [
       "media/KakaoTalk_20261016_163827271.jpg",
       "media/news/Advanced_Science_Back_Cover_선정_뉴스사진.jpg"
     ],
     [
       "media/MRAM-2.jpg",
       "media/news/ACS_Applied_Electronic_Materials_논문_게재_승인_뉴스사진.jpg"
+    ],
+    [
+      "media/MRAM-4.jpg",
+      "media/news/Advanced_Electronic_Materials_논문_게재_승인_뉴스사진.jpg"
     ],
     [
       "media/Navnett-1.webp",
@@ -563,8 +571,10 @@
   ],
   "originals": [
     "media/AS.jpg",
+    "media/HEAT-2.gif",
     "media/KakaoTalk_20261016_163827271.jpg",
     "media/MRAM-2.jpg",
+    "media/MRAM-4.jpg",
     "media/Navnett-1.webp",
     "media/ceramics-1.gif",
     "media/mrma.png",
