@@ -69,13 +69,16 @@
       "photo": "/media/pmu.jpg"
     },
     {
-      "name": "Oscilloscope"
+      "name": "Oscilloscope",
+      "photo": "/media/oscilloscope-1.jpg"
     },
     {
-      "name": "Elipsometer"
+      "name": "Elipsometer",
+      "photo": "/media/elipsometer.jpg"
     },
     {
-      "name": "UV-VIS"
+      "name": "UV-VIS",
+      "photo": "/media/uv-vis.jpg"
     },
     {
       "name": "Vibrating Sample Magnetometer(VSM)",
