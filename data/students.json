@@ -9,6 +9,7 @@
       "department": "Dept. Nano Semiconductor Eng.",
       "email": "mon8525@gmail.com",
       "research": "SOM/ECRAM",
+      "photo": "/media/file-10.jpg",
       "sourcePhoto": "김재경(JGPark).jpg"
     },
     {
@@ -33,6 +34,7 @@
       "department": "Dept. Electronic Eng.",
       "email": "nawit123@naver.com",
       "research": "ReRAM",
+      "photo": "/media/file-11.jpg",
       "sourcePhoto": "증명사진 (1).jpg"
     },
     {
@@ -66,6 +68,7 @@
       "department": "Dept. Electronic Eng.",
       "email": "kyw7989@gmail.com",
       "research": "SOM",
+      "photo": "/media/file-12.jpg",
       "sourcePhoto": "권예원.jpg"
     },
     {
@@ -77,6 +80,7 @@
       "department": "Dept. AI Semiconductor Eng.",
       "email": "dlackeh5952@naver.com",
       "research": "SOM",
+      "photo": "/media/file-13.jpg",
       "sourcePhoto": "정의진_증명사진.jpg"
     },
     {
@@ -88,6 +92,7 @@
       "department": "Dept. Electronic Eng.",
       "email": "kdh2375@gmail.com",
       "research": "Perovskite Memory",
+      "photo": "/media/file-14.jpg",
       "sourcePhoto": "권도현 사진.jpg"
     },
     {
@@ -99,6 +104,7 @@
       "department": "Dept. Electronic Eng.",
       "email": "abcdudwns@hanyang.ac.kr",
       "research": "ReRAM",
+      "photo": "/media/file-15.jpg",
       "sourcePhoto": "증명사진_송영준.jpg"
     },
     {
@@ -110,6 +116,7 @@
       "department": "Dept. Electronic Eng.",
       "email": "scy9880@naver.com",
       "research": "Perovskite ReRAM",
+      "photo": "/media/file-16.jpg",
       "sourcePhoto": "신채연님 반명함1.jpg"
     },
     {
@@ -121,6 +128,7 @@
       "department": "Dept. Electronic Eng.",
       "email": "lge1o22@naver.com",
       "research": "Perovskite ReRAM",
+      "photo": "/media/file.jpeg",
       "sourcePhoto": "IMG_3704.jpeg"
     },
     {
@@ -132,6 +140,7 @@
       "department": "Dept. Electronic Eng.",
       "email": "jhyung0610@naver.com",
       "research": "Perovskite / Reservoirs",
+      "photo": "/media/file-1.jpeg",
       "sourcePhoto": "윤재현 증명사진.JPEG"
     },
     {
@@ -154,6 +163,7 @@
       "department": "Dept. AI Semiconductor Eng.",
       "email": "shk000715@naver.com",
       "research": "ReRAM / DFT",
+      "photo": "/media/file-17.jpg",
       "sourcePhoto": "사진_서홍광.jpg"
     },
     {
@@ -165,6 +175,7 @@
       "department": "Dept. AI Semiconductor Eng.",
       "email": "yoonkiwon@naver.com",
       "research": "ALD/ FRAM",
+      "photo": "/media/file-18.jpg",
       "sourcePhoto": "홈페이지용사진_윤기원.jpg"
     },
     {
@@ -176,6 +187,7 @@
       "department": "Dept. Electronic Eng.",
       "email": "shch1231@naver.com",
       "research": "ALD/ FRAM",
+      "photo": "/media/file-19.jpg",
       "sourcePhoto": "서동찬 증명사진.jpg"
     },
     {
@@ -198,6 +210,7 @@
       "department": "Dept. Electronic Eng.",
       "email": "yolix@naver.com",
       "research": "Optical Synapse",
+      "photo": "/media/file-20.jpg",
       "sourcePhoto": "이시원.jpg"
     },
     {
@@ -208,6 +221,7 @@
       "cohort": "1학기",
       "email": "ohdonghun71@gmail.com",
       "research": "LED, TIM",
+      "photo": "/media/file-21.jpg",
       "sourcePhoto": "오동훈.jpg"
     },
     {
@@ -230,6 +244,7 @@
       "department": "Dept. Electronic Eng.",
       "email": "ssyvv1104@gmail.com",
       "research": "MRAM/SOT/TIM",
+      "photo": "/media/file-22.jpg",
       "sourcePhoto": "사진_김상민.jpg"
     },
     {
@@ -241,6 +256,7 @@
       "department": "Dept. Nano Semiconductor Eng.",
       "email": "yeoheonhwan@gmail.com",
       "research": "MRAM/SOT",
+      "photo": "/media/file-23.jpg",
       "sourcePhoto": "Yeo,Heon-Hwan.jpg"
     },
     {
@@ -252,6 +268,7 @@
       "department": "Dept. AI Semiconductor Eng.",
       "email": "ehdgus2253@hanyang.ac.kr",
       "research": "MRAM",
+      "photo": "/media/file-24.jpg",
       "sourcePhoto": "경동현.jpg"
     },
     {
@@ -263,6 +280,7 @@
       "department": "Dept. Electronic Eng.",
       "email": "jnh003@naver.com",
       "research": "SOT",
+      "photo": "/media/file-25.jpg",
       "sourcePhoto": "김동준 사진.jpg"
     },
     {
@@ -274,6 +292,7 @@
       "department": "Dept. AI Semiconductor Eng.",
       "email": "yskimfr@naver.com",
       "research": "MRAM",
+      "photo": "/media/file-26.jpg",
       "sourcePhoto": "김영석_증명사진.jpg"
     },
     {
@@ -296,6 +315,7 @@
       "department": "Dept. Nano Semiconductor Eng.",
       "email": "aksgug06@naver.com",
       "research": "CMP process",
+      "photo": "/media/file-27.jpg",
       "sourcePhoto": "Han,Man-Hyup.jpg"
     },
     {
@@ -306,6 +326,7 @@
       "cohort": "9학기",
       "email": "mujeon1214@gmail.com",
       "research": "CMP process",
+      "photo": "/media/file-28.jpg",
       "sourcePhoto": "Jeon,Min-Uk.jpg"
     },
     {
@@ -317,6 +338,7 @@
       "department": "Dept. Electronic Eng.",
       "email": "imboy0726@aver.com",
       "research": "CMP",
+      "photo": "/media/file-29.jpg",
       "sourcePhoto": "Koh,Hyun-Sung.jpg"
     },
     {
@@ -328,6 +350,7 @@
       "department": "Dept. AI Semiconductor Eng.",
       "email": "jinwoo960929@gmail.com",
       "research": "CMP",
+      "photo": "/media/file-30.jpg",
       "sourcePhoto": "사진_김진우.jpg"
     },
     {
@@ -339,6 +362,7 @@
       "department": "Dept. Electronic Eng.",
       "email": "emptybin.kim@gmail.com",
       "research": "CMP",
+      "photo": "/media/file-31.jpg",
       "sourcePhoto": "image0 (1).jpeg"
     },
     {
@@ -350,6 +374,7 @@
       "department": "Dept. AI Semiconductor Eng.",
       "email": "kimseunghwan@hanyang.ac.kr",
       "research": "CMP",
+      "photo": "/media/file-32.jpg",
       "sourcePhoto": "김승환.jpg"
     },
     {
@@ -361,6 +386,7 @@
       "department": "Dept. Nano Semiconductor Eng.",
       "email": "wlgptls0519@gmail.com",
       "research": "CMP",
+      "photo": "/media/file-33.jpg",
       "sourcePhoto": "Shin,Ji-Hye.jpg"
     },
     {
@@ -382,6 +408,7 @@
       "department": "Dept. Electronic Eng.",
       "email": "ykmred10@naver.com",
       "research": "CMP",
+      "photo": "/media/file-34.jpg",
       "sourcePhoto": "2026.02.08 증명사진.jpg"
     }
   ]
