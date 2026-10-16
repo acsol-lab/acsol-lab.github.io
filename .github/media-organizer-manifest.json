@@ -461,6 +461,10 @@
       "media/equipment/12_Magnetic_Vacuum_Annealing_Oven_장비사진.jpg"
     ],
     [
+      "media/mrma.png",
+      "media/research/MRAM_세부대표사진.png"
+    ],
+    [
       "media/navneet.jpg",
       "media/alumni/Dr._Naveneet_Kumar_졸업사진.jpg"
     ],
@@ -525,5 +529,7 @@
       "media/student/임가은_증명사진.jpg"
     ]
   ],
-  "originals": []
+  "originals": [
+    "media/mrma.png"
+  ]
 }
