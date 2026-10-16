@@ -391,6 +391,18 @@ content:
           label: 학기/기수 (Wix 기존 자료는 12학기처럼 표기)
           type: string
           description: Wix Members의 semester는 기수가 아니라 학기 수이므로 12학기, 3학기 등으로 입력했습니다.
+        - name: scholarshipCompany
+          label: 산학장학생 구분 (학생 카드에 기업 로고 표시)
+          type: select
+          description: 해당하는 산학장학생만 선택하세요. '없음'을 선택하면 홈페이지에 아무것도 표시되지 않습니다.
+          options:
+            values:
+            - name: none
+              label: 없음 (표시 안 함)
+            - name: samsung
+              label: 삼성 산학장학생
+            - name: skhynix
+              label: SK하이닉스 산학장학생
         - name: department
           label: '소속 학과 (예: Dept. Nano Semiconductor Eng.)'
           type: string

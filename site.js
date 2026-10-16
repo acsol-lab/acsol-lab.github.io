@@ -724,6 +724,24 @@
         const cohortLabel = /^\d+$/.test(cohortRaw) ? cohortRaw + '기' : cohortRaw;
         const programLabel = [course, cohortLabel].filter(Boolean).join(' ');
         if (programLabel) identity.append(node('span', 'student-program program-' + (courseNames[role] ? role : 'other'), programLabel));
+        // Industry-academic scholarship label: CMS opt-in, no change to student data.
+        const scholarship = text(person.scholarshipCompany).toLowerCase().replace(/[ _-]/g,'');
+        const scholarshipBrands = {
+          samsung: {src:'assets/samsung-scholarship-logo.png', alt:'Samsung'},
+          skhynix: {src:'assets/skhynix-scholarship-logo.png', alt:'SK hynix'},
+        };
+        if (scholarshipBrands[scholarship]) {
+          const brand = scholarshipBrands[scholarship];
+          const tag = node('span','student-scholarship');
+          tag.setAttribute('aria-label', brand.alt + ' 산학장학생');
+          const brandImage = document.createElement('img');
+          brandImage.src = brand.src;
+          brandImage.alt = brand.alt;
+          brandImage.decoding = 'async';
+          brandImage.loading = 'lazy';
+          tag.append(brandImage,node('span','student-scholarship-label','산학장학생'));
+          identity.append(tag);
+        }
         title.append(identity);
         info.append(title);
         if (text(person.department)) info.append(node('p', 'student-department', person.department));
