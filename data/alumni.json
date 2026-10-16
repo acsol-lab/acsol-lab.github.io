@@ -452,5 +452,24 @@
     "company": "SK Hyxnix",
     "pastResearch": "CMP",
     "photo": "/media/file-64.jpg"
+  },
+  {
+    "name": "김지훈",
+    "degree": "박사",
+    "graduationYear": "2026",
+    "company": "Samsung Electronics",
+    "pastResearch": "TFT",
+    "photo": "/media/211kimji-hun.jpg",
+    "typography": {
+      "bodySize": 2
+    }
+  },
+  {
+    "name": "이우국",
+    "degree": "박사",
+    "graduationYear": "2026",
+    "company": "SK Hynix",
+    "pastResearch": "Quartz Powder",
+    "photo": "/media/210leewoo-guk.jpg"
   }
 ]
