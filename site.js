@@ -969,9 +969,22 @@
         const card=node('article','home-news-card'), meta=node('div','news-meta');
         card.dataset.storyTone=newsTone(item.category);
         meta.append(timeNode(item.date), node('span','news-category',item.category));
-        card.append(meta,node('h3','',item.title),node('p','',item.description));applyEntryTypography(card,item);
+        // ACSoL-News-Main-Photo-v1: existing detailImage becomes the public cover photo.
+        // No image path means no image element or reserved blank space.
+        if (normalPath(item.detailImage)) {
+          const media=node('div','home-news-media');
+          setImage(media,item.detailImage,text(item.detailCaption,item.title),()=>imageFallback('사진 불러오기 실패'));
+          const copy=node('div','home-news-copy');
+          copy.append(meta,node('h3','',item.title),node('p','',item.description));
+          card.classList.add('has-image');card.append(media,copy);
+        } else {
+          card.append(meta,node('h3','',item.title),node('p','',item.description));
+        }
+        applyEntryTypography(card,item);
         const link=node('a','inline-link','Read the story');link.href='news.html#'+item._id;
-        link.setAttribute('aria-label',text(item.title)+' — 소식 보기');link.append(arrow());card.append(link);return card;
+        link.setAttribute('aria-label',text(item.title)+' — 소식 보기');link.append(arrow());
+        const contentHost=card.querySelector('.home-news-copy');
+        (contentHost||card).append(link);return card;
         }));
         [prev,next].forEach(btn=>{if(btn)btn.hidden=entries.length<=count;});
       };
@@ -999,20 +1012,24 @@
         button.append(node('span','news-chevron')); 
         const detail=node('div','news-expanded');detail.id='details-'+item._id;detail.hidden=true;
         if (text(item.detailBody)) detail.append(node('p','news-detail-body',item.detailBody));
-        if (normalPath(item.detailImage)) {
-          const fig=node('figure','news-detail-figure'), pic=node('div');
-          setImage(pic,item.detailImage,text(item.detailCaption,item.title),()=>imageFallback('이미지 등록 예정'));
-          fig.append(pic);
-          if (text(item.detailCaption))fig.append(node('figcaption','',item.detailCaption));
-          detail.append(fig);
-        }
         if (!detail.childNodes.length)detail.append(node('p','news-detail-empty','추가 상세 내용을 준비 중입니다.'));
         const setExpanded=open=>{
           detail.hidden=!open;button.setAttribute('aria-expanded',String(open));
           button.setAttribute('aria-label',text(item.title)+(open?' 상세 내용 접기':' 상세 내용 펼치기'));
         };
         button.addEventListener('click',()=>setExpanded(detail.hidden));
-        content.append(button,detail);row.append(date,content);applyEntryTypography(row,item);
+        // If the cover photo was the only expanded content, omit the empty toggle.
+        // Text-only news retain their existing expand/collapse behavior.
+        if (text(item.detailBody) || !normalPath(item.detailImage)) content.append(button,detail);
+        if (normalPath(item.detailImage)) {
+          const media=node('div','news-main-media');
+          setImage(media,item.detailImage,text(item.detailCaption,item.title),()=>imageFallback('사진 불러오기 실패'));
+          row.classList.add('has-image');
+          row.append(date,media,content);
+        } else {
+          row.append(date,content);
+        }
+        applyEntryTypography(row,item);
         if(location.hash==='#'+item._id)setExpanded(true);
         return row;
       }));

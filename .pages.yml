@@ -685,13 +685,13 @@ content:
           label: 펼침 상세 내용 (여러 문단 가능)
           type: text
         - name: detailImage
-          label: 상세 내용 사진 (선택)
+          label: 뉴스 대표 사진 (Home·News 목록에 표시, 선택)
           type: image
           options:
             path: news
             rename: false
         - name: detailCaption
-          label: 상세 사진 설명 (선택)
+          label: 대표 사진 설명 (선택)
           type: string
         - name: typography
           label: 선택 항목의 글자 디자인 (제목 / 설명 구분)
