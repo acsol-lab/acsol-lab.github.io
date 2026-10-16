@@ -44,7 +44,8 @@
       "name": "Optical Microsope(OM)"
     },
     {
-      "name": "Scanning Electron Microscope(SEM)/Focus Ion Beam(FIB)"
+      "name": "Scanning Electron Microscope(SEM)/Focus Ion Beam(FIB)",
+      "photo": "/media/semfib.jpg"
     },
     {
       "name": "Atomic Force Microscope(AFM)"
