@@ -4,6 +4,7 @@
     "subtitle": "Next-generation memory",
     "description": "ReRAM, SOM, MRAM을 중심으로 새로운 메모리 구조와 스위칭 메커니즘을 연구합니다.",
     "keywords": "ReRAM · Vertical SOM · STT / SOT-MRAM · Skyrmion",
+    "image": "/media/ai-memory.jpg",
     "imageAlt": "Emerging Memory 연구 이미지"
   },
   {
@@ -11,6 +12,7 @@
     "subtitle": "Neuromorphic intelligence",
     "description": "전기·광학 시냅스 소자와 강유전체, 페로브스카이트 기반 소자를 통해 신경모사 기능을 구현합니다.",
     "keywords": "Optical Synapse · Ferroelectrics · Perovskites · Self-powered Sensing",
+    "image": "/media/perovskite.webp",
     "imageAlt": "Neuromorphic Devices 연구 이미지"
   },
   {
@@ -18,6 +20,7 @@
     "subtitle": "Fabrication & integration",
     "description": "원자층 증착과 전구체, CMP 및 접합 기술을 기반으로 반도체 집적 공정을 탐구합니다.",
     "keywords": "ALD · Precursors · CMP · Cu Hybrid Bonding · DFT / TCAD",
+    "image": "/media/ald.png",
     "imageAlt": "3D Semiconductor Process 연구 이미지"
   },
   {
@@ -37,6 +40,7 @@
     "title": "CMP",
     "subtitle": "CMP",
     "description": "CMP",
-    "keywords": "CMP"
+    "keywords": "CMP",
+    "image": "/media/cmp.png"
   }
 ]
