@@ -1,849 +1,851 @@
-[
-  {
-    "date": "2026-09-03",
-    "category": "Featured cover",
-    "title": "Advanced Science Back Cover 선정",
-    "description": "재경과 우대성 박사의 SOM 연구 논문이 Advanced Science Back Cover에 선정됨",
-    "source": "Wix Home 2026"
-  },
-  {
-    "date": "2026-08-27",
-    "category": "Award",
-    "title": "강자신 연구원 우수논문상 수상",
-    "description": "2026 정보통신설비학회 우수논문상 수상",
-    "source": "Wix Home 2026"
-  },
-  {
-    "date": "2026-08-15",
-    "category": "Publication",
-    "title": "Advanced Science 논문 게재 승인",
-    "description": "재경·우대성 박사의 electroforming-free, self-rectifying SOM 연구 게재 승인",
-    "source": "Wix Home 2026"
-  },
-  {
-    "date": "2026-04-03",
-    "category": "Publication",
-    "title": "Ceramics International 논문 게재 승인",
-    "description": "강자신·추군광의 BaTiO3–PDMS 압전 나노발전기 연구 승인",
-    "source": "Wix Home 2026"
-  },
-  {
-    "date": "2026-03-25",
-    "category": "Book Chapter",
-    "title": "Navneet 박사 CRC Press Book Chapter 출판",
-    "description": "Circular Economy and Sustainable Management 수록",
-    "source": "Wix Home 2026"
-  },
-  {
-    "date": "2026-02-24",
-    "category": "Graduation",
-    "title": "2026년 석사 졸업 축하",
-    "description": "현석·현준·태형·민규·현제·민종·광호·민철 졸업",
-    "source": "Wix Home 2026"
-  },
-  {
-    "date": "2026-02-19",
-    "category": "Publication",
-    "title": "Advanced Electronic Materials 논문 게재 승인",
-    "description": "요한·상민의 W 기반 Skyrmion/SOT 연구 승인",
-    "source": "Wix Home 2026"
-  },
-  {
-    "date": "2026-01-02",
-    "category": "Publication",
-    "title": "Applied Surface Science 논문 게재 승인",
-    "description": "정의진·김상민의 ZTO–Fe3O4 TIM 연구 승인",
-    "source": "Wix Home 2026"
-  },
-  {
-    "date": "2025-12-29",
-    "category": "Publication",
-    "title": "ACS Applied Electronic Materials 논문 게재 승인",
-    "description": "이명의 은 클러스터 기반 유기 광전자 시냅스 소자 연구 승인",
-    "source": "Wix News"
-  },
-  {
-    "date": "2025-11-08",
-    "category": "Conference",
-    "title": "박진섭 교수 IEEE IC-NID 2025 기조강연",
-    "description": "IEEE IC-NID 2025에서 Keynote 강연",
-    "source": "Wix News"
-  },
-  {
-    "date": "2025-11-08",
-    "category": "Award",
-    "title": "강자신 IEEE IC-NID 2025 우수논문상 수상",
-    "description": "베이징 IC-NID 학회 우수논문상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2025-11-04",
-    "category": "Award",
-    "title": "박진섭 교수 삼성전자 산학협력 우수특허상 수상",
-    "description": "Samsung Electronics Industry–Academic Cooperation Excellent Patent Award",
-    "source": "Wix News"
-  },
-  {
-    "date": "2025-11-03",
-    "category": "Publication",
-    "title": "J. Alloys and Compounds 논문 승인",
-    "description": "정성민의 Cs2AgBiBr6 페로브스카이트 광검출기 연구 승인",
-    "source": "Wix News"
-  },
-  {
-    "date": "2025-10-30",
-    "category": "Funding",
-    "title": "SPARK2025 삼성전자 전략과제 교류회",
-    "description": "ALD 공정·전구체를 이용한 수직형 메모리 개발과제 교류회",
-    "source": "Wix News"
-  },
-  {
-    "date": "2025-10-16",
-    "category": "Career",
-    "title": "정의진 박사 DB Hitek 입사",
-    "description": "정의진 박사의 DB Hitek 합류",
-    "source": "Wix News"
-  },
-  {
-    "date": "2025-08-27",
-    "category": "Funding",
-    "title": "중견연구 창의과제 선정",
-    "description": "초저전력 고성능 강유전체 전계효과 트랜지스터 개발과제",
-    "source": "Wix News"
-  },
-  {
-    "date": "2025-06-10",
-    "category": "Funding",
-    "title": "K-Chips 연구과제 선정",
-    "description": "Vertical SOM 개발 연구과제 선정",
-    "source": "Wix News"
-  },
-  {
-    "date": "2025-05-26",
-    "category": "Featured cover",
-    "title": "Small Back Cover 출판",
-    "description": "우대성 박사의 신경집적칩 관련 논문 Back Cover 출판",
-    "source": "Wix News"
-  },
-  {
-    "date": "2025-05-02",
-    "category": "Publication",
-    "title": "NPG Asia Materials 논문 출판",
-    "description": "Cu-doped oxygenated carbon memristors 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2025-02-21",
-    "category": "Graduation",
-    "title": "우대성 박사·정성민 석사 졸업",
-    "description": "학위 취득 축하",
-    "source": "Wix News"
-  },
-  {
-    "date": "2025-01-14",
-    "category": "Publication",
-    "title": "Small 논문 게재 승인",
-    "description": "우대성의 Small 저널 논문 승인",
-    "source": "Wix News"
-  },
-  {
-    "date": "2024-12-01",
-    "category": "Funding",
-    "title": "삼성미래기술육성사업 과제 수주",
-    "description": "자가정류 SOM 개발과제 선정",
-    "source": "Wix News"
-  },
-  {
-    "date": "2024-10-30",
-    "category": "Award",
-    "title": "박진섭 교수 산업통상자원부장관상 수상",
-    "description": "2024 소부장뿌리기술대전 수상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2024-10-09",
-    "category": "Publication",
-    "title": "Advanced Functional Materials 논문 승인",
-    "description": "Ru 기반 하이브리드 시냅스 멤리스터 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2024-09-10",
-    "category": "Award",
-    "title": "석사과정생 연구장려금 선정",
-    "description": "광호 석사과정 연구장려금 선정",
-    "source": "Wix News"
-  },
-  {
-    "date": "2024-09-05",
-    "category": "Publication",
-    "title": "Nano Research 논문 승인",
-    "description": "CsPb2Br5 단결정 할라이드 페로브스카이트 멤리스터 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2024-08-13",
-    "category": "Publication",
-    "title": "Ceramics International 논문 승인",
-    "description": "ZTO 나노입자 기반 압전 나노발전기 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2024-08-12",
-    "category": "Award",
-    "title": "정의진 우수논문상 수상",
-    "description": "삼성–한양 산학기술교류회 우수논문상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2024-03-22",
-    "category": "Publication",
-    "title": "Ceramics International 논문 승인",
-    "description": "TIM팀의 ZTO–Fe3O4 코어셸 마이크로구 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2024-03-07",
-    "category": "Publication",
-    "title": "Chemical Engineering Journal 논문 승인",
-    "description": "Kumar 박사 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2024-02-27",
-    "category": "Publication",
-    "title": "Advanced Materials Technologies 논문 승인",
-    "description": "정성민·하주윤의 Cs2AgBiBr6 광검출기 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2024-02-15",
-    "category": "Career",
-    "title": "석사 졸업·SK하이닉스 입사",
-    "description": "원준 석사 졸업 및 입사",
-    "source": "Wix News"
-  },
-  {
-    "date": "2024-01-31",
-    "category": "Publication",
-    "title": "Carbon 논문 출판",
-    "description": "Navneet Kumar 박사 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2024-01-25",
-    "category": "Publication",
-    "title": "J. Alloys and Compounds 논문 출판",
-    "description": "정의진·임정아의 Rb 치환 페로브스카이트 메모리 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2023-11-23",
-    "category": "Award",
-    "title": "KISM2023 Best Presentation Award",
-    "description": "원준 발표상 수상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2023-11-05",
-    "category": "Publication",
-    "title": "J. Alloys and Compounds 논문 승인",
-    "description": "정의진의 Rb 치환 페로브스카이트 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2023-09-05",
-    "category": "Publication",
-    "title": "Nanoscale Horizons 논문 승인",
-    "description": "Khan 박사 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2023-09-01",
-    "category": "Award",
-    "title": "정보통신설비학회 우수논문상",
-    "description": "정의진 우수논문상 수상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2023-08-08",
-    "category": "Publication",
-    "title": "J. Physical Chemistry C 논문 승인",
-    "description": "정의진·김도현 박사 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2023-07-13",
-    "category": "Publication",
-    "title": "Surfaces and Interfaces 논문 승인",
-    "description": "정신 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2023-07-11",
-    "category": "Visit",
-    "title": "University of Utah 노모세 박사 방문",
-    "description": "HxCES 세미나",
-    "source": "Wix News"
-  },
-  {
-    "date": "2023-04-24",
-    "category": "Publication",
-    "title": "Chemosphere 논문 승인",
-    "description": "지수·Kumar 박사 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2023-04-03",
-    "category": "Visit",
-    "title": "문진욱 연구실 방문",
-    "description": "SK하이닉스 C&C 사업부 연구실 방문",
-    "source": "Wix News"
-  },
-  {
-    "date": "2023-03-01",
-    "category": "Publication",
-    "title": "Applied Sciences 논문 출판",
-    "description": "도현·의진 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2023-02-17",
-    "category": "Graduation",
-    "title": "석사 졸업 축하",
-    "description": "진욱·정신·정아·주윤 졸업",
-    "source": "Wix News"
-  },
-  {
-    "date": "2023-02-15",
-    "category": "Award",
-    "title": "BK21 Enrich IT Awards",
-    "description": "박진섭 교수 교육 부문 대상, Kumar 박사 Outstanding Research Award",
-    "source": "Wix News"
-  },
-  {
-    "date": "2023-02-01",
-    "category": "Welcome",
-    "title": "신규 연구원 환영",
-    "description": "김상민·정성민 합류",
-    "source": "Wix News"
-  },
-  {
-    "date": "2023-01-10",
-    "category": "Publication",
-    "title": "Nanomaterials 논문 승인",
-    "description": "Kumar 박사 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2022-10-01",
-    "category": "Publication",
-    "title": "Environmental Pollution 논문 승인",
-    "description": "Kumar 박사의 Zinc hydroxystannate/ZTO 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2022-09-22",
-    "category": "Publication",
-    "title": "J. Alloys and Compounds 논문 승인",
-    "description": "심문호의 Cs2AgBiBr6 광검출기 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2022-08-27",
-    "category": "Award",
-    "title": "2022 정보통신설비학회 우수논문상",
-    "description": "산화물 기반 에너지 하베스팅 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2022-08-09",
-    "category": "Publication",
-    "title": "J. Alloys and Compounds 논문 승인",
-    "description": "Shubhangi 박사의 BiFeO3:Sr PENG 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2022-05-06",
-    "category": "Award",
-    "title": "제29회 한국반도체학술대회 우수포스터상",
-    "description": "문진욱·정의진 수상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2022-03-08",
-    "category": "Publication",
-    "title": "Chemosphere 논문 승인",
-    "description": "Kumar 박사 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2022-02-24",
-    "category": "Award",
-    "title": "제7회 LED 광전자학회 우수포스터상",
-    "description": "정의진 수상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2022-02-18",
-    "category": "Award",
-    "title": "ICPBL+ 우수상",
-    "description": "봄스민 수상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2022-02-01",
-    "category": "Welcome",
-    "title": "허원준 연구원 합류",
-    "description": "석사 연구원 합류",
-    "source": "Wix News"
-  },
-  {
-    "date": "2022-01-25",
-    "category": "Publication",
-    "title": "Applied Sciences 논문 승인",
-    "description": "정의진·문진욱 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2021-09-07",
-    "category": "Publication",
-    "title": "Sensors 논문 승인",
-    "description": "준혁·정의진의 SnO2/ZnO 기반 UV 검출기 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2021-08-30",
-    "category": "Welcome",
-    "title": "연구실 새 식구 환영",
-    "description": "이흠·수항 석사 합류",
-    "source": "Wix News"
-  },
-  {
-    "date": "2021-08-27",
-    "category": "Award",
-    "title": "2021 정보통신설비학회 우수논문상",
-    "description": "봄스민 수상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2021-08-25",
-    "category": "Graduation",
-    "title": "김도현 박사·상성문 석사 졸업",
-    "description": "연구원 졸업 축하",
-    "source": "Wix News"
-  },
-  {
-    "date": "2021-06-11",
-    "category": "Graduation",
-    "title": "김도현 박사학위 심사 완료",
-    "description": "박사학위 심사 통과",
-    "source": "Wix News"
-  },
-  {
-    "date": "2021-05-21",
-    "category": "Award",
-    "title": "반도체디스플레이기술학회 우수논문상",
-    "description": "심문호 수상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2021-03-22",
-    "category": "Publication",
-    "title": "J. Alloys and Compounds 논문 승인",
-    "description": "Shubhangi 박사 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2021-02-20",
-    "category": "Publication",
-    "title": "Materials Science and Engineering B 논문 출판",
-    "description": "Babu·도현·동수 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2021-01-01",
-    "category": "Welcome",
-    "title": "신규 연구원 환영",
-    "description": "임정아·하주윤·문진욱·정신 합류",
-    "source": "Wix News"
-  },
-  {
-    "date": "2020-12-15",
-    "category": "Publication",
-    "title": "Composites Part B 논문 출판",
-    "description": "BTO/ZnSnO3 PENG 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2020-11-21",
-    "category": "Publication",
-    "title": "Materials Science and Engineering B 논문 승인",
-    "description": "Babu·도현·동수 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2020-10-15",
-    "category": "Publication",
-    "title": "Composites Part B 온라인 출판",
-    "description": "BTO/ZnSnO3 PENG 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2020-08-19",
-    "category": "Award",
-    "title": "한국진공학회 으뜸포스터발표상",
-    "description": "김도현 수상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2020-08-02",
-    "category": "Publication",
-    "title": "Materials Letters 논문 출판 예정",
-    "description": "Shubhangi 박사의 SnO2 습도 센서 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2020-07-09",
-    "category": "Award",
-    "title": "전자재료학회 하계학술대회 우수논문상",
-    "description": "다미·하영 학부생 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2020-07-07",
-    "category": "Lab",
-    "title": "ICSeA 연구그룹 출범",
-    "description": "Innovative Compound Semiconductors and Application Laboratory 출범",
-    "source": "Wix News"
-  },
-  {
-    "date": "2020-07-01",
-    "category": "Welcome",
-    "title": "신규 석사연구원 합류",
-    "description": "정봄스민·정신·심문호 합류",
-    "source": "Wix News"
-  },
-  {
-    "date": "2020-04-15",
-    "category": "Publication",
-    "title": "Sensors and Actuators A 논문 출판",
-    "description": "Yuexing Ji의 CuO/ZnO UV photodetector 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2020-03-01",
-    "category": "Welcome",
-    "title": "Shubhangi 박사 합류",
-    "description": "포스트닥 연구원 합류",
-    "source": "Wix News"
-  },
-  {
-    "date": "2020-02-23",
-    "category": "Publication",
-    "title": "Applied Sciences 논문 승인",
-    "description": "김도현 UV-A LED 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2020-02-12",
-    "category": "Publication",
-    "title": "Journal of Materials Science 논문 승인",
-    "description": "Dayakar 박사의 ZnO/Ag 광촉매·항균 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2020-01-28",
-    "category": "Publication",
-    "title": "Sensors and Actuators A 논문 승인",
-    "description": "Yuexing Ji 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2020-01-20",
-    "category": "Publication",
-    "title": "ACS Sustainable Chemistry & Engineering 논문 출판",
-    "description": "정의진의 ZTO MSM UV 검출기 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2019-12-17",
-    "category": "Award",
-    "title": "교육부 2019 우수성과 50선 선정",
-    "description": "광전자소자 전극·나노구 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2019-10-31",
-    "category": "Publication",
-    "title": "ACS Sustainable Chemistry & Engineering 논문 승인",
-    "description": "정의진 ZTO 검출기 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2019-09-29",
-    "category": "Publication",
-    "title": "J. Materials Science: Materials in Electronics 논문 출판",
-    "description": "Dayakar 박사 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2019-09-27",
-    "category": "Lab",
-    "title": "연구실 북악산 하이킹",
-    "description": "연구실 행사",
-    "source": "Wix News"
-  },
-  {
-    "date": "2019-09-10",
-    "category": "Visit",
-    "title": "졸업생 연승환 연구실 방문",
-    "description": "Alumni 방문",
-    "source": "Wix News"
-  },
-  {
-    "date": "2019-08-21",
-    "category": "Award",
-    "title": "신동수 박사 최우수 졸업상",
-    "description": "박사 졸업 수상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2019-08-21",
-    "category": "Graduation",
-    "title": "신동수·김택곤 박사 졸업",
-    "description": "박사 학위 취득",
-    "source": "Wix News"
-  },
-  {
-    "date": "2019-08-08",
-    "category": "Welcome",
-    "title": "상성문 석사연구원 합류",
-    "description": "신규 석사 연구원",
-    "source": "Wix News"
-  },
-  {
-    "date": "2019-04-25",
-    "category": "Publication",
-    "title": "Materials Science: Materials in Electronics 논문 승인",
-    "description": "Dayakar 박사 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2019-02-21",
-    "category": "Graduation",
-    "title": "정의진 석사 졸업",
-    "description": "석사학위 취득",
-    "source": "Wix News"
-  },
-  {
-    "date": "2019-02-15",
-    "category": "Conference",
-    "title": "2019 한국반도체학술대회 구두 발표",
-    "description": "민우·준혁·지연·지수 발표",
-    "source": "Wix News"
-  },
-  {
-    "date": "2018-12-21",
-    "category": "Award",
-    "title": "Nano Micro 2018 Best Poster Award",
-    "description": "Yuexing·동수 수상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2018-11-05",
-    "category": "Publication",
-    "title": "ACS Sustainable Chemistry & Engineering 논문 출판",
-    "description": "한주·동수 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2018-10-23",
-    "category": "Publication",
-    "title": "Surface Science & Technology 논문 승인",
-    "description": "태영·동수 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2018-09-01",
-    "category": "Welcome",
-    "title": "Dr. Dayakar·Zhanpeng 연구실 합류",
-    "description": "Postdoctoral/new researcher",
-    "source": "Wix News"
-  },
-  {
-    "date": "2018-07-19",
-    "category": "Publication",
-    "title": "ACS Sustainable Chemistry & Engineering 논문 출판",
-    "description": "연구실 공동 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2018-03",
-    "category": "Welcome",
-    "title": "수빈·민우·준혁·지수·지연 합류",
-    "description": "신규 연구원 합류",
-    "source": "Wix News"
-  },
-  {
-    "date": "2018-02-24",
-    "category": "Graduation",
-    "title": "동욱·한주 석사 졸업",
-    "description": "석사 학위 취득",
-    "source": "Wix News"
-  },
-  {
-    "date": "2018-02-24",
-    "category": "Award",
-    "title": "한주 최우수 졸업생상",
-    "description": "Graduate student award",
-    "source": "Wix News"
-  },
-  {
-    "date": "2018-01",
-    "category": "Publication",
-    "title": "Applied Surface Science 논문 출판",
-    "description": "동수 연구; 원문은 월까지만 제시됨",
-    "source": "Wix News"
-  },
-  {
-    "date": "2018",
-    "category": "Award",
-    "title": "박진섭 교수 Marquis Who’s Who 선정",
-    "description": "2018 Albert Nelson Marquis Lifetime Achievement Award 선정 소식",
-    "source": "Wix News"
-  },
-  {
-    "date": "2017-11-11",
-    "category": "Publication",
-    "title": "Optics Express 논문 승인",
-    "description": "태영 연구",
-    "source": "Wix News"
-  },
-  {
-    "date": "2017-10",
-    "category": "Publication",
-    "title": "J. Alloys and Compounds 논문 승인",
-    "description": "동수 연구; 원문은 월까지만 제시됨",
-    "source": "Wix News"
-  },
-  {
-    "date": "2017-09",
-    "category": "Publication",
-    "title": "Materials & Design 논문 승인",
-    "description": "한주 연구; 원문은 월까지만 제시됨",
-    "source": "Wix News"
-  },
-  {
-    "date": "2017-06-01",
-    "category": "Welcome",
-    "title": "Yuexing 연구원 합류",
-    "description": "석사 연구원 합류",
-    "source": "Wix News"
-  },
-  {
-    "date": "2017-02",
-    "category": "Welcome",
-    "title": "정의진 연구원 합류",
-    "description": "석사 연구원 합류; 원문은 월까지만 제시됨",
-    "source": "Wix News"
-  },
-  {
-    "date": "2017",
-    "category": "Award",
-    "title": "박진섭 교수 Marquis Who’s Who 선정",
-    "description": "2017 Albert Nelson Marquis Lifetime Achievement Award 선정",
-    "source": "Wix News"
-  },
-  {
-    "date": "2016-12",
-    "category": "Career",
-    "title": "상후·태영 취업",
-    "description": "각각 SK하이닉스·삼성전자 입사; 원문은 월까지만 제시됨",
-    "source": "Wix News"
-  },
-  {
-    "date": "2016-08-01",
-    "category": "Welcome",
-    "title": "찬울·홍범 연구원 합류",
-    "description": "신규 연구원 합류",
-    "source": "Wix News"
-  },
-  {
-    "date": "2016-04-18",
-    "category": "Welcome",
-    "title": "Dr. Kadam 합류",
-    "description": "포스트닥 연구원 합류",
-    "source": "Wix News"
-  },
-  {
-    "date": "2016-02-24",
-    "category": "Award",
-    "title": "KCS 2016 Best Poster Award",
-    "description": "태영 수상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2016-02-24",
-    "category": "Welcome",
-    "title": "한주 연구원 박사과정 합류",
-    "description": "박사과정 연구원 합류",
-    "source": "Wix News"
-  },
-  {
-    "date": "2015-07-27",
-    "category": "Award",
-    "title": "Optoelectronics and LED Conference Best Poster Award",
-    "description": "동수 수상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2015-02-12",
-    "category": "Award",
-    "title": "KCS 2015 Hynix Award",
-    "description": "윤형 수상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2014-08-19",
-    "category": "Award",
-    "title": "2014 LED and Solid State Lighting Conference Best Poster Award",
-    "description": "동수 수상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2014-06-26",
-    "category": "Award",
-    "title": "Electronic and Electronic Materials Conference 우수포스터상",
-    "description": "상후 수상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2014-02-26",
-    "category": "Award",
-    "title": "KCS 2014 Best Poster Award",
-    "description": "민준·윤형 수상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2013",
-    "category": "Publication",
-    "title": "서울대 공동연구 LED 성과 소개",
-    "description": "비극성 하이브리드 LED·나노구 관련 연구 성과 소개",
-    "source": "Wix News"
-  },
-  {
-    "date": "2013",
-    "category": "Award",
-    "title": "ICNST 2013 Best Poster Award",
-    "description": "김도현 Best Poster Award 수상",
-    "source": "Wix News"
-  },
-  {
-    "date": "2012",
-    "category": "Award",
-    "title": "Nanokorea 2012 Best Poster Award",
-    "description": "손태준의 ZnO 나노구조 LED 광추출 연구 수상",
-    "source": "Wix News"
-  }
-]
+{
+  "items": [
+    {
+      "date": "2026-09-03",
+      "category": "Featured cover",
+      "title": "Advanced Science Back Cover 선정",
+      "description": "재경과 우대성 박사의 SOM 연구 논문이 Advanced Science Back Cover에 선정됨",
+      "source": "Wix Home 2026"
+    },
+    {
+      "date": "2026-08-27",
+      "category": "Award",
+      "title": "강자신 연구원 우수논문상 수상",
+      "description": "2026 정보통신설비학회 우수논문상 수상",
+      "source": "Wix Home 2026"
+    },
+    {
+      "date": "2026-08-15",
+      "category": "Publication",
+      "title": "Advanced Science 논문 게재 승인",
+      "description": "재경·우대성 박사의 electroforming-free, self-rectifying SOM 연구 게재 승인",
+      "source": "Wix Home 2026"
+    },
+    {
+      "date": "2026-04-03",
+      "category": "Publication",
+      "title": "Ceramics International 논문 게재 승인",
+      "description": "강자신·추군광의 BaTiO3–PDMS 압전 나노발전기 연구 승인",
+      "source": "Wix Home 2026"
+    },
+    {
+      "date": "2026-03-25",
+      "category": "Book Chapter",
+      "title": "Navneet 박사 CRC Press Book Chapter 출판",
+      "description": "Circular Economy and Sustainable Management 수록",
+      "source": "Wix Home 2026"
+    },
+    {
+      "date": "2026-02-24",
+      "category": "Graduation",
+      "title": "2026년 석사 졸업 축하",
+      "description": "현석·현준·태형·민규·현제·민종·광호·민철 졸업",
+      "source": "Wix Home 2026"
+    },
+    {
+      "date": "2026-02-19",
+      "category": "Publication",
+      "title": "Advanced Electronic Materials 논문 게재 승인",
+      "description": "요한·상민의 W 기반 Skyrmion/SOT 연구 승인",
+      "source": "Wix Home 2026"
+    },
+    {
+      "date": "2026-01-02",
+      "category": "Publication",
+      "title": "Applied Surface Science 논문 게재 승인",
+      "description": "정의진·김상민의 ZTO–Fe3O4 TIM 연구 승인",
+      "source": "Wix Home 2026"
+    },
+    {
+      "date": "2025-12-29",
+      "category": "Publication",
+      "title": "ACS Applied Electronic Materials 논문 게재 승인",
+      "description": "이명의 은 클러스터 기반 유기 광전자 시냅스 소자 연구 승인",
+      "source": "Wix News"
+    },
+    {
+      "date": "2025-11-08",
+      "category": "Conference",
+      "title": "박진섭 교수 IEEE IC-NID 2025 기조강연",
+      "description": "IEEE IC-NID 2025에서 Keynote 강연",
+      "source": "Wix News"
+    },
+    {
+      "date": "2025-11-08",
+      "category": "Award",
+      "title": "강자신 IEEE IC-NID 2025 우수논문상 수상",
+      "description": "베이징 IC-NID 학회 우수논문상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2025-11-04",
+      "category": "Award",
+      "title": "박진섭 교수 삼성전자 산학협력 우수특허상 수상",
+      "description": "Samsung Electronics Industry–Academic Cooperation Excellent Patent Award",
+      "source": "Wix News"
+    },
+    {
+      "date": "2025-11-03",
+      "category": "Publication",
+      "title": "J. Alloys and Compounds 논문 승인",
+      "description": "정성민의 Cs2AgBiBr6 페로브스카이트 광검출기 연구 승인",
+      "source": "Wix News"
+    },
+    {
+      "date": "2025-10-30",
+      "category": "Funding",
+      "title": "SPARK2025 삼성전자 전략과제 교류회",
+      "description": "ALD 공정·전구체를 이용한 수직형 메모리 개발과제 교류회",
+      "source": "Wix News"
+    },
+    {
+      "date": "2025-10-16",
+      "category": "Career",
+      "title": "정의진 박사 DB Hitek 입사",
+      "description": "정의진 박사의 DB Hitek 합류",
+      "source": "Wix News"
+    },
+    {
+      "date": "2025-08-27",
+      "category": "Funding",
+      "title": "중견연구 창의과제 선정",
+      "description": "초저전력 고성능 강유전체 전계효과 트랜지스터 개발과제",
+      "source": "Wix News"
+    },
+    {
+      "date": "2025-06-10",
+      "category": "Funding",
+      "title": "K-Chips 연구과제 선정",
+      "description": "Vertical SOM 개발 연구과제 선정",
+      "source": "Wix News"
+    },
+    {
+      "date": "2025-05-26",
+      "category": "Featured cover",
+      "title": "Small Back Cover 출판",
+      "description": "우대성 박사의 신경집적칩 관련 논문 Back Cover 출판",
+      "source": "Wix News"
+    },
+    {
+      "date": "2025-05-02",
+      "category": "Publication",
+      "title": "NPG Asia Materials 논문 출판",
+      "description": "Cu-doped oxygenated carbon memristors 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2025-02-21",
+      "category": "Graduation",
+      "title": "우대성 박사·정성민 석사 졸업",
+      "description": "학위 취득 축하",
+      "source": "Wix News"
+    },
+    {
+      "date": "2025-01-14",
+      "category": "Publication",
+      "title": "Small 논문 게재 승인",
+      "description": "우대성의 Small 저널 논문 승인",
+      "source": "Wix News"
+    },
+    {
+      "date": "2024-12-01",
+      "category": "Funding",
+      "title": "삼성미래기술육성사업 과제 수주",
+      "description": "자가정류 SOM 개발과제 선정",
+      "source": "Wix News"
+    },
+    {
+      "date": "2024-10-30",
+      "category": "Award",
+      "title": "박진섭 교수 산업통상자원부장관상 수상",
+      "description": "2024 소부장뿌리기술대전 수상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2024-10-09",
+      "category": "Publication",
+      "title": "Advanced Functional Materials 논문 승인",
+      "description": "Ru 기반 하이브리드 시냅스 멤리스터 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2024-09-10",
+      "category": "Award",
+      "title": "석사과정생 연구장려금 선정",
+      "description": "광호 석사과정 연구장려금 선정",
+      "source": "Wix News"
+    },
+    {
+      "date": "2024-09-05",
+      "category": "Publication",
+      "title": "Nano Research 논문 승인",
+      "description": "CsPb2Br5 단결정 할라이드 페로브스카이트 멤리스터 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2024-08-13",
+      "category": "Publication",
+      "title": "Ceramics International 논문 승인",
+      "description": "ZTO 나노입자 기반 압전 나노발전기 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2024-08-12",
+      "category": "Award",
+      "title": "정의진 우수논문상 수상",
+      "description": "삼성–한양 산학기술교류회 우수논문상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2024-03-22",
+      "category": "Publication",
+      "title": "Ceramics International 논문 승인",
+      "description": "TIM팀의 ZTO–Fe3O4 코어셸 마이크로구 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2024-03-07",
+      "category": "Publication",
+      "title": "Chemical Engineering Journal 논문 승인",
+      "description": "Kumar 박사 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2024-02-27",
+      "category": "Publication",
+      "title": "Advanced Materials Technologies 논문 승인",
+      "description": "정성민·하주윤의 Cs2AgBiBr6 광검출기 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2024-02-15",
+      "category": "Career",
+      "title": "석사 졸업·SK하이닉스 입사",
+      "description": "원준 석사 졸업 및 입사",
+      "source": "Wix News"
+    },
+    {
+      "date": "2024-01-31",
+      "category": "Publication",
+      "title": "Carbon 논문 출판",
+      "description": "Navneet Kumar 박사 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2024-01-25",
+      "category": "Publication",
+      "title": "J. Alloys and Compounds 논문 출판",
+      "description": "정의진·임정아의 Rb 치환 페로브스카이트 메모리 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2023-11-23",
+      "category": "Award",
+      "title": "KISM2023 Best Presentation Award",
+      "description": "원준 발표상 수상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2023-11-05",
+      "category": "Publication",
+      "title": "J. Alloys and Compounds 논문 승인",
+      "description": "정의진의 Rb 치환 페로브스카이트 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2023-09-05",
+      "category": "Publication",
+      "title": "Nanoscale Horizons 논문 승인",
+      "description": "Khan 박사 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2023-09-01",
+      "category": "Award",
+      "title": "정보통신설비학회 우수논문상",
+      "description": "정의진 우수논문상 수상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2023-08-08",
+      "category": "Publication",
+      "title": "J. Physical Chemistry C 논문 승인",
+      "description": "정의진·김도현 박사 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2023-07-13",
+      "category": "Publication",
+      "title": "Surfaces and Interfaces 논문 승인",
+      "description": "정신 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2023-07-11",
+      "category": "Visit",
+      "title": "University of Utah 노모세 박사 방문",
+      "description": "HxCES 세미나",
+      "source": "Wix News"
+    },
+    {
+      "date": "2023-04-24",
+      "category": "Publication",
+      "title": "Chemosphere 논문 승인",
+      "description": "지수·Kumar 박사 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2023-04-03",
+      "category": "Visit",
+      "title": "문진욱 연구실 방문",
+      "description": "SK하이닉스 C&C 사업부 연구실 방문",
+      "source": "Wix News"
+    },
+    {
+      "date": "2023-03-01",
+      "category": "Publication",
+      "title": "Applied Sciences 논문 출판",
+      "description": "도현·의진 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2023-02-17",
+      "category": "Graduation",
+      "title": "석사 졸업 축하",
+      "description": "진욱·정신·정아·주윤 졸업",
+      "source": "Wix News"
+    },
+    {
+      "date": "2023-02-15",
+      "category": "Award",
+      "title": "BK21 Enrich IT Awards",
+      "description": "박진섭 교수 교육 부문 대상, Kumar 박사 Outstanding Research Award",
+      "source": "Wix News"
+    },
+    {
+      "date": "2023-02-01",
+      "category": "Welcome",
+      "title": "신규 연구원 환영",
+      "description": "김상민·정성민 합류",
+      "source": "Wix News"
+    },
+    {
+      "date": "2023-01-10",
+      "category": "Publication",
+      "title": "Nanomaterials 논문 승인",
+      "description": "Kumar 박사 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2022-10-01",
+      "category": "Publication",
+      "title": "Environmental Pollution 논문 승인",
+      "description": "Kumar 박사의 Zinc hydroxystannate/ZTO 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2022-09-22",
+      "category": "Publication",
+      "title": "J. Alloys and Compounds 논문 승인",
+      "description": "심문호의 Cs2AgBiBr6 광검출기 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2022-08-27",
+      "category": "Award",
+      "title": "2022 정보통신설비학회 우수논문상",
+      "description": "산화물 기반 에너지 하베스팅 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2022-08-09",
+      "category": "Publication",
+      "title": "J. Alloys and Compounds 논문 승인",
+      "description": "Shubhangi 박사의 BiFeO3:Sr PENG 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2022-05-06",
+      "category": "Award",
+      "title": "제29회 한국반도체학술대회 우수포스터상",
+      "description": "문진욱·정의진 수상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2022-03-08",
+      "category": "Publication",
+      "title": "Chemosphere 논문 승인",
+      "description": "Kumar 박사 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2022-02-24",
+      "category": "Award",
+      "title": "제7회 LED 광전자학회 우수포스터상",
+      "description": "정의진 수상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2022-02-18",
+      "category": "Award",
+      "title": "ICPBL+ 우수상",
+      "description": "봄스민 수상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2022-02-01",
+      "category": "Welcome",
+      "title": "허원준 연구원 합류",
+      "description": "석사 연구원 합류",
+      "source": "Wix News"
+    },
+    {
+      "date": "2022-01-25",
+      "category": "Publication",
+      "title": "Applied Sciences 논문 승인",
+      "description": "정의진·문진욱 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2021-09-07",
+      "category": "Publication",
+      "title": "Sensors 논문 승인",
+      "description": "준혁·정의진의 SnO2/ZnO 기반 UV 검출기 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2021-08-30",
+      "category": "Welcome",
+      "title": "연구실 새 식구 환영",
+      "description": "이흠·수항 석사 합류",
+      "source": "Wix News"
+    },
+    {
+      "date": "2021-08-27",
+      "category": "Award",
+      "title": "2021 정보통신설비학회 우수논문상",
+      "description": "봄스민 수상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2021-08-25",
+      "category": "Graduation",
+      "title": "김도현 박사·상성문 석사 졸업",
+      "description": "연구원 졸업 축하",
+      "source": "Wix News"
+    },
+    {
+      "date": "2021-06-11",
+      "category": "Graduation",
+      "title": "김도현 박사학위 심사 완료",
+      "description": "박사학위 심사 통과",
+      "source": "Wix News"
+    },
+    {
+      "date": "2021-05-21",
+      "category": "Award",
+      "title": "반도체디스플레이기술학회 우수논문상",
+      "description": "심문호 수상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2021-03-22",
+      "category": "Publication",
+      "title": "J. Alloys and Compounds 논문 승인",
+      "description": "Shubhangi 박사 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2021-02-20",
+      "category": "Publication",
+      "title": "Materials Science and Engineering B 논문 출판",
+      "description": "Babu·도현·동수 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2021-01-01",
+      "category": "Welcome",
+      "title": "신규 연구원 환영",
+      "description": "임정아·하주윤·문진욱·정신 합류",
+      "source": "Wix News"
+    },
+    {
+      "date": "2020-12-15",
+      "category": "Publication",
+      "title": "Composites Part B 논문 출판",
+      "description": "BTO/ZnSnO3 PENG 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2020-11-21",
+      "category": "Publication",
+      "title": "Materials Science and Engineering B 논문 승인",
+      "description": "Babu·도현·동수 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2020-10-15",
+      "category": "Publication",
+      "title": "Composites Part B 온라인 출판",
+      "description": "BTO/ZnSnO3 PENG 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2020-08-19",
+      "category": "Award",
+      "title": "한국진공학회 으뜸포스터발표상",
+      "description": "김도현 수상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2020-08-02",
+      "category": "Publication",
+      "title": "Materials Letters 논문 출판 예정",
+      "description": "Shubhangi 박사의 SnO2 습도 센서 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2020-07-09",
+      "category": "Award",
+      "title": "전자재료학회 하계학술대회 우수논문상",
+      "description": "다미·하영 학부생 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2020-07-07",
+      "category": "Lab",
+      "title": "ICSeA 연구그룹 출범",
+      "description": "Innovative Compound Semiconductors and Application Laboratory 출범",
+      "source": "Wix News"
+    },
+    {
+      "date": "2020-07-01",
+      "category": "Welcome",
+      "title": "신규 석사연구원 합류",
+      "description": "정봄스민·정신·심문호 합류",
+      "source": "Wix News"
+    },
+    {
+      "date": "2020-04-15",
+      "category": "Publication",
+      "title": "Sensors and Actuators A 논문 출판",
+      "description": "Yuexing Ji의 CuO/ZnO UV photodetector 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2020-03-01",
+      "category": "Welcome",
+      "title": "Shubhangi 박사 합류",
+      "description": "포스트닥 연구원 합류",
+      "source": "Wix News"
+    },
+    {
+      "date": "2020-02-23",
+      "category": "Publication",
+      "title": "Applied Sciences 논문 승인",
+      "description": "김도현 UV-A LED 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2020-02-12",
+      "category": "Publication",
+      "title": "Journal of Materials Science 논문 승인",
+      "description": "Dayakar 박사의 ZnO/Ag 광촉매·항균 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2020-01-28",
+      "category": "Publication",
+      "title": "Sensors and Actuators A 논문 승인",
+      "description": "Yuexing Ji 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2020-01-20",
+      "category": "Publication",
+      "title": "ACS Sustainable Chemistry & Engineering 논문 출판",
+      "description": "정의진의 ZTO MSM UV 검출기 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2019-12-17",
+      "category": "Award",
+      "title": "교육부 2019 우수성과 50선 선정",
+      "description": "광전자소자 전극·나노구 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2019-10-31",
+      "category": "Publication",
+      "title": "ACS Sustainable Chemistry & Engineering 논문 승인",
+      "description": "정의진 ZTO 검출기 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2019-09-29",
+      "category": "Publication",
+      "title": "J. Materials Science: Materials in Electronics 논문 출판",
+      "description": "Dayakar 박사 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2019-09-27",
+      "category": "Lab",
+      "title": "연구실 북악산 하이킹",
+      "description": "연구실 행사",
+      "source": "Wix News"
+    },
+    {
+      "date": "2019-09-10",
+      "category": "Visit",
+      "title": "졸업생 연승환 연구실 방문",
+      "description": "Alumni 방문",
+      "source": "Wix News"
+    },
+    {
+      "date": "2019-08-21",
+      "category": "Award",
+      "title": "신동수 박사 최우수 졸업상",
+      "description": "박사 졸업 수상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2019-08-21",
+      "category": "Graduation",
+      "title": "신동수·김택곤 박사 졸업",
+      "description": "박사 학위 취득",
+      "source": "Wix News"
+    },
+    {
+      "date": "2019-08-08",
+      "category": "Welcome",
+      "title": "상성문 석사연구원 합류",
+      "description": "신규 석사 연구원",
+      "source": "Wix News"
+    },
+    {
+      "date": "2019-04-25",
+      "category": "Publication",
+      "title": "Materials Science: Materials in Electronics 논문 승인",
+      "description": "Dayakar 박사 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2019-02-21",
+      "category": "Graduation",
+      "title": "정의진 석사 졸업",
+      "description": "석사학위 취득",
+      "source": "Wix News"
+    },
+    {
+      "date": "2019-02-15",
+      "category": "Conference",
+      "title": "2019 한국반도체학술대회 구두 발표",
+      "description": "민우·준혁·지연·지수 발표",
+      "source": "Wix News"
+    },
+    {
+      "date": "2018-12-21",
+      "category": "Award",
+      "title": "Nano Micro 2018 Best Poster Award",
+      "description": "Yuexing·동수 수상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2018-11-05",
+      "category": "Publication",
+      "title": "ACS Sustainable Chemistry & Engineering 논문 출판",
+      "description": "한주·동수 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2018-10-23",
+      "category": "Publication",
+      "title": "Surface Science & Technology 논문 승인",
+      "description": "태영·동수 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2018-09-01",
+      "category": "Welcome",
+      "title": "Dr. Dayakar·Zhanpeng 연구실 합류",
+      "description": "Postdoctoral/new researcher",
+      "source": "Wix News"
+    },
+    {
+      "date": "2018-07-19",
+      "category": "Publication",
+      "title": "ACS Sustainable Chemistry & Engineering 논문 출판",
+      "description": "연구실 공동 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2018-03",
+      "category": "Welcome",
+      "title": "수빈·민우·준혁·지수·지연 합류",
+      "description": "신규 연구원 합류",
+      "source": "Wix News"
+    },
+    {
+      "date": "2018-02-24",
+      "category": "Graduation",
+      "title": "동욱·한주 석사 졸업",
+      "description": "석사 학위 취득",
+      "source": "Wix News"
+    },
+    {
+      "date": "2018-02-24",
+      "category": "Award",
+      "title": "한주 최우수 졸업생상",
+      "description": "Graduate student award",
+      "source": "Wix News"
+    },
+    {
+      "date": "2018-01",
+      "category": "Publication",
+      "title": "Applied Surface Science 논문 출판",
+      "description": "동수 연구; 원문은 월까지만 제시됨",
+      "source": "Wix News"
+    },
+    {
+      "date": "2018",
+      "category": "Award",
+      "title": "박진섭 교수 Marquis Who’s Who 선정",
+      "description": "2018 Albert Nelson Marquis Lifetime Achievement Award 선정 소식",
+      "source": "Wix News"
+    },
+    {
+      "date": "2017-11-11",
+      "category": "Publication",
+      "title": "Optics Express 논문 승인",
+      "description": "태영 연구",
+      "source": "Wix News"
+    },
+    {
+      "date": "2017-10",
+      "category": "Publication",
+      "title": "J. Alloys and Compounds 논문 승인",
+      "description": "동수 연구; 원문은 월까지만 제시됨",
+      "source": "Wix News"
+    },
+    {
+      "date": "2017-09",
+      "category": "Publication",
+      "title": "Materials & Design 논문 승인",
+      "description": "한주 연구; 원문은 월까지만 제시됨",
+      "source": "Wix News"
+    },
+    {
+      "date": "2017-06-01",
+      "category": "Welcome",
+      "title": "Yuexing 연구원 합류",
+      "description": "석사 연구원 합류",
+      "source": "Wix News"
+    },
+    {
+      "date": "2017-02",
+      "category": "Welcome",
+      "title": "정의진 연구원 합류",
+      "description": "석사 연구원 합류; 원문은 월까지만 제시됨",
+      "source": "Wix News"
+    },
+    {
+      "date": "2017",
+      "category": "Award",
+      "title": "박진섭 교수 Marquis Who’s Who 선정",
+      "description": "2017 Albert Nelson Marquis Lifetime Achievement Award 선정",
+      "source": "Wix News"
+    },
+    {
+      "date": "2016-12",
+      "category": "Career",
+      "title": "상후·태영 취업",
+      "description": "각각 SK하이닉스·삼성전자 입사; 원문은 월까지만 제시됨",
+      "source": "Wix News"
+    },
+    {
+      "date": "2016-08-01",
+      "category": "Welcome",
+      "title": "찬울·홍범 연구원 합류",
+      "description": "신규 연구원 합류",
+      "source": "Wix News"
+    },
+    {
+      "date": "2016-04-18",
+      "category": "Welcome",
+      "title": "Dr. Kadam 합류",
+      "description": "포스트닥 연구원 합류",
+      "source": "Wix News"
+    },
+    {
+      "date": "2016-02-24",
+      "category": "Award",
+      "title": "KCS 2016 Best Poster Award",
+      "description": "태영 수상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2016-02-24",
+      "category": "Welcome",
+      "title": "한주 연구원 박사과정 합류",
+      "description": "박사과정 연구원 합류",
+      "source": "Wix News"
+    },
+    {
+      "date": "2015-07-27",
+      "category": "Award",
+      "title": "Optoelectronics and LED Conference Best Poster Award",
+      "description": "동수 수상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2015-02-12",
+      "category": "Award",
+      "title": "KCS 2015 Hynix Award",
+      "description": "윤형 수상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2014-08-19",
+      "category": "Award",
+      "title": "2014 LED and Solid State Lighting Conference Best Poster Award",
+      "description": "동수 수상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2014-06-26",
+      "category": "Award",
+      "title": "Electronic and Electronic Materials Conference 우수포스터상",
+      "description": "상후 수상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2014-02-26",
+      "category": "Award",
+      "title": "KCS 2014 Best Poster Award",
+      "description": "민준·윤형 수상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2013",
+      "category": "Publication",
+      "title": "서울대 공동연구 LED 성과 소개",
+      "description": "비극성 하이브리드 LED·나노구 관련 연구 성과 소개",
+      "source": "Wix News"
+    },
+    {
+      "date": "2013",
+      "category": "Award",
+      "title": "ICNST 2013 Best Poster Award",
+      "description": "김도현 Best Poster Award 수상",
+      "source": "Wix News"
+    },
+    {
+      "date": "2012",
+      "category": "Award",
+      "title": "Nanokorea 2012 Best Poster Award",
+      "description": "손태준의 ZnO 나노구조 LED 광추출 연구 수상",
+      "source": "Wix News"
+    }
+  ]
+}

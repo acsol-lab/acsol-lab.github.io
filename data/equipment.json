@@ -1,67 +1,69 @@
-[
-  {
-    "name": "Sonicator"
-  },
-  {
-    "name": "Spin coater"
-  },
-  {
-    "name": "Contact Aligner"
-  },
-  {
-    "name": "Glove box",
-    "photo": "/media/glove-box.jpg"
-  },
-  {
-    "name": "12\" Multi Chamber Cluster Sputtering System",
-    "photo": "/media/file-9.png"
-  },
-  {
-    "name": "Sputter"
-  },
-  {
-    "name": "Thermal Evaporator"
-  },
-  {
-    "name": "Theramal Atomic Layer Deposition(ALD)",
-    "photo": "/media/ald.jpg"
-  },
-  {
-    "name": "12\" Magnetic Vacuum Annealing Oven"
-  },
-  {
-    "name": "Furnace (Oxidation)"
-  },
-  {
-    "name": "Box Furnace"
-  },
-  {
-    "name": "CVT용 Furnace",
-    "photo": "/media/cvt-furnace.jpg"
-  },
-  {
-    "name": "Optical Microsope(OM)"
-  },
-  {
-    "name": "Scanning Electron Microscope(SEM)/Focus Ion Beam(FIB)"
-  },
-  {
-    "name": "Atomic Force Microscope(AFM)"
-  },
-  {
-    "name": "Source Measure Unit(SMU)"
-  },
-  {
-    "name": "Pulse Measure Unit(PMU)"
-  },
-  {
-    "name": "Elipsometer"
-  },
-  {
-    "name": "UV-VIS"
-  },
-  {
-    "name": "Vibrating Sample Magnetometer(VSM)",
-    "photo": "/media/vsmr.png"
-  }
-]
+{
+  "items": [
+    {
+      "name": "Sonicator"
+    },
+    {
+      "name": "Spin coater"
+    },
+    {
+      "name": "Contact Aligner"
+    },
+    {
+      "name": "Glove box",
+      "photo": "/media/glove-box.jpg"
+    },
+    {
+      "name": "12\" Multi Chamber Cluster Sputtering System",
+      "photo": "/media/file-9.png"
+    },
+    {
+      "name": "Sputter"
+    },
+    {
+      "name": "Thermal Evaporator"
+    },
+    {
+      "name": "Theramal Atomic Layer Deposition(ALD)",
+      "photo": "/media/ald.jpg"
+    },
+    {
+      "name": "12\" Magnetic Vacuum Annealing Oven"
+    },
+    {
+      "name": "Furnace (Oxidation)"
+    },
+    {
+      "name": "Box Furnace"
+    },
+    {
+      "name": "CVT용 Furnace",
+      "photo": "/media/cvt-furnace.jpg"
+    },
+    {
+      "name": "Optical Microsope(OM)"
+    },
+    {
+      "name": "Scanning Electron Microscope(SEM)/Focus Ion Beam(FIB)"
+    },
+    {
+      "name": "Atomic Force Microscope(AFM)"
+    },
+    {
+      "name": "Source Measure Unit(SMU)"
+    },
+    {
+      "name": "Pulse Measure Unit(PMU)"
+    },
+    {
+      "name": "Elipsometer"
+    },
+    {
+      "name": "UV-VIS"
+    },
+    {
+      "name": "Vibrating Sample Magnetometer(VSM)",
+      "photo": "/media/vsmr.png"
+    }
+  ]
+}
