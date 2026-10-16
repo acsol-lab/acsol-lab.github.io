@@ -46,6 +46,8 @@
       "department": "Dept. Nano Semiconductor Eng.",
       "email": "dale0324@naver.com",
       "research": "Vertical SOM",
+      "photo": "/media/file-37.jpg",
+      "casualPhoto": "/media/file-38.jpg",
       "sourcePhoto": "증명사진_edited.jpg"
     },
     {
@@ -70,6 +72,7 @@
       "email": "kyw7989@gmail.com",
       "research": "SOM",
       "photo": "/media/file-12.jpg",
+      "casualPhoto": "/media/file-39.jpg",
       "sourcePhoto": "권예원.jpg"
     },
     {
@@ -399,6 +402,7 @@
       "cohort": "3학기",
       "department": "Dept. AI Semiconductor Eng.",
       "research": "CMP",
+      "photo": "/media/cmp.jpg",
       "sourcePhoto": "CMP_백승호.jpg"
     },
     {
