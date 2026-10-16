@@ -57,13 +57,19 @@
       "photo": "/media/semfib.jpg"
     },
     {
-      "name": "Atomic Force Microscope(AFM)"
+      "name": "Atomic Force Microscope(AFM)",
+      "photo": "/media/afm.jpg"
     },
     {
-      "name": "Source Measure Unit(SMU)"
+      "name": "Source Measure Unit(SMU)",
+      "photo": "/media/smu.jpg"
     },
     {
-      "name": "Pulse Measure Unit(PMU)"
+      "name": "Pulse Measure Unit(PMU)",
+      "photo": "/media/pmu.jpg"
+    },
+    {
+      "name": "Oscilloscope"
     },
     {
       "name": "Elipsometer"
@@ -74,9 +80,6 @@
     {
       "name": "Vibrating Sample Magnetometer(VSM)",
       "photo": "/media/vsmr.png"
-    },
-    {
-      "name": "Oscilloscope"
     }
   ]
 }
