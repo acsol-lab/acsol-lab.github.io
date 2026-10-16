@@ -450,9 +450,10 @@ content:
       - name: pastResearch
         label: 재학 당시 연구 분야
         type: text
-      - name: email
-        label: 이메일 (선택사항)
-        type: string
+      - name: photo
+        label: 2024년 이후 졸업생 프로필 사진 (이전 연도는 업로드 불필요)
+        type: image
+        description: 최근 졸업생은 작은 사진 카드로, 2023년 이전은 사진 없이 한 줄 목록으로 표시됩니다. 권장 비율 3:4.
       - name: typography
         label: 선택 항목의 글자 디자인 (제목 / 설명 구분)
         description: 제목은 항목의 이름·헤드라인, 설명/본문은 부가 설명 텍스트입니다. 글자 크기를 0 또는 비워 두면 페이지 기본값입니다.

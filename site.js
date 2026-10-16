@@ -763,23 +763,91 @@
     target.replaceChildren(...sections);
   }
   async function renderAlumni() {
-    const entries = await getJSON('alumni'); const target = $('#alumni-list'); if (!target) return;
-    if (!entries.length) { target.replaceChildren(emptyNote('Our wider community.', '졸업생 정보를 업데이트하고 있습니다.')); return; }
-    target.replaceChildren(...entries.map(person => {
-      const card = node('article', 'alumni-card'), head = node('div', 'alumni-card-header');
-      head.append(node('h3', '', person.name));
-      head.append(node('span', 'alumni-meta', [text(person.degree), text(person.graduationYear)].filter(Boolean).join(' / ')));
-      card.append(head); const dl = node('dl', 'alumni-details');
-      for (const [label, key] of [['Job','company'],['Research','pastResearch'],['Email','email']]) {
-        if (!text(person[key])) continue;
-        const dt = node('dt', '', label), dd = node('dd');
-        if (key === 'email' && safeEmail(person.email)) {
-          const link = node('a', '', person.email); link.href = safeEmail(person.email); dd.append(link);
-        } else dd.textContent = text(person[key]);
-        dl.append(dt, dd);
+    const target = $('#alumni-list'); if (!target) return;
+    const entries = await getJSON('alumni');
+    if (!entries.length) {
+      target.replaceChildren(emptyNote('Our wider community.', '졸업생 정보를 업데이트하고 있습니다.'));
+      return;
+    }
+
+    const alumniYear = entry => {
+      const match = text(entry.graduationYear).match(/(?:19|20)\d{2}/);
+      return match ? Number(match[0]) : 0;
+    };
+    // Sort by year/month descending but keep the original order within a tie.
+    const dateScore = entry => {
+      const match = text(entry.graduationYear).match(/((?:19|20)\d{2})(?:[.\-/ ](0?[1-9]|1[0-2]))?/);
+      return match ? Number(match[1])*12 + Number(match[2] || 0) : 0;
+    };
+    const ordered = entries.map((person, index) => ({person, index}))
+      .sort((a,b) => dateScore(b.person) - dateScore(a.person) || a.index - b.index)
+      .map(({person}) => person);
+    const recent = ordered.filter(person => alumniYear(person) >= 2024);
+    const archive = ordered.filter(person => alumniYear(person) < 2024);
+    const sections = [];
+
+    if (recent.length) {
+      const section = node('section','alumni-directory-section alumni-recent-section');
+      const heading = node('div','alumni-directory-heading');
+      heading.append(node('h3','','Recent Alumni'),node('span','alumni-directory-period','2024 – Present'));
+      const grid = node('div','alumni-compact-grid');
+      grid.setAttribute('role','list');
+      for (const person of recent) {
+        const card = node('article','alumni-compact-card');
+        card.setAttribute('role','listitem');
+        applyEntryTypography(card, person);
+        const photo = node('div','alumni-compact-photo');
+        const fallback = () => {
+          const holder = node('div','alumni-compact-fallback');
+          holder.append(node('span','','ACSoL'),node('strong','',initials(person.name)));
+          return holder;
+        };
+        setImage(photo, person.photo, text(person.name, 'Alumni') + ' 프로필 사진', fallback);
+        const info = node('div','alumni-compact-info');
+        const name = node('h4','alumni-compact-name', text(person.name, 'Alumni'));
+        name.title = text(person.name);
+        info.append(name);
+        if (text(person.pastResearch)) {
+          const field = node('p','alumni-compact-research',person.pastResearch);
+          field.title = text(person.pastResearch); info.append(field);
+        }
+        if (text(person.company)) {
+          const company = node('p','alumni-compact-company',person.company);
+          company.title = text(person.company);info.append(company);
+        }
+        const history = [text(person.graduationYear),text(person.degree)].filter(Boolean).join(' · ');
+        if (history) info.append(node('p','alumni-compact-year',history));
+        card.append(photo,info);grid.append(card);
       }
-      if (dl.children.length) card.append(dl); return applyEntryTypography(card,person);
-    }));
+      section.append(heading,grid);sections.push(section);
+    }
+
+    if (archive.length) {
+      const section=node('section','alumni-directory-section alumni-archive-section');
+      const heading=node('div','alumni-directory-heading');
+      heading.append(node('h3','','Earlier Alumni'),node('span','alumni-directory-period','2023 and earlier'));
+      const table=node('div','alumni-archive-table');
+      table.setAttribute('role','list');
+      const header=node('div','alumni-archive-columns');
+      for(const textLabel of ['졸업 / 활동','이름 · 학위','연구 분야','현 직장 / 소속']) header.append(node('span','',textLabel));
+      table.append(header);
+      for (const person of archive) {
+        const row=node('div','alumni-archive-row');
+        row.setAttribute('role','listitem');applyEntryTypography(row,person);
+        const year=node('span','alumni-archive-year',text(person.graduationYear,'—'));
+        const name=node('span','alumni-archive-name');
+        name.append(node('strong','',text(person.name,'이름 미등록')));
+        if(text(person.degree)) name.append(node('small','',person.degree));
+        const research=node('span','alumni-archive-research',text(person.pastResearch,'—'));
+        const company=node('span','alumni-archive-company',text(person.company,'—'));
+        for(const [element,value] of [[year,year.textContent],[name,text(person.name)],[research,research.textContent],[company,company.textContent]]) {
+          if(value) element.title=value;
+        }
+        row.append(year,name,research,company);table.append(row);
+      }
+      section.append(heading,table);sections.push(section);
+    }
+    target.replaceChildren(...sections);
   }
 
   function makeFilter(label, value, selected, callback) {

@@ -1,30 +1,26 @@
-# ACSoL 연구실 홈페이지 v16.1 — 산학장학생 표시 및 Home 사진 제목 개선
+# ACSoL Alumni 레이아웃 업데이트 (v16.1 기반)
 
-기준: **v16.1 (Students 학위과정·기수 통합 배지)**. 앞서 요청한 Research 요약/상세 사진 분리 기능도 유지합니다. 거절한 Gallery v16.2 변경사항은 포함하지 않습니다.
+v16.1(Students 석박통합 8기 배지 반영) + 이후 산학장학생 패치 기준입니다. **v16.2 Gallery 구조 변경은 적용하지 않았습니다.**
 
-## GitHub에 업로드하여 교체할 파일
-- `.pages.yml`
-- `site.js`
-- `styles.css`
-- `students.html`
-- `index.html`
-- `research.html`, `research-detail.html` (이전 Research 사진 분리 패치와 캐시 버전 통일용)
-- `assets/samsung-scholarship-logo.png` (신규)
-- `assets/skhynix-scholarship-logo.png` (신규)
+## 변경 내용
+- 2024년 이후 Alumni: 졸업사진 + 이름, 연구 분야, 현 직장, 졸업연도. PC 7~8열/모바일 2~3열.
+- 2023년 이전 Alumni: 한 사람당 1행짜리 간결한 목록(연도·이름/학위·연구분야·현 직장).
+- 모든 Alumni 화면 및 CMS에서 이메일 제거.
+- Alumni 사진 필드 `photo` 신규 추가 (2024년 이후 졸업생만 사용).
+- 기존 Alumni 데이터의 `email` 필드는 표시되지 않지만, **공개 JSON에서 지우려면 추가 조치가 필요합니다**.
 
-**기존 `data/`, `media/`, `gallery.json`, `students.json` 등의 데이터는 변경하거나 삭제하지 마세요.**
+## 기본 업데이트: 기존 데이터 유지
+GitHub 저장소 최상위에 `alumni.html`, `site.js`, `styles.css`, `.pages.yml` 4개를 교체합니다.
+데이터 폴더나 사진 폴더는 교체하지 마세요. `site.js`와 `styles.css`의 새 코드는 v16.1의 산학장학생 및 Home 이미지 캡션 변경을 포함합니다.
+CMS → People → Alumni 에 새 `2024년 이후 졸업생 프로필 사진` 필드가 생깁니다.
+`data/alumni.json`의 2024년 이후 인물마다 `photo` 업로드를 하면 카드에 사진이 표시됩니다.
+사진이 없으면 연구실 글자와 이니셜로 만든 자리표시자가 표시됩니다.
 
-## Pages CMS 사용법
-1. Pages CMS → People → 재학생 명단으로 이동합니다.
-2. 해당 학생을 선택합니다.
-3. `산학장학생 구분 (학생 카드에 기업 로고 표시)` 항목을 `없음`, `삼성 산학장학생`, `SK하이닉스 산학장학생` 중 선택합니다.
-4. 저장하면 학생 카드에서 기존 이름·학위/기수 배지 옆에 기업 로고와 `산학장학생` 문구가 나타납니다.
+## 이메일을 JSON에서 실제 제거하고 싶을 때
+현재 GitHub Pages는 `data/alumni.json` 파일을 공개합니다. **화면/CMS에서 이메일을 숨기는 것과 파일에서 이메일 정보를 삭제하는 것은 다릅니다.**
+- 기존 Alumni 데이터를 편집한 적이 없다면 `OPTIONAL_EMAIL_REMOVAL/alumni_sanitized_v16_baseline.json`을 `data/alumni.json`으로 이름을 바꿔 업로드해 덮어쓸 수 있습니다.
+- 이미 CMS에서 이름·직장·사진 등을 바꾸었다면 위 JSON으로 덮어쓰지 마세요. GitHub에서 최신 `data/alumni.json`을 내려받아 `python OPTIONAL_EMAIL_REMOVAL/strip_alumni_emails.py data/alumni.json`으로 이메일 필드만 제거한 다음 업로드하세요. 실행 전 원본 백업이 자동 생성됩니다.
+- 이전 Commit에는 이메일이 남아 있을 수 있으므로, 현재 공개 파일에서 제거하는 것만으로 Git 기록 전체가 지워지는 것은 아닙니다.
 
-기존 학생은 `scholarshipCompany` 값이 없으므로 선택하지 않은 상태와 동일하게 표시하지 않습니다.
-
-## Home 사진 아래 제목 변경
-기존 Gallery 사진의 `title`이 메인 사진 하단에 **15~17px 굵은 제목**으로 표시되고 날짜는 **12px**로 우측 정렬됩니다.
-CMS의 Gallery 사진 제목을 수정하면 홈 캡션도 갱신됩니다. 원래 사진 위치와 슬라이드 기능은 변경하지 않았습니다.
-
-## 참고
-PPT의 삼성·SK하이닉스 로고 이미지를 잘라 웹용으로 포함했고, 산학장학생 문구는 가독성을 위해 HTML 텍스트로 별도 표기합니다.
+## 테스트
+2024년 이후 22건 / 2023년 이전 39건 기준으로 검증합니다. 실제 GitHub Pages 배포 후 홈페이지에서 최신 버전으로 새로고침해 주세요.
