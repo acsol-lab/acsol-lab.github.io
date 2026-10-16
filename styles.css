@@ -1525,3 +1525,30 @@ body { font-family: var(--cms-page-font,var(--cms-global-font,var(--sans))); fon
     image-rendering: auto;
     filter: none;
 }
+
+/* Students 일상사진 Hover 화질 개선 */
+
+/* 일상사진의 확대/축소 애니메이션 제거 */
+.student-team-group .student-photo .student-casual-photo {
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center top !important;
+
+    transform: none !important;
+    filter: none !important;
+
+    image-rendering: auto;
+
+    /* 크기 변화 없이 투명도만 전환 */
+    transition: opacity 0.3s ease !important;
+}
+
+/* Hover 및 키보드 포커스 시에도 크기 고정 */
+.student-team-group .student-card:hover .student-casual-photo,
+.student-team-group .student-card:focus-within .student-casual-photo,
+.student-team-group .student-card:focus .student-casual-photo {
+    opacity: 1;
+    transform: none !important;
+}
