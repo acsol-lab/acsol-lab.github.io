@@ -42,7 +42,7 @@
       "title": "MRAM",
       "subtitle": "MRAM",
       "description": "자기터널접합(MTJ)구조의 자화 스위칭 특성을 활용하여 차세대 컴퓨팅 소자를 연구합니다.",
-      "keywords": "· STT\n· SOT\n· Skyrmion-MRAM",
+      "keywords": "· STT-MRAM\n· SOT-MRAM\n· Skyrmion-MRAM",
       "summaryImage": "/media/research/MRAM_요약사진.png",
       "detailImage": "/media/research/MRAM_세부대표사진.png",
       "detailIntro": "MRAM팀은 CoFeB/MgO 기반 수직자기이방성(PMA) 박막과 SyAF spin-valve, p-MTJ 구조를 정밀하게 설계하고, 이를 기반으로 자기 스커미온(skyrmion)을 이용한 차세대 비휘발성 메모리(SOT-MRAM)와 뉴로모픽 인공 시냅스 소자를 연구합니다.  물질과 공정 변수가 계면 특성·결정성·자기이방성·보자력에 미치는 영향을 규명하고, 목표 소자 특성에 맞는 최적 조건을 도출하여 그에 따른 전기적 특성 변화를 분석합니다. 소자 설계부터 공정, 분석, 평가까지 전 과정을 직접 수행하며, 적층 구조 설계를 통해 높은 TMR, 스커미온 생성·이동 제어, 다중준위 저항 변화 구현 등을 목표로 합니다."
