@@ -37,5 +37,14 @@
   },
   {
     "name": "Thermal Evaporator"
+  },
+  {
+    "name": "Sonicator"
+  },
+  {
+    "name": "Elipsometer"
+  },
+  {
+    "name": "UV-VIS"
   }
 ]
