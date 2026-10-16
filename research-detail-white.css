@@ -1,0 +1,10 @@
+/* ACSoL Research detail image background — keep original image aspect ratio. */
+body[data-page="research-detail"] .research-detail-cover,
+body[data-page="research-detail"] .research-detail-cover > img,
+body[data-page="research-detail"] .research-detail-figure,
+body[data-page="research-detail"] .research-detail-figure img,
+body[data-page="research-detail"] .research-detail-block figure,
+body[data-page="research-detail"] .research-detail-block picture {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
