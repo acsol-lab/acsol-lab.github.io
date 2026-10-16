@@ -33,7 +33,7 @@
     "name": "Pulse Measure Unit(PMU)"
   },
   {
-    "name": "Atomic Layer Deposition(ALD)"
+    "name": "Theramal Atomic Layer Deposition(ALD)"
   },
   {
     "name": "Thermal Evaporator"
@@ -46,5 +46,15 @@
   },
   {
     "name": "UV-VIS"
+  },
+  {
+    "name": "CVT용 Furnace"
+  },
+  {},
+  {
+    "name": "Glove box"
+  },
+  {
+    "name": "Spin coater"
   }
 ]
