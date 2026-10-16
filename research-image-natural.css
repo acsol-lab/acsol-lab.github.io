@@ -1,0 +1,49 @@
+/* ACSoL v16.1 — Research detail images at intrinsic aspect ratio.
+   Scope: the Research detail pages only; overview cards are unchanged.
+   Load AFTER styles.css. */
+
+/* Use one identical content width on every Research detail page. */
+body[data-page="research-detail"] .research-detail-article {
+  width: 100%;
+  max-width: 1080px;
+}
+
+/* Main research image: keep the uploaded picture's full frame. */
+body[data-page="research-detail"] .research-detail-article .research-detail-cover {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: auto;
+  overflow: visible;
+}
+body[data-page="research-detail"] .research-detail-article .research-detail-cover > img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Additional images in Research detail sections: no fixed max-height. */
+body[data-page="research-detail"] .research-detail-article .research-detail-figure {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  min-width: 0;
+}
+body[data-page="research-detail"] .research-detail-article .research-detail-figure img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+  margin: 0;
+}
