@@ -12,7 +12,8 @@
     "name": "Glove box"
   },
   {
-    "name": "12\" Multi Chamber Cluster Sputtering System"
+    "name": "12\" Multi Chamber Cluster Sputtering System",
+    "photo": "/media/12-inch-sputteringr-1.png"
   },
   {
     "name": "Sputter"
@@ -24,8 +25,7 @@
     "name": "Theramal Atomic Layer Deposition(ALD)"
   },
   {
-    "name": "12\" Magnetic Vacuum Annealing Oven",
-    "photo": "/media/ex-situ-annealing.png"
+    "name": "12\" Magnetic Vacuum Annealing Oven"
   },
   {
     "name": "Furnace (Oxidation)"
