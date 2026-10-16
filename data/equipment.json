@@ -2,87 +2,87 @@
   "items": [
     {
       "name": "Sonicator",
-      "photo": "/media/sonicator.jpg"
+      "photo": "/media/equipment/Sonicator_장비사진.jpg"
     },
     {
       "name": "Spin coater",
-      "photo": "/media/spin-coater.jpg"
+      "photo": "/media/equipment/Spin_coater_장비사진.jpg"
     },
     {
       "name": "Contact Aligner",
-      "photo": "/media/lithography-1.jpg"
+      "photo": "/media/equipment/Contact_Aligner_장비사진.jpg"
     },
     {
       "name": "Glove box",
-      "photo": "/media/glove-box.jpg"
+      "photo": "/media/equipment/Glove_box_장비사진.jpg"
     },
     {
       "name": "12\" Multi Chamber Cluster Sputtering System",
-      "photo": "/media/12inch-sputter-1.jpg"
+      "photo": "/media/equipment/12_Multi_Chamber_Cluster_Sputtering_System_장비사진.jpg"
     },
     {
       "name": "RF Sputter/DC Sputter",
-      "photo": "/media/sputter.jpg"
+      "photo": "/media/equipment/RF_Sputter_DC_Sputter_장비사진.jpg"
     },
     {
       "name": "Thermal Evaporator",
-      "photo": "/media/thermal-evaporator.jpg"
+      "photo": "/media/equipment/Thermal_Evaporator_장비사진.jpg"
     },
     {
       "name": "Theramal Atomic Layer Deposition(ALD)",
-      "photo": "/media/ald.jpg"
+      "photo": "/media/equipment/Theramal_Atomic_Layer_Deposition(ALD)_장비사진.jpg"
     },
     {
       "name": "12\" Magnetic Vacuum Annealing Oven",
-      "photo": "/media/magnetic-furnace.jpg"
+      "photo": "/media/equipment/12_Magnetic_Vacuum_Annealing_Oven_장비사진.jpg"
     },
     {
       "name": "Tube Furnace",
-      "photo": "/media/furnace.jpg"
+      "photo": "/media/equipment/Tube_Furnace_장비사진.jpg"
     },
     {
       "name": "Box Furnace",
-      "photo": "/media/furnace2-1.jpg"
+      "photo": "/media/equipment/Box_Furnace_장비사진.jpg"
     },
     {
       "name": "CVT용 Furnace",
-      "photo": "/media/cvt-furnace.jpg"
+      "photo": "/media/equipment/CVT용_Furnace_장비사진.jpg"
     },
     {
       "name": "Optical Microsope(OM)",
-      "photo": "/media/om-1.jpg"
+      "photo": "/media/equipment/Optical_Microsope(OM)_장비사진.jpg"
     },
     {
       "name": "Scanning Electron Microscope(SEM)/Focus Ion Beam(FIB)",
-      "photo": "/media/semfib.jpg"
+      "photo": "/media/equipment/Scanning_Electron_Microscope(SEM)_Focus_Ion_Beam(FIB)_장비사진.jpg"
     },
     {
       "name": "Atomic Force Microscope(AFM)",
-      "photo": "/media/afm3.jpg"
+      "photo": "/media/equipment/Atomic_Force_Microscope(AFM)_장비사진.jpg"
     },
     {
       "name": "Source Measure Unit(SMU)",
-      "photo": "/media/smu.jpg"
+      "photo": "/media/equipment/Source_Measure_Unit(SMU)_장비사진.jpg"
     },
     {
       "name": "Pulse Measure Unit(PMU)",
-      "photo": "/media/pmu.jpg"
+      "photo": "/media/equipment/Pulse_Measure_Unit(PMU)_장비사진.jpg"
     },
     {
       "name": "Oscilloscope",
-      "photo": "/media/oscilloscope-1.jpg"
+      "photo": "/media/equipment/Oscilloscope_장비사진.jpg"
     },
     {
       "name": "Elipsometer",
-      "photo": "/media/elipsometer.jpg"
+      "photo": "/media/equipment/Elipsometer_장비사진.jpg"
     },
     {
       "name": "UV-VIS",
-      "photo": "/media/uv-vis.jpg"
+      "photo": "/media/equipment/UV-VIS_장비사진.jpg"
     },
     {
       "name": "Vibrating Sample Magnetometer(VSM)",
-      "photo": "/media/vsmr.png"
+      "photo": "/media/equipment/Vibrating_Sample_Magnetometer(VSM)_장비사진.png"
     }
   ]
 }
