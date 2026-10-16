@@ -825,7 +825,7 @@
     if (archive.length) {
       const section=node('section','alumni-directory-section alumni-archive-section');
       const heading=node('div','alumni-directory-heading');
-      heading.append(node('h3','','Earlier Alumni'),node('span','alumni-directory-period','2023 and earlier'));
+      heading.append(node('h3','','Alumni (~2023)'),node('span','alumni-directory-period','2023 and earlier'));
       const table=node('div','alumni-archive-table');
       table.setAttribute('role','list');
       const header=node('div','alumni-archive-columns');
