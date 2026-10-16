@@ -2,13 +2,13 @@
   {
     "title": "ACSoL 석사졸업식",
     "date": "2026. 02. 24",
-    "image": "/media/img7804-4.avif",
+    "image": "/media/acsol-1.png",
     "featured": true
   },
   {
     "title": "26학년도 ACSoL신입생 오리엔테이션",
     "date": "2025. 12. 25",
-    "image": "/media/26-acsol.png",
+    "image": "/media/26-acsol-1.png",
     "featured": true
   },
   {
@@ -38,13 +38,13 @@
   {
     "title": "KISM2024",
     "date": "2024. 11. 13",
-    "image": "/media/img7804-1.avif",
+    "image": "/media/24-kism-1.png",
     "featured": false
   },
   {
-    "title": "KISM2024",
+    "title": "KISM2023",
     "date": "2023. 11. 21",
-    "image": "/media/img7804-1.avif",
+    "image": "/media/23-kism.png",
     "featured": false
   },
   {
