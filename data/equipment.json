@@ -1,32 +1,41 @@
 [
   {
-    "name": "Contact Aligner",
-    "model": "",
-    "photo": ""
+    "name": "Contact Aligner"
   },
   {
-    "name": "12\" Multi Chamber Cluster Sputtering System",
-    "model": "",
-    "photo": ""
+    "name": "12\" Multi Chamber Cluster Sputtering System"
   },
   {
-    "name": "Sputter",
-    "model": "",
-    "photo": ""
+    "name": "Sputter"
   },
   {
-    "name": "12\" Magnetic Vacuum Annealing Oven",
-    "model": "",
-    "photo": ""
+    "name": "12\" Magnetic Vacuum Annealing Oven"
   },
   {
-    "name": "Furnace (Oxidation)",
-    "model": "",
-    "photo": ""
+    "name": "Furnace (Oxidation)"
   },
   {
-    "name": "Box Furnace",
-    "model": "",
-    "photo": ""
+    "name": "Box Furnace"
+  },
+  {
+    "name": "Scanning Electron Microscope(SEM)/Focus Ion Beam(FIB)"
+  },
+  {
+    "name": "Atomic Force Microscope(AFM)"
+  },
+  {
+    "name": "Optical Microsope(OM)"
+  },
+  {
+    "name": "Source Measure Unit(SMU)"
+  },
+  {
+    "name": "Pulse Measure Unit(PMU)"
+  },
+  {
+    "name": "Atomic Layer Deposition(ALD)"
+  },
+  {
+    "name": "Thermal Evaporator"
   }
 ]
