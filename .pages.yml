@@ -143,11 +143,23 @@ content:
       - name: keywords
         label: 관련 키워드
         type: text
-      - name: image
-        label: 연구 분야 사진 업로드
+      - name: summaryImage
+        label: 요약 카드 사진 (Research 목록 / Home 요약용)
         type: image
+      - name: detailImage
+        label: 세부 페이지 대표 사진 (Explore research 클릭 후)
+        type: image
+      - name: image
+        label: 공통 예비 이미지 (위 두 칸을 비웠을 때만 사용)
+        type: image
+      - name: summaryImageAlt
+        label: 요약 카드 사진 설명 (선택)
+        type: string
+      - name: detailImageAlt
+        label: 세부 페이지 대표 사진 설명 (선택)
+        type: string
       - name: imageAlt
-        label: 사진 설명 (접근성)
+        label: 공통 사진 설명 (선택 · 위 설명 칸을 비웠을 때 사용)
         type: string
       - name: detailIntro
         label: 펼쳤을 때 나오는 상세 도입 설명

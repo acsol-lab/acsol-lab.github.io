@@ -455,6 +455,24 @@
     if (map && /^https:\/\/[^\s]+$/i.test(url)) {map.href=url;map.hidden=false;}
   }
 
+  function researchSummarySrc(item) {
+    return mediaURL(item?.summaryImage) ? item.summaryImage : item?.image;
+  }
+
+  function researchDetailSrc(item) {
+    if (mediaURL(item?.detailImage)) return item.detailImage;
+    if (mediaURL(item?.summaryImage)) return item.summaryImage;
+    return item?.image;
+  }
+
+  function researchSummaryAlt(item) {
+    return text(item?.summaryImageAlt, item?.imageAlt, item?.title);
+  }
+
+  function researchDetailAlt(item) {
+    return text(item?.detailImageAlt, item?.imageAlt, item?.title);
+  }
+
   async function renderResearchOverview() {
     const host=$('#research-overview');if (!host) return;
     const entries=await getJSON('research');
@@ -462,7 +480,7 @@
     host.replaceChildren(...entries.map((item,index) => {
       const card=node('a','research-overview-card');applyEntryTypography(card,item);card.href='research-detail.html?topic='+(index+1);
       const image=node('div','research-overview-image');
-      setImage(image,item.image,text(item.imageAlt,item.title),() => conceptImage('study-'+(index%4+1)+'-color.svg'),{concept:true});
+      setImage(image,researchSummarySrc(item),researchSummaryAlt(item),() => conceptImage('study-'+(index%4+1)+'-color.svg'),{concept:true});
       const copy=node('div','research-overview-copy');
       copy.append(node('span','overline',String(index+1).padStart(2,'0')+' / RESEARCH'),node('h2','',item.title));
       if (text(item.description)) copy.append(node('p','',item.description));
@@ -484,7 +502,7 @@
     if (text(item.subtitle))article.append(node('p','research-detail-subtitle',item.subtitle));
     if (text(item.description))article.append(node('p','research-detail-lead',item.description));
     const cover=node('div','research-detail-cover');
-    setImage(cover,item.image,text(item.imageAlt,item.title),()=>conceptImage('study-'+((index-1)%4+1)+'-color.svg'),{concept:true});
+    setImage(cover,researchDetailSrc(item),researchDetailAlt(item),()=>conceptImage('study-'+((index-1)%4+1)+'-color.svg'),{concept:true});
     article.append(cover);
     if (text(item.detailIntro))article.append(node('p','research-detail-intro',item.detailIntro));
     for (const section of (Array.isArray(item.detailSections)?item.detailSections:[])) {
@@ -556,7 +574,7 @@
       target.replaceChildren(...entries.slice(0,4).map((item, index) => {
         const link = node('a', 'research-mini'); link.href = 'research.html#research-' + (index + 1);
         const visual = node('div', 'mini-visual');
-        setImage(visual, item.image, text(item.imageAlt, item.title), () => conceptImage('study-' + (index % 4 + 1) + '-color.svg'), {concept: true});
+        setImage(visual, researchSummarySrc(item), researchSummaryAlt(item), () => conceptImage('study-' + (index % 4 + 1) + '-color.svg'), {concept: true});
         const label = node('div', 'mini-label'); label.append(node('span', 'number', String(index + 1).padStart(2,'0') + ' / RESEARCH'), arrow());
         link.append(visual, label, node('h3', '', item.title), node('p', 'mini-desc', item.subtitle || item.description)); return link;
       })); return;
@@ -580,7 +598,7 @@
       const card = node('article', 'research-feature');applyEntryTypography(card,item); card.id = 'research-' + (index + 1);
       const preview = node('div', 'research-feature-preview');
       const visual = node('div', 'research-visual');
-      setImage(visual, item.image, text(item.imageAlt, item.title), () => conceptImage('study-' + (index % 4 + 1) + '-color.svg'), {concept: true});
+      setImage(visual, researchSummarySrc(item), researchSummaryAlt(item), () => conceptImage('study-' + (index % 4 + 1) + '-color.svg'), {concept: true});
       const body = node('div', 'feature-body');
       const h2 = node('h2', '', item.title); h2.id = 'research-heading-' + (index + 1);
       body.append(node('span', 'feature-number', String(index+1).padStart(2,'0') + ' / RESEARCH'), h2);
