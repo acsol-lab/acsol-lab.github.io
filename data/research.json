@@ -22,7 +22,7 @@
       "title": "Atomic Layer Deposition",
       "subtitle": "Fabrication & integration",
       "description": "Thermal ALD 공정으로 High-k 산화물 박막을 원자층 단위로 정밀하게 성장시키고, 이를 기반으로 강유전체 를 이용한 차세대 비휘발성 메모리인 FeRAM을 연구합니다.",
-      "keywords": "· Hf, Zr, Al 산화물의 Thermal ALD 공정 개발 및 최적화\n· 펄스,퍼지 시간, 공정 온도, 산화제 종류(O₃, H₂O)가 박막 내 C/N 불순물·결정상에 미치는 영향 \n· 고농도 오존제네레이터 장비 보유로 오존농도에 따른 물성 분석 \n· 슈퍼사이클(super-cycle)을 이용한 조성 제어 및 도핑 (HZO) · 신규 전구체 탐색 및 표면 반응 메커니즘 연구 (DFT 기반 전구체 스크리닝 포함)\n\n",
+      "keywords": "· Hf, Zr, Al 산화물의 Thermal ALD 공정 개발 및 최적화\n· 펄스,퍼지 시간, 공정 온도, 산화제 종류(O₃, H₂O)가 박막 내 C/N 불순물, 결정상에 미치는 영향 \n· 고농도 오존제네레이터 장비 보유로 오존농도에 따른 물성 분석 \n· 슈퍼사이클(super-cycle)을 이용한 조성 제어 및 도핑 (HZO) \n· 신규 전구체 탐색 및 표면 반응 메커니즘 연구 (DFT 기반 전구체 스크리닝 포함)\n\n",
       "summaryImage": "/media/chatgpt-2026-10-16-120729-2.png",
       "detailImage": "/media/Ferro.png",
       "imageAlt": "3D Semiconductor Process 연구 이미지",
