@@ -434,5 +434,21 @@
     "graduationYear": "2014",
     "company": "LG 전자",
     "pastResearch": "Improvement of QE of LED using nanorods"
+  },
+  {
+    "name": "장은우",
+    "degree": "석사",
+    "graduationYear": "2025",
+    "company": "SK Hynix",
+    "pastResearch": "GAA",
+    "photo": "/media/file-63.jpg"
+  },
+  {
+    "name": "김주연",
+    "degree": "석사",
+    "graduationYear": "2025",
+    "company": "SK Hyxnix",
+    "pastResearch": "CMP",
+    "photo": "/media/file-64.jpg"
   }
 ]
