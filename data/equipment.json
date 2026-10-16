@@ -1,10 +1,32 @@
 [
   {
+    "name": "Contact Aligner",
+    "model": "",
+    "photo": ""
+  },
+  {
+    "name": "12\" Multi Chamber Cluster Sputtering System",
+    "model": "",
+    "photo": ""
+  },
+  {
     "name": "Sputter",
-    "model": "Infovion-a",
-    "manufacturer": "Infovion",
-    "photo": "/media/img7804.avif",
-    "description": "쿠폰 스퍼터 개쓰레기",
-    "applications": "김재경 종속 "
+    "model": "",
+    "photo": ""
+  },
+  {
+    "name": "12\" Magnetic Vacuum Annealing Oven",
+    "model": "",
+    "photo": ""
+  },
+  {
+    "name": "Furnace (Oxidation)",
+    "model": "",
+    "photo": ""
+  },
+  {
+    "name": "Box Furnace",
+    "model": "",
+    "photo": ""
   }
 ]

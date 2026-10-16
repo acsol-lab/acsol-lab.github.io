@@ -323,8 +323,11 @@
     const overlay=node('div','recruit-banner-overlay');
     overlay.setAttribute('role','presentation');
     const popup=node('section','recruit-banner-popup');
-    popup.setAttribute('role','dialog');popup.setAttribute('aria-modal','true');
+    popup.setAttribute('role','region');
     popup.setAttribute('aria-label','연구실 모집 및 안내 배너');
+    const grip=node('div','recruit-banner-drag-handle','ACSoL  /  ANNOUNCEMENT     ⋮⋮  드래그하여 이동');
+    grip.title='마우스로 잡아서 배너 위치 이동';
+    grip.setAttribute('aria-label','이 배너를 드래그하여 이동할 수 있습니다');
     const picture=node('div','recruit-banner-image');
     const link=node('a','recruit-banner-link');link.append(picture);
     const footer=node('div','recruit-banner-footer');
@@ -332,7 +335,29 @@
     const check=node('input');check.type='checkbox';check.id='recruit-banner-hide-today';
     label.append(check,document.createTextNode(' 오늘 하루 보지 않기'));
     const done=node('button','recruit-banner-done','닫기');done.type='button';
-    footer.append(label,done);popup.append(link,footer);overlay.append(popup);
+    footer.append(label,done);popup.append(grip,link,footer);overlay.append(popup);
+    // Move only from the banner handle; buttons, links and text remain usable.
+    let drag=null;
+    grip.addEventListener('pointerdown',ev=>{
+      if(ev.button!==0)return;
+      const r=popup.getBoundingClientRect();
+      popup.style.left=r.left+'px';popup.style.top=r.top+'px';popup.style.right='auto';
+      drag={x:ev.clientX,y:ev.clientY,left:r.left,top:r.top};
+      grip.setPointerCapture(ev.pointerId);grip.classList.add('is-dragging');ev.preventDefault();
+    });
+    grip.addEventListener('pointermove',ev=>{
+      if(!drag)return;
+      const x=Math.max(8,Math.min(window.innerWidth-popup.offsetWidth-8,drag.left+ev.clientX-drag.x));
+      const y=Math.max(8,Math.min(window.innerHeight-Math.min(popup.offsetHeight,window.innerHeight-16)-8,drag.top+ev.clientY-drag.y));
+      popup.style.left=x+'px';popup.style.top=y+'px';
+    });
+    const endDrag=()=>{drag=null;grip.classList.remove('is-dragging');};
+    grip.addEventListener('pointerup',endDrag);grip.addEventListener('pointercancel',endDrag);
+    window.addEventListener('resize',()=>{
+      if(!popup.isConnected)return;const rect=popup.getBoundingClientRect();
+      if(rect.right>window.innerWidth-8)popup.style.left=Math.max(8,window.innerWidth-popup.offsetWidth-8)+'px';
+      if(rect.bottom>window.innerHeight-8)popup.style.top=Math.max(8,window.innerHeight-popup.offsetHeight-8)+'px';
+    });
     const previousFocus=document.activeElement;
     const render=()=>{
       const entry=eligible[index];if(!entry){overlay.remove();previousFocus?.focus?.();return;}
@@ -340,7 +365,7 @@
       const url=text(entry.linkUrl);const good=/^https:\/\/[^\s<]+$/i.test(url)||/^(research|students|news|contact|publications|equipment|gallery)\.html(\?[a-z0-9=&-]+)?$/i.test(url);
       link.href=good?url:'#';link.classList.toggle('is-static',!good);
       if(good&&url.startsWith('https://')){link.target='_blank';link.rel='noopener noreferrer';}else{link.removeAttribute('target');link.removeAttribute('rel');}
-      check.checked=false;done.focus({preventScroll:true});
+      check.checked=false;
     };
     const dismiss=()=>{
       const entry=eligible[index];const code=text(entry.id)||[entry.image,validDate(entry.startDate),validDate(entry.endDate)].join('|');
@@ -351,15 +376,7 @@
     done.addEventListener('click',dismiss);
     link.addEventListener('click',e=>{if(link.classList.contains('is-static'))e.preventDefault();});
     overlay.addEventListener('click',e=>{if(e.target===overlay)dismiss();});
-    overlay.addEventListener('keydown',e=>{
-      if(e.key==='Escape'){e.preventDefault();dismiss();}
-      if(e.key==='Tab'){
-        const focusable=[link,check,done].filter(el=>!(el===link&&link.classList.contains('is-static')));
-        const current=focusable.indexOf(document.activeElement);
-        if(e.shiftKey&&current<=0){e.preventDefault();focusable.at(-1).focus();}
-        else if(!e.shiftKey&&current===focusable.length-1){e.preventDefault();focusable[0].focus();}
-      }
-    });
+    overlay.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();dismiss();}});
     document.body.append(overlay);render();
   }
 
@@ -663,8 +680,23 @@
         const role = text(person.role).toLowerCase();
         const course = courseNames[role] || (text(person.role) && !['ph.d.', 'm.s.'].includes(role) ? text(person.role) : '');
         const card = node('article', 'student-card'), photo = node('div', 'student-photo');
-        setImage(photo, person.photo, text(person.name) + ' 연구원 사진',
-          () => portraitFallback(person.name, course || 'ACSoL Researcher'));
+        // Keep the existing 'photo' property as the primary ID photo.
+        // Additional candid photo loads independently and crossfades on hover.
+        const primary = text(person.idPhoto || person.portraitPhoto || person.photo);
+        const everyday = text(person.casualPhoto);
+        let casual = null;
+        if (normalPath(everyday) && !knownMissingLocalMedia(everyday)) {
+          casual = node('img', 'student-casual-photo');
+          casual.alt = text(person.name) + ' 일상사진';
+          casual.loading = 'lazy'; casual.decoding = 'async';
+          casual.addEventListener('error',()=>{casual.remove();photo.classList.remove('has-casual-photo');},{once:true});
+          casual.src = mediaURL(everyday);
+          photo.classList.add('has-casual-photo');card.tabIndex = 0;
+        }
+        const attachCasual = ()=>{if(casual && !casual.isConnected)photo.append(casual);};
+        setImage(photo, primary, text(person.name) + ' 연구원 증명사진',
+          () => portraitFallback(person.name,course || 'ACSoL Researcher'),
+          {onLoad:attachCasual,onFallback:attachCasual});
         const info = node('div', 'student-info'), title = node('div', 'student-title');
         const identity = node('div', 'student-identity'); identity.append(node('h3', '', person.name));
         if (course) identity.append(node('span', 'student-program program-' + (courseNames[role] ? role : 'other'), course));
@@ -759,7 +791,7 @@
     const update = () => {
       $$('.filter-button', filter).forEach(button => button.setAttribute('aria-pressed', String(button.dataset.value === selected)));
       const normalized = query.normalize('NFKC').toLocaleLowerCase();
-      const matches = entries.filter(entry => (selected === 'all' || (selected === 'review' ? isUnderReview(entry) : publicationPeriod(entry._year) === selected))
+      const matches = entries.filter(entry => (selected === 'review' ? isUnderReview(entry) : !isUnderReview(entry) && (selected === 'all' || publicationPeriod(entry._year) === selected))
         && [entry.title, entry.journal, entry.authors, entry.doi, entry._year, isUnderReview(entry) ? 'Under Review' : ''].map(v => text(v)).join(' ').normalize('NFKC').toLocaleLowerCase().includes(normalized));
       if (!matches.length) {
         target.replaceChildren(emptyNote(raw.length ? 'No matching publications.' : 'Work in progress.', raw.length ? '검색어 또는 연도 필터를 변경해 주세요.' : '논문 목록을 업데이트하고 있습니다.')); return;

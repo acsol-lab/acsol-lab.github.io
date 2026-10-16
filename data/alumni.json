@@ -1,1 +1,490 @@
-[]
+[
+  {
+    "name": "김은빈 (Kim, Eunbin)",
+    "degree": "석사",
+    "graduationYear": "2026.10",
+    "company": "Amkor Technology",
+    "pastResearch": "ALD",
+    "email": "1luzsuave@naver.com"
+  },
+  {
+    "name": "이명 (Li, Ming)",
+    "degree": "박사",
+    "graduationYear": "2026.08",
+    "company": "Beijing 전자IC",
+    "pastResearch": "Organic Synapse",
+    "email": "lm19981024@gmail.com"
+  },
+  {
+    "name": "김지원 (Kim, Jiwon)",
+    "degree": "석사",
+    "graduationYear": "2026.08",
+    "company": "",
+    "pastResearch": "Energy Harvesting",
+    "email": ""
+  },
+  {
+    "name": "이세희 (Lee, Sehui)",
+    "degree": "석사",
+    "graduationYear": "2026.08",
+    "company": "DuPont Korea",
+    "pastResearch": "CMP process",
+    "email": "eiop77455@gmail.com"
+  },
+  {
+    "name": "박광호 (Park, Gwang-Ho)",
+    "degree": "석사",
+    "graduationYear": "2026.02",
+    "company": "SK Hynix",
+    "pastResearch": "2D / ECRAM",
+    "email": ""
+  },
+  {
+    "name": "김태형 (Kim, TaeHyung)",
+    "degree": "석사",
+    "graduationYear": "2026.02",
+    "company": "AICT (반도체기술센터)",
+    "pastResearch": "Ferro / ALD",
+    "email": "kth0813a@gmail.com"
+  },
+  {
+    "name": "김현제 (Kim, Hyeonje)",
+    "degree": "석사",
+    "graduationYear": "2026.02",
+    "company": "TBA",
+    "pastResearch": "Ferro / TFT",
+    "email": "hjhj5206@gmail.com"
+  },
+  {
+    "name": "박현준 (Park, Hyunjun)",
+    "degree": "석사",
+    "graduationYear": "2026.02",
+    "company": "AICT (반도체기술센터)",
+    "pastResearch": "Photosensor / Perovskite",
+    "email": "pjhwan13@gmail.com"
+  },
+  {
+    "name": "박현석 (Park, Hyeonseok)",
+    "degree": "석사",
+    "graduationYear": "2026.02",
+    "company": "TBA",
+    "pastResearch": "ReRAM / TIM",
+    "email": "hunou1309@naver.com"
+  },
+  {
+    "name": "김민철 (Kim, Min-Cheol)",
+    "degree": "석사",
+    "graduationYear": "2026.02",
+    "company": "SK Hynix",
+    "pastResearch": "MRAM / SOT",
+    "email": "alscjf473@gmail.com"
+  },
+  {
+    "name": "전민규 (Jeon, MinKyu)",
+    "degree": "석사",
+    "graduationYear": "2026.02",
+    "company": "Micron (Japan)",
+    "pastResearch": "Perovskite Optoelectronics",
+    "email": "harryjeon9@hanyang.ac.kr"
+  },
+  {
+    "name": "한민종 (Han, Minjong)",
+    "degree": "석사",
+    "graduationYear": "2026.02",
+    "company": "ACSoL (Hynix박사)",
+    "pastResearch": "AI memory / ECRAM",
+    "email": "noteboard@naver.com"
+  },
+  {
+    "name": "주아연 (Zhu, Yajuan)",
+    "degree": "석사",
+    "graduationYear": "2026.02",
+    "company": "CXMT",
+    "pastResearch": "Optical Synapse",
+    "email": "yajuan823@naver.com"
+  },
+  {
+    "name": "추군광 (Juanguang Zou)",
+    "degree": "석사",
+    "graduationYear": "2025.08",
+    "company": "Foshan Electrical & Light Co. LTD",
+    "pastResearch": "Optoelectronics / Energy Harvesting",
+    "email": "zoujunguang@naver.com"
+  },
+  {
+    "name": "채종호 (Jongho Chae)",
+    "degree": "석사",
+    "graduationYear": "2025.08",
+    "company": "SK Hynix",
+    "pastResearch": "Emerging Memory (Perovskite)",
+    "email": "chaejongho@naver.com"
+  },
+  {
+    "name": "정의진 (Uijin Jung)",
+    "degree": "박사",
+    "graduationYear": "2025.08",
+    "company": "DB Hitek (동부하이테크)",
+    "pastResearch": "ReRAM / Memory (Perovskite)",
+    "email": "qwpoiu1002@hanyang.ac.kr"
+  },
+  {
+    "name": "우대성 (Dae-Seong Woo)",
+    "degree": "박사",
+    "graduationYear": "2025.02",
+    "company": "SK Hynix (DRAM TR)",
+    "pastResearch": "SOM / Neural Chip",
+    "email": "wds1269@hanyang.ac.kr"
+  },
+  {
+    "name": "정성민 (Seongmin Jeong)",
+    "degree": "석사",
+    "graduationYear": "2025.02",
+    "company": "KoreaCircuit",
+    "pastResearch": "Perovskite Optoelectronics",
+    "email": ""
+  },
+  {
+    "name": "Dr. Naveneet Kumar",
+    "degree": "Postdoctoral Fellow",
+    "graduationYear": "2025",
+    "company": "Senior Researcher, University of Saskatchewan",
+    "pastResearch": "",
+    "email": "navneetrsh@gmail.com"
+  },
+  {
+    "name": "탄자오종 (Zhaozhong Tan)",
+    "degree": "석사",
+    "graduationYear": "2024.08",
+    "company": "SITRI (Shanghai Iduustrial Techn. Research Institute)",
+    "pastResearch": "Perovskite Optoelectronics / Memory",
+    "email": "tzz27@hanyang.ac.kr"
+  },
+  {
+    "name": "정현찬 (Hyunchang Jeon)",
+    "degree": "석사",
+    "graduationYear": "2024.08",
+    "company": "ASML Korea",
+    "pastResearch": "Perovskite Optoelectronics",
+    "email": "accuracy6@naver.com"
+  },
+  {
+    "name": "허원준 (Wonjun Heo)",
+    "degree": "석사",
+    "graduationYear": "2024.02",
+    "company": "SK Hynix",
+    "pastResearch": "Energy Harvesting, TIM",
+    "email": "robin0806@hanyang.ac.kr"
+  },
+  {
+    "name": "이흠 (Xin Li)",
+    "degree": "석사",
+    "graduationYear": "2023.08",
+    "company": "BOE (Display)",
+    "pastResearch": "Photodetectors",
+    "email": "lixin98@hanyang.ac.kr"
+  },
+  {
+    "name": "수항 (Hang Su)",
+    "degree": "석사",
+    "graduationYear": "2023.08",
+    "company": "Goodix",
+    "pastResearch": "Perovskite Optoelectronics",
+    "email": "2021161422@hanyang.ac.kr"
+  },
+  {
+    "name": "정신 (Cheng Chen)",
+    "degree": "석사",
+    "graduationYear": "2023.02",
+    "company": "Huawei",
+    "pastResearch": "Energy harvesting / TENG",
+    "email": "ccmissnin@hanyang.ac.kr"
+  },
+  {
+    "name": "하주윤 (Juyun Ha)",
+    "degree": "석사",
+    "graduationYear": "2023.02",
+    "company": "On-Semiconductor",
+    "pastResearch": "Photodetector / Memristor",
+    "email": "yuna110@hanyang.ac.kr"
+  },
+  {
+    "name": "문진욱 (Jinuk Moon)",
+    "degree": "석사",
+    "graduationYear": "2023.02",
+    "company": "SK Hynix (C&C)",
+    "pastResearch": "Thermal Interface Material",
+    "email": "muni1996@hanyang.ac.kr"
+  },
+  {
+    "name": "임정아 (JeongA Im)",
+    "degree": "석사",
+    "graduationYear": "2023.02",
+    "company": "중앙대학교",
+    "pastResearch": "Perovskite Memristor",
+    "email": "jams0326@hanyang.ac.kr"
+  },
+  {
+    "name": "Dr. Abbas Ahmad Khan",
+    "degree": "Postdoctoral Fellow",
+    "graduationYear": "2023",
+    "company": "IMDEA Nanociencia, Spain",
+    "pastResearch": "Perovskite / Optoelectronics",
+    "email": "abbas.khan81@yahoo.com"
+  },
+  {
+    "name": "정봄스민 (Bomseumin Jung)",
+    "degree": "석사",
+    "graduationYear": "2022.08",
+    "company": "한국전자기술연구원",
+    "pastResearch": "Perovskite Sensors",
+    "email": "bomseumin.jung@gmail.com"
+  },
+  {
+    "name": "심문호 (Shen Shim)",
+    "degree": "석사",
+    "graduationYear": "2022.08",
+    "company": "YS University Ph.D.",
+    "pastResearch": "Self-powered Photodetector",
+    "email": "moonho@hanyang.ac.kr"
+  },
+  {
+    "name": "김도현 (Do Hyun Kim)",
+    "degree": "박사",
+    "graduationYear": "2021.08",
+    "company": "주성엔지니어링",
+    "pastResearch": "MO NSs and optoelectronics",
+    "email": "spartasp@naver.com"
+  },
+  {
+    "name": "상성문 (Chengwen Sang)",
+    "degree": "석사",
+    "graduationYear": "2021.08",
+    "company": "SMIC",
+    "pastResearch": "MO energy harvesting",
+    "email": ""
+  },
+  {
+    "name": "Dr. Shubhangi Khadtare",
+    "degree": "Postdoctoral Fellow",
+    "graduationYear": "2021",
+    "company": "Pixelligent, USA",
+    "pastResearch": "",
+    "email": "shubhukha@gmail.com"
+  },
+  {
+    "name": "선전풍 (Zhanpeng Xian)",
+    "degree": "석사",
+    "graduationYear": "2020.08",
+    "company": "RayBow Optoelectronics (Shenzen)",
+    "pastResearch": "Perovskite Photodetectors",
+    "email": "zpxian@outlook.com"
+  },
+  {
+    "name": "김수빈 (Subin Kim)",
+    "degree": "박사수료",
+    "graduationYear": "2020.06",
+    "company": "삼성전자",
+    "pastResearch": "Photodetector",
+    "email": "subinkim@hanyang.ac.kr"
+  },
+  {
+    "name": "정민우 (Minwoo Jung)",
+    "degree": "석사",
+    "graduationYear": "2020.02",
+    "company": "Circuit",
+    "pastResearch": "Energy Harvesting",
+    "email": "wjdalsdn6@hanyang.ac.kr"
+  },
+  {
+    "name": "김지수 (Jisoo Kim)",
+    "degree": "석사",
+    "graduationYear": "2020.02",
+    "company": "한국전자기술연구원",
+    "pastResearch": "Photo-reaction",
+    "email": "jk795@cornell.edu"
+  },
+  {
+    "name": "유준혁 (Junkyuk Yoo)",
+    "degree": "석사",
+    "graduationYear": "2020.02",
+    "company": "메카로",
+    "pastResearch": "Photosensors",
+    "email": "loveyoo16@naver.com"
+  },
+  {
+    "name": "지월성 (Yuexing Ji)",
+    "degree": "석사",
+    "graduationYear": "2020.02",
+    "company": "LIS (China Government Research Institute)",
+    "pastResearch": "Photodetectors",
+    "email": "jiyuexing@gmail.com"
+  },
+  {
+    "name": "유지연 (Jiyeon Yu)",
+    "degree": "석사",
+    "graduationYear": "2020.02",
+    "company": "A2US (MEMS)",
+    "pastResearch": "TiO2 Photodetectors",
+    "email": "wldusrktn@naver.com"
+  },
+  {
+    "name": "Dr. Dong Su Shin",
+    "degree": "Postdoctoral Fellow",
+    "graduationYear": "2020",
+    "company": "테라다인코리아",
+    "pastResearch": "Optoelectronics & AI",
+    "email": "naenora@naver.com"
+  },
+  {
+    "name": "신동수 (Dong Su Shin)",
+    "degree": "박사",
+    "graduationYear": "2019.08",
+    "company": "Teradyne",
+    "pastResearch": "TCEs / Si Hybrid LEDs",
+    "email": "naenora@naver.com"
+  },
+  {
+    "name": "김택곤 (Taek Gon Kim)",
+    "degree": "박사",
+    "graduationYear": "2019.08",
+    "company": "ASML",
+    "pastResearch": "ZTO microspheres LEDs",
+    "email": "taekkon@naver.com"
+  },
+  {
+    "name": "Dr. Dayakar Thatikayala",
+    "degree": "Postdoctoral Fellow",
+    "graduationYear": "2019",
+    "company": "PDF, Kyunghee Univ.",
+    "pastResearch": "Biosensors",
+    "email": "thati.daya52@gmail.com"
+  },
+  {
+    "name": "정의진 (Uijin Jung)",
+    "degree": "석사",
+    "graduationYear": "2019",
+    "company": "ACSoL Ph.D. Candidate (DB)",
+    "pastResearch": "ZTO microspheres based UV detectors",
+    "email": "qwpoiu1002@hanyang.ac.kr"
+  },
+  {
+    "name": "박홍범 (Hongbeam Park)",
+    "degree": "석사",
+    "graduationYear": "2018.08",
+    "company": "DB Hitek (동부하이텍)",
+    "pastResearch": "BTO based PENG",
+    "email": "ym10540@daum.net"
+  },
+  {
+    "name": "권찬울 (Chanwool Kwon)",
+    "degree": "석사",
+    "graduationYear": "2018.08",
+    "company": "병역특례",
+    "pastResearch": "Metal oxide TENGs",
+    "email": "wool336@naver.com"
+  },
+  {
+    "name": "Dr. Abhijit Kadam",
+    "degree": "Postdoctoral Fellow",
+    "graduationYear": "2018",
+    "company": "Assistant Professor, Dept. of Chemistry, John Wilson Education",
+    "pastResearch": "",
+    "email": "abhikadamchem@gmail.com"
+  },
+  {
+    "name": "윤한주 (Hahnjoo Yoon)",
+    "degree": "석사",
+    "graduationYear": "2018",
+    "company": "SEMES",
+    "pastResearch": "Cu Nanowire TCO for the LEDs",
+    "email": ""
+  },
+  {
+    "name": "허동욱 (Dongwook Heo)",
+    "degree": "석사",
+    "graduationYear": "2018",
+    "company": "Cesco 연구소",
+    "pastResearch": "TFT with surface treatment",
+    "email": "ssalap@naver.com"
+  },
+  {
+    "name": "Dr. Babu Bathula",
+    "degree": "Postdoctoral Fellow",
+    "graduationYear": "2017",
+    "company": "Professor, Physics, SR University (India)",
+    "pastResearch": "",
+    "email": "babu.phd2010@gmail.com"
+  },
+  {
+    "name": "양태영 (Taeyoung Yang)",
+    "degree": "석사",
+    "graduationYear": "2017",
+    "company": "삼성전자 (Foundary사업부)",
+    "pastResearch": "Hollow TiO2 based UV detectors",
+    "email": "mototee@gmail.com"
+  },
+  {
+    "name": "한상후 (Sanghoo Han)",
+    "degree": "석사",
+    "graduationYear": "2017",
+    "company": "SK Hynix (CIS)",
+    "pastResearch": "Electronic device & AC LED",
+    "email": "shoohan89@gmail.com"
+  },
+  {
+    "name": "조인제 (Inche Jo)",
+    "degree": "석사",
+    "graduationYear": "2017",
+    "company": "삼성전자",
+    "pastResearch": "CuO NWs",
+    "email": "inchejo@hanyang.ac.kr"
+  },
+  {
+    "name": "Dr. K. Mageshiwari",
+    "degree": "Postdoctoral Fellow",
+    "graduationYear": "2016",
+    "company": "PDF, USA",
+    "pastResearch": "Photocatalyst",
+    "email": "kmagi85@gmail.com"
+  },
+  {
+    "name": "김민준 (Minjun Kim)",
+    "degree": "석사",
+    "graduationYear": "2015",
+    "company": "한국가스공사",
+    "pastResearch": "SK diode using AlGaN/GaN",
+    "email": ""
+  },
+  {
+    "name": "김기용 (Kiyong Kim)",
+    "degree": "석사",
+    "graduationYear": "2015",
+    "company": "Daedeok Eelectronics",
+    "pastResearch": "Thin-film Transistor using ZTO",
+    "email": "kky1q87@gmail.com"
+  },
+  {
+    "name": "김윤형 (Yoonhyung Kim)",
+    "degree": "석사",
+    "graduationYear": "2015",
+    "company": "삼성전자",
+    "pastResearch": "AlGaN / GaN SK diode with Graphene",
+    "email": "yoon_hyung87@daum.net"
+  },
+  {
+    "name": "연승환 (Seunghwan Yeon)",
+    "degree": "석사",
+    "graduationYear": "2014",
+    "company": "Urofins Scientific",
+    "pastResearch": "EQE of LED using hollow Silica",
+    "email": "tmdghksdus@naver.com"
+  },
+  {
+    "name": "손태준 (Taejonn Son)",
+    "degree": "석사",
+    "graduationYear": "2014",
+    "company": "LG 전자",
+    "pastResearch": "Improvement of QE of LED using nanorods",
+    "email": "koeljoon@naver.com"
+  }
+]

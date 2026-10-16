@@ -389,7 +389,10 @@ content:
           label: 연구 분야
           type: text
         - name: photo
-          label: 학생 사진 업로드
+          label: 증명사진 (기본으로 표시 · 기존 학생 사진 호환)
+          type: image
+        - name: casualPhoto
+          label: 일상사진 (마우스를 올리면 부드럽게 전환 · 선택)
           type: image
         - name: sourcePhoto
           label: Wix 원본 사진 파일명 (사진을 다시 올릴 때 참고)
@@ -415,7 +418,7 @@ content:
         label: '졸업 과정 (예: 석사 / 박사)'
         type: string
       - name: graduationYear
-        label: '졸업 연도 (예: 2026)'
+        label: '졸업 연도 / Postdoc 활동 연도 (예: 2026)'
         type: string
       - name: company
         label: 현 직장 또는 소속
