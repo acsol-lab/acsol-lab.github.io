@@ -109,6 +109,10 @@
       "media/news/Advanced_Science_Back_Cover_선정_뉴스사진.jpg"
     ],
     [
+      "media/MRAM-2.jpg",
+      "media/news/ACS_Applied_Electronic_Materials_논문_게재_승인_뉴스사진.jpg"
+    ],
+    [
       "media/Navnett-1.webp",
       "media/news/Navneet_박사_CRC_Press_Book_Chapter_출판_뉴스사진.webp"
     ],
@@ -560,6 +564,7 @@
   "originals": [
     "media/AS.jpg",
     "media/KakaoTalk_20261016_163827271.jpg",
+    "media/MRAM-2.jpg",
     "media/Navnett-1.webp",
     "media/ceramics-1.gif",
     "media/mrma.png",
