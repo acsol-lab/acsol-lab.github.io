@@ -81,8 +81,13 @@
   };
   /* Show a finished fallback immediately and only replace it after a successful load.
      This also handles missing files, AVIF support, and removed CMS uploads. */
+  /* ACSoL v16.1: image loading optimization */
   const setImage = (target, value, alt, fallbackFactory, options = {}) => {
     if (!target) return;
+    if (target._acsolImageObserver) {
+      target._acsolImageObserver.disconnect();
+      target._acsolImageObserver = null;
+    }
     const requestId = (target._acsolImageRequest || 0) + 1;
     target._acsolImageRequest = requestId;
     const fallback = () => {
@@ -91,22 +96,48 @@
       target.classList.toggle('is-concept', Boolean(options.concept));
       if (options.onFallback) options.onFallback();
     };
-    fallback();
     const src = mediaURL(value);
-    if (!src || knownMissingLocalMedia(value)) return;
-    const image = node('img'); image.alt = text(alt); image.decoding = 'async';
-    image.loading = options.eager ? 'eager' : 'lazy';
-    if (options.eager) image.fetchPriority = 'high';
-    image.addEventListener('load', () => {
+    if (!src || knownMissingLocalMedia(value)) {
+      fallback();
+      return;
+    }
+    // Do not show a misleading concept photo while the real one is downloading.
+    // A neutral skeleton avoids a long-lived, unrelated illustration.
+    const pending = node('div', 'acsol-image-pending');
+    pending.setAttribute('aria-hidden', 'true');
+    target.replaceChildren(pending);
+    target.classList.remove('is-concept');
+    const image = new Image();
+    image.alt = text(alt);
+    image.decoding = 'async';
+    // Native lazy loading on a detached 1×1 image can stall indefinitely.
+    // IntersectionObserver handles off-screen lazy loading instead.
+    image.loading = 'eager';
+    image.fetchPriority = options.eager ? 'high' : 'auto';
+    image.addEventListener('load', async () => {
+      try { if (image.decode) await image.decode(); } catch (_) { /* decoded by onload */ }
       if (target._acsolImageRequest !== requestId) return;
-      target.replaceChildren(image); target.classList.remove('is-concept');
+      target.replaceChildren(image);
+      target.classList.remove('is-concept');
       if (options.onLoad) options.onLoad();
-    }, {once: true});
-    image.addEventListener('error', fallback, {once: true});
-    // A detached lazy image may never load; briefly mount it invisibly in its target.
-    image.style.cssText = 'position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;';
-    image.addEventListener('load', () => image.removeAttribute('style'), {once: true});
-    image.src = src; target.append(image);
+    }, {once:true});
+    image.addEventListener('error', fallback, {once:true});
+    const start = () => {
+      if (target._acsolImageRequest !== requestId) return;
+      image.src = src;
+    };
+    if (options.eager || typeof IntersectionObserver === 'undefined') {
+      start();
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        if (!entries.some(entry => entry.isIntersecting)) return;
+        observer.disconnect();
+        if (target._acsolImageObserver === observer) target._acsolImageObserver = null;
+        start();
+      }, {rootMargin:'650px 0px'});
+      target._acsolImageObserver = observer;
+      observer.observe(target);
+    }
   };
   const jsonCache = new Map();
   const getJSON = (filename, isList = true) => {
@@ -253,6 +284,7 @@
   };
 
   async function applyHome() {
+    const galleryPromise = getJSON('gallery');
     const cfg = await readSettings('home');
     const title = $('#hero-title');
     if (title) {
@@ -263,9 +295,21 @@
     setText('#hero-description', cfg.heroDescription);
     setText('#lab-intro', cfg.labIntro);
     const host = $('#hero-image'), prev = $('#hero-slide-prev'), next = $('#hero-slide-next');
-    const gallery = await getJSON('gallery');
+    const gallery = await galleryPromise;
     const slides = gallery.filter(x => isObject(x) && x.featured === true && normalPath(x.image));
     const seconds = Math.max(2, Math.min(60, Number(cfg.slideIntervalSeconds) || 5));
+    const nextPreloaded = new Map();
+    const prepareNext = () => {
+      if (slides.length < 2) return;
+      const nextPhoto = slides[(current + 1) % slides.length];
+      const nextSrc = mediaURL(nextPhoto.image);
+      if (!nextSrc || nextPreloaded.has(nextSrc)) return;
+      const img = new Image();
+      img.decoding = 'async';
+      img.fetchPriority = 'low';
+      img.src = nextSrc;
+      nextPreloaded.set(nextSrc, img);
+    };
     let current = 0, timer = null;
     const show = index => {
       if (!slides.length) {
@@ -279,7 +323,7 @@
       setText('#hero-caption', text(photo.title, 'ACSoL · Hanyang University'));
       setText('#hero-image-note', text(photo.date));
       setImage(host, photo.image, text(photo.description, photo.title || 'ACSoL 연구실 사진'),
-        () => imageFallback('사진을 불러올 수 없습니다.'), {eager:true});
+        () => imageFallback('사진을 불러올 수 없습니다.'), {eager:true, onLoad:prepareNext});
     };
     const stop = () => { if (timer !== null) clearInterval(timer); timer = null; };
     const start = () => {
@@ -1174,6 +1218,10 @@
     document.addEventListener('click', event => { if (!event.target.closest('.site-header')) setOpen(false); });
     menu.addEventListener('click', event => { if (event.target.closest('a')) setOpen(false); });
     window.matchMedia('(min-width: 1051px)').addEventListener('change', event => { if (event.matches) setOpen(false); });
+  }
+  if (document.body.dataset.page === 'home') {
+    const hero = $('#hero-image');
+    if (hero) { hero.replaceChildren(node('div','acsol-image-pending')); hero.classList.remove('is-concept'); }
   }
   initMenu();initSubmenus(); setText('#copyright-year', new Date().getFullYear());
   const page = document.body.dataset.page, jobs = [];
