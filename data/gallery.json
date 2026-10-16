@@ -3,7 +3,7 @@
     "title": "ACSoL 석사졸업식",
     "date": "2026. 02. 24",
     "image": "/media/acsol-1.png",
-    "featured": true
+    "featured": false
   },
   {
     "title": "26학년도 ACSoL신입생 오리엔테이션",
@@ -15,13 +15,13 @@
     "title": "정의진 박사 졸업",
     "date": "2025. 08. 21",
     "image": "/media/img7804-5.avif",
-    "featured": false
+    "featured": true
   },
   {
     "title": "KPS Spring (대전)",
     "date": "2025. 04. 24",
     "image": "/media/2025-kps-spring.png",
-    "featured": false
+    "featured": true
   },
   {
     "title": "스승의날행사",
