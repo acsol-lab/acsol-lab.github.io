@@ -1,0 +1,36 @@
+name: One-time ACSoL image loading optimization
+on:
+  workflow_dispatch:
+    inputs:
+      run_mode:
+        description: Preview first with plan, then apply
+        required: true
+        default: plan
+        type: choice
+        options:
+          - plan
+          - apply
+permissions:
+  contents: write
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preview or update image loading
+        run: python3 tools/optimize_image_loading.py --mode '${{ inputs.run_mode }}'
+      - name: Check site.js syntax
+        if: ${{ inputs.run_mode == 'apply' }}
+        run: node --check site.js
+      - name: Commit changed site assets
+        if: ${{ inputs.run_mode == 'apply' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site.js styles.css
+          if git diff --staged --quiet; then
+            echo 'No changes; patch already applied.'
+          else
+            git commit -m "Speed up photo loading and eliminate stale concept placeholders"
+            git push
+          fi
