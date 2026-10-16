@@ -4,69 +4,79 @@
     "degree": "석사",
     "graduationYear": "2026",
     "company": "Amkor Technology",
-    "pastResearch": "ALD"
+    "pastResearch": "ALD",
+    "photo": "/media/file-2.jpeg"
   },
   {
     "name": "이명 (Li, Ming)",
     "degree": "박사",
     "graduationYear": "2026",
     "company": "Beijing 전자IC",
-    "pastResearch": "Organic Synapse"
+    "pastResearch": "Organic Synapse",
+    "photo": "/media/file-49.jpg"
   },
   {
     "name": "김지원 (Kim, Jiwon)",
     "degree": "석사",
     "graduationYear": "2026",
-    "pastResearch": "Energy Harvesting"
+    "pastResearch": "Energy Harvesting",
+    "photo": "/media/pic.jpg"
   },
   {
     "name": "이세희 (Lee, Sehui)",
     "degree": "석사",
     "graduationYear": "2026",
     "company": "DuPont Korea",
-    "pastResearch": "CMP process"
+    "pastResearch": "CMP process",
+    "photo": "/media/file-50.jpg"
   },
   {
     "name": "박광호 (Park, Gwang-Ho)",
     "degree": "석사",
     "graduationYear": "2026",
     "company": "SK Hynix",
-    "pastResearch": "2D / ECRAM"
+    "pastResearch": "2D / ECRAM",
+    "photo": "/media/file-51.jpg"
   },
   {
     "name": "김태형 (Kim, TaeHyung)",
     "degree": "석사",
     "graduationYear": "2026",
     "company": "AICT (반도체기술센터)",
-    "pastResearch": "Ferro / ALD"
+    "pastResearch": "Ferro / ALD",
+    "photo": "/media/file-52.jpg"
   },
   {
     "name": "김현제 (Kim, Hyeonje)",
     "degree": "석사",
     "graduationYear": "2026",
     "company": "TBA",
-    "pastResearch": "Ferro / TFT"
+    "pastResearch": "Ferro / TFT",
+    "photo": "/media/file-53.jpg"
   },
   {
     "name": "박현준 (Park, Hyunjun)",
     "degree": "석사",
     "graduationYear": "2026",
     "company": "AICT (반도체기술센터)",
-    "pastResearch": "Photosensor / Perovskite"
+    "pastResearch": "Photosensor / Perovskite",
+    "photo": "/media/file-54.jpg"
   },
   {
     "name": "박현석 (Park, Hyeonseok)",
     "degree": "석사",
     "graduationYear": "2026",
     "company": "TBA",
-    "pastResearch": "ReRAM / TIM"
+    "pastResearch": "ReRAM / TIM",
+    "photo": "/media/file-55.jpg"
   },
   {
     "name": "김민철 (Kim, Min-Cheol)",
     "degree": "석사",
     "graduationYear": "2026",
     "company": "SK Hynix",
-    "pastResearch": "MRAM / SOT"
+    "pastResearch": "MRAM / SOT",
+    "photo": "/media/207kimmin-ceol1.jpg"
   },
   {
     "name": "전민규 (Jeon, MinKyu)",
