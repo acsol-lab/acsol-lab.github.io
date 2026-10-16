@@ -541,8 +541,8 @@ content:
           label: 현재 상태 — Under Review (심사 중이면 체크)
           type: boolean
           default: false
-          description: 체크하면 홈페이지 논문 옆에 Under Review가 표시되고, 상단 Under Review 필터에서도 확인할 수 있습니다. 체크하지 않으면 일반 논문으로 표시합니다. 기존의 Accepted 또는 Under Revision
-            기록은 데이터에 남지만 더 이상 별도 상태로 표시하지 않습니다.
+          description: 체크하면 홈페이지 논문 옆에 Under Review가 표시되고, 상단 Under Review 필터에서도 확인할 수 있습니다. 체크하지 않으면 일반 논문으로 표시합니다. 기존의 Accepted 또는
+            Under Revision 기록은 데이터에 남지만 더 이상 별도 상태로 표시하지 않습니다.
         - name: typography
           label: 논문 제목 / 저자·설명 글꼴과 크기 (선택)
           description: 논문 제목은 굵고 큰 제목 줄, 저자·설명은 논문 제목 아래의 작은 텍스트입니다. 학술지명(저널)은 공통 디자인으로 표시되며 여기의 글자 크기 설정과 별개입니다.
