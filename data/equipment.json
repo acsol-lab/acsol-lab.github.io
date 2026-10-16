@@ -66,6 +66,9 @@
     {
       "name": "Vibrating Sample Magnetometer(VSM)",
       "photo": "/media/vsmr.png"
+    },
+    {
+      "name": "Oscilloscope"
     }
   ]
 }
