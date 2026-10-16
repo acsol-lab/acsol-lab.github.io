@@ -1,68 +1,49 @@
-# ACSoL v16.1 — Research 흰색 배경 + 미디어 자동 정리
+# ACSoL v16.1 — News 대표 사진을 Home·News 목록에 표시
 
-**이 패치는 기존 사이트의 `styles.css`, `site.js`, `.pages.yml`, `data/`, `media/`를 통째로 덮어쓰지 않습니다.**
+이 패치는 기존 v16.1에 적용한 **이후의 Students/Alumni/CMS/Media Organizer 변경사항을 보존하기 위해 현재 GitHub 파일을 직접 수정**합니다.
 
-## 변경사항
+## 무엇이 변경되나요?
 
-1. `research-detail-white.css`: Research 상세화면 대표사진/추가사진의 배경을 **흰색**으로 통일. 기존 원본 비율 유지 CSS는 보존합니다.
-2. `tools/configure_cms_media.py`: 현재 `.pages.yml`에 이미지 업로드 경로만 추가하고 `research-detail.html`에 CSS 링크 한 줄을 덧붙입니다. **기존 CMS 메뉴·설정은 유지됩니다.**
-3. `tools/organize_media.py`: CMS 사진 URL을 찾아 `media/student`, `media/research`, `media/gallery`, `media/banner`, `media/news`, `media/alumni`, `media/professor`, `media/equipment`, `media/home`으로 분류합니다. 이름·사진 유형·원래 확장자를 이용하여 파일명 지정.
-4. GitHub Actions: 설정은 일회성 수동, 사진 정리는 자동(push) 및 수동 실행 지원.
+- **Pages CMS → News → 공지사항**에서 이전의 `상세 내용 사진 (선택)` 필드가 **`뉴스 대표 사진 (Home·News 목록에 표시, 선택)`**으로 표시됩니다.
+- 저장 키는 그대로 **`detailImage`**입니다. 이전에 등록한 사진도 재업로드할 필요가 없습니다.
+- Home 소식 카드: 사진이 있는 경우 사진 왼쪽 + 제목·요약 오른쪽. 사진이 없으면 기존 텍스트 카드 유지.
+- News 페이지: 사진이 있는 경우 날짜 / 대표사진 / 제목·요약. 사진이 없으면 기존 텍스트 행 유지.
+- 사진은 `object-fit:contain`과 자동 비율로 **어느 부분도 자르지 않습니다**. 극단적으로 세로로 긴 사진만 카드가 과도하게 커지지 않게 최대 표시 높이를 제한하면서도 전체가 보이도록 축소합니다.
+- 펼쳐지는 세부 내용에서는 대표 이미지를 다시 표시하지 않아 **사진 중복이 없습니다**. 상세 글은 그대로 유지됩니다. 사진만 있고 추가 상세 글이 없으면 불필요한 펼침 버튼을 숨깁니다.
+- 기존 `data/news.json`과 모든 이미지 파일은 **절대 변경하지 않습니다**.
 
-### 예시
+## GitHub에 적용하기 — 파일을 덮어쓰지 않는 안전 방식
 
-| 입력 데이터 | 정리된 파일명 |
-| --- | --- |
-| Students 이름 = 한민종, 증명사진 | `media/student/한민종_증명사진.jpg` |
-| Students 이름 = 한민종, 일상사진 | `media/student/한민종_일상사진.png` |
-| Research 이름 = Emerging Memory, 요약 이미지 | `media/research/Emerging_Memory_요약사진.webp` |
-| Research 이름 = Emerging Memory, 세부 대표 이미지 | `media/research/Emerging_Memory_세부대표사진.png` |
-| Gallery 제목 = 2026 연구실 회식 | `media/gallery/2026_연구실_회식_갤러리사진.jpg` |
+1. 현재 `nawit-del.github.io` 저장소를 ZIP으로 **백업**합니다.
+2. 압축파일에서 다음 **새 파일 3개만** 기존 경로에 업로드합니다.
+   - `news-main-images.css` (저장소 최상위)
+   - `tools/update_news_main_photos.py` (tools 폴더)
+   - `.github/workflows/acsol-news-main-photos.yml` (.github/workflows 폴더)
+3. GitHub → `Actions` → **One-time News cover photos (keep CMS data)** 를 엽니다.
+4. `Run workflow`에서 `run_mode=plan`으로 실행합니다. `Preview or apply the News photo patch` 로그에 `Will edit: site.js, .pages.yml, index.html, news.html`이라고 표시되면 정상입니다. (`plan`은 아무것도 수정하지 않습니다.)
+5. 같은 Action을 `run_mode=apply`로 실행합니다. JavaScript 문법을 검사하고 4개 파일을 수정하여 커밋합니다.
+6. GitHub Pages 배포 성공을 기다린 뒤 Home / News를 새로고침하고, Pages CMS → News 메뉴에 **뉴스 대표 사진** 필드가 표시되는지 확인합니다.
 
-`summaryImage`/`detailImage`가 없는 구버전 Research는 기존 `image` 필드를 대표사진으로 분류합니다.
+**중요:** GitHub Actions에서 해당 저장소를 수정할 권한이 필요합니다. Settings → Actions → General → Workflow permissions → Read and write permissions로 확인합니다. 조직 정책에 따라 수정할 수 없을 수 있습니다.
 
-## 설치 순서 (중요)
+`apply` 후 `Commit updated News files`가 성공하였지만 GitHub Pages 화면이 바뀌지 않으면 배포 상태 및 브라우저 캐시를 확인하세요. 빌드가 자동 발생하지 않는 경우 별도 정상 배포 커밋이 필요할 수 있습니다.
 
-1. **먼저 GitHub 저장소 전체를 ZIP으로 백업**합니다. `data/`와 `media/`의 현 상태도 보관합니다.
-2. 이 패치 ZIP을 압축 해제하여 **다음 새 파일만** 저장소에 업로드합니다.
-   - `research-detail-white.css`
-   - `tools/configure_cms_media.py`
-   - `tools/organize_media.py`
-   - `.github/workflows/configure-cms-media-folders.yml`
-   - `.github/workflows/organize-acsol-media.yml`
-3. **기존 `.pages.yml`, `research-detail.html`, `data`, `media`는 직접 덮어쓰지 마세요.**
-4. 저장소 `Settings → Actions → General → Workflow permissions → Read and write permissions`를 허용합니다(조직 정책 허용 시).
-5. `Actions → Configure CMS media folders (one-time) → Run workflow`를 **한 번** 실행합니다. 이 Action이 현재 `.pages.yml`을 읽고 각 이미지 필드에 기본 폴더 경로를 추가합니다. 또한 Research 흰 배경 CSS 링크를 삽입합니다.
-6. `Actions → Organize ACSoL images → Run workflow`에서 `run_mode=plan`을 선택해 이동 예정 파일명을 로그에서 검토합니다.
-7. 같은 Workflow에서 `run_mode=apply`를 실행합니다. 새 경로로 **복사**, JSON 경로 변경, 기록 파일 생성이 진행됩니다. 기존 원본 파일은 그대로 보존합니다.
-8. **CMS에서 사진 한 장을 테스트 업로드하여 저장**한 뒤 새 `media/` 분류 경로와 GitHub Action 실행 결과를 확인합니다. 이름이 지정되고 JSON 경로도 변경되면 성공입니다.
-9. GitHub Pages 사이트에서 사진 정상 출력을 확인하고, `Ctrl + F5`를 누릅니다. GitHub Actions의 `GITHUB_TOKEN`이 작성한 커밋은 **자동으로 새 Pages 빌드를 발생시키지 않을 수 있습니다.** 결과 반영이 지연되면 CMS의 다른 내용을 한 번 저장하거나 사람이 직접 빈 커밋을 하는 등 **새 Pages 배포를 유발하는 정상 커밋**을 생성하세요.
-10. 안정적으로 운영되는 것을 확인한 뒤에만 선택적으로 `run_mode=cleanup` + `confirm_cleanup=true`를 실행할 수 있습니다. **기존 파일 삭제는 필수가 아니므로 처음에는 실행하지 않는 것을 권장합니다.**
+## CMS 사용 방법
 
-## 자동화 동작 방식
+- 기존 `detailImage`의 이미지가 있다면 **그대로** 사용됩니다.
+- 새로운 News에서는 CMS의 `뉴스 대표 사진 (Home·News 목록에 표시, 선택)` 필드에 JPG/PNG/WebP를 업로드하면 됩니다.
+- 사진이 없는 News는 해당 필드를 비워 두면 됩니다. 사진 자리는 만들어지지 않습니다.
+- `펼침 상세 내용`에는 자세한 문구를 입력할 수 있으며, 기존처럼 우측 V자 버튼으로 열 수 있습니다.
+- 기존 Media Organizer가 있다면 `detailImage` 파일의 위치와 명명 규칙을 변경하지 않으므로 충돌하지 않습니다.
 
-- Pages CMS가 새 이미지를 업로드하면 이미지 필드에 따라 `media/student`, `media/research` 등으로 들어갑니다(필드 업로드 기준).
-- CMS에서 학생 이름과 사진을 포함한 항목을 **저장하면**, GitHub 저장소의 `data/*.json` 변경으로 Action이 실행됩니다.
-- Action은 현재 JSON의 이름과 필드 구분을 읽어 파일을 `한민종_증명사진.jpg` 등으로 복사하고, `data/students.json` 속 경로를 변경합니다.
-- 파일명이 동일하더라도 **바이트 내용이 다른 파일은 덮어쓰지 않고 고유 접미사**를 붙입니다. 기존 원본은 유지하여 배포 지연 중 404를 방지합니다.
-- 재실행해도 파일명이 계속 바뀌지 않도록 설계했습니다.
-- CMS의 **미디어 보관함에서 파일만 업로드하고 데이터 항목에 연결하지 않은 이미지**는 누구의 사진인지 알 수 없으므로 이름을 자동 추론할 수 없습니다. 학생/Research CMS 입력 화면에서 이미지를 등록하고 해당 항목을 저장하세요.
-- 일부 오래된 JSON이나 이미지의 경로가 유효하지 않으면 자동으로 추측하거나 삭제하지 않고 로그에 경고를 남깁니다.
+## 기존 구조 보존
 
-## 주의
+이 패치는 `site.js` 안에서 News를 그리는 부분만 수정합니다. `.pages.yml`에서는 News 사진 입력란의 **표시 이름만** 바꿉니다. `data/news.json`, `data/gallery.json` 등 데이터 파일과 `styles.css`를 덮어쓰지 않습니다. 따라서 앞서 적용한 Research 이미지 비율 및 Students 사진 보정도 그대로 유지됩니다.
 
-- 홈페이지는 정적 GitHub Pages입니다. **작업이 진행되는 동안 CMS로 같은 항목을 동시 편집하지 않는 것이 안전합니다.**
-- 자동 Action이 저장한 커밋은 기존 파일 보존을 우선합니다. 파일명 복사본으로 사용량이 증가하므로, 백업과 페이지 검증 후 원본 정리 Workflow를 선택적으로 사용하세요.
-- `data` 폴더의 JSON은 `[]`, `{ "items": [...] }` 및 `{ "students": [...] }` 구조를 지원합니다. 내용이 없는 0바이트 JSON은 건너뜁니다.
-- Pages CMS 버전에 따라 이미지 업로드 폴더 기본 표시 UI가 다를 수 있습니다. 설정 후 **실제 한 장 업로드**로 확인하십시오.
-- 이미지 내부에 실제로 칠해진 하늘색 픽셀은 CSS로 흰색 변경이 되지 않습니다. 이번 변경은 이미지 요소의 **배경색**을 흰색으로 지정하는 것입니다.
+만약 현재 파일 구조가 많이 수정되어 대상 코드가 다르면 스크립트가 **오류로 중단하고 일부 파일을 덮어쓰지 않습니다**. 이 경우 현재 `site.js`를 보내주시면 해당 버전에 맞춰 조정할 수 있습니다.
 
-## 직접 CSS만 적용하고 싶을 경우
+### 구성 파일
 
-`research-detail.html`에서 기존 `styles.css` 및 `research-image-natural.css`의 `<link>` 아래에 다음 한 줄을 추가합니다.
-
-```html
-<link rel="stylesheet" href="research-detail-white.css?v=16.1-media-1">
-```
-
-CSS 파일 내용은 ZIP의 `research-detail-white.css`에 있습니다.
+- `news-main-images.css`: 새 화면 레이아웃
+- `tools/update_news_main_photos.py`: 현재 `site.js`, `.pages.yml`, `index.html`, `news.html`을 안전하게 수정하는 스크립트
+- `.github/workflows/acsol-news-main-photos.yml`: plan/apply 실행 액션

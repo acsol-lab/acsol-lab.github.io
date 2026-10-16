@@ -1,0 +1,95 @@
+/* ACSoL v16.1 / News cover image only. Loaded after existing styles.css.
+   No cropping. News with no image has no image container or changed layout. */
+
+/* Home: show photo and text side-by-side only for articles with images. */
+.home-news-card.has-image {
+  display: grid;
+  grid-template-columns: minmax(0, 34%) minmax(0, 1fr);
+  gap: 13px;
+  align-items: start;
+  align-content: start;
+}
+.home-news-media {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+  overflow: visible;
+  background: transparent;
+}
+.home-news-media img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 185px;
+  object-fit: contain !important;
+  object-position: center top;
+  aspect-ratio: auto !important;
+  background: transparent;
+}
+.home-news-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
+.home-news-card.has-image .home-news-copy h3 {
+  margin-top: 10px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.home-news-card.has-image .home-news-copy > p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 10px;
+  line-height: 1.55;
+}
+.home-news-card.has-image .home-news-copy .inline-link {
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+/* Main News list: date | photo | text. Image height follows its aspect ratio. */
+.news-item.has-image {
+  grid-template-columns: minmax(80px, 95px) minmax(92px, 130px) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+.news-main-media {
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: visible;
+  background: transparent;
+}
+.news-main-media img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain !important;
+  object-position: center top;
+  aspect-ratio: auto !important;
+  background: transparent;
+}
+.news-item.has-image .news-content { min-width: 0; }
+
+@media (max-width: 760px) {
+  .news-item.has-image {
+    grid-template-columns: minmax(78px, 105px) minmax(0, 1fr);
+    gap: 10px 15px;
+  }
+  .news-item.has-image > .news-date { grid-column: 1 / -1; grid-row: 1; }
+  .news-item.has-image > .news-main-media { grid-column: 1; grid-row: 2; }
+  .news-item.has-image > .news-content { grid-column: 2; grid-row: 2; }
+  .news-main-media img { max-height: 180px; }
+}
+@media (max-width: 430px) {
+  .home-news-card.has-image { grid-template-columns: minmax(80px, 32%) minmax(0,1fr); gap: 11px; }
+  .home-news-media img { max-height: 160px; }
+  .news-item.has-image { grid-template-columns: 78px minmax(0,1fr); gap: 8px 12px; }
+  .news-item.has-image .news-content h2 { font-size: 19px; }
+}
