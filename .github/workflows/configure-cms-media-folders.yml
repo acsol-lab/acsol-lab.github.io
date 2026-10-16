@@ -1,0 +1,34 @@
+name: Configure CMS media folders (one-time)
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: acsol-cms-media
+  cancel-in-progress: false
+jobs:
+  configure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install YAML editor
+        run: python -m pip install 'ruamel.yaml>=0.18,<0.19'
+      - name: Apply image folder defaults and research background
+        run: python tools/configure_cms_media.py
+      - name: Commit settings without discarding existing configuration
+        run: |
+          git add .pages.yml research-detail.html
+          if git diff --cached --quiet; then
+            echo 'Settings already configured.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Configure CMS upload folders by content type'
+          git pull --rebase origin main
+          git push origin HEAD:main

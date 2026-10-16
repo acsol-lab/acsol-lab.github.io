@@ -1,0 +1,62 @@
+name: Organize ACSoL images
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/**/*.json'
+      - 'media/**'
+  workflow_dispatch:
+    inputs:
+      run_mode:
+        description: 'plan = preview; apply = copy images + update JSON; cleanup = delete verified legacy copies'
+        type: choice
+        options: [plan, apply, cleanup]
+        default: plan
+        required: true
+      confirm_cleanup:
+        description: 'Allow deleting unused originals, only after Pages deployment verified'
+        type: boolean
+        default: false
+permissions:
+  contents: write
+concurrency:
+  group: acsol-cms-media
+  cancel-in-progress: false
+jobs:
+  organize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Choose run mode safely
+        shell: bash
+        env:
+          DISPATCH_MODE: ${{ inputs.run_mode }}
+          CONFIRM_CLEANUP: ${{ inputs.confirm_cleanup }}
+        run: |
+          MODE='apply'
+          if [[ "$GITHUB_EVENT_NAME" == 'workflow_dispatch' ]]; then MODE="$DISPATCH_MODE"; fi
+          if [[ "$MODE" == 'cleanup' && "$CONFIRM_CLEANUP" != 'true' ]]; then
+            echo 'Cleanup must be explicitly confirmed after checking deployment.'
+            exit 1
+          fi
+          echo "MODE=$MODE" >> "$GITHUB_ENV"
+      - name: Organize or preview media
+        run: python tools/organize_media.py --mode "$MODE"
+      - name: Commit copy-first media updates
+        if: env.MODE != 'plan'
+        shell: bash
+        run: |
+          git add -A -- data media
+          if [[ -f .github/media-organizer-manifest.json ]]; then git add .github/media-organizer-manifest.json; fi
+          if git diff --cached --quiet; then
+            echo 'No changes needed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Organize CMS media without breaking legacy image paths'
+          git pull --rebase origin main
+          git push origin HEAD:main
