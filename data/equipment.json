@@ -1,12 +1,27 @@
 [
   {
+    "name": "Sonicator"
+  },
+  {
+    "name": "Spin coater"
+  },
+  {
     "name": "Contact Aligner"
+  },
+  {
+    "name": "Glove box"
   },
   {
     "name": "12\" Multi Chamber Cluster Sputtering System"
   },
   {
     "name": "Sputter"
+  },
+  {
+    "name": "Thermal Evaporator"
+  },
+  {
+    "name": "Theramal Atomic Layer Deposition(ALD)"
   },
   {
     "name": "12\" Magnetic Vacuum Annealing Oven"
@@ -18,13 +33,16 @@
     "name": "Box Furnace"
   },
   {
+    "name": "CVT용 Furnace"
+  },
+  {
+    "name": "Optical Microsope(OM)"
+  },
+  {
     "name": "Scanning Electron Microscope(SEM)/Focus Ion Beam(FIB)"
   },
   {
     "name": "Atomic Force Microscope(AFM)"
-  },
-  {
-    "name": "Optical Microsope(OM)"
   },
   {
     "name": "Source Measure Unit(SMU)"
@@ -33,28 +51,9 @@
     "name": "Pulse Measure Unit(PMU)"
   },
   {
-    "name": "Theramal Atomic Layer Deposition(ALD)"
-  },
-  {
-    "name": "Thermal Evaporator"
-  },
-  {
-    "name": "Sonicator"
-  },
-  {
     "name": "Elipsometer"
   },
   {
     "name": "UV-VIS"
-  },
-  {
-    "name": "CVT용 Furnace"
-  },
-  {},
-  {
-    "name": "Glove box"
-  },
-  {
-    "name": "Spin coater"
   }
 ]
