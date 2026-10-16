@@ -2,7 +2,7 @@
   {
     "title": "Emerging Memory",
     "subtitle": "Next-generation memory",
-    "description": "ReRAM, SOM, MRAM을 중심으로 새로운 메모리 구조와 스위칭 메커니즘을 연구합니다.",
+    "description": "ReRAM, SOM, ECRAM 을 중심으로 새로운 메모리 구조와 스위칭 메커니즘을 연구합니다.",
     "keywords": "ReRAM · Vertical SOM · STT / SOT-MRAM · Skyrmion",
     "summaryImage": "/media/ai-memory-1.jpg",
     "imageAlt": "Emerging Memory 연구 이미지"
@@ -26,7 +26,7 @@
   {
     "title": "Energy Harvesting",
     "subtitle": "Heat transfer & materials",
-    "description": "열계면 소재와 마이크로·나노 구조를 활용해 반도체 소자의 열 전달과 방열 특성을 연구합니다.",
+    "description": "Piezoelectric Nanogenerator와 마찰전기 Triboelectric Nanogenerator를 연구·개발하고 있습니다. 기능성 소재와 유연 구조를 결합하여 압력, 진동 및 회전 운동을 전기에너지로 변환하는 기술을 개발합니다",
     "keywords": "Thermal Interface Materials · Micro / Nanospheres · Monolayers",
     "summaryImage": "/media/chatgpt-2026-10-16-120730-3.png",
     "imageAlt": "Thermal Management 연구 이미지"
@@ -34,7 +34,7 @@
   {
     "title": "MRAM",
     "subtitle": "MRAM",
-    "description": "MRAM",
+    "description": "자기터널접합(MTJ)구조의 자화 스위칭 특성을 활용하여 차세대 컴퓨팅 소자를 연구합니다.",
     "keywords": "MRAM",
     "summaryImage": "/media/chatgpt-2026-10-16-120731-4.png"
   },
