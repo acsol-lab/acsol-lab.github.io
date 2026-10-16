@@ -18,7 +18,7 @@
   {
     "title": "Atomic Layer Deposition",
     "subtitle": "Fabrication & integration",
-    "description": "원자층 증착과 전구체, CMP 및 접합 기술을 기반으로 반도체 집적 공정을 탐구합니다.",
+    "description": "Thermal ALD 공정으로 High-k 산화물 박막을 원자층 단위로 정밀하게 성장시키고, 이를 기반으로 강유전체 를 이용한 차세대 비휘발성 메모리인 FeRAM을 연구합니다. 공정 개발부터 소재 분석, 소자 제작·평가까지 연구 전 과정을 하나로 연결하여 저전력·고속 메모리 기술을 만들어 갑니다.",
     "keywords": "ALD · Precursors · CMP · Cu Hybrid Bonding · DFT / TCAD",
     "summaryImage": "/media/chatgpt-2026-10-16-120729-2.png",
     "imageAlt": "3D Semiconductor Process 연구 이미지"
