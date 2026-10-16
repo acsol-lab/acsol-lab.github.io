@@ -2,125 +2,125 @@
   {
     "name": "김은빈 (Kim, Eunbin)",
     "degree": "석사",
-    "graduationYear": "2026.10",
+    "graduationYear": "2026",
     "company": "Amkor Technology",
     "pastResearch": "ALD"
   },
   {
     "name": "이명 (Li, Ming)",
     "degree": "박사",
-    "graduationYear": "2026.08",
+    "graduationYear": "2026",
     "company": "Beijing 전자IC",
     "pastResearch": "Organic Synapse"
   },
   {
     "name": "김지원 (Kim, Jiwon)",
     "degree": "석사",
-    "graduationYear": "2026.08",
+    "graduationYear": "2026",
     "pastResearch": "Energy Harvesting"
   },
   {
     "name": "이세희 (Lee, Sehui)",
     "degree": "석사",
-    "graduationYear": "2026.08",
+    "graduationYear": "2026",
     "company": "DuPont Korea",
     "pastResearch": "CMP process"
   },
   {
     "name": "박광호 (Park, Gwang-Ho)",
     "degree": "석사",
-    "graduationYear": "2026.02",
+    "graduationYear": "2026",
     "company": "SK Hynix",
     "pastResearch": "2D / ECRAM"
   },
   {
     "name": "김태형 (Kim, TaeHyung)",
     "degree": "석사",
-    "graduationYear": "2026.02",
+    "graduationYear": "2026",
     "company": "AICT (반도체기술센터)",
     "pastResearch": "Ferro / ALD"
   },
   {
     "name": "김현제 (Kim, Hyeonje)",
     "degree": "석사",
-    "graduationYear": "2026.02",
+    "graduationYear": "2026",
     "company": "TBA",
     "pastResearch": "Ferro / TFT"
   },
   {
     "name": "박현준 (Park, Hyunjun)",
     "degree": "석사",
-    "graduationYear": "2026.02",
+    "graduationYear": "2026",
     "company": "AICT (반도체기술센터)",
     "pastResearch": "Photosensor / Perovskite"
   },
   {
     "name": "박현석 (Park, Hyeonseok)",
     "degree": "석사",
-    "graduationYear": "2026.02",
+    "graduationYear": "2026",
     "company": "TBA",
     "pastResearch": "ReRAM / TIM"
   },
   {
     "name": "김민철 (Kim, Min-Cheol)",
     "degree": "석사",
-    "graduationYear": "2026.02",
+    "graduationYear": "2026",
     "company": "SK Hynix",
     "pastResearch": "MRAM / SOT"
   },
   {
     "name": "전민규 (Jeon, MinKyu)",
     "degree": "석사",
-    "graduationYear": "2026.02",
+    "graduationYear": "2026",
     "company": "Micron (Japan)",
     "pastResearch": "Perovskite Optoelectronics"
   },
   {
     "name": "한민종 (Han, Minjong)",
     "degree": "석사",
-    "graduationYear": "2026.02",
+    "graduationYear": "2026",
     "company": "ACSoL (Hynix박사)",
     "pastResearch": "AI memory / ECRAM"
   },
   {
     "name": "주아연 (Zhu, Yajuan)",
     "degree": "석사",
-    "graduationYear": "2026.02",
+    "graduationYear": "2026",
     "company": "CXMT",
     "pastResearch": "Optical Synapse"
   },
   {
     "name": "추군광 (Juanguang Zou)",
     "degree": "석사",
-    "graduationYear": "2025.08",
+    "graduationYear": "2025",
     "company": "Foshan Electrical & Light Co. LTD",
     "pastResearch": "Optoelectronics / Energy Harvesting"
   },
   {
     "name": "채종호 (Jongho Chae)",
     "degree": "석사",
-    "graduationYear": "2025.08",
+    "graduationYear": "2025",
     "company": "SK Hynix",
     "pastResearch": "Emerging Memory (Perovskite)"
   },
   {
     "name": "정의진 (Uijin Jung)",
     "degree": "박사",
-    "graduationYear": "2025.08",
+    "graduationYear": "2025",
     "company": "DB Hitek (동부하이테크)",
     "pastResearch": "ReRAM / Memory (Perovskite)"
   },
   {
     "name": "우대성 (Dae-Seong Woo)",
     "degree": "박사",
-    "graduationYear": "2025.02",
+    "graduationYear": "2025",
     "company": "SK Hynix (DRAM TR)",
     "pastResearch": "SOM / Neural Chip"
   },
   {
     "name": "정성민 (Seongmin Jeong)",
     "degree": "석사",
-    "graduationYear": "2025.02",
+    "graduationYear": "2025",
     "company": "KoreaCircuit",
     "pastResearch": "Perovskite Optoelectronics"
   },
@@ -133,63 +133,63 @@
   {
     "name": "탄자오종 (Zhaozhong Tan)",
     "degree": "석사",
-    "graduationYear": "2024.08",
+    "graduationYear": "2024",
     "company": "SITRI (Shanghai Iduustrial Techn. Research Institute)",
     "pastResearch": "Perovskite Optoelectronics / Memory"
   },
   {
     "name": "정현찬 (Hyunchang Jeon)",
     "degree": "석사",
-    "graduationYear": "2024.08",
+    "graduationYear": "2024",
     "company": "ASML Korea",
     "pastResearch": "Perovskite Optoelectronics"
   },
   {
     "name": "허원준 (Wonjun Heo)",
     "degree": "석사",
-    "graduationYear": "2024.02",
+    "graduationYear": "2024",
     "company": "SK Hynix",
     "pastResearch": "Energy Harvesting, TIM"
   },
   {
     "name": "이흠 (Xin Li)",
     "degree": "석사",
-    "graduationYear": "2023.08",
+    "graduationYear": "2023",
     "company": "BOE (Display)",
     "pastResearch": "Photodetectors"
   },
   {
     "name": "수항 (Hang Su)",
     "degree": "석사",
-    "graduationYear": "2023.08",
+    "graduationYear": "2023",
     "company": "Goodix",
     "pastResearch": "Perovskite Optoelectronics"
   },
   {
     "name": "정신 (Cheng Chen)",
     "degree": "석사",
-    "graduationYear": "2023.02",
+    "graduationYear": "2023",
     "company": "Huawei",
     "pastResearch": "Energy harvesting / TENG"
   },
   {
     "name": "하주윤 (Juyun Ha)",
     "degree": "석사",
-    "graduationYear": "2023.02",
+    "graduationYear": "2023",
     "company": "On-Semiconductor",
     "pastResearch": "Photodetector / Memristor"
   },
   {
     "name": "문진욱 (Jinuk Moon)",
     "degree": "석사",
-    "graduationYear": "2023.02",
+    "graduationYear": "2023",
     "company": "SK Hynix (C&C)",
     "pastResearch": "Thermal Interface Material"
   },
   {
     "name": "임정아 (JeongA Im)",
     "degree": "석사",
-    "graduationYear": "2023.02",
+    "graduationYear": "2023",
     "company": "중앙대학교",
     "pastResearch": "Perovskite Memristor"
   },
@@ -203,28 +203,28 @@
   {
     "name": "정봄스민 (Bomseumin Jung)",
     "degree": "석사",
-    "graduationYear": "2022.08",
+    "graduationYear": "2022",
     "company": "한국전자기술연구원",
     "pastResearch": "Perovskite Sensors"
   },
   {
     "name": "심문호 (Shen Shim)",
     "degree": "석사",
-    "graduationYear": "2022.08",
+    "graduationYear": "2022",
     "company": "YS University Ph.D.",
     "pastResearch": "Self-powered Photodetector"
   },
   {
     "name": "김도현 (Do Hyun Kim)",
     "degree": "박사",
-    "graduationYear": "2021.08",
+    "graduationYear": "2021",
     "company": "주성엔지니어링",
     "pastResearch": "MO NSs and optoelectronics"
   },
   {
     "name": "상성문 (Chengwen Sang)",
     "degree": "석사",
-    "graduationYear": "2021.08",
+    "graduationYear": "2021",
     "company": "SMIC",
     "pastResearch": "MO energy harvesting"
   },
@@ -237,49 +237,49 @@
   {
     "name": "선전풍 (Zhanpeng Xian)",
     "degree": "석사",
-    "graduationYear": "2020.08",
+    "graduationYear": "2020",
     "company": "RayBow Optoelectronics (Shenzen)",
     "pastResearch": "Perovskite Photodetectors"
   },
   {
     "name": "김수빈 (Subin Kim)",
     "degree": "박사수료",
-    "graduationYear": "2020.06",
+    "graduationYear": "2020",
     "company": "삼성전자",
     "pastResearch": "Photodetector"
   },
   {
     "name": "정민우 (Minwoo Jung)",
     "degree": "석사",
-    "graduationYear": "2020.02",
+    "graduationYear": "2020",
     "company": "Circuit",
     "pastResearch": "Energy Harvesting"
   },
   {
     "name": "김지수 (Jisoo Kim)",
     "degree": "석사",
-    "graduationYear": "2020.02",
+    "graduationYear": "2020",
     "company": "한국전자기술연구원",
     "pastResearch": "Photo-reaction"
   },
   {
     "name": "유준혁 (Junkyuk Yoo)",
     "degree": "석사",
-    "graduationYear": "2020.02",
+    "graduationYear": "2020",
     "company": "메카로",
     "pastResearch": "Photosensors"
   },
   {
     "name": "지월성 (Yuexing Ji)",
     "degree": "석사",
-    "graduationYear": "2020.02",
+    "graduationYear": "2020",
     "company": "LIS (China Government Research Institute)",
     "pastResearch": "Photodetectors"
   },
   {
     "name": "유지연 (Jiyeon Yu)",
     "degree": "석사",
-    "graduationYear": "2020.02",
+    "graduationYear": "2020",
     "company": "A2US (MEMS)",
     "pastResearch": "TiO2 Photodetectors"
   },
@@ -293,14 +293,14 @@
   {
     "name": "신동수 (Dong Su Shin)",
     "degree": "박사",
-    "graduationYear": "2019.08",
+    "graduationYear": "2019",
     "company": "Teradyne",
     "pastResearch": "TCEs / Si Hybrid LEDs"
   },
   {
     "name": "김택곤 (Taek Gon Kim)",
     "degree": "박사",
-    "graduationYear": "2019.08",
+    "graduationYear": "2019",
     "company": "ASML",
     "pastResearch": "ZTO microspheres LEDs"
   },
@@ -321,14 +321,14 @@
   {
     "name": "박홍범 (Hongbeam Park)",
     "degree": "석사",
-    "graduationYear": "2018.08",
+    "graduationYear": "2018",
     "company": "DB Hitek (동부하이텍)",
     "pastResearch": "BTO based PENG"
   },
   {
     "name": "권찬울 (Chanwool Kwon)",
     "degree": "석사",
-    "graduationYear": "2018.08",
+    "graduationYear": "2018",
     "company": "병역특례",
     "pastResearch": "Metal oxide TENGs"
   },
