@@ -15,8 +15,8 @@
       "keywords": "· Perovskite Resistive Memory · Artificial Synapses · Single-Crystal Transfer · Perovskite Photodetectors · Reservoir Computing\n",
       "summaryImage": "/media/chatgpt-2026-10-16-120728-1.png",
       "detailImage": "/media/Perov.png",
-      "detailImageAlt": " Halide Perovskite의 전기적·광학적 특성을 활용하여 차세대 메모리, 광전자 소자 및 신경모사 컴퓨팅 기술을 연구합니다. Cs2AgBiBr6 기반 저항변화 메모리(ReRAM), CsPbBr3 Single crystal transfer 및 소자 제작, Perovskite photodetectors를 주요 연구 주제로 다루며 결정 구조와 결함·계면 특성이 소자의 전하 수송과 저항변화 거동에 미치는 영향을 분석합니다. \u000b또한 전기·광 자극에 따른 소자의 응답과 기억 특성을 활용하여 Artificial synapses와 Reservoir Computing 응용을 연구합니다. 소재 및 공정 설계부터 소자 제작, 동작 원리 분석과 기능 구현까지 연결하여 차세대 정보 저장·감지·처리 기술을 개발하고 있습니다.",
-      "imageAlt": "Neuromorphic Devices 연구 이미지"
+      "imageAlt": "Neuromorphic Devices 연구 이미지",
+      "detailIntro": " Halide Perovskite의 전기적·광학적 특성을 활용하여 차세대 메모리, 광전자 소자 및 신경모사 컴퓨팅 기술을 연구합니다. Cs2AgBiBr6 기반 저항변화 메모리(ReRAM), CsPbBr3 Single crystal transfer 및 소자 제작, Perovskite photodetectors를 주요 연구 주제로 다루며 결정 구조와 결함·계면 특성이 소자의 전하 수송과 저항변화 거동에 미치는 영향을 분석합니다. \u000b또한 전기·광 자극에 따른 소자의 응답과 기억 특성을 활용하여 Artificial synapses와 Reservoir Computing 응용을 연구합니다. 소재 및 공정 설계부터 소자 제작, 동작 원리 분석과 기능 구현까지 연결하여 차세대 정보 저장·감지·처리 기술을 개발하고 있습니다."
     },
     {
       "title": "Atomic Layer Deposition",
