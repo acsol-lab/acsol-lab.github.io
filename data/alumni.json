@@ -25,6 +25,25 @@
       "photo": "/media/alumni/김지원_졸업사진.jpg"
     },
     {
+      "name": "김지훈 (Ji Hoon Kim)",
+      "degree": "박사",
+      "graduationYear": "2026",
+      "company": "Samsung Electronics",
+      "pastResearch": "TFT",
+      "photo": "/media/alumni/김지훈_졸업사진.jpg",
+      "typography": {
+        "bodySize": 2
+      }
+    },
+    {
+      "name": "이우국 (Wooguk Lee)",
+      "degree": "박사",
+      "graduationYear": "2026",
+      "company": "SK Hynix",
+      "pastResearch": "Quartz Powder",
+      "photo": "/media/alumni/이우국_졸업사진.jpg"
+    },
+    {
       "name": "이세희 (Lee, Sehui)",
       "degree": "석사",
       "graduationYear": "2026",
@@ -453,25 +472,6 @@
       "company": "SK Hyxnix",
       "pastResearch": "CMP",
       "photo": "/media/alumni/김주연_졸업사진.jpg"
-    },
-    {
-      "name": "김지훈 (Ji Hoon Kim)",
-      "degree": "박사",
-      "graduationYear": "2026",
-      "company": "Samsung Electronics",
-      "pastResearch": "TFT",
-      "photo": "/media/alumni/김지훈_졸업사진.jpg",
-      "typography": {
-        "bodySize": 2
-      }
-    },
-    {
-      "name": "이우국 (Wooguk Lee)",
-      "degree": "박사",
-      "graduationYear": "2026",
-      "company": "SK Hynix",
-      "pastResearch": "Quartz Powder",
-      "photo": "/media/alumni/이우국_졸업사진.jpg"
     }
   ]
 }
