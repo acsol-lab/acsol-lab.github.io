@@ -93,6 +93,10 @@
       "media/gallery/26학년도_ACSoL신입생_오리엔테이션_갤러리사진.png"
     ],
     [
+      "media/AS.jpg",
+      "media/news/Advanced_Science_논문_게재_승인_뉴스사진.jpg"
+    ],
+    [
       "media/Energy.png",
       "media/research/Energy_Harvesting_세부대표사진.png"
     ],
@@ -525,6 +529,10 @@
       "media/alumni/탄자오종_졸업사진.jpeg"
     ],
     [
+      "media/강자신_증명사진.jpg",
+      "media/news/강자신_연구원_우수논문상_수상_뉴스사진.jpg"
+    ],
+    [
       "media/교수님 사진_resize2.jpg",
       "media/professor/Prof._Jinsub_Park_교수사진.jpg"
     ],
@@ -534,7 +542,9 @@
     ]
   ],
   "originals": [
+    "media/AS.jpg",
     "media/mrma.png",
-    "media/research/Emerging_Memory_세부대표사진1.png"
+    "media/research/Emerging_Memory_세부대표사진1.png",
+    "media/강자신_증명사진.jpg"
   ]
 }
