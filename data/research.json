@@ -32,7 +32,7 @@
       "title": "Energy Harvesting",
       "subtitle": "Heat transfer & materials",
       "description": "Piezoelectric Nanogenerator와 마찰전기 Triboelectric Nanogenerator를 연구·개발하고 있습니다. 기능성 소재와 유연 구조를 결합하여 압력, 진동 및 회전 운동을 전기에너지로 변환하는 기술을 개발합니다",
-      "keywords": "Thermal Interface Materials · Micro / Nanospheres · Monolayers",
+      "keywords": "· Piezoelectric nanogenerator (PENG) · Triboelectric nanogenerator (TENG)\n",
       "summaryImage": "/media/chatgpt-2026-10-16-120730-3.png",
       "detailImage": "/media/Energy.png",
       "imageAlt": "Thermal Management 연구 이미지"
