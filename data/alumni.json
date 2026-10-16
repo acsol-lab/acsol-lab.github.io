@@ -83,83 +83,87 @@
     "degree": "석사",
     "graduationYear": "2026",
     "company": "Micron (Japan)",
-    "pastResearch": "Perovskite Optoelectronics"
-  },
-  {
-    "name": "한민종 (Han, Minjong)",
-    "degree": "석사",
-    "graduationYear": "2026",
-    "company": "ACSoL (Hynix박사)",
-    "pastResearch": "AI memory / ECRAM"
+    "pastResearch": "Perovskite Optoelectronics",
+    "photo": "/media/file-56.jpg"
   },
   {
     "name": "주아연 (Zhu, Yajuan)",
     "degree": "석사",
     "graduationYear": "2026",
     "company": "CXMT",
-    "pastResearch": "Optical Synapse"
+    "pastResearch": "Optical Synapse",
+    "photo": "/media/file-57.jpg"
   },
   {
     "name": "추군광 (Juanguang Zou)",
     "degree": "석사",
     "graduationYear": "2025",
     "company": "Foshan Electrical & Light Co. LTD",
-    "pastResearch": "Optoelectronics / Energy Harvesting"
+    "pastResearch": "Optoelectronics / Energy Harvesting",
+    "photo": "/media/file-58.jpg"
   },
   {
     "name": "채종호 (Jongho Chae)",
     "degree": "석사",
     "graduationYear": "2025",
     "company": "SK Hynix",
-    "pastResearch": "Emerging Memory (Perovskite)"
+    "pastResearch": "Emerging Memory (Perovskite)",
+    "photo": "/media/file-59.jpg"
   },
   {
     "name": "정의진 (Uijin Jung)",
     "degree": "박사",
     "graduationYear": "2025",
     "company": "DB Hitek (동부하이테크)",
-    "pastResearch": "ReRAM / Memory (Perovskite)"
+    "pastResearch": "ReRAM / Memory (Perovskite)",
+    "photo": "/media/file-60.jpg"
   },
   {
     "name": "우대성 (Dae-Seong Woo)",
     "degree": "박사",
     "graduationYear": "2025",
     "company": "SK Hynix (DRAM TR)",
-    "pastResearch": "SOM / Neural Chip"
+    "pastResearch": "SOM / Neural Chip",
+    "photo": "/media/file-8.png"
   },
   {
     "name": "정성민 (Seongmin Jeong)",
     "degree": "석사",
     "graduationYear": "2025",
     "company": "KoreaCircuit",
-    "pastResearch": "Perovskite Optoelectronics"
+    "pastResearch": "Perovskite Optoelectronics",
+    "photo": "/media/file-61.jpg"
   },
   {
     "name": "Dr. Naveneet Kumar",
     "degree": "Postdoctoral Fellow",
     "graduationYear": "2025",
-    "company": "Senior Researcher, University of Saskatchewan"
+    "company": "Senior Researcher, University of Saskatchewan",
+    "photo": "/media/navneet.jpg"
   },
   {
     "name": "탄자오종 (Zhaozhong Tan)",
     "degree": "석사",
     "graduationYear": "2024",
     "company": "SITRI (Shanghai Iduustrial Techn. Research Institute)",
-    "pastResearch": "Perovskite Optoelectronics / Memory"
+    "pastResearch": "Perovskite Optoelectronics / Memory",
+    "photo": "/media/zhazhong.jpeg"
   },
   {
     "name": "정현찬 (Hyunchang Jeon)",
     "degree": "석사",
     "graduationYear": "2024",
     "company": "ASML Korea",
-    "pastResearch": "Perovskite Optoelectronics"
+    "pastResearch": "Perovskite Optoelectronics",
+    "photo": "/media/file-3.jpeg"
   },
   {
     "name": "허원준 (Wonjun Heo)",
     "degree": "석사",
     "graduationYear": "2024",
     "company": "SK Hynix",
-    "pastResearch": "Energy Harvesting, TIM"
+    "pastResearch": "Energy Harvesting, TIM",
+    "photo": "/media/file-62.jpg"
   },
   {
     "name": "이흠 (Xin Li)",
