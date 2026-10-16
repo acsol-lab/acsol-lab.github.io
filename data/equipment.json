@@ -25,7 +25,8 @@
     "name": "Theramal Atomic Layer Deposition(ALD)"
   },
   {
-    "name": "12\" Magnetic Vacuum Annealing Oven"
+    "name": "12\" Magnetic Vacuum Annealing Oven",
+    "photo": "/media/ex-situ-annealing.png"
   },
   {
     "name": "Furnace (Oxidation)"
