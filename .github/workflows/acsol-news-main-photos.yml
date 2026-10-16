@@ -1,0 +1,39 @@
+name: One-time News cover photos (keep CMS data)
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_mode:
+        description: First run plan; then apply to update the existing News code
+        required: true
+        default: plan
+        type: choice
+        options:
+          - plan
+          - apply
+
+permissions:
+  contents: write
+
+jobs:
+  update_news:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preview or apply the News photo patch
+        run: python3 tools/update_news_main_photos.py --mode '${{ inputs.run_mode }}'
+      - name: Check JavaScript syntax
+        if: ${{ inputs.run_mode == 'apply' }}
+        run: node --check site.js
+      - name: Commit updated News files
+        if: ${{ inputs.run_mode == 'apply' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site.js index.html news.html .pages.yml news-main-images.css
+          if git diff --staged --quiet; then
+            echo 'Nothing changed; News patch already applied.'
+          else
+            git commit -m "Show existing News images in Home and News cards"
+            git push
+          fi
