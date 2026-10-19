@@ -406,10 +406,49 @@
       if(rect.right>window.innerWidth-8)popup.style.left=Math.max(8,window.innerWidth-popup.offsetWidth-8)+'px';
       if(rect.bottom>window.innerHeight-8)popup.style.top=Math.max(8,window.innerHeight-popup.offsetHeight-8)+'px';
     });
+    // ACSoL-Banner-Sizing-v1: editable dimensions, per-banner, without replacing CSS layout.
+    // Actual pixels are respected when the viewport has room; on narrow screens the
+    // requested rectangle scales uniformly so it does not overflow the viewport.
+    const applyBannerSize = (entry) => {
+      const mode = String(entry?.forceImageSize ?? 'off').toLowerCase();
+      const requested = mode === 'on' || mode === 'true' || entry?.forceImageSize === true;
+      const width = Number(entry?.imageWidth);
+      const height = Number(entry?.imageHeight);
+      const valid = requested && Number.isFinite(width) && Number.isFinite(height)
+        && width > 0 && height > 0 && width <= 4096 && height <= 4096;
+      popup.classList.toggle('acsol-banner-fixed-size', valid);
+      if (!valid) {
+        popup.style.removeProperty('--acsol-banner-width');
+        popup.style.removeProperty('--acsol-banner-height');
+        popup.style.removeProperty('--acsol-banner-fit');
+        return;
+      }
+      const fit = ['contain', 'cover', 'fill'].includes(entry.imageFitMode)
+        ? entry.imageFitMode : 'contain';
+      // Leave room for the popup padding, drag handle and hide-today footer.
+      const availableWidth = Math.max(110, window.innerWidth - 48);
+      const availableHeight = Math.max(110, window.innerHeight - 152);
+      const factor = Math.min(1, availableWidth / width, availableHeight / height);
+      popup.style.setProperty('--acsol-banner-width', (width * factor).toFixed(2) + 'px');
+      popup.style.setProperty('--acsol-banner-height', (height * factor).toFixed(2) + 'px');
+      popup.style.setProperty('--acsol-banner-fit', fit);
+      requestAnimationFrame(() => {
+        if (!popup.isConnected) return;
+        const bounds = popup.getBoundingClientRect();
+        const maxLeft = Math.max(8, window.innerWidth - popup.offsetWidth - 8);
+        const maxTop = Math.max(8, window.innerHeight - popup.offsetHeight - 8);
+        if (bounds.left > maxLeft) popup.style.left = maxLeft + 'px';
+        if (bounds.top > maxTop) popup.style.top = maxTop + 'px';
+      });
+    };
+    window.addEventListener('resize', () => {
+      if (popup.isConnected) applyBannerSize(eligible[index]);
+    });
     const previousFocus=document.activeElement;
     const render=()=>{
       const entry=eligible[index];if(!entry){overlay.remove();previousFocus?.focus?.();return;}
       setImage(picture,entry.image,text(entry.alt,entry.title||'연구실 공지 배너'),()=>imageFallback('배너 사진을 불러오지 못했습니다.'),{eager:true});
+      applyBannerSize(entry);
       const url=text(entry.linkUrl);const good=/^https:\/\/[^\s<]+$/i.test(url)||/^(research|students|news|contact|publications|equipment|gallery)\.html(\?[a-z0-9=&-]+)?$/i.test(url);
       link.href=good?url:'#';link.classList.toggle('is-static',!good);
       if(good&&url.startsWith('https://')){link.target='_blank';link.rel='noopener noreferrer';}else{link.removeAttribute('target');link.removeAttribute('rel');}

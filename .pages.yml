@@ -114,6 +114,36 @@ content:
         - name: alt
           label: 사진 대체 설명
           type: string
+        - name: forceImageSize
+          label: 이미지 크기 강제 지정
+          type: select
+          default: 'off'
+          options:
+            values:
+            - name: 'off'
+              label: 사용 안함 (원본 비율로 자동)
+            - name: 'on'
+              label: 사용 (가로·세로 px 직접 지정)
+        - name: imageWidth
+          label: 가로 넓이 (px · 강제 지정일 때 적용)
+          description: '예: 948.6 · 0보다 큰 숫자로 입력'
+          type: number
+        - name: imageHeight
+          label: 세로 높이 (px · 강제 지정일 때 적용)
+          description: '예: 575.2 · 0보다 큰 숫자로 입력'
+          type: number
+        - name: imageFitMode
+          label: 사진 맞춤 방식 (강제 지정 시)
+          type: select
+          default: contain
+          options:
+            values:
+            - name: contain
+              label: 전체 표시 · 비율 유지 (권장)
+            - name: cover
+              label: 박스 채움 · 일부 잘릴 수 있음
+            - name: fill
+              label: 정확한 픽셀로 맞춤 · 비율 왜곡 가능
         - name: startDate
           label: 노출 시작 날짜 (한국시간, 해당 날짜부터)
           type: date
