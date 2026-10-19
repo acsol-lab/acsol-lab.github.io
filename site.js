@@ -373,7 +373,7 @@
     const popup=node('section','recruit-banner-popup');
     popup.setAttribute('role','region');
     popup.setAttribute('aria-label','연구실 모집 및 안내 배너');
-    const grip=node('div','recruit-banner-drag-handle','ACSoL  /  ANNOUNCEMENT     ⋮⋮  드래그하여 이동');
+    const grip=node('div','recruit-banner-drag-handle','ACSoL  /  ANNOUNCEMENT');
     grip.title='마우스로 잡아서 배너 위치 이동';
     grip.setAttribute('aria-label','이 배너를 드래그하여 이동할 수 있습니다');
     const picture=node('div','recruit-banner-image');
