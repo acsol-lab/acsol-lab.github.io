@@ -3,9 +3,10 @@
     {
       "id": "Recruit-2026",
       "enabled": true,
-      "image": "/media/banner/Recruit-2026_배너사진.jpg",
+      "image": "/media/2026 신입생 모집_1.jpg",
       "startDate": "2026-10-19",
-      "endDate": "2027-12-23"
+      "endDate": "2027-12-23",
+      "linkUrl": "https://acsol-lab.github.io/contact.html"
     }
   ]
 }
