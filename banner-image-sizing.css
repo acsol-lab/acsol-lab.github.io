@@ -1,0 +1,29 @@
+/* ACSoL v16.1 banner-size controls. Load AFTER styles.css. */
+/* No overrides apply until the CMS option '이미지 크기 강제 지정' is enabled. */
+.recruit-banner-popup.acsol-banner-fixed-size {
+  box-sizing: border-box !important;
+  width: calc(var(--acsol-banner-width) + 30px) !important;
+  max-width: calc(100vw - 24px) !important;
+}
+.recruit-banner-popup.acsol-banner-fixed-size .recruit-banner-link,
+.recruit-banner-popup.acsol-banner-fixed-size .recruit-banner-image {
+  display: block;
+  width: calc(var(--acsol-banner-width) + 2px) !important;
+  max-width: 100% !important;
+}
+.recruit-banner-popup.acsol-banner-fixed-size .recruit-banner-image {
+  box-sizing: border-box;
+  min-height: 0 !important;
+  height: calc(var(--acsol-banner-height) + 2px) !important;
+  background: #fff !important;
+}
+.recruit-banner-popup.acsol-banner-fixed-size .recruit-banner-image img {
+  display: block !important;
+  box-sizing: border-box;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: none !important;
+  object-fit: var(--acsol-banner-fit, contain) !important;
+  object-position: center !important;
+}

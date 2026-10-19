@@ -1,49 +1,38 @@
-# ACSoL v16.1 — News 대표 사진을 Home·News 목록에 표시
+# ACSoL v16.1 — 모집 배너 이미지 크기 CMS 업데이트
 
-이 패치는 기존 v16.1에 적용한 **이후의 Students/Alumni/CMS/Media Organizer 변경사항을 보존하기 위해 현재 GitHub 파일을 직접 수정**합니다.
+## 신규 CMS 설정
 
-## 무엇이 변경되나요?
+Pages CMS → Home → 기간 지정 모집·안내 배너 → 배너 항목에서:
 
-- **Pages CMS → News → 공지사항**에서 이전의 `상세 내용 사진 (선택)` 필드가 **`뉴스 대표 사진 (Home·News 목록에 표시, 선택)`**으로 표시됩니다.
-- 저장 키는 그대로 **`detailImage`**입니다. 이전에 등록한 사진도 재업로드할 필요가 없습니다.
-- Home 소식 카드: 사진이 있는 경우 사진 왼쪽 + 제목·요약 오른쪽. 사진이 없으면 기존 텍스트 카드 유지.
-- News 페이지: 사진이 있는 경우 날짜 / 대표사진 / 제목·요약. 사진이 없으면 기존 텍스트 행 유지.
-- 사진은 `object-fit:contain`과 자동 비율로 **어느 부분도 자르지 않습니다**. 극단적으로 세로로 긴 사진만 카드가 과도하게 커지지 않게 최대 표시 높이를 제한하면서도 전체가 보이도록 축소합니다.
-- 펼쳐지는 세부 내용에서는 대표 이미지를 다시 표시하지 않아 **사진 중복이 없습니다**. 상세 글은 그대로 유지됩니다. 사진만 있고 추가 상세 글이 없으면 불필요한 펼침 버튼을 숨깁니다.
-- 기존 `data/news.json`과 모든 이미지 파일은 **절대 변경하지 않습니다**.
+- **이미지 크기 강제 지정**: `사용 안함`(기존 디자인) 또는 `사용`
+- **가로 넓이 (px)**: 예 `948.6`
+- **세로 높이 (px)**: 예 `575.2`
+- **사진 맞춤 방식**: `전체 표시(비율 유지)` / `박스 채움(일부 잘릴 수 있음)` / `정확히 맞춤(비율 왜곡 가능)`
 
-## GitHub에 적용하기 — 파일을 덮어쓰지 않는 안전 방식
+강제 지정을 활성화하고 가로·세로에 양수를 넣으면 요청한 표시 크기를 적용합니다. **작은 화면에서는 가로와 세로를 같은 비율로 축소**하여 화면 밖으로 벗어나지 않도록 합니다. 입력 크기는 이미지 파일 자체의 해상도를 바꾸지 않고 브라우저의 표시 크기만 조절합니다.
 
-1. 현재 `nawit-del.github.io` 저장소를 ZIP으로 **백업**합니다.
-2. 압축파일에서 다음 **새 파일 3개만** 기존 경로에 업로드합니다.
-   - `news-main-images.css` (저장소 최상위)
-   - `tools/update_news_main_photos.py` (tools 폴더)
-   - `.github/workflows/acsol-news-main-photos.yml` (.github/workflows 폴더)
-3. GitHub → `Actions` → **One-time News cover photos (keep CMS data)** 를 엽니다.
-4. `Run workflow`에서 `run_mode=plan`으로 실행합니다. `Preview or apply the News photo patch` 로그에 `Will edit: site.js, .pages.yml, index.html, news.html`이라고 표시되면 정상입니다. (`plan`은 아무것도 수정하지 않습니다.)
-5. 같은 Action을 `run_mode=apply`로 실행합니다. JavaScript 문법을 검사하고 4개 파일을 수정하여 커밋합니다.
-6. GitHub Pages 배포 성공을 기다린 뒤 Home / News를 새로고침하고, Pages CMS → News 메뉴에 **뉴스 대표 사진** 필드가 표시되는지 확인합니다.
+## 설치
 
-**중요:** GitHub Actions에서 해당 저장소를 수정할 권한이 필요합니다. Settings → Actions → General → Workflow permissions → Read and write permissions로 확인합니다. 조직 정책에 따라 수정할 수 없을 수 있습니다.
+1. 기존 GitHub Organization의 홈페이지 저장소를 백업하세요.
+2. ZIP에서 다음 3개의 새 파일을 **원래 경로대로** 업로드하세요.
+   - `banner-image-sizing.css` (저장소 최상위)
+   - `tools/patch_banner_sizing.py`
+   - `.github/workflows/acsol-banner-sizing.yml`
+3. GitHub → Actions → **One-time ACSoL banner image sizing**에서 `Run workflow`를 실행합니다.
+4. `run_mode = plan`을 실행해 변경 내용을 로그에서 확인합니다. (파일 변경 없음)
+5. 문제가 없으면 같은 Action의 `run_mode = apply`로 다시 실행합니다.
+6. Actions 결과에서 `Commit updated files` 성공을 확인하고 Pages CMS를 새로고침합니다.
+7. 홈페이지 배포 상태를 확인합니다. `GITHUB_TOKEN`으로 생성된 커밋은 **GitHub Pages 재배포를 자동 유발하지 않을 수 있으므로**, Pages가 재배포되지 않았다면 README 등에 간단한 변경을 직접 커밋해 배포를 촉발하세요.
 
-`apply` 후 `Commit updated News files`가 성공하였지만 GitHub Pages 화면이 바뀌지 않으면 배포 상태 및 브라우저 캐시를 확인하세요. 빌드가 자동 발생하지 않는 경우 별도 정상 배포 커밋이 필요할 수 있습니다.
+## 기존 기능 보존
 
-## CMS 사용 방법
+`data/banners.json`, `data/students.json`, `data/news.json`, 사진 파일은 건드리지 않습니다. 실제 GitHub 저장소의 최신 `.pages.yml`, `site.js`, `index.html`을 부분 수정합니다. 기존 배너 노출 기간·오늘 하루 보지 않기·드래그 기능을 유지합니다.
 
-- 기존 `detailImage`의 이미지가 있다면 **그대로** 사용됩니다.
-- 새로운 News에서는 CMS의 `뉴스 대표 사진 (Home·News 목록에 표시, 선택)` 필드에 JPG/PNG/WebP를 업로드하면 됩니다.
-- 사진이 없는 News는 해당 필드를 비워 두면 됩니다. 사진 자리는 만들어지지 않습니다.
-- `펼침 상세 내용`에는 자세한 문구를 입력할 수 있으며, 기존처럼 우측 V자 버튼으로 열 수 있습니다.
-- 기존 Media Organizer가 있다면 `detailImage` 파일의 위치와 명명 규칙을 변경하지 않으므로 충돌하지 않습니다.
+## 주의 사항
 
-## 기존 구조 보존
-
-이 패치는 `site.js` 안에서 News를 그리는 부분만 수정합니다. `.pages.yml`에서는 News 사진 입력란의 **표시 이름만** 바꿉니다. `data/news.json`, `data/gallery.json` 등 데이터 파일과 `styles.css`를 덮어쓰지 않습니다. 따라서 앞서 적용한 Research 이미지 비율 및 Students 사진 보정도 그대로 유지됩니다.
-
-만약 현재 파일 구조가 많이 수정되어 대상 코드가 다르면 스크립트가 **오류로 중단하고 일부 파일을 덮어쓰지 않습니다**. 이 경우 현재 `site.js`를 보내주시면 해당 버전에 맞춰 조정할 수 있습니다.
-
-### 구성 파일
-
-- `news-main-images.css`: 새 화면 레이아웃
-- `tools/update_news_main_photos.py`: 현재 `site.js`, `.pages.yml`, `index.html`, `news.html`을 안전하게 수정하는 스크립트
-- `.github/workflows/acsol-news-main-photos.yml`: plan/apply 실행 액션
+- `plan`에서 오류가 발생했다면, **apply 실행을 중지**하고 현재 저장소의 `.pages.yml` 또는 `site.js`를 확인해야 합니다.
+- `imageWidth`/`imageHeight`가 0이거나 비어 있으면 기존 자동 크기로 표시됩니다.
+- 모바일 등 화면이 작은 곳에서는 강제 지정한 크기가 넘치지 않도록 **축소됩니다**.
+- `contain`: 이미지 전체가 보이지만 여백이 생길 수 있음 (권장).
+- `cover`: 박스를 채우지만 일부가 잘릴 수 있음.
+- `fill`: 정확한 박스에 맞추나 이미지가 늘어나거나 찌그러질 수 있음.
