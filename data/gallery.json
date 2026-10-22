@@ -1,6 +1,12 @@
 {
   "items": [
     {
+      "title": "2026_e-MRS 학회 [윤기원,서동찬]",
+      "date": "2026.05.29",
+      "image": "/media/gallery/2026_e-MRS_학회_[윤기원,서동찬]_갤러리사진.jpg",
+      "featured": false
+    },
+    {
       "title": "2026 스승의날 행사",
       "date": "2026.05.15",
       "image": "/media/gallery/2026_스승의날_행사_갤러리사진.jpg",
@@ -130,12 +136,6 @@
       "title": "반도체학술대회 @강원웰리힐리파크 ",
       "date": "2019. 2. 14",
       "image": "/media/gallery/반도체학술대회_@강원웰리힐리파크_갤러리사진.avif",
-      "featured": false
-    },
-    {
-      "title": "2026_e-MRS 학회 [윤기원,서동찬]",
-      "date": "2026.05.29",
-      "image": "/media/gallery/2026_e-MRS_학회_[윤기원,서동찬]_갤러리사진.jpg",
       "featured": false
     }
   ]
