@@ -1,6 +1,13 @@
 {
   "items": [
     {
+      "date": "20261020",
+      "category": "Publication",
+      "title": "ACS Applied Materials & Interfaces 논문 게재 승인",
+      "description": "현제·홍광의 \"Enhanced Ferroelectric Performance of P(VDF-TrFE) Composites via MAPbI₃-Mediated Crystallization for Flexible Memory Applications\" 논문 게 승ㅣㄴ ",
+      "detailImage": "/media/news/ACS_Applied_Materials_&_Interfaces_논문_게재_승인_뉴스사진.jpeg"
+    },
+    {
       "date": "2026-09-03",
       "category": "Featured cover",
       "title": "Advanced Science Back Cover 선정",
@@ -854,13 +861,6 @@
       "title": "Nanokorea 2012 Best Poster Award",
       "description": "손태준의 ZnO 나노구조 LED 광추출 연구 수상",
       "source": "Wix News"
-    },
-    {
-      "date": "20261020",
-      "category": "Publication",
-      "title": "ACS Applied Materials & Interfaces 논문 게재 승인",
-      "description": "현제·홍광의 \"Enhanced Ferroelectric Performance of P(VDF-TrFE) Composites via MAPbI₃-Mediated Crystallization for Flexible Memory Applications\" 논문 게 승ㅣㄴ ",
-      "detailImage": "/media/news/ACS_Applied_Materials_&_Interfaces_논문_게재_승인_뉴스사진.jpeg"
     }
   ]
 }
