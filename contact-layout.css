@@ -102,3 +102,17 @@
 @media (prefers-reduced-motion: reduce) {
   .contact-recruitment-link { transition: none; }
 }
+
+/* CMS: if the poster is switched off, use a balanced two-column layout. */
+.contact-with-poster .contact-recruitment[hidden],
+.contact-with-poster .contact-recruitment figcaption[hidden] { display: none; }
+.contact-grid.contact-card-layout.contact-with-poster.poster-hidden {
+  grid-template-columns: minmax(255px, 1fr) minmax(360px, 2fr);
+  grid-template-areas: "intro details";
+}
+@media (max-width: 760px) {
+  .contact-grid.contact-card-layout.contact-with-poster.poster-hidden {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "intro" "details";
+  }
+}

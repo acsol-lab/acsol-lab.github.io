@@ -267,6 +267,40 @@
       setText('#cms-contact-accent',cfg.contactAccent);
       setText('#cms-contact-intro',cfg.contactIntro);
       setText('#cms-contact-action',cfg.actionLabel);
+      // The contact poster and card captions are edited in Pages CMS:
+      // data/page-contact.json.  Never trust an arbitrary URL in uploaded data.
+      setText('#cms-contact-get-in-touch',cfg.getInTouchLabel);
+      const contactLabels = {
+        '#cms-contact-principal-label': 'principalInvestigatorLabel',
+        '#cms-contact-office-label': 'officeLabel',
+        '#cms-contact-laboratory-label': 'laboratoryLabel',
+        '#cms-contact-visit-label': 'visitUsLabel',
+        '#cms-contact-student-label': 'studentRepresentativeLabel',
+        '#cms-contact-directions-label': 'directionsLabel'
+      };
+      for (const [selector,key] of Object.entries(contactLabels)) setText(selector,cfg[key]);
+      const poster = $('#cms-contact-poster');
+      const posterLink = $('#cms-contact-poster-link');
+      const posterImage = $('#cms-contact-poster-image');
+      const posterCaption = $('#cms-contact-poster-caption');
+      if (poster && posterLink && posterImage) {
+        const src = mediaURL(cfg.posterImage);
+        const visible = cfg.posterVisible !== false && Boolean(src);
+        poster.hidden = !visible;
+        $('.contact-with-poster')?.classList.toggle('poster-hidden', !visible);
+        if (visible) {
+          posterLink.href = src;
+          posterImage.src = src;
+          posterImage.alt = text(cfg.posterAlt, 'ACSoL 연구실 모집 안내');
+          poster.setAttribute('aria-label', posterImage.alt);
+          posterLink.setAttribute('aria-label', posterImage.alt + ' — 원본 이미지 새 창에서 보기');
+        }
+        if (posterCaption) {
+          const caption = text(cfg.posterCaption);
+          posterCaption.textContent = caption;
+          posterCaption.hidden = !caption;
+        }
+      }
     }
     setPageTypography(cfg);
   }
