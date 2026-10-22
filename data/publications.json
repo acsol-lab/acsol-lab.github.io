@@ -1,6 +1,13 @@
 {
   "items": [
     {
+      "publishedDate": "2026-10-20",
+      "journal": "ACS Applied Materials & Interfaces",
+      "title": "Enhanced Ferroelectric Performance of P(VDF-TrFE) Composites via MAPbI₃-Mediated Crystallization for Flexible Memory Applications",
+      "authors": " H.J. Kim,  H.G. Seo, M.J. Han, Z. Jiang, J. Park*",
+      "underReview": false
+    },
+    {
       "year": 2026,
       "journal": "Submitted to Journal",
       "title": "High-Output Triboelectric Nanogenerator Based on Unidirectional Induced-Current Generation and In-Phase Current Superposition for Low-Frequency Energy Harvesting",
@@ -1107,13 +1114,6 @@
       "journal": "Oxide and Nitride Semiconductor (Springer)",
       "title": "Chapter 4, Polarity control and applications",
       "authors": "J. Park, S. Hong",
-      "underReview": false
-    },
-    {
-      "publishedDate": "2026-10-20",
-      "journal": "ACS Applied Materials & Interfaces",
-      "title": "Enhanced Ferroelectric Performance of P(VDF-TrFE) Composites via MAPbI₃-Mediated Crystallization for Flexible Memory Applications",
-      "authors": " Kim, Hyeonje; Seo, Honggwang; Han, Minjong; Zichen, Jiang; Park, Jinsub*",
       "underReview": false
     }
   ]
