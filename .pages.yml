@@ -800,6 +800,49 @@ content:
       - name: directionsMapUrl
         label: 상세 지도 URL (https://)
         type: string
+    - name: contact_display
+      label: 모집 포스터 · 카드 문구
+      type: file
+      path: data/contact-display.json
+      format: json
+      fields:
+      - name: getInTouchLabel
+        label: 왼쪽 카드 상단 작은 제목 (Get in touch)
+        type: string
+      - name: posterVisible
+        label: 가운데 모집 포스터 표시 여부
+        type: boolean
+        default: true
+      - name: posterImage
+        label: 가운데 모집 포스터 사진 업로드 · 교체
+        type: image
+        options:
+          path: contact
+          rename: false
+      - name: posterAlt
+        label: 포스터 이미지 대체 설명 (접근성)
+        type: text
+      - name: posterCaption
+        label: 포스터 아래 안내 문구 (빈 칸이면 숨김)
+        type: string
+      - name: principalInvestigatorLabel
+        label: 오른쪽 카드 · 교수님 제목
+        type: string
+      - name: officeLabel
+        label: 오른쪽 카드 · 교수실 제목
+        type: string
+      - name: laboratoryLabel
+        label: 오른쪽 카드 · 연구실 제목
+        type: string
+      - name: visitUsLabel
+        label: 오른쪽 카드 · 방문 주소 제목
+        type: string
+      - name: studentRepresentativeLabel
+        label: 오른쪽 카드 · 학생 대표 제목
+        type: string
+      - name: directionsLabel
+        label: 오른쪽 카드 · 오시는 길 제목
+        type: string
 - name: edit_page_copy
   label: 02 · 페이지 제목 · 글꼴
   type: group
@@ -1197,7 +1240,7 @@ content:
         label: 이 페이지 섹션 제목 크기(px, 0=기본)
         type: number
     - name: page_contact
-      label: 페이지 문구 · 중앙 포스터 · 글꼴 · 크기
+      label: 페이지 문구 · 글꼴 · 크기
       type: file
       path: data/page-contact.json
       format: json
@@ -1225,43 +1268,6 @@ content:
         type: text
       - name: actionLabel
         label: 이메일 버튼 문구
-        type: string
-      - name: getInTouchLabel
-        label: 왼쪽 카드 상단 작은 제목 (Get in touch)
-        type: string
-      - name: posterVisible
-        label: 가운데 모집 포스터 표시 여부
-        type: boolean
-        default: true
-      - name: posterImage
-        label: 가운데 모집 포스터 사진 업로드 · 교체
-        type: image
-        options:
-          path: contact
-          rename: false
-      - name: posterAlt
-        label: 포스터 이미지 대체 설명 (접근성)
-        type: text
-      - name: posterCaption
-        label: 포스터 아래 안내 문구 (빈 칸이면 숨김)
-        type: string
-      - name: principalInvestigatorLabel
-        label: 오른쪽 카드 · 교수님 제목
-        type: string
-      - name: officeLabel
-        label: 오른쪽 카드 · 교수실 제목
-        type: string
-      - name: laboratoryLabel
-        label: 오른쪽 카드 · 연구실 제목
-        type: string
-      - name: visitUsLabel
-        label: 오른쪽 카드 · 방문 주소 제목
-        type: string
-      - name: studentRepresentativeLabel
-        label: 오른쪽 카드 · 학생 대표 제목
-        type: string
-      - name: directionsLabel
-        label: 오른쪽 카드 · 오시는 길 제목
         type: string
       - name: headingFont
         label: 이 페이지 큰 제목 글꼴

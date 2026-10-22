@@ -1,34 +1,45 @@
-ACSoL Contact + Pages CMS 수정본 (2026-10-22)
+ACSoL 홈페이지 — Contact 메뉴 독립 항목 수정본 V3 (2026-10-22)
 
-[이전 다운로드 파일과 달라진 점]
-Contact 가운데 모집 포스터가 이제 Pages CMS에서 교체 및 표시/숨김 설정 가능합니다.
-오른쪽 Principal Investigator 등 카드의 제목도 Pages CMS에서 직접 수정할 수 있습니다.
+■ Pages CMS 왼쪽 메뉴가 이렇게 바뀝니다
+01 · 콘텐츠 관리
+ └ Contact · 연락처
+    ├ 학생 대표 · 찾아오는 길          (기존 항목 유지)
+    └ 모집 포스터 · 카드 문구         (신규 독립 항목)
 
-[압축파일 적용]
-이 ZIP의 내용을 GitHub Pages 저장소 최상위에 동일 경로로 덮어씁니다.
-기존 미디어·기타 페이지 파일은 그대로 유지됩니다.
+새 '모집 포스터 · 카드 문구'에서 수정할 수 있는 내용:
+- 가운데 모집 포스터 이미지 업로드 / 교체
+- 포스터 표시 여부 ON/OFF
+- 포스터 대체 설명과 하단 안내 문구
+- 왼쪽 Get in Touch 상단 문구
+- 오른쪽 연락처 카드 6개의 제목
 
-변경/신규 파일:
-- .pages.yml              : Pages CMS 수정 메뉴
-- data/page-contact.json   : CMS로 수정할 Contact 상세 설정
-- contact.html             : 포스터와 문구 표시 위치
-- contact-layout.css       : 가운데 포스터 ON/OFF 배치
-- site.js                  : CMS 값을 실제 화면에 반영
-- preview-data.js          : file:// 로컬 미리보기용 데이터
-- media/contact/acsol-recruitment-2026.jpg : 기본 모집 포스터
+페이지 제목과 글꼴 등은 기존 02 메뉴에서 계속 수정합니다.
 
-[Pages CMS에서 수정하는 방법]
-1) 02 · 페이지 제목 · 글꼴 > Other pages > Contact > 페이지 문구 · 중앙 포스터 · 글꼴 · 크기
-   - 가운데 모집 포스터 사진 업로드 · 교체
-   - 가운데 모집 포스터 표시 여부
-   - 포스터 이미지 설명/하단 캡션
-   - 왼쪽 Get in touch, 오른쪽 연락처 카드 제목 변경
-   - 페이지 상단 제목·소개 문구·글꼴 및 크기
-2) 01 · 콘텐츠 관리 > People · 구성원 > 교수님 프로필
-   - 교수님 이름·이메일·연구실 주소 및 전화번호 수정
-3) 01 · 콘텐츠 관리 > Contact · 연락처 > 학생 대표 · 찾아오는 길
-   - 학생 대표 연락처 및 찾아오는 길 수정
+■ 필수 적용 방법 — ZIP 자체를 업로드하지 마세요
+1. ZIP 파일의 압축을 푼 후 나온 파일들을 확인합니다.
+2. github.com/acsol-lab/acsol-lab.github.io 저장소의 main 브랜치 루트에
+   압축 해제한 파일을 동일한 경로로 덮어쓰기/추가합니다.
+   (GitHub Desktop 사용 시 로컬 Clone 폴더에 덮어쓰고 Commit + Push)
+3. .pages.yml 파일은 숨김파일이므로 반드시 포함하세요.
+4. 새 data/contact-display.json 파일을 반드시 추가하세요.
+5. 새로고침(Ctrl+Shift+R)하여 app.pagescms.org의 왼쪽 메뉴를 펼칩니다.
+6. 01 · 콘텐츠 관리 > Contact · 연락처 > 모집 포스터 · 카드 문구를 클릭하여
+   원하는 사진/문구를 변경하고 우측 상단 Save를 누르세요.
+7. GitHub Pages 배포 후 Contact 페이지를 강력 새로고침하세요.
 
-참고: 좌/중/우 3열 레이아웃의 위치·넓이는 CSS로 설정되며 CMS에서 직접 수정할 수 없습니다.
+■ 수정 또는 추가되는 파일 경로
+ .pages.yml
+ data/contact.json
+ data/contact-display.json           (신규)
+ data/page-contact.json
+ site.js
+ contact.html
+ preview-data.js
+ contact-layout.css
+ media/contact/acsol-recruitment-2026.jpg
 
-확인: YAML/JSON/JavaScript 문법, CMS 필드 및 화면 연결, 포스터 교체/숨김 동작 자동 테스트 통과.
+■ 참고
+- 이 ZIP은 기존 레포지토리 전체가 아닌 '수정 및 신규 파일'만 들어 있습니다.
+- ZIP 업로드만으로 GitHub에 반영되지 않으며, 반드시 저장소 main에 파일을 업로드해야 합니다.
+- .pages.yml의 JSON 항목은 서로 다른 파일로 분리돼 각자 저장할 수 있습니다.
+- 기존 학생 대표 연락처 값과 원본 포스터 이미지는 보존했습니다.

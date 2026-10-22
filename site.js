@@ -267,40 +267,6 @@
       setText('#cms-contact-accent',cfg.contactAccent);
       setText('#cms-contact-intro',cfg.contactIntro);
       setText('#cms-contact-action',cfg.actionLabel);
-      // The contact poster and card captions are edited in Pages CMS:
-      // data/page-contact.json.  Never trust an arbitrary URL in uploaded data.
-      setText('#cms-contact-get-in-touch',cfg.getInTouchLabel);
-      const contactLabels = {
-        '#cms-contact-principal-label': 'principalInvestigatorLabel',
-        '#cms-contact-office-label': 'officeLabel',
-        '#cms-contact-laboratory-label': 'laboratoryLabel',
-        '#cms-contact-visit-label': 'visitUsLabel',
-        '#cms-contact-student-label': 'studentRepresentativeLabel',
-        '#cms-contact-directions-label': 'directionsLabel'
-      };
-      for (const [selector,key] of Object.entries(contactLabels)) setText(selector,cfg[key]);
-      const poster = $('#cms-contact-poster');
-      const posterLink = $('#cms-contact-poster-link');
-      const posterImage = $('#cms-contact-poster-image');
-      const posterCaption = $('#cms-contact-poster-caption');
-      if (poster && posterLink && posterImage) {
-        const src = mediaURL(cfg.posterImage);
-        const visible = cfg.posterVisible !== false && Boolean(src);
-        poster.hidden = !visible;
-        $('.contact-with-poster')?.classList.toggle('poster-hidden', !visible);
-        if (visible) {
-          posterLink.href = src;
-          posterImage.src = src;
-          posterImage.alt = text(cfg.posterAlt, 'ACSoL 연구실 모집 안내');
-          poster.setAttribute('aria-label', posterImage.alt);
-          posterLink.setAttribute('aria-label', posterImage.alt + ' — 원본 이미지 새 창에서 보기');
-        }
-        if (posterCaption) {
-          const caption = text(cfg.posterCaption);
-          posterCaption.textContent = caption;
-          posterCaption.hidden = !caption;
-        }
-      }
     }
     setPageTypography(cfg);
   }
@@ -558,6 +524,11 @@
     let cfg;
     try { cfg = await getJSON('contact', false); }
     catch (e) { console.warn('[ACSoL] optional contact settings:', e); return; }
+    // The two files are separate Pages CMS entries under 01 > Contact.
+    // Student contact fields live in contact.json; poster/card labels live in contact-display.json.
+    // Keep older installations working if the display file has not been uploaded yet.
+    try { cfg = { ...cfg, ...await getJSON('contact-display', false) }; }
+    catch (e) { console.warn('[ACSoL] optional contact display settings:', e.message); }
     setText('#footer-student-name', text(cfg.studentName, '연락처 등록 예정'));
     setText('#contact-student-name', text(cfg.studentName, '담당자 정보 등록 예정'));
     setText('#contact-directions', text(cfg.directionsNote, '한양대학교 서울캠퍼스'));
@@ -574,6 +545,42 @@
     const url=text(cfg.directionsMapUrl);
     const map=$('#contact-extra-map');
     if (map && /^https:\/\/[^\s]+$/i.test(url)) {map.href=url;map.hidden=false;}
+    // CMS page: 01 > Contact > Recruitment poster / card copy.
+    // Editable visual fields come from data/contact-display.json; mediaURL rejects unsafe paths.
+    setText('#cms-contact-get-in-touch',cfg.getInTouchLabel);
+    const contactLabels = {
+      '#cms-contact-principal-label': 'principalInvestigatorLabel',
+      '#cms-contact-office-label': 'officeLabel',
+      '#cms-contact-laboratory-label': 'laboratoryLabel',
+      '#cms-contact-visit-label': 'visitUsLabel',
+      '#cms-contact-student-label': 'studentRepresentativeLabel',
+      '#cms-contact-directions-label': 'directionsLabel'
+    };
+    for (const [selector,key] of Object.entries(contactLabels)) setText(selector,cfg[key]);
+    const poster = $('#cms-contact-poster');
+    const posterLink = $('#cms-contact-poster-link');
+    const posterImage = $('#cms-contact-poster-image');
+    const posterCaption = $('#cms-contact-poster-caption');
+    if (poster && posterLink && posterImage) {
+      const currentPath = Object.prototype.hasOwnProperty.call(cfg, 'posterImage')
+        ? cfg.posterImage : posterImage.getAttribute('src');
+      const src = mediaURL(currentPath);
+      const visible = cfg.posterVisible !== false && Boolean(src);
+      poster.hidden = !visible;
+      $('.contact-with-poster')?.classList.toggle('poster-hidden', !visible);
+      if (visible) {
+        posterLink.href = src;
+        posterImage.src = src;
+        posterImage.alt = text(cfg.posterAlt, 'ACSoL 연구실 모집 안내');
+        poster.setAttribute('aria-label', posterImage.alt);
+        posterLink.setAttribute('aria-label', posterImage.alt + ' — 원본 이미지 새 창에서 보기');
+      }
+      if (posterCaption) {
+        const caption = text(cfg.posterCaption);
+        posterCaption.textContent = caption;
+        posterCaption.hidden = !caption;
+      }
+    }
   }
 
   function researchSummarySrc(item) {
