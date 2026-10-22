@@ -1,0 +1,104 @@
+/* Contact page only: introduction / recruitment poster / contact details. */
+.contact-grid.contact-card-layout.contact-with-poster {
+  grid-template-columns:
+    minmax(255px, calc((100% - 18px) * .3265306122))
+    minmax(0, 1fr)
+    minmax(300px, .7fr);
+  grid-template-areas: "intro poster details";
+  gap: 18px;
+  align-items: start;
+}
+
+.contact-with-poster > .contact-business-head { grid-area: intro; }
+.contact-with-poster > .contact-business-grid { grid-area: details; }
+
+.contact-recruitment {
+  grid-area: poster;
+  min-width: 0;
+  margin: 0;
+}
+
+.contact-recruitment-link {
+  display: block;
+  overflow: hidden;
+  border: 1px solid #d4e1ef;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 7px 24px rgb(16 35 62 / 5%);
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.contact-recruitment-link:hover,
+.contact-recruitment-link:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 9px 28px rgb(16 35 62 / 10%);
+}
+
+.contact-recruitment-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.contact-recruitment figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Keep the information together in a compact column on the right. */
+.contact-with-poster .contact-business-grid {
+  min-width: 0;
+  gap: 10px;
+}
+
+.contact-with-poster .contact-business-grid .contact-detail {
+  min-height: 0;
+  padding: 15px 17px;
+}
+
+.contact-with-poster .contact-business-grid .contact-detail:nth-last-child(-n+2) {
+  grid-column: 1 / -1;
+}
+
+.contact-with-poster .contact-business-grid .contact-detail h3 {
+  line-height: 1.4;
+}
+
+.contact-with-poster .contact-email-row {
+  flex-wrap: wrap;
+  gap: 0 10px;
+}
+
+.contact-with-poster .contact-email-row > a { min-width: 0; }
+.contact-with-poster .copy-button { flex-shrink: 0; }
+.contact-with-poster .contact-map-links { gap: 8px 17px; }
+
+/* Tablet: retain room for the complete poster and readable contact text. */
+@media (max-width: 1100px) {
+  .contact-grid.contact-card-layout.contact-with-poster {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas: "intro intro" "poster details";
+  }
+}
+
+/* Phones: preserve the reading order and the poster's original proportions. */
+@media (max-width: 760px) {
+  .contact-grid.contact-card-layout.contact-with-poster {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "intro" "poster" "details";
+    gap: 20px;
+  }
+}
+
+@media (max-width: 570px) {
+  .contact-with-poster .contact-business-grid .contact-detail {
+    grid-column: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-recruitment-link { transition: none; }
+}
