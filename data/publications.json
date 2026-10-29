@@ -1,6 +1,14 @@
 {
   "items": [
     {
+      "publishedDate": "2026-10-29",
+      "journal": "ACS Applied Materials & Interfaces",
+      "title": "Dual-Mode Memristors with Controlled Cluster Dynamics for High-Performance Neuromorphic Computing",
+      "authors": "Ming Li, Chan Hee Suk, Hyung-Soon Kim, Hui Joon Park * , Jinsub Park * , Tae Whan Kim *",
+      "doi": "10.1021/acsami.6c16225",
+      "underReview": false
+    },
+    {
       "publishedDate": "2026-10-20",
       "journal": "ACS Applied Materials & Interfaces",
       "title": "Enhanced Ferroelectric Performance of P(VDF-TrFE) Composites via MAPbI₃-Mediated Crystallization for Flexible Memory Applications",
