@@ -40,6 +40,24 @@
     const phone = text(value).replace(/[^+\d]/g, '');
     return /^\+?\d{5,20}$/.test(phone) ? 'tel:' + phone : '';
   };
+  // Accept regular YouTube, youtu.be, Shorts, live and embed links (or a bare video ID).
+  // Reject unrelated domains and non-HTTPS schemes; do not interpolate arbitrary URLs into iframes.
+  const youtubeVideoId = value => {
+    const input = text(value);
+    if (/^[A-Za-z0-9_-]{11}$/.test(input)) return input;
+    let url;
+    try { url = new URL(input); } catch (_) { return ''; }
+    if (url.protocol !== 'https:') return '';
+    const host = url.hostname.toLowerCase().replace(/^www\./, '');
+    const path = url.pathname.split('/').filter(Boolean);
+    let id = '';
+    if (host === 'youtu.be') id = path[0] || '';
+    else if (['youtube.com', 'm.youtube.com', 'youtube-nocookie.com'].includes(host)) {
+      if (path[0] === 'watch') id = url.searchParams.get('v') || '';
+      else if (['embed', 'shorts', 'live'].includes(path[0])) id = path[1] || '';
+    }
+    return /^[A-Za-z0-9_-]{11}$/.test(id) ? id : '';
+  };
   const setLink = (selector, href, label) => {
     const el = $(selector); if (!el) return;
     if (label !== undefined) el.textContent = text(label);
@@ -525,8 +543,8 @@
     try { cfg = await getJSON('contact', false); }
     catch (e) { console.warn('[ACSoL] optional contact settings:', e); return; }
     // The two files are separate Pages CMS entries under 01 > Contact.
-    // Student contact fields live in contact.json; poster/card labels live in contact-display.json.
-    // Keep older installations working if the display file has not been uploaded yet.
+    // Student contacts live in contact.json; YouTube URL / card labels live in contact-display.json.
+    // Keep contact details working if the optional display file is not available.
     try { cfg = { ...cfg, ...await getJSON('contact-display', false) }; }
     catch (e) { console.warn('[ACSoL] optional contact display settings:', e.message); }
     setText('#footer-student-name', text(cfg.studentName, '연락처 등록 예정'));
@@ -545,9 +563,7 @@
     const url=text(cfg.directionsMapUrl);
     const map=$('#contact-extra-map');
     if (map && /^https:\/\/[^\s]+$/i.test(url)) {map.href=url;map.hidden=false;}
-    // CMS page: 01 > Contact > Recruitment poster / card copy.
-    // Editable visual fields come from data/contact-display.json; mediaURL rejects unsafe paths.
-    setText('#cms-contact-get-in-touch',cfg.getInTouchLabel);
+    // Pages CMS: 01 > Contact > YouTube introduction video + right-hand card labels.
     const contactLabels = {
       '#cms-contact-principal-label': 'principalInvestigatorLabel',
       '#cms-contact-office-label': 'officeLabel',
@@ -557,28 +573,27 @@
       '#cms-contact-directions-label': 'directionsLabel'
     };
     for (const [selector,key] of Object.entries(contactLabels)) setText(selector,cfg[key]);
-    const poster = $('#cms-contact-poster');
-    const posterLink = $('#cms-contact-poster-link');
-    const posterImage = $('#cms-contact-poster-image');
-    const posterCaption = $('#cms-contact-poster-caption');
-    if (poster && posterLink && posterImage) {
-      const currentPath = Object.prototype.hasOwnProperty.call(cfg, 'posterImage')
-        ? cfg.posterImage : posterImage.getAttribute('src');
-      const src = mediaURL(currentPath);
-      const visible = cfg.posterVisible !== false && Boolean(src);
-      poster.hidden = !visible;
-      $('.contact-with-poster')?.classList.toggle('poster-hidden', !visible);
-      if (visible) {
-        posterLink.href = src;
-        posterImage.src = src;
-        posterImage.alt = text(cfg.posterAlt, 'ACSoL 연구실 모집 안내');
-        poster.setAttribute('aria-label', posterImage.alt);
-        posterLink.setAttribute('aria-label', posterImage.alt + ' — 원본 이미지 새 창에서 보기');
-      }
-      if (posterCaption) {
-        const caption = text(cfg.posterCaption);
-        posterCaption.textContent = caption;
-        posterCaption.hidden = !caption;
+
+    const videoFrame = $('#cms-contact-video-frame');
+    const videoEmpty = $('#cms-contact-video-empty');
+    const videoLink = $('#cms-contact-video-link');
+    if (videoFrame && videoEmpty && videoLink) {
+      const videoId = youtubeVideoId(cfg.youtubeUrl);
+      if (videoId) {
+        // Only a validated 11-character YouTube ID reaches the iframe src.
+        videoFrame.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?rel=0';
+        videoFrame.title = text(cfg.youtubeTitle, 'ACSoL 연구실 소개 영상');
+        videoFrame.hidden = false;
+        videoEmpty.hidden = true;
+        videoLink.href = 'https://www.youtube.com/watch?v=' + videoId;
+        videoLink.hidden = false;
+      } else {
+        videoFrame.removeAttribute('src');
+        videoFrame.hidden = true;
+        videoEmpty.hidden = false;
+        videoLink.hidden = true;
+        videoLink.removeAttribute('href');
+        if (text(cfg.youtubeUrl)) console.warn('[ACSoL] unsupported YouTube URL in contact-display.json');
       }
     }
   }

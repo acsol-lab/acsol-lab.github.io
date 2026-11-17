@@ -1,118 +1,98 @@
-/* Contact page only: introduction / recruitment poster / contact details. */
-.contact-grid.contact-card-layout.contact-with-poster {
-  grid-template-columns:
-    minmax(255px, calc((100% - 18px) * .3265306122))
-    minmax(0, 1fr)
-    minmax(300px, .7fr);
-  grid-template-areas: "intro poster details";
+/* ACSoL Contact: wide YouTube player + original compact information cards. */
+.contact-grid.contact-card-layout.contact-with-video {
+  display: grid;
+  grid-template-columns: minmax(0, 2.65fr) minmax(315px, 1fr);
   gap: 18px;
   align-items: start;
 }
 
-.contact-with-poster > .contact-business-head { grid-area: intro; }
-.contact-with-poster > .contact-business-grid { grid-area: details; }
+.contact-with-video > .contact-video { grid-column: 1; min-width: 0; margin: 0; }
+.contact-with-video > .contact-business-grid { grid-column: 2; min-width: 0; }
 
-.contact-recruitment {
-  grid-area: poster;
-  min-width: 0;
-  margin: 0;
-}
-
-.contact-recruitment-link {
-  display: block;
+/* A broad landscape panel occupies the intro + recruitment poster footprint.
+   The YouTube player retains the source video proportions inside the panel. */
+.contact-video-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   border: 1px solid #d4e1ef;
   border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 7px 24px rgb(16 35 62 / 5%);
-  transition: border-color .18s ease, box-shadow .18s ease;
+  background: #0e2034;
+  box-shadow: 0 7px 24px rgb(16 35 62 / 7%);
 }
-
-.contact-recruitment-link:hover,
-.contact-recruitment-link:focus-visible {
-  border-color: var(--accent);
-  box-shadow: 0 9px 28px rgb(16 35 62 / 10%);
-}
-
-.contact-recruitment-link img {
+.contact-video-frame {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  border: 0;
+  background: #0b1525;
 }
+.contact-video-frame[hidden],
+.contact-video-empty[hidden],
+.contact-video-caption a[hidden] { display: none !important; }
 
-.contact-recruitment figcaption {
-  margin-top: 10px;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.5;
+/* Friendly empty state until the lab uploads / registers a video URL in Pages CMS. */
+.contact-video-empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 24px;
+  color: #f3f7fb;
   text-align: center;
+  background:
+    radial-gradient(ellipse at 73% 24%, rgba(20,126,135,.34), transparent 57%),
+    radial-gradient(ellipse at 9% 82%, rgba(37,80,154,.22), transparent 61%),
+    linear-gradient(135deg,#10233b,#122a44 72%,#0c1e32);
 }
-
-/* Keep the information together in a compact column on the right. */
-.contact-with-poster .contact-business-grid {
-  min-width: 0;
-  gap: 10px;
+.contact-video-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(255,255,255,.09);
 }
+.contact-video-play svg { width: 30px; height: 30px; transform: translateX(2px); }
+.contact-video-overline { font-size: 10px; font-weight: 600; letter-spacing: .16em; opacity: .73; }
+.contact-video-empty strong { font-size: clamp(26px, 3vw, 42px); line-height: 1.2; font-weight: 600; }
+.contact-video-waiting { font-size: 13px; opacity: .8; }
+.contact-video-caption { min-height: 22px; margin-top: 9px; text-align: right; }
+.contact-video-caption a { color: var(--accent); font-size: 12px; font-weight: 600; text-underline-offset: 4px; }
+.contact-video-caption a:hover { text-decoration: underline; }
 
-.contact-with-poster .contact-business-grid .contact-detail {
+/* Preserve existing compact right-side information cards. */
+.contact-with-video .contact-business-grid { gap: 10px; }
+.contact-with-video .contact-business-grid .contact-detail {
   min-height: 0;
   padding: 15px 17px;
 }
+.contact-with-video .contact-business-grid .contact-detail:nth-last-child(-n+2) { grid-column: 1 / -1; }
+.contact-with-video .contact-business-grid .contact-detail h3 { line-height: 1.4; }
+.contact-with-video .contact-email-row { flex-wrap: wrap; gap: 0 10px; }
+.contact-with-video .contact-email-row > a { min-width: 0; }
+.contact-with-video .copy-button { flex-shrink: 0; }
+.contact-with-video .contact-map-links { gap: 8px 17px; }
 
-.contact-with-poster .contact-business-grid .contact-detail:nth-last-child(-n+2) {
-  grid-column: 1 / -1;
+@media (max-width: 960px) {
+  .contact-grid.contact-card-layout.contact-with-video { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .contact-with-video > .contact-video,
+  .contact-with-video > .contact-business-grid { grid-column: 1; }
 }
-
-.contact-with-poster .contact-business-grid .contact-detail h3 {
-  line-height: 1.4;
-}
-
-.contact-with-poster .contact-email-row {
-  flex-wrap: wrap;
-  gap: 0 10px;
-}
-
-.contact-with-poster .contact-email-row > a { min-width: 0; }
-.contact-with-poster .copy-button { flex-shrink: 0; }
-.contact-with-poster .contact-map-links { gap: 8px 17px; }
-
-/* Tablet: retain room for the complete poster and readable contact text. */
-@media (max-width: 1100px) {
-  .contact-grid.contact-card-layout.contact-with-poster {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-areas: "intro intro" "poster details";
-  }
-}
-
-/* Phones: preserve the reading order and the poster's original proportions. */
 @media (max-width: 760px) {
-  .contact-grid.contact-card-layout.contact-with-poster {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "intro" "poster" "details";
-    gap: 20px;
-  }
+  .contact-grid.contact-card-layout.contact-with-video { gap: 16px; }
+  .contact-video-stage { aspect-ratio: 16 / 9; }
 }
-
 @media (max-width: 570px) {
-  .contact-with-poster .contact-business-grid .contact-detail {
-    grid-column: auto;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .contact-recruitment-link { transition: none; }
-}
-
-/* CMS: if the poster is switched off, use a balanced two-column layout. */
-.contact-with-poster .contact-recruitment[hidden],
-.contact-with-poster .contact-recruitment figcaption[hidden] { display: none; }
-.contact-grid.contact-card-layout.contact-with-poster.poster-hidden {
-  grid-template-columns: minmax(255px, 1fr) minmax(360px, 2fr);
-  grid-template-areas: "intro details";
-}
-@media (max-width: 760px) {
-  .contact-grid.contact-card-layout.contact-with-poster.poster-hidden {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "intro" "details";
-  }
+  .contact-with-video .contact-business-grid .contact-detail { grid-column: auto; }
+  .contact-video-play { width: 56px; height: 56px; }
+  .contact-video-play svg { width: 24px; height: 24px; }
+  .contact-video-empty { gap: 8px; }
 }
